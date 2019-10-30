@@ -11,43 +11,25 @@ nunjucks.configure([
 
 const actions = {
   generateListing () {
-    const headers = glob.sync('./resources/headers/*/*')
-
-    const rendered = nunjucks.render('index.html', {
-      tableRows: headers.map(row => {
-        const file = JSON.parse(fs.readFileSync(row, 'utf8'))
-        const status = file.body ? `<a href="https://digital-land.github.io/resource/${file.body}" class="govuk__link">View</a>` : 'No file collected'
-        const organisation = `<a href="https://digital-land.github.io/organisation/${file.organisation.replace(':', '/')}">${file.organisation}</a>`
-
-        return [{
-          html: organisation
-        }, {
-          html: status
-        }]
+    const bodies = glob.sync('./resources/bodies/*')
+    return fs.writeFileSync('./index.html', nunjucks.render('index.html', {
+      bodies: bodies.map(function (row) {
+        return row.replace('./resources/bodies/', '')
       })
-    })
-
-    return fs.writeFileSync('./index.html', rendered)
+    }))
   },
   generateSingular () {
-    const headers = glob.sync('./resources/headers/*/*')
+    const bodies = glob.sync('./resources/bodies/*').map(function (row) {
+      return row.replace('./resources/bodies/', '')
+    })
 
-    for (const header in headers) {
-      const info = JSON.parse(fs.readFileSync(headers[header], 'utf8'))
+    for (const body in bodies) {
+      const resource = nunjucks.render('resource.html', {
+        resource: bodies[body]
+      })
 
-      if (info.body) {
-        const rendered = nunjucks.render('resource.html', {
-          info,
-          infoString: JSON.stringify(info),
-          infoRows: Object.keys(info).map(row => [{
-            text: row
-          }, {
-            text: info[row]
-          }])
-        })
-        fs.mkdirSync(`./${info.body}`, { recursive: true })
-        fs.writeFileSync(`./${info.body}/index.html`, rendered)
-      }
+      fs.mkdirSync('./' + bodies[body], { recursive: true })
+      fs.writeFileSync('./' + bodies[body] + '/index.html', resource)
     }
   }
 }
