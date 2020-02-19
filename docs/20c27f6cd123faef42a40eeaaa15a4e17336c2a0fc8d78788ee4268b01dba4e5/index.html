@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">20c27f6c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.wyre.gov.uk/download/downloads/id/4390/wyre_council_brownfield_register_dec_2017.csv">http://www.wyre.gov.uk/download/downloads/id/4390/wyre_council_brownfield_register_dec_2017.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WYR">Wyre Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/20c27f6cd123faef42a40eeaaa15a4e17336c2a0fc8d78788ee4268b01dba4e5/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/20c27f6cd123faef42a40eeaaa15a4e17336c2a0fc8d78788ee4268b01dba4e5">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">24 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">39.44
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>24</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/20c27f6cd123faef42a40eeaaa15a4e17336c2a0fc8d78788ee4268b01dba4e5.csv"
+        download="20c27f6cd123faef42a40eeaaa15a4e17336c2a0fc8d78788ee4268b01dba4e5_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/20c27f6cd123faef42a40eeaaa15a4e17336c2a0fc8d78788ee4268b01dba4e5"
+        download="20c27f6cd123faef42a40eeaaa15a4e17336c2a0fc8d78788ee4268b01dba4e5_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR001</td>
+                    <td>-2.997998</td>
+                    <td>53.829946</td>
+                    <td>0.61</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-24</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Normoss Farm, Normoss Road, Poulton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR002</td>
+                    <td>-2.781751</td>
+                    <td>53.897245</td>
+                    <td>2.87</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>South of Kepple Lane, Garstang</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR003</td>
+                    <td>-3.01868</td>
+                    <td>53.921435</td>
+                    <td>0.05</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>52-60 Poulton Road, Fleetwood</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR004</td>
+                    <td>-3.005927</td>
+                    <td>53.888771</td>
+                    <td>5.16</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-10-10</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land north and east of Bourne Road, Thornton.</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR005</td>
+                    <td>-2.988458</td>
+                    <td>53.850689</td>
+                    <td>0.12</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-08</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Royal Oak, 64 Breck Road, Poulton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR006</td>
+                    <td>-2.962063</td>
+                    <td>53.921991</td>
+                    <td>0.12</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-22</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Preesall Service Station, Sandy Lane, Preesall</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR007</td>
+                    <td>-2.992506</td>
+                    <td>53.844418</td>
+                    <td>0.14</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-14</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Brimelows Garage, 54 Hardhorn Road, Poulton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR008</td>
+                    <td>-2.978081</td>
+                    <td>53.830047</td>
+                    <td>1.18</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-27</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Fairfield Nurseries, Puddle House Lane, Poulton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR009</td>
+                    <td>-2.772782</td>
+                    <td>53.88125</td>
+                    <td>0.6</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-06-11</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>West of Nightingale Way, Catterall</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR010</td>
+                    <td>-2.776809</td>
+                    <td>53.960543</td>
+                    <td>0.43</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Lincluden, Wallace Lane, Forton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR011</td>
+                    <td>-2.882255</td>
+                    <td>53.921166</td>
+                    <td>1.69</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-01</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>North of Garstang Road, Pilling</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR012</td>
+                    <td>-2.774727</td>
+                    <td>53.955946</td>
+                    <td>0.27</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-11</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Throstles Nest, Whinney Brow Lane, Forton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR013</td>
+                    <td>-2.985434</td>
+                    <td>53.857851</td>
+                    <td>0.61</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-25</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Prospect Farm, Skippool Road, Thornton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR014</td>
+                    <td>-3.006143</td>
+                    <td>53.924354</td>
+                    <td>0.05</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-25</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Rear The Steamer, Victoria Street, Fleetwood</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR015</td>
+                    <td>-2.991998</td>
+                    <td>53.849312</td>
+                    <td>0.07</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-16</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>5 Lockwood Avenue, Poulton</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR016</td>
+                    <td>-3.021006</td>
+                    <td>53.920651</td>
+                    <td>0.14</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-03</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Barneys Bingo Club, Poulton Road, Fleetwood</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR017</td>
+                    <td>-2.773271</td>
+                    <td>53.902791</td>
+                    <td>0.07</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Garstang Business & Community Centre, 96 High Street, Garstang</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR018</td>
+                    <td>-3.012169</td>
+                    <td>53.927979</td>
+                    <td>0.22</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Fleetwood Pier, The Esplanade, Fleetwood</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR019</td>
+                    <td>-3.014364</td>
+                    <td>53.921139</td>
+                    <td>0.07</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-27</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Carleton Court, 155-161 Lord Street, Fleetwood</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR020</td>
+                    <td>-3.016704</td>
+                    <td>53.862632</td>
+                    <td>13.61</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>220.0</td>
+                    <td>338.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-08</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>North of Norcross Lane, Thornton Cleveleys</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR021</td>
+                    <td>-3.017116</td>
+                    <td>53.912846</td>
+                    <td>10.32</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>120.0</td>
+                    <td>120.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td></td>
+                    <td>South of Fleetwood Dock, Fleetwood</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR022</td>
+                    <td>-2.768701</td>
+                    <td>53.886849</td>
+                    <td>0.29</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>9.0</td>
+                    <td>9.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Garstang Country Hotel & Golf Club, Garstang Road, Bowgreave</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR023</td>
+                    <td>-2.824504</td>
+                    <td>53.904446</td>
+                    <td>0.34</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Island Farm Cartmell Lane Nateby Preston Lancashire PR3 0LU</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR024</td>
+                    <td>-3.03313</td>
+                    <td>53.923873</td>
+                    <td>0.41</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Lakeland View Laidleys Walk Fleetwood Lancashire FY7 7JL</td>
+                    <td>https://arcg.is/0nuG4n</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.997998, "GeoY": 53.829946, "HazardousSubstances": null, "Hectares": 0.61, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-24", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Normoss Farm, Normoss Road, Poulton", "SiteReference": "BR001", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.781751, "GeoY": 53.897245, "HazardousSubstances": null, "Hectares": 2.87, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "South of Kepple Lane, Garstang", "SiteReference": "BR002", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.01868, "GeoY": 53.921435, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "52-60 Poulton Road, Fleetwood", "SiteReference": "BR003", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.005927, "GeoY": 53.888771, "HazardousSubstances": null, "Hectares": 5.16, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-10-10", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land north and east of Bourne Road, Thornton.", "SiteReference": "BR004", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.988458, "GeoY": 53.850689, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-08", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Royal Oak, 64 Breck Road, Poulton", "SiteReference": "BR005", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.962063, "GeoY": 53.921991, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-22", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Preesall Service Station, Sandy Lane, Preesall", "SiteReference": "BR006", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.992506, "GeoY": 53.844418, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-14", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Brimelows Garage, 54 Hardhorn Road, Poulton", "SiteReference": "BR007", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.978081, "GeoY": 53.830047, "HazardousSubstances": null, "Hectares": 1.18, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-27", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Fairfield Nurseries, Puddle House Lane, Poulton", "SiteReference": "BR008", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.772782, "GeoY": 53.88125, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-06-11", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "West of Nightingale Way, Catterall", "SiteReference": "BR009", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.776809, "GeoY": 53.960543, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Lincluden, Wallace Lane, Forton", "SiteReference": "BR010", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.882255, "GeoY": 53.921166, "HazardousSubstances": null, "Hectares": 1.69, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-01", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "North of Garstang Road, Pilling", "SiteReference": "BR011", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.774727, "GeoY": 53.955946, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-11", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Throstles Nest, Whinney Brow Lane, Forton", "SiteReference": "BR012", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.985434, "GeoY": 53.857851, "HazardousSubstances": null, "Hectares": 0.61, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-25", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Prospect Farm, Skippool Road, Thornton", "SiteReference": "BR013", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.006143, "GeoY": 53.924354, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-25", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear The Steamer, Victoria Street, Fleetwood", "SiteReference": "BR014", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.991998, "GeoY": 53.849312, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-16", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "5 Lockwood Avenue, Poulton", "SiteReference": "BR015", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.021006, "GeoY": 53.920651, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-03", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Barneys Bingo Club, Poulton Road, Fleetwood", "SiteReference": "BR016", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.773271, "GeoY": 53.902791, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Garstang Business \u0026 Community Centre, 96 High Street, Garstang", "SiteReference": "BR017", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.012169, "GeoY": 53.927979, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Fleetwood Pier, The Esplanade, Fleetwood", "SiteReference": "BR018", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.014364, "GeoY": 53.921139, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-27", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Carleton Court, 155-161 Lord Street, Fleetwood", "SiteReference": "BR019", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.016704, "GeoY": 53.862632, "HazardousSubstances": null, "Hectares": 13.61, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 220.0, "NetDwellingsRangeTo": 338.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-08", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "North of Norcross Lane, Thornton Cleveleys", "SiteReference": "BR020", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.017116, "GeoY": 53.912846, "HazardousSubstances": null, "Hectares": 10.32, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 120.0, "NetDwellingsRangeTo": 120.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": null, "SiteNameAddress": "South of Fleetwood Dock, Fleetwood", "SiteReference": "BR021", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -2.768701, "GeoY": 53.886849, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 9.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Garstang Country Hotel \u0026 Golf Club, Garstang Road, Bowgreave", "SiteReference": "BR022", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -2.824504, "GeoY": 53.904446, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Island Farm Cartmell Lane Nateby Preston Lancashire PR3 0LU", "SiteReference": "BR023", "SiteplanURL": "https://arcg.is/0nuG4n"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.03313, "GeoY": 53.923873, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Lakeland View Laidleys Walk Fleetwood Lancashire FY7 7JL", "SiteReference": "BR024", "SiteplanURL": "https://arcg.is/0nuG4n"}];
+    const bbox = [-3.0483509467878593, -2.75348005321214, 53.82096284341859, 53.969526156581416];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

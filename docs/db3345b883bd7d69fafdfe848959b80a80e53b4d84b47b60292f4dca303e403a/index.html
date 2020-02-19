@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">db3345b8...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://dataworks.calderdale.gov.uk/download/brownfield-land-register/ce479c95-8ad9-4e3f-98fe-c8c59d0a7742/Brownfield%20land%20register%202018.xlsx">https://dataworks.calderdale.gov.uk/download/brownfield-land-register/ce479c95-8ad9-4e3f-98fe-c8c59d0a7742/Brownfield%20land%20register%202018.xlsx</a>
+        </dd>
+    </dl>
+    <a href="https://dataworks.calderdale.gov.uk/dataset/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:CLD">Calderdale Metropolitan Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/db3345b883bd7d69fafdfe848959b80a80e53b4d84b47b60292f4dca303e403a/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/db3345b883bd7d69fafdfe848959b80a80e53b4d84b47b60292f4dca303e403a">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">64 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">26.63
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>64</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/db3345b883bd7d69fafdfe848959b80a80e53b4d84b47b60292f4dca303e403a.csv"
+        download="db3345b883bd7d69fafdfe848959b80a80e53b4d84b47b60292f4dca303e403a_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/db3345b883bd7d69fafdfe848959b80a80e53b4d84b47b60292f4dca303e403a"
+        download="db3345b883bd7d69fafdfe848959b80a80e53b4d84b47b60292f4dca303e403a_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BLR001</td>
+                    <td>-1.899168</td>
+                    <td>53.739357</td>
+                    <td>0.99</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-11-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of Box Trees Mill, Boy Lane, Wheatley, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR001</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR004</td>
+                    <td>-1.866103</td>
+                    <td>53.663245</td>
+                    <td>0.42</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Ranch, New Road, Holywell Green, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR004</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR006</td>
+                    <td>-1.818558</td>
+                    <td>53.698438</td>
+                    <td>0.23</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-08-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>467-475 Elland Road, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR006</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Amendment approved 15/01439/FUL 2016</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR008</td>
+                    <td>-1.877449</td>
+                    <td>53.758238</td>
+                    <td>0.67</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-29</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land At Whitehouse Farm, Holmfield, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR008</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>pursuant to 14/00058/OUT</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR009</td>
+                    <td>-1.878721</td>
+                    <td>53.743323</td>
+                    <td>0.08</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Jubilee Works, Jubilee Street North, Ovenden, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR009</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR014</td>
+                    <td>-1.886232</td>
+                    <td>53.687903</td>
+                    <td>0.17</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-07-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of Scar Bottom Mill, Scar Bottom Lane, Greetland, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR014</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR015</td>
+                    <td>-1.857352</td>
+                    <td>53.685658</td>
+                    <td>0.07</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-18</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Victoria Works, Dean Street, West Vale, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR015</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR017</td>
+                    <td>-1.833543</td>
+                    <td>53.740436</td>
+                    <td>0.05</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-03-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Baxter Lane Works, Baxter Lane, Northowram, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR017</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR018</td>
+                    <td>-1.885727</td>
+                    <td>53.73585</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-06-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Wheatley Wells Inn, 106-112 Wheatley Road, Wheatley, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR018</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR019</td>
+                    <td>-1.860335</td>
+                    <td>53.726885</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-01-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>8-12 Cross Hills, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR019</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR021</td>
+                    <td>-1.850941</td>
+                    <td>53.699819</td>
+                    <td>0.1</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Exley Park PH, Park Lane, Siddal, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR021</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR022</td>
+                    <td>-1.897335</td>
+                    <td>53.756406</td>
+                    <td>2.48</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Land at Abbey Park, Illingworth, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR022</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP14547.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR026</td>
+                    <td>-1.860738</td>
+                    <td>53.690335</td>
+                    <td>0.08</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Lindwell Methodist Church, Lindwell, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR026</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR028</td>
+                    <td>-2.100821</td>
+                    <td>53.694432</td>
+                    <td>0.04</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Walsden Methodist Church, Rochdale Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR028</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Removal of condition application pending consideration 18/01101/REM</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR031</td>
+                    <td>-1.858735</td>
+                    <td>53.720318</td>
+                    <td>0.11</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>5 Clare Road, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR031</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/56019/CLASSJ Prior approval granted 100315 for COU from office to 15 apartments. Minimum net dwelling capacity based on both applications.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR033</td>
+                    <td>-1.859881</td>
+                    <td>53.721036</td>
+                    <td>0.09</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-27</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>1st, 2nd, 3rd and 4th floors, Southgate House, Wards Ends, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR033</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR035</td>
+                    <td>-1.859895</td>
+                    <td>53.719459</td>
+                    <td>0.05</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingfisher House, Portland Place, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR035</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR036</td>
+                    <td>-1.862096</td>
+                    <td>53.721288</td>
+                    <td>0.03</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-26</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Fountain Chambers, 22 Fountain Street, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR036</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR038</td>
+                    <td>-1.780521</td>
+                    <td>53.697735</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land east of 11 Gooder Lane, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR038</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR039</td>
+                    <td>-1.79624</td>
+                    <td>53.682805</td>
+                    <td>0.2</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Slade Lane Works, Slade Lane, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR039</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR041</td>
+                    <td>-1.773137</td>
+                    <td>53.692474</td>
+                    <td>0.14</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Ash Lea, 19 Woodhouse Lane, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR041</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR042</td>
+                    <td>-2.101937</td>
+                    <td>53.695423</td>
+                    <td>0.14</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Engine Room Hollins Mill, Rochdale Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR042</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Amendment to application 14/01376/CON</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR044</td>
+                    <td>-1.893937</td>
+                    <td>53.737338</td>
+                    <td>0.17</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of Macmillans, Long Lane, Wheatley, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR044</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR045</td>
+                    <td>-2.140326</td>
+                    <td>53.733702</td>
+                    <td>0.43</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land off Pudsey Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR045</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR046</td>
+                    <td>-1.882522</td>
+                    <td>53.718856</td>
+                    <td>0.87</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Mayfield Garage, Queens Road, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR046</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a Mixed Use Site, including an element of residential in the 2018 Local Plan Publication Draft. Site ref: LP1431</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR047</td>
+                    <td>-1.876651</td>
+                    <td>53.757018</td>
+                    <td>2.75</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former St Catherine's High School, Holdsworth Rod, Holmfield, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR047</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP1429.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR049</td>
+                    <td>-1.799964</td>
+                    <td>53.713411</td>
+                    <td>1.23</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Hill Crest Quarry, Halifax Road, Hove Edge, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR049</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP1093</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR050</td>
+                    <td>-1.858654</td>
+                    <td>53.686481</td>
+                    <td>0.74</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>West Vale Works, Stainland Road, Greetland, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR050</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a Mixed Use Site, including an element of residential in the 2018 Local Plan Publication Draft. Site ref: LP1088.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR051</td>
+                    <td>-1.905329</td>
+                    <td>53.719754</td>
+                    <td>0.79</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Warley Spring Garage, Burnley Road, Warley, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR051</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP1004.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR054</td>
+                    <td>-1.835086</td>
+                    <td>53.682221</td>
+                    <td>0.03</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Car Park, James Street, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR054</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR055</td>
+                    <td>-1.874554</td>
+                    <td>53.721936</td>
+                    <td>0.16</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>School House, 56 Hopwood Lane, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR055</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Additional application approved for 2 new units on same site (18/00260/FUL). Capacity now 15.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR056</td>
+                    <td>-1.880376</td>
+                    <td>53.715626</td>
+                    <td>0.03</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Junction Hotel, 192 King Cross Road, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR056</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR057</td>
+                    <td>-1.864223</td>
+                    <td>53.719916</td>
+                    <td>0.1</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2017-04-26</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Provident Insurance Plc, Blackwall, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR057</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR058</td>
+                    <td>-1.907418</td>
+                    <td>53.750301</td>
+                    <td>0.22</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site Of Former Jumples Public House, Mixenden Road, Mixenden, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR058</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR059</td>
+                    <td>-1.878806</td>
+                    <td>53.733504</td>
+                    <td>0.03</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Bethlehem Pentecostal Mission, Wheatley Road, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR059</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR060</td>
+                    <td>-1.874627</td>
+                    <td>53.721955</td>
+                    <td>0.02</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Park United Reformed Church, Francis Street, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR060</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR061</td>
+                    <td>-1.835027</td>
+                    <td>53.682666</td>
+                    <td>0.08</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Car Park, James Street, Elland</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR061</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR062</td>
+                    <td>-1.942202</td>
+                    <td>53.672225</td>
+                    <td>0.21</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Riverside, Harley House, Mill Fold Way, Ripponden, Sowerby Bridge</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR062</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Revised application 17/01161/FUL. Revised application 17/00531/FUL to replace office studio with 3 dwellings. Site capacity 10 units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR063</td>
+                    <td>-2.107258</td>
+                    <td>53.705758</td>
+                    <td>0.12</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2016-04-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Units 1 To 4 Gauxholme Industrial Estate, Bacup Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR063</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Amendment to 15/01079/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR064</td>
+                    <td>-1.815227</td>
+                    <td>53.737946</td>
+                    <td>2.23</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Coley Nurseries, Denholme Gate Road, Hipperholme, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR064</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR066</td>
+                    <td>-2.100249</td>
+                    <td>53.718306</td>
+                    <td>0.57</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2014-02-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of Adamroyd Mill, Victoria Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR066</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR067</td>
+                    <td>-1.794803</td>
+                    <td>53.691942</td>
+                    <td>0.3</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>The Bramble Inn, Field Lane, Rastrick, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR067</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP0846.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR068</td>
+                    <td>-1.920955</td>
+                    <td>53.706285</td>
+                    <td>0.43</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Adjacent White Windows Rest Home, Fore Lane, Sowerby Bridge</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR068</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR069</td>
+                    <td>-2.103218</td>
+                    <td>53.696576</td>
+                    <td>0.33</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2016-04-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Alma Mill, Alma Street, Walsden, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR069</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR070</td>
+                    <td>-1.880726</td>
+                    <td>53.753423</td>
+                    <td>0.35</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2012-04-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of, 74 Heathy Lane, Holmfield, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR070</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR071</td>
+                    <td>-1.891375</td>
+                    <td>53.709826</td>
+                    <td>0.2</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2018-04-18</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Canal Mills Site, Wakefield Road, Sowerby Bridge</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR071</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR072</td>
+                    <td>-1.777422</td>
+                    <td>53.699999</td>
+                    <td>0.23</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2007-07-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Borough Band Club, Wharf Street, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR072</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR073</td>
+                    <td>-1.8225</td>
+                    <td>53.748248</td>
+                    <td>0.33</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2006-12-05</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Clough Mills, Halifax Road, Shelf, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR073</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR074</td>
+                    <td>-2.08729</td>
+                    <td>53.714129</td>
+                    <td>0.84</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2006-01-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Derdale Mill, Derdale Street, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR074</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR075</td>
+                    <td>-1.777497</td>
+                    <td>53.719961</td>
+                    <td>0.25</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-02-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land rear of Clifton Mills, Bradford Road, Baliff Bridge, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR075</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR076</td>
+                    <td>-1.861639</td>
+                    <td>53.716767</td>
+                    <td>0.28</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Hartwell Ford Garage, Skircoat Road, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR076</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP0478.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR077</td>
+                    <td>-1.783912</td>
+                    <td>53.698482</td>
+                    <td>0.48</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>mixed ownership</td>
+                    <td>2018-02-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Salford Works, Bramston Street, Rastrick, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR077</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR078</td>
+                    <td>-1.90164</td>
+                    <td>53.710248</td>
+                    <td>0.16</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2007-02-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land adjacent Methodist Church, Chapel Lane, Sowerby Bridge</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR078</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR079</td>
+                    <td>-1.859807</td>
+                    <td>53.68893</td>
+                    <td>0.55</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2007-01-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Holly Bank Works, Rochdale Road, Greetland, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR079</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR080</td>
+                    <td>-1.868494</td>
+                    <td>53.725895</td>
+                    <td>0.15</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-02-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Martins Mill, Pellon Lane, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR080</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR081</td>
+                    <td>-1.853207</td>
+                    <td>53.705667</td>
+                    <td>0.11</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2018-01-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land adjacent, 34 Crossley Hill, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR081</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR082</td>
+                    <td>-1.875168</td>
+                    <td>53.75288</td>
+                    <td>0.35</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of Heathy House Residential Home, Heathy Lane, Holmfield, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR082</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR083</td>
+                    <td>-1.780917</td>
+                    <td>53.701232</td>
+                    <td>0.02</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>First floor, 22 Bethel Street, Brighouse</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR083</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR084</td>
+                    <td>-1.8719</td>
+                    <td>53.732279</td>
+                    <td>0.04</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>mixed ownership</td>
+                    <td>2017-07-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land adjacent, St Georges Terrace, Lee Mount, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR084</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR085</td>
+                    <td>-1.898947</td>
+                    <td>53.710862</td>
+                    <td>0.08</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land off, Walker Lane, Sowerby Bridge</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR085</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR086</td>
+                    <td>-2.113226</td>
+                    <td>53.705153</td>
+                    <td>0.19</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td></td>
+                    <td>2005-05-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>St Aidans Works, Bacup Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR086</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR087</td>
+                    <td>-2.157001</td>
+                    <td>53.733361</td>
+                    <td>0.44</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rear of Portsmouth Mill, Burnley Road, Todmorden</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR087</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Removal of condition application approved February 2018</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR088</td>
+                    <td>-1.894712</td>
+                    <td>53.748935</td>
+                    <td>3.45</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Land at Furness Avenue, Illingworth, Halifax, HX2 8</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR088</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP0523.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR089</td>
+                    <td>-1.879364</td>
+                    <td>53.743363</td>
+                    <td>0.09</td>
+                    <td>2017-12-20</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/calderdale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-05-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Jubilee Works, Jubilee Street North, Ovenden, Halifax</td>
+                    <td>https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24&nocache=b3a8172e-c974-a20b-e60c-877a0098b807&resize=always&inspect_query=BLR2017&inspect_value=BLR089</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.899168, "GeoY": 53.739357, "HazardousSubstances": null, "Hectares": 0.99, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-11-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Box Trees Mill, Boy Lane, Wheatley, Halifax", "SiteReference": "BLR001", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR001"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.866103, "GeoY": 53.663245, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Ranch, New Road, Holywell Green, Elland", "SiteReference": "BLR004", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR004"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.818558, "GeoY": 53.698438, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Amendment approved 15/01439/FUL 2016", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-08-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "467-475 Elland Road, Elland", "SiteReference": "BLR006", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR006"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.877449, "GeoY": 53.758238, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "pursuant to 14/00058/OUT", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-29", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land At Whitehouse Farm, Holmfield, Halifax", "SiteReference": "BLR008", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR008"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.878721, "GeoY": 53.743323, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Jubilee Works, Jubilee Street North, Ovenden, Halifax", "SiteReference": "BLR009", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR009"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.886232, "GeoY": 53.687903, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-07-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Scar Bottom Mill, Scar Bottom Lane, Greetland, Elland", "SiteReference": "BLR014", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR014"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.857352, "GeoY": 53.685658, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-18", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Victoria Works, Dean Street, West Vale, Elland", "SiteReference": "BLR015", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR015"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.833543, "GeoY": 53.740436, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-03-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Baxter Lane Works, Baxter Lane, Northowram, Halifax", "SiteReference": "BLR017", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR017"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.885727, "GeoY": 53.73585, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-06-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Wheatley Wells Inn, 106-112 Wheatley Road, Wheatley, Halifax", "SiteReference": "BLR018", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR018"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.860335, "GeoY": 53.726885, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-01-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "8-12 Cross Hills, Halifax", "SiteReference": "BLR019", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR019"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.850941, "GeoY": 53.699819, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Exley Park PH, Park Lane, Siddal, Halifax", "SiteReference": "BLR021", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR021"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.897335, "GeoY": 53.756406, "HazardousSubstances": null, "Hectares": 2.48, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP14547.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Land at Abbey Park, Illingworth, Halifax", "SiteReference": "BLR022", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR022"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.860738, "GeoY": 53.690335, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Lindwell Methodist Church, Lindwell, Halifax", "SiteReference": "BLR026", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR026"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -2.100821, "GeoY": 53.694432, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Removal of condition application pending consideration 18/01101/REM", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Walsden Methodist Church, Rochdale Road, Todmorden", "SiteReference": "BLR028", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR028"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.858735, "GeoY": 53.720318, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "14/56019/CLASSJ Prior approval granted 100315 for COU from office to 15 apartments. Minimum net dwelling capacity based on both applications.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "5 Clare Road, Halifax", "SiteReference": "BLR031", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR031"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.859881, "GeoY": 53.721036, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-27", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "1st, 2nd, 3rd and 4th floors, Southgate House, Wards Ends, Halifax", "SiteReference": "BLR033", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR033"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.859895, "GeoY": 53.719459, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingfisher House, Portland Place, Halifax", "SiteReference": "BLR035", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR035"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.862096, "GeoY": 53.721288, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-26", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Fountain Chambers, 22 Fountain Street, Halifax", "SiteReference": "BLR036", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR036"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.780521, "GeoY": 53.697735, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land east of 11 Gooder Lane, Brighouse", "SiteReference": "BLR038", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR038"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.79624, "GeoY": 53.682805, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Slade Lane Works, Slade Lane, Brighouse", "SiteReference": "BLR039", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR039"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.773137, "GeoY": 53.692474, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Ash Lea, 19 Woodhouse Lane, Brighouse", "SiteReference": "BLR041", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR041"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -2.101937, "GeoY": 53.695423, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Amendment to application 14/01376/CON", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Engine Room Hollins Mill, Rochdale Road, Todmorden", "SiteReference": "BLR042", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR042"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.893937, "GeoY": 53.737338, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Macmillans, Long Lane, Wheatley, Halifax", "SiteReference": "BLR044", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR044"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -2.140326, "GeoY": 53.733702, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land off Pudsey Road, Todmorden", "SiteReference": "BLR045", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR045"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.882522, "GeoY": 53.718856, "HazardousSubstances": null, "Hectares": 0.87, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a Mixed Use Site, including an element of residential in the 2018 Local Plan Publication Draft. Site ref: LP1431", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Mayfield Garage, Queens Road, Halifax", "SiteReference": "BLR046", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR046"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.876651, "GeoY": 53.757018, "HazardousSubstances": null, "Hectares": 2.75, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP1429.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former St Catherine\u0027s High School, Holdsworth Rod, Holmfield, Halifax", "SiteReference": "BLR047", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR047"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.799964, "GeoY": 53.713411, "HazardousSubstances": null, "Hectares": 1.23, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP1093", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Hill Crest Quarry, Halifax Road, Hove Edge, Brighouse", "SiteReference": "BLR049", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR049"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.858654, "GeoY": 53.686481, "HazardousSubstances": null, "Hectares": 0.74, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a Mixed Use Site, including an element of residential in the 2018 Local Plan Publication Draft. Site ref: LP1088.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "West Vale Works, Stainland Road, Greetland, Elland", "SiteReference": "BLR050", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR050"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.905329, "GeoY": 53.719754, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP1004.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Warley Spring Garage, Burnley Road, Warley, Halifax", "SiteReference": "BLR051", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR051"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.835086, "GeoY": 53.682221, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Car Park, James Street, Elland", "SiteReference": "BLR054", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR054"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.874554, "GeoY": 53.721936, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Additional application approved for 2 new units on same site (18/00260/FUL). Capacity now 15.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "School House, 56 Hopwood Lane, Halifax", "SiteReference": "BLR055", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR055"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.880376, "GeoY": 53.715626, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Junction Hotel, 192 King Cross Road, Halifax", "SiteReference": "BLR056", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR056"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.864223, "GeoY": 53.719916, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2017-04-26", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Provident Insurance Plc, Blackwall, Halifax", "SiteReference": "BLR057", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR057"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.907418, "GeoY": 53.750301, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site Of Former Jumples Public House, Mixenden Road, Mixenden, Halifax", "SiteReference": "BLR058", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR058"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.878806, "GeoY": 53.733504, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Bethlehem Pentecostal Mission, Wheatley Road, Halifax", "SiteReference": "BLR059", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR059"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.874627, "GeoY": 53.721955, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Park United Reformed Church, Francis Street, Halifax", "SiteReference": "BLR060", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR060"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.835027, "GeoY": 53.682666, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Car Park, James Street, Elland", "SiteReference": "BLR061", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR061"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.942202, "GeoY": 53.672225, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Revised application 17/01161/FUL. Revised application 17/00531/FUL to replace office studio with 3 dwellings. Site capacity 10 units.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Riverside, Harley House, Mill Fold Way, Ripponden, Sowerby Bridge", "SiteReference": "BLR062", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR062"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -2.107258, "GeoY": 53.705758, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Amendment to 15/01079/FUL", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2016-04-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Units 1 To 4 Gauxholme Industrial Estate, Bacup Road, Todmorden", "SiteReference": "BLR063", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR063"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.815227, "GeoY": 53.737946, "HazardousSubstances": null, "Hectares": 2.23, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Coley Nurseries, Denholme Gate Road, Hipperholme, Halifax", "SiteReference": "BLR064", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR064"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -2.100249, "GeoY": 53.718306, "HazardousSubstances": null, "Hectares": 0.57, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2014-02-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Adamroyd Mill, Victoria Road, Todmorden", "SiteReference": "BLR066", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR066"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.794803, "GeoY": 53.691942, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP0846.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "The Bramble Inn, Field Lane, Rastrick, Brighouse", "SiteReference": "BLR067", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR067"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.920955, "GeoY": 53.706285, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Adjacent White Windows Rest Home, Fore Lane, Sowerby Bridge", "SiteReference": "BLR068", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR068"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -2.103218, "GeoY": 53.696576, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2016-04-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Alma Mill, Alma Street, Walsden, Todmorden", "SiteReference": "BLR069", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR069"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.880726, "GeoY": 53.753423, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2012-04-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of, 74 Heathy Lane, Holmfield, Halifax", "SiteReference": "BLR070", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR070"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.891375, "GeoY": 53.709826, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2018-04-18", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Canal Mills Site, Wakefield Road, Sowerby Bridge", "SiteReference": "BLR071", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR071"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.777422, "GeoY": 53.699999, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2007-07-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Borough Band Club, Wharf Street, Brighouse", "SiteReference": "BLR072", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR072"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.8225, "GeoY": 53.748248, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2006-12-05", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Clough Mills, Halifax Road, Shelf, Halifax", "SiteReference": "BLR073", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR073"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -2.08729, "GeoY": 53.714129, "HazardousSubstances": null, "Hectares": 0.84, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2006-01-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Derdale Mill, Derdale Street, Todmorden", "SiteReference": "BLR074", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR074"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.777497, "GeoY": 53.719961, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-02-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land rear of Clifton Mills, Bradford Road, Baliff Bridge, Brighouse", "SiteReference": "BLR075", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR075"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.861639, "GeoY": 53.716767, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP0478.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Hartwell Ford Garage, Skircoat Road, Halifax", "SiteReference": "BLR076", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR076"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.783912, "GeoY": 53.698482, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "mixed ownership", "PermissionDate": "2018-02-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Salford Works, Bramston Street, Rastrick, Brighouse", "SiteReference": "BLR077", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR077"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.90164, "GeoY": 53.710248, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2007-02-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent Methodist Church, Chapel Lane, Sowerby Bridge", "SiteReference": "BLR078", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR078"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.859807, "GeoY": 53.68893, "HazardousSubstances": null, "Hectares": 0.55, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2007-01-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Holly Bank Works, Rochdale Road, Greetland, Halifax", "SiteReference": "BLR079", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR079"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.868494, "GeoY": 53.725895, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-02-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Martins Mill, Pellon Lane, Halifax", "SiteReference": "BLR080", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR080"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.853207, "GeoY": 53.705667, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2018-01-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent, 34 Crossley Hill, Halifax", "SiteReference": "BLR081", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR081"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.875168, "GeoY": 53.75288, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Heathy House Residential Home, Heathy Lane, Holmfield, Halifax", "SiteReference": "BLR082", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR082"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.780917, "GeoY": 53.701232, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "First floor, 22 Bethel Street, Brighouse", "SiteReference": "BLR083", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR083"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.8719, "GeoY": 53.732279, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "mixed ownership", "PermissionDate": "2017-07-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent, St Georges Terrace, Lee Mount, Halifax", "SiteReference": "BLR084", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR084"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.898947, "GeoY": 53.710862, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land off, Walker Lane, Sowerby Bridge", "SiteReference": "BLR085", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR085"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -2.113226, "GeoY": 53.705153, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": null, "PermissionDate": "2005-05-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "St Aidans Works, Bacup Road, Todmorden", "SiteReference": "BLR086", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR086"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -2.157001, "GeoY": 53.733361, "HazardousSubstances": null, "Hectares": 0.44, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Removal of condition application approved February 2018", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of Portsmouth Mill, Burnley Road, Todmorden", "SiteReference": "BLR087", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR087"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.894712, "GeoY": 53.748935, "HazardousSubstances": null, "Hectares": 3.45, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site proposed as a New Housing Site in the 2018 Local Plan Publication Draft. Site ref: LP0523.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Land at Furness Avenue, Illingworth, Halifax, HX2 8", "SiteReference": "BLR088", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR088"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": -1.879364, "GeoY": 53.743363, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/calderdale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-05-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Jubilee Works, Jubilee Street North, Ovenden, Halifax", "SiteReference": "BLR089", "SiteplanURL": "https://maps.calderdale.gov.uk/map/Aurora.svc/run?script=%5CAurora%5CScripts%5CBrownfield%20Land%20Register%202018.AuroraScript%24\u0026nocache=b3a8172e-c974-a20b-e60c-877a0098b807\u0026resize=always\u0026inspect_query=BLR2017\u0026inspect_value=BLR089"}];
+    const bbox = [-2.1721616766312706, -1.7579763233687293, 53.65426184341859, 53.76722115658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b5cba9e1...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.centralbedfordshire.gov.uk/migrated_images/brownfield-register-jan-2019-2_tcm3-31604.csv">https://www.centralbedfordshire.gov.uk/migrated_images/brownfield-register-jan-2019-2_tcm3-31604.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.centralbedfordshire.gov.uk/info/45/planning_policy/472/monitoring/5">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 29 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:CBF">Central Bedfordshire Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b5cba9e1380a55b1599df756ca93de088ba994bb05bbefd9c2bdf1c4ab7440e0/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b5cba9e1380a55b1599df756ca93de088ba994bb05bbefd9c2bdf1c4ab7440e0">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">39 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">292.42
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                3137</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                3524</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>39</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b5cba9e1380a55b1599df756ca93de088ba994bb05bbefd9c2bdf1c4ab7440e0.csv"
+        download="b5cba9e1380a55b1599df756ca93de088ba994bb05bbefd9c2bdf1c4ab7440e0_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b5cba9e1380a55b1599df756ca93de088ba994bb05bbefd9c2bdf1c4ab7440e0"
+        download="b5cba9e1380a55b1599df756ca93de088ba994bb05bbefd9c2bdf1c4ab7440e0_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>CB/16/02727/BRWN</td>
+                    <td>-0.524563</td>
+                    <td>51.908063</td>
+                    <td>0.75</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Dell Mount, Bedford Road, Houghton Regis</td>
+                    <td>https://centralbedfordshire.box.com/s/xxa8354gzmoun3pxde5v4j3r0wmoathk</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Existing Gospel Hall. Promoted for redevelopment, will be subsumed within HRN development. 2015 pre-app for demolition/erection of 20-25 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/02732/BRWN</td>
+                    <td>-0.307983</td>
+                    <td>52.008922</td>
+                    <td>2.85</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>53</td>
+                    <td>77</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Henlow Greyhound Stadium, Bedford Road, Lower Stondon</td>
+                    <td>https://centralbedfordshire.box.com/s/q7d3ldacyghgb7dlzy8c52jcpvx07w97</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Greyhound Racing Stadium - commercial & leisure. Adjacent to Henlow Airfield and Lower Stondon</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/02756/BRWN</td>
+                    <td>-0.334809</td>
+                    <td>52.022998</td>
+                    <td>1.1</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>30</td>
+                    <td>40</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Meppershall Nursing Home, Shefford Road, Meppershall</td>
+                    <td>https://centralbedfordshire.box.com/s/r3v8jiqcjmr20e5yay5az027d4xnr6sz</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Existing care home in operation adjacent to the village boundary. Narrow site access may be an issue</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/02767/BRWN</td>
+                    <td>-0.535667</td>
+                    <td>51.89431</td>
+                    <td>1.19</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>60</td>
+                    <td>70</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Trico Site, High Street North, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/nj9toe9b9ilc1xbe9zdz1b04sphdrp0s</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of larger redeveloped site in Dunstable</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/02769/BRWN</td>
+                    <td>-0.514494</td>
+                    <td>51.888524</td>
+                    <td>5.04</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>170</td>
+                    <td>170</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-16</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Dukeminster Estate, Church Street, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/hb0ntrke3j2tg5an6fvwkuav6ydwxc9g</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site benefits from planning permission for 170 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/02794/BRWN</td>
+                    <td>-0.505483</td>
+                    <td>51.885937</td>
+                    <td>3.19</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-31</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Interbrew, Eastern Avenue Industrial Estate, Eastern Avenue, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/pgjihz0u96htke5optnsr273aqh8k7x8</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline Planning Permission for 100 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/03020/BRWN</td>
+                    <td>-0.224024</td>
+                    <td>52.021866</td>
+                    <td>1.39</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>43</td>
+                    <td>62</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Roker Park, The Green, Stotfold</td>
+                    <td>https://centralbedfordshire.box.com/s/vwve6jdjte4xq97epi2czs6jc46hm956</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Extant planning permission for 43 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/16/03103/BRWN</td>
+                    <td>-0.305035</td>
+                    <td>52.00673</td>
+                    <td>0.38</td>
+                    <td>2016-07-18</td>
+                    <td>2018-12-31</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Peckworth Industrial Estate, Bedford Road, Lower Stondon</td>
+                    <td>https://centralbedfordshire.box.com/s/56lym1tbgbkootvfygc3ndr316zbwgc0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation HA29 (North CBC Site Allocation DPD). No planning application to date</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/17/05977/BRWN</td>
+                    <td>-0.30209</td>
+                    <td>52.014088</td>
+                    <td>220.0</td>
+                    <td>2017-12-18</td>
+                    <td>2018-12-31</td>
+                    <td>700</td>
+                    <td>1000</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>RAF Henlow, Henlow</td>
+                    <td>https://centralbedfordshire.box.com/s/ff6xgoz8sgp0y0ph9l5mpig2957ezpa3</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site constraints exist which require significant mitigation</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/17/05982/BRWN</td>
+                    <td>-0.357088</td>
+                    <td>51.995716</td>
+                    <td>2.3</td>
+                    <td>2017-12-18</td>
+                    <td>2018-12-31</td>
+                    <td>23</td>
+                    <td>42</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land North of Dawes Garage, 25 High Road, Shillington</td>
+                    <td>https://centralbedfordshire.box.com/s/n7gyh9bwen40at0067qwtvs1idoruow9</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site contains agricultural buildings which require demolition</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/18/04745/BRWN</td>
+                    <td>-0.497574</td>
+                    <td>52.005819</td>
+                    <td>0.76</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>56</td>
+                    <td>56</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land r/o Hilldene Close, Steppingley Road</td>
+                    <td>https://centralbedfordshire.box.com/s/w5t1cdrgmk4enwg8cs5zrgifrzn3r79p</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/18/04775/BRWN</td>
+                    <td>-0.632425</td>
+                    <td>51.909707</td>
+                    <td>7.43</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>175</td>
+                    <td>175</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-10</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at RAF Stanbridge, Leighton Linslade</td>
+                    <td>https://centralbedfordshire.box.com/s/kqa2aegkg5eov0jz62wfknk5fy7xp6a8</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00001/BRWN</td>
+                    <td>-0.659374</td>
+                    <td>51.904946</td>
+                    <td>5.9</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>165</td>
+                    <td>165</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-23</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Brickyard Quarry, Leighton Linslade</td>
+                    <td>https://centralbedfordshire.box.com/s/6q9szxnzaeekng0hfzmrwdwtj4fiu567</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00227/BRWN</td>
+                    <td>-0.269185</td>
+                    <td>52.089579</td>
+                    <td>0.66</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land r/o 33-57 Shortmead Street, Biggleswade</td>
+                    <td>https://centralbedfordshire.box.com/s/i6e10sq5suhd9fjlbhvc5qzn1lyfckno</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00003/BRWN</td>
+                    <td>-0.519898</td>
+                    <td>51.885921</td>
+                    <td>0.9</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>26</td>
+                    <td>26</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>11-15 High Street South, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/ufqdyn2tclnprr3ofouma6r0zdkrmxmv</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00004/BRWN</td>
+                    <td>-0.528931</td>
+                    <td>51.893174</td>
+                    <td>1.071</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>55</td>
+                    <td>55</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-03-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land adjacent to 192 High Street North and north west of and adjoining Tavistock Street, Tavistock Street, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/1ca1lvww9h9jjdnj2bvwlgkpsrn16rbd</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00005/BRWN</td>
+                    <td>-0.506608</td>
+                    <td>52.008847</td>
+                    <td>2.792</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>72</td>
+                    <td>72</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-09-11</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Flitwick Leisure Centre Site, Steppingley Road, Flitwick</td>
+                    <td>https://centralbedfordshire.box.com/s/r8jllbpal3exk0b82ah7mzl3fnvwqkic</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00006/BRWN</td>
+                    <td>-0.49486</td>
+                    <td>51.961187</td>
+                    <td>0.85</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>45</td>
+                    <td>45</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Harlington Station Yard, Station Road, Harlington</td>
+                    <td>https://centralbedfordshire.box.com/s/rorq1pvmw104v5chfikyl9m04qdop396</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00007/BRWN</td>
+                    <td>-0.340919</td>
+                    <td>52.038271</td>
+                    <td>0.86</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>26</td>
+                    <td>26</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at 20 Ampthill Road, Shefford</td>
+                    <td>https://centralbedfordshire.box.com/s/mzzf8hpv81z34rj68tzzxz019y2pgejt</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00008/BRWN</td>
+                    <td>-0.336553</td>
+                    <td>52.036888</td>
+                    <td>0.93</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>51</td>
+                    <td>51</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Old Laundry, 33 High Street, Shefford</td>
+                    <td>https://centralbedfordshire.box.com/s/j9jqwx0ahu7pbqjr640s2bd1xsh4bu1x</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00009/BRWN</td>
+                    <td>-0.316342</td>
+                    <td>52.003979</td>
+                    <td>0.8</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Stondon Museum & Garden Centre, Lower Stondon</td>
+                    <td>https://centralbedfordshire.box.com/s/krqbbgdkpny129ycnjxauyh7df2leirq</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00010/BRWN</td>
+                    <td>-0.240652</td>
+                    <td>52.004096</td>
+                    <td>5.366</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>131</td>
+                    <td>131</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at former Pig Development Unit, Hitchin Road, Fairfield</td>
+                    <td>https://centralbedfordshire.box.com/s/ze9qia2996xr7xsw69fnf45tqjl48wpd</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00011/BRWN</td>
+                    <td>-0.559733</td>
+                    <td>51.914325</td>
+                    <td>2.03</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>A 5 Salvage Works, Watling Street, Hockliffe, Leighton Buzzard</td>
+                    <td>https://centralbedfordshire.box.com/s/ifa6h56hewfut86svjl398hod7swlobu</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00012/BRWN</td>
+                    <td>-0.519041</td>
+                    <td>51.885029</td>
+                    <td>0.57</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>37 & 39 High Street South, Dunstable, LU6 3RZ, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/mn6c1yv5qmn28mkgr4qjx21pl05qgc9i</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00013/BRWN</td>
+                    <td>-0.496015</td>
+                    <td>51.968862</td>
+                    <td>0.43</td>
+                    <td>2018-11-19</td>
+                    <td>2018-12-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Chiltern Aquatics Centre, Westoning Road, Harlington, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/nxzthjch8v10d66nlqf08tunsrw098qy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00014/BRWN</td>
+                    <td>-0.500156</td>
+                    <td>51.909355</td>
+                    <td>0.25</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Dog And Duck, Parkside Drive, Houghton Regis, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/obu2ijyvpu4l9c2t4l8cl7d88666pecs</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00015/BRWN</td>
+                    <td>-0.427938</td>
+                    <td>52.011501</td>
+                    <td>0.8</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-02-26</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Silsoe Lower School, High Street, Silsoe, Bedford, Silsoe</td>
+                    <td>https://centralbedfordshire.box.com/s/2uenij3vkfzsnfjovqp79es227jl0dva</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00016/BRWN</td>
+                    <td>-0.518688</td>
+                    <td>51.904141</td>
+                    <td>1.47</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>168</td>
+                    <td>168</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-11</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Red House Court, Houghton Regis Central</td>
+                    <td>https://centralbedfordshire.box.com/s/1td9qtu65iwcflj850aus46dyd27qp99</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00017/BRWN</td>
+                    <td>-0.263351</td>
+                    <td>52.085717</td>
+                    <td>0.09</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Biggleswade Town Centre</td>
+                    <td>https://centralbedfordshire.box.com/s/ndi7xfhm9nctmj30oan06qr2opb33dbs</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00018/BRWN</td>
+                    <td>-0.482702</td>
+                    <td>52.079798</td>
+                    <td>6.8</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>217</td>
+                    <td>217</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-14</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Wixams (original Site)</td>
+                    <td>https://centralbedfordshire.box.com/s/8qcrz6udptxobsuqr3dnhghr9mlpbyk0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00019/BRWN</td>
+                    <td>-0.49547</td>
+                    <td>52.027731</td>
+                    <td>0.41</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Russel House, 14 Dunstable Street, Ampthill</td>
+                    <td>https://centralbedfordshire.box.com/s/ix5ermvwuxg8q0qemogsfmbrg35z62zx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00020/BRWN</td>
+                    <td>-0.266838</td>
+                    <td>52.00283</td>
+                    <td>0.27</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>41</td>
+                    <td>41</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-05-10</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Hampton house, Hitchin Road, Arlesey</td>
+                    <td>https://centralbedfordshire.box.com/s/h3z0cmw1w03u1jdtd8r89u22b7mtl9mv</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00021/BRWN</td>
+                    <td>-0.515306</td>
+                    <td>51.888579</td>
+                    <td>5.07</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>270</td>
+                    <td>270</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-04-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Dukeminster, Church Street, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/9shricsdrfs60hphhsp0erxmys4qny3w</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00022/BRWN</td>
+                    <td>-0.533088</td>
+                    <td>51.889152</td>
+                    <td>0.24</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>17</td>
+                    <td>17</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Downing View, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/g19ra28oe5wmg2e9v6ee8rnhwqw8h5mz</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00023/BRWN</td>
+                    <td>-0.524265</td>
+                    <td>51.890121</td>
+                    <td>2.05</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>113</td>
+                    <td>113</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Ashton Middle School, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/1elnwj9reautwkdhbmyfga18pyo3sxtx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00024/BRWN</td>
+                    <td>-0.503738</td>
+                    <td>51.886409</td>
+                    <td>3.19</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-31</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Linpac GPG International, Luton Road, Dunstable</td>
+                    <td>https://centralbedfordshire.box.com/s/easw1cikqgarz9bqf4fikj1nliz3ok1v</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00025/BRWN</td>
+                    <td>-0.225335</td>
+                    <td>52.024107</td>
+                    <td>1.02</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>32</td>
+                    <td>32</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-09-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Taylors Road, Stotfold</td>
+                    <td>https://centralbedfordshire.box.com/s/wx0igmywk9zpzmmutsjlu0oilk4787cd</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00026/BRWN</td>
+                    <td>-0.667537</td>
+                    <td>51.917933</td>
+                    <td>0.92</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Aldi Foord Store Ltd, Vinnie Road, Leighton Linslade</td>
+                    <td>https://centralbedfordshire.box.com/s/b8j1zonk2bx4yp0j5sd0d3qay93cdm24</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CB/19/00027/BRWN</td>
+                    <td>-0.330078</td>
+                    <td>52.038487</td>
+                    <td>0.3</td>
+                    <td>2018-12-07</td>
+                    <td>2018-12-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/central-bedfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2 mayfields, Shefford</td>
+                    <td>https://centralbedfordshire.box.com/s/osnqtve2nk7jii1z068bi5ixtglsaaf5</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.524563, "GeoY": 51.908063, "HazardousSubstances": null, "Hectares": 0.75, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 25, "Notes": "Existing Gospel Hall. Promoted for redevelopment, will be subsumed within HRN development. 2015 pre-app for demolition/erection of 20-25 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Dell Mount, Bedford Road, Houghton Regis", "SiteReference": "CB/16/02727/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/xxa8354gzmoun3pxde5v4j3r0wmoathk"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.307983, "GeoY": 52.008922, "HazardousSubstances": null, "Hectares": 2.85, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 53, "NetDwellingsRangeTo": 77, "Notes": "Greyhound Racing Stadium - commercial \u0026 leisure. Adjacent to Henlow Airfield and Lower Stondon", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Henlow Greyhound Stadium, Bedford Road, Lower Stondon", "SiteReference": "CB/16/02732/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/q7d3ldacyghgb7dlzy8c52jcpvx07w97"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.334809, "GeoY": 52.022998, "HazardousSubstances": null, "Hectares": 1.1, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 40, "Notes": "Existing care home in operation adjacent to the village boundary. Narrow site access may be an issue", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Meppershall Nursing Home, Shefford Road, Meppershall", "SiteReference": "CB/16/02756/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/r3v8jiqcjmr20e5yay5az027d4xnr6sz"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.535667, "GeoY": 51.89431, "HazardousSubstances": null, "Hectares": 1.19, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 60, "NetDwellingsRangeTo": 70, "Notes": "Part of larger redeveloped site in Dunstable", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Trico Site, High Street North, Dunstable", "SiteReference": "CB/16/02767/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/nj9toe9b9ilc1xbe9zdz1b04sphdrp0s"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.514494, "GeoY": 51.888524, "HazardousSubstances": null, "Hectares": 5.04, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 170, "NetDwellingsRangeTo": 170, "Notes": "Site benefits from planning permission for 170 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-16", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Dukeminster Estate, Church Street, Dunstable", "SiteReference": "CB/16/02769/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/hb0ntrke3j2tg5an6fvwkuav6ydwxc9g"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.505483, "GeoY": 51.885937, "HazardousSubstances": null, "Hectares": 3.19, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": "Outline Planning Permission for 100 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-31", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Interbrew, Eastern Avenue Industrial Estate, Eastern Avenue, Dunstable", "SiteReference": "CB/16/02794/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/pgjihz0u96htke5optnsr273aqh8k7x8"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.224024, "GeoY": 52.021866, "HazardousSubstances": null, "Hectares": 1.39, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 43, "NetDwellingsRangeTo": 62, "Notes": "Extant planning permission for 43 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Roker Park, The Green, Stotfold", "SiteReference": "CB/16/03020/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/vwve6jdjte4xq97epi2czs6jc46hm956"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-07-18", "GeoX": -0.305035, "GeoY": 52.00673, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": "Site allocation HA29 (North CBC Site Allocation DPD). No planning application to date", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Peckworth Industrial Estate, Bedford Road, Lower Stondon", "SiteReference": "CB/16/03103/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/56lym1tbgbkootvfygc3ndr316zbwgc0"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -0.30209, "GeoY": 52.014088, "HazardousSubstances": null, "Hectares": 220.0, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 700, "NetDwellingsRangeTo": 1000, "Notes": "Site constraints exist which require significant mitigation", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "RAF Henlow, Henlow", "SiteReference": "CB/17/05977/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/ff6xgoz8sgp0y0ph9l5mpig2957ezpa3"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -0.357088, "GeoY": 51.995716, "HazardousSubstances": null, "Hectares": 2.3, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 23, "NetDwellingsRangeTo": 42, "Notes": "Site contains agricultural buildings which require demolition", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land North of Dawes Garage, 25 High Road, Shillington", "SiteReference": "CB/17/05982/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/n7gyh9bwen40at0067qwtvs1idoruow9"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.497574, "GeoY": 52.005819, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 56, "NetDwellingsRangeTo": 56, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land r/o Hilldene Close, Steppingley Road", "SiteReference": "CB/18/04745/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/w5t1cdrgmk4enwg8cs5zrgifrzn3r79p"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.632425, "GeoY": 51.909707, "HazardousSubstances": null, "Hectares": 7.43, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 175, "NetDwellingsRangeTo": 175, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-10", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at RAF Stanbridge, Leighton Linslade", "SiteReference": "CB/18/04775/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/kqa2aegkg5eov0jz62wfknk5fy7xp6a8"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.659374, "GeoY": 51.904946, "HazardousSubstances": null, "Hectares": 5.9, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 165, "NetDwellingsRangeTo": 165, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-23", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Brickyard Quarry, Leighton Linslade", "SiteReference": "CB/19/00001/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/6q9szxnzaeekng0hfzmrwdwtj4fiu567"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.269185, "GeoY": 52.089579, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land r/o 33-57 Shortmead Street, Biggleswade", "SiteReference": "CB/19/00227/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/i6e10sq5suhd9fjlbhvc5qzn1lyfckno"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.519898, "GeoY": 51.885921, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 26, "NetDwellingsRangeTo": 26, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "11-15 High Street South, Dunstable", "SiteReference": "CB/19/00003/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/ufqdyn2tclnprr3ofouma6r0zdkrmxmv"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.528931, "GeoY": 51.893174, "HazardousSubstances": null, "Hectares": 1.071, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 55, "NetDwellingsRangeTo": 55, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-03-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent to 192 High Street North and north west of and adjoining Tavistock Street, Tavistock Street, Dunstable", "SiteReference": "CB/19/00004/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/1ca1lvww9h9jjdnj2bvwlgkpsrn16rbd"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.506608, "GeoY": 52.008847, "HazardousSubstances": null, "Hectares": 2.792, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 72, "NetDwellingsRangeTo": 72, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-09-11", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Flitwick Leisure Centre Site, Steppingley Road, Flitwick", "SiteReference": "CB/19/00005/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/r8jllbpal3exk0b82ah7mzl3fnvwqkic"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.49486, "GeoY": 51.961187, "HazardousSubstances": null, "Hectares": 0.85, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 45, "NetDwellingsRangeTo": 45, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Harlington Station Yard, Station Road, Harlington", "SiteReference": "CB/19/00006/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/rorq1pvmw104v5chfikyl9m04qdop396"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.340919, "GeoY": 52.038271, "HazardousSubstances": null, "Hectares": 0.86, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 26, "NetDwellingsRangeTo": 26, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at 20 Ampthill Road, Shefford", "SiteReference": "CB/19/00007/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/mzzf8hpv81z34rj68tzzxz019y2pgejt"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.336553, "GeoY": 52.036888, "HazardousSubstances": null, "Hectares": 0.93, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 51, "NetDwellingsRangeTo": 51, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Laundry, 33 High Street, Shefford", "SiteReference": "CB/19/00008/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/j9jqwx0ahu7pbqjr640s2bd1xsh4bu1x"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.316342, "GeoY": 52.003979, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Stondon Museum \u0026 Garden Centre, Lower Stondon", "SiteReference": "CB/19/00009/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/krqbbgdkpny129ycnjxauyh7df2leirq"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.240652, "GeoY": 52.004096, "HazardousSubstances": null, "Hectares": 5.366, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 131, "NetDwellingsRangeTo": 131, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at former Pig Development Unit, Hitchin Road, Fairfield", "SiteReference": "CB/19/00010/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/ze9qia2996xr7xsw69fnf45tqjl48wpd"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.559733, "GeoY": 51.914325, "HazardousSubstances": null, "Hectares": 2.03, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "A 5 Salvage Works, Watling Street, Hockliffe, Leighton Buzzard", "SiteReference": "CB/19/00011/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/ifa6h56hewfut86svjl398hod7swlobu"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.519041, "GeoY": 51.885029, "HazardousSubstances": null, "Hectares": 0.57, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "37 \u0026 39 High Street South, Dunstable, LU6 3RZ, Dunstable", "SiteReference": "CB/19/00012/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/mn6c1yv5qmn28mkgr4qjx21pl05qgc9i"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-19", "GeoX": -0.496015, "GeoY": 51.968862, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Chiltern Aquatics Centre, Westoning Road, Harlington, Dunstable", "SiteReference": "CB/19/00013/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/nxzthjch8v10d66nlqf08tunsrw098qy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.500156, "GeoY": 51.909355, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Dog And Duck, Parkside Drive, Houghton Regis, Dunstable", "SiteReference": "CB/19/00014/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/obu2ijyvpu4l9c2t4l8cl7d88666pecs"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.427938, "GeoY": 52.011501, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-02-26", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Silsoe Lower School, High Street, Silsoe, Bedford, Silsoe", "SiteReference": "CB/19/00015/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/2uenij3vkfzsnfjovqp79es227jl0dva"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.518688, "GeoY": 51.904141, "HazardousSubstances": null, "Hectares": 1.47, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 168, "NetDwellingsRangeTo": 168, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-11", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Red House Court, Houghton Regis Central", "SiteReference": "CB/19/00016/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/1td9qtu65iwcflj850aus46dyd27qp99"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.263351, "GeoY": 52.085717, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Biggleswade Town Centre", "SiteReference": "CB/19/00017/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/ndi7xfhm9nctmj30oan06qr2opb33dbs"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.482702, "GeoY": 52.079798, "HazardousSubstances": null, "Hectares": 6.8, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 217, "NetDwellingsRangeTo": 217, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-14", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Wixams (original Site)", "SiteReference": "CB/19/00018/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/8qcrz6udptxobsuqr3dnhghr9mlpbyk0"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.49547, "GeoY": 52.027731, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Russel House, 14 Dunstable Street, Ampthill", "SiteReference": "CB/19/00019/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/ix5ermvwuxg8q0qemogsfmbrg35z62zx"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.266838, "GeoY": 52.00283, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 41, "NetDwellingsRangeTo": 41, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-05-10", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Hampton house, Hitchin Road, Arlesey", "SiteReference": "CB/19/00020/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/h3z0cmw1w03u1jdtd8r89u22b7mtl9mv"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.515306, "GeoY": 51.888579, "HazardousSubstances": null, "Hectares": 5.07, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 270, "NetDwellingsRangeTo": 270, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-04-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Dukeminster, Church Street, Dunstable", "SiteReference": "CB/19/00021/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/9shricsdrfs60hphhsp0erxmys4qny3w"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.533088, "GeoY": 51.889152, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 17, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Downing View, Dunstable", "SiteReference": "CB/19/00022/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/g19ra28oe5wmg2e9v6ee8rnhwqw8h5mz"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.524265, "GeoY": 51.890121, "HazardousSubstances": null, "Hectares": 2.05, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 113, "NetDwellingsRangeTo": 113, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Ashton Middle School, Dunstable", "SiteReference": "CB/19/00023/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/1elnwj9reautwkdhbmyfga18pyo3sxtx"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.503738, "GeoY": 51.886409, "HazardousSubstances": null, "Hectares": 3.19, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-31", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Linpac GPG International, Luton Road, Dunstable", "SiteReference": "CB/19/00024/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/easw1cikqgarz9bqf4fikj1nliz3ok1v"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.225335, "GeoY": 52.024107, "HazardousSubstances": null, "Hectares": 1.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 32, "NetDwellingsRangeTo": 32, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-09-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Taylors Road, Stotfold", "SiteReference": "CB/19/00025/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/wx0igmywk9zpzmmutsjlu0oilk4787cd"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.667537, "GeoY": 51.917933, "HazardousSubstances": null, "Hectares": 0.92, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Aldi Foord Store Ltd, Vinnie Road, Leighton Linslade", "SiteReference": "CB/19/00026/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/b8j1zonk2bx4yp0j5sd0d3qay93cdm24"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-07", "GeoX": -0.330078, "GeoY": 52.038487, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/central-bedfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2 mayfields, Shefford", "SiteReference": "CB/19/00027/BRWN", "SiteplanURL": "https://centralbedfordshire.box.com/s/osnqtve2nk7jii1z068bi5ixtglsaaf5"}];
+    const bbox = [-0.6820907151131744, -0.2094702848868255, 51.87604584341859, 52.09856215658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

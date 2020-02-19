@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">07b5853c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www3.basingstoke.gov.uk/OpenMetadataFiles/Brownfield%20Sites/Brownfield-Land.csv">http://www3.basingstoke.gov.uk/OpenMetadataFiles/Brownfield%20Sites/Brownfield-Land.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.basingstoke.gov.uk/brownfield-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 23 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BAN">Basingstoke and Deane Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/07b5853ca41b79766229b16ad8d43b59b7dcf0f6bdde3578c3ba8325bf165d37/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/07b5853ca41b79766229b16ad8d43b59b7dcf0f6bdde3578c3ba8325bf165d37">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">57 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">9 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">58.97
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                2642</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                2642</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>57</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/07b5853ca41b79766229b16ad8d43b59b7dcf0f6bdde3578c3ba8325bf165d37.csv"
+        download="07b5853ca41b79766229b16ad8d43b59b7dcf0f6bdde3578c3ba8325bf165d37_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/07b5853ca41b79766229b16ad8d43b59b7dcf0f6bdde3578c3ba8325bf165d37"
+        download="07b5853ca41b79766229b16ad8d43b59b7dcf0f6bdde3578c3ba8325bf165d37_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>13/00747/FUL</td>
+                    <td>-1.124352</td>
+                    <td>51.268051</td>
+                    <td>0.059</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-02-11</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=MO0ZDBCRAT000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Three Barrels Winklebury Centre Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (13/00747/FUL) in Feburary 2014. Currently under construction and considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>13/02321/FUL</td>
+                    <td>-1.119274</td>
+                    <td>51.280815</td>
+                    <td>0.254</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>19</td>
+                    <td>19</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-20</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=MVYE55CRAT000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Main Hall Park Prewett Northbrook Crescent Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission was granted for a net gain of 19 units in March 2015 (13/02321/FUL) . The site is under construction and the developer has confirmed, through the site monitoring consultation, that the remaining units will be delivered in 2018/19.  A planning application was been submitted to provide an additional 9 units in the hall (17/00565/FUL), but this has been withdrawn. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>14/03214/FUL</td>
+                    <td>-1.100087</td>
+                    <td>51.249227</td>
+                    <td>0.056</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-28</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NDWLC6CRL0M00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Cranbourne House The Harrow Way</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (14/03214/FUL) in July 2015. The site is considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>14/03880/FUL</td>
+                    <td>-1.337771</td>
+                    <td>51.237067</td>
+                    <td>0.139</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-07</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NGU8J8CRFND00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>The Railway Inn Station Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission for 5 dwellings in July 2015 (14/03880/FUL).  No starts recorded on site at 1 April 2018 but site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>15/00975/FUL</td>
+                    <td>-1.172445</td>
+                    <td>51.257887</td>
+                    <td>0.496</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-13</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NLGY47CRJBL00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Leamington Court Andover Road Newfound</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission was granted in May 2016 for the conversion of offices to 7 units and erection of 6 further units on site (15/00975/FUL). Site is under construction. At 1 April 2019 there were 5 dwellings outstanding. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03029/OUT</td>
+                    <td>-1.125348</td>
+                    <td>51.323459</td>
+                    <td>1.025</td>
+                    <td>2019-05-14</td>
+                    <td>2019-12-23</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-25</td>
+                    <td>outline planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NTLFAVCRMW700&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land between Elmdene and Fairholm Aldermaston Road Pamber End</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline planning permission was granted for 12 units in Feburary 2016 (15/03029/OUT).  A reserved matters application was submitted in December 2018 which is pending consideration (18/03729/RES). The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03170/FUL</td>
+                    <td>-1.10259</td>
+                    <td>51.252623</td>
+                    <td>0.669</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-23</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NUB80JCRFS600&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Wella (Gb) Wella Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior notification was approved for the conversion of the building to residential use (14/02433/GPDOFF) encompassing 12 units. A new application for  70 units on the site (15/03170/FUL) was granted permission in December 2016. The site has been cleared to enable development to take place and start on site was recorded in recorded 2017.  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/04469/RES</td>
+                    <td>-1.086105</td>
+                    <td>51.255992</td>
+                    <td>0.229</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td></td>
+                    <td>2016-07-15</td>
+                    <td>reserved matters approval</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NZI3KXCRKV200&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Queen Marys College Land Adjacent To Cliddesden Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline planning permission grated under reference BDB/74060 in July 2016.  Reserved matters approval graned July 2017 (15/04469/RES). As at the 1 April 2018 construction was yet to start. Site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>15/04506/FUL</td>
+                    <td>-1.066886</td>
+                    <td>51.328843</td>
+                    <td>0.523</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-11</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NZPT71CRL0V00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Royal British Legion The Street Bramley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (15/04506/FUL) in November 2016. No start on site has been recorded at 1 April 2019 but the site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/04534/FUL</td>
+                    <td>-1.172679</td>
+                    <td>51.252745</td>
+                    <td>0.266</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-09</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NZT4PMCR0AQ00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Brickells Yard Oakley Lane Oakley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>An full application (15/04534/FUL) for 10 units was granted in September 2016.  The site is under cosntruction and completions are expected in 2019/20.  It is considered that the site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/00971/FUL</td>
+                    <td>-1.089371</td>
+                    <td>51.261669</td>
+                    <td>0.137</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>37</td>
+                    <td>37</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-16</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O470CHCRG9B00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Vantage (Fairfield House) Victoria Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior notification was approved for the conversion of the building to residential use (14/03542/GPDOFF) for 29 units in January 2015 with a further 1 unit added through an application in January 2016 (15/03960/FUL).  An application for 7 additional units on an additional floor was granted in December 2016 (16/00971/FUL).  The development is under construction.  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/01362/GPDOFF</td>
+                    <td>-1.104813</td>
+                    <td>51.253292</td>
+                    <td>0.021</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-27</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O5U024CR0FP00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Brackenwood House 1st & 2nd Floor Kimbell Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted consent via prior approval (16/01362/GPDOFF) in September 2016. No start on site has been recorded at 1 April 2018 but the site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>16/01585/FUL</td>
+                    <td>-1.0878</td>
+                    <td>51.263274</td>
+                    <td>0.047</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-09</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O6LSBICRI7100&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>21 & 23 Church Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (16/01585/FUL) in November 2016. Currently under construction and considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/02465/FUL</td>
+                    <td>-1.257537</td>
+                    <td>51.357905</td>
+                    <td>0.114</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-28</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O9URSKCRLFM00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Raja Newbury Road Headley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (16/02465/FUL) in November 2016. Construction has started on site and site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/02664/FUL</td>
+                    <td>-1.380698</td>
+                    <td>51.239902</td>
+                    <td>2.44</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-09</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OAO18FCRMAW00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>JA Hirst & Sons Recycling Yard Hurstbourne Station Stoke Lane</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site has detailed planning permission (16/02664/FUL) granted in November 2017. The applicant is working to discharge relevant conditions (including in relation to contaminated land) and expects completions on site from 2021.  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/02676/FUL</td>
+                    <td>-1.088352</td>
+                    <td>51.262632</td>
+                    <td>0.089</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-20</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OAPTJXCRMDS00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>20 Winchester Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission was granted in October 2013 for the conversion of the upper floors of the building to form 14 residential units (BDB/75489). A further application has since been granted for one additional flat (16/02676/FUL in September 2016). The site is under construction and is due to be completed in 2019/20.  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/03918/OUT</td>
+                    <td>-1.342471</td>
+                    <td>51.330098</td>
+                    <td>1.009</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-11</td>
+                    <td>outline planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OFCTUICRJ1O00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Whitway Farm Whitway Newbury</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (16/03918/OUT) in April 2017. No start on site recorded at 1 April 2019 but site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/04074/FUL</td>
+                    <td>-1.141565</td>
+                    <td>51.354178</td>
+                    <td>0.15</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-02</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OG0M89CRJN700&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Mulfords Hill Centre 37-39 Mulfords Hill</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission for 8 self contained apartments (C3) in March 2017 (16/04074/FUL). As at the 1 April 2018 construction was yet to start. Site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>16/04288/FUL</td>
+                    <td>-1.084192</td>
+                    <td>51.259787</td>
+                    <td>0.128</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-19</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OGUIDVCRKFQ00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>The Former Lamb Inn Hackwood Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site gained full planning permission for 10 units in May 2017  (16/04288/FUL). The site is under construction and completions are expected from 2019/20. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/04684/GPDOFF</td>
+                    <td>-1.041119</td>
+                    <td>51.198029</td>
+                    <td>0.143</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-26</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIFK4QCR0GT00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>5-9 Summerlea Court Herriard</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission via prior approval  (16/04684/GPDOFF) in April 2017. Site under construction and  considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>16/04685/FUL</td>
+                    <td>-1.087786</td>
+                    <td>51.262598</td>
+                    <td>0.019</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-01</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIFLPRCRLST00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>10 Winchester Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (16/04685/FUL) in March 2017. No start on site has been recorded at 1 April 2018 but the site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>16/04693/FUL</td>
+                    <td>-1.043469</td>
+                    <td>51.298139</td>
+                    <td>0.28</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-08</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIGOOFCRLTU00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Former Dairy Farm Reading Road Sherfield On Loddon</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (16/04693/FUL) in March 2017. The site is under construction. Site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>16/04730/FUL</td>
+                    <td>-1.086323</td>
+                    <td>51.258794</td>
+                    <td>0.088</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-09</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIKXLMCRLY000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>4 Fairfields Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (16/04730/FUL) in June 2017. As at the 1 April 2019 construction was yet to start. Site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/00135/GPDOFF</td>
+                    <td>-1.089319</td>
+                    <td>51.262634</td>
+                    <td>0.188</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>38</td>
+                    <td>38</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-05</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OJQ2J6CR0AP00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>32 Copenhagen Court New Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site gained prior approval for 38 units in June 2017  (17/00135/GPDOFF). A further application for 20 units (17/02933/FUL) was refused in December 2017.  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/00625/FUL</td>
+                    <td>-1.084429</td>
+                    <td>51.266218</td>
+                    <td>0.825</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>285</td>
+                    <td>285</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-20</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OLIJC5CRGQO00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Churchill Plaza Churchill Way Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior notification was first approved for the conversion of the building to residential use (16/00504/GPDOFF) in  May 2016 for 257 flats. This was increased to 283 flats by a further prior notification in April 2017 (17/00416/GPDOFF) and  for an additional 2 (penthouse) flats also in April (17/00625/FUL).   The investor and developer (Seven Capital) has confirmed, through the site monitoring consultation, that all 285 units will be delivered in 2019, although a slightly more cautious approach has been used for land supply purposes. Construction is currently ongoing. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/00965/FUL</td>
+                    <td>-1.396959</td>
+                    <td>51.25304</td>
+                    <td>0.813</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-11</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OMRFGNCR0GT00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Bank Top Spring Hill Lane St Mary Bourne</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted permission (17/00965/FUL ) in December 2017. As at the 1 April 2019 construction has started on site. Site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/01207/FUL</td>
+                    <td>-1.120503</td>
+                    <td>51.254494</td>
+                    <td>0.115</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-07-31</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=ONKV6ZCRILM00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land Adjacent To 96 Paddock Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission granted in July 2017 for 5 affordable units (17/01207/FUL). The site is vacant and has been cleared.  It is considered that the site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-23</td>
+                </tr>
+                
+                <tr>
+                    <td>17/01292/FUL</td>
+                    <td>-1.08413</td>
+                    <td>51.264585</td>
+                    <td>0.126</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-07</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=ONW5XNCRIWO00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>15 New Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site gained permission for 10 units in December 2017 (17/01292/FUL). The original building has been demolished and significant progress has been made, completions are expected from 2019/20. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/02279/FUL</td>
+                    <td>-1.096966</td>
+                    <td>51.270089</td>
+                    <td>2.023</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>491</td>
+                    <td>491</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-03-23</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OSBDQHCRN0Q00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land At Chapel Hill Kingsclere Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline planning permission granted for 578 units (14/00865/OUT) in January 2015. Reserved matters consent for the full 578 units  (15/03667/RES) was granted in May 2016. Work has commenced on site and the first 12 units were completed in 2016/17 and 115 in 2017/18 and 132 in 2018/19. 56 of the units are to be delivered in the existing  'white building' and an application to increase this to 96 units (17/02279/FUL) was granted in March 2018.   The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/02516/GPDOFF</td>
+                    <td>-1.05982</td>
+                    <td>51.29757</td>
+                    <td>0.412</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-20</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OTDRNXCR0GT00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Spinnaker House Lime Tree Way Chineham Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior approval application for conversion from office to residential was approved in February 2017 (16/04426/GPDOFF) for 33 units. A  further prior approval application  (17/02516/GPDOFF) for 36 units was granted in December 2017. Conversion of the ground floor has now commenced. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/02605/GPDOFF</td>
+                    <td>-1.073896</td>
+                    <td>51.272301</td>
+                    <td>0.205</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>18</td>
+                    <td>18</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-20</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OTP7K2CR0GT00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Spectrum House 8 Woodlands Business Village Coronation Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Prior notification was approved  for 13 flats on the  site in December 2015  (15/03777/GPDOFF). A further prior notification was approved for 18 flats in September 2017 (17/02605/GDPOFF). It is understood that the site has been sold to a developer who will implement the scheme.  Completions expected from 2021/22.   The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/03309/OUT</td>
+                    <td>-1.090731</td>
+                    <td>51.261103</td>
+                    <td>0.811</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-01</td>
+                    <td>outline planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OX1TGCCRJY000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Centenary House 10 Winchester Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Small site granted outline permission for 9 dwellings in March 2017 (17/03309/OUT).  No starts recorded at 1 April 2019 but site considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/03673/FUL</td>
+                    <td>-1.126015</td>
+                    <td>51.255129</td>
+                    <td>0.345</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2019-02-11</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OYQJP6CRLFS00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Deeside Alliston Way</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site gained planning permission in  (17/03673/FUL). Soverign who are taking the site forward state that the site will be completed by 2020/21. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/04029/FUL</td>
+                    <td>-1.1191</td>
+                    <td>51.255846</td>
+                    <td>0.157</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2019-02-19</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P0544CCRMRI00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Sandringham Court Paddock Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site gained full planning permission in Feburary 2019 (17/04029/FUL). The site is being actively persued by a housing association. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/04259/FUL</td>
+                    <td>-1.075252</td>
+                    <td>51.280971</td>
+                    <td>0.13</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-05-25</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P19XN0CRFZC00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Chineham House Shakespeare Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission for the conversion of this council owned building was granted in October 2014 (14/00759/FUL). This permission lapsed in 2018 and a new permission was granted in September 2018 (17/04259/FUL).  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/00524/RES</td>
+                    <td>-1.150834</td>
+                    <td>51.355794</td>
+                    <td>1.408</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-10-08</td>
+                    <td>reserved matters approval</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P4EQ9KCRIHF00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Burnham Copse Infant School New Church Road Tadley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline planning permission for 36 residential units was granted in March 2016 (14/02200/OUT) and reserved matters approval in October 2018 (18/00524/RES). Aster Communities who are developing the site expect it be complete in 2019/20. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/01184/FUL</td>
+                    <td>-1.122148</td>
+                    <td>51.267083</td>
+                    <td>0.193</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-06-19</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P7NBIVCRLCN00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Site Of Harlech Hall Harlech Close Winklebury Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site benefits from full planning permission granted in June 2018 (18/01184/FUL). The site is considered deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/01270/FUL</td>
+                    <td>-1.085914</td>
+                    <td>51.262597</td>
+                    <td>0.032</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-13</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P820CXCRLQC00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>12 London Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site gained planning permission in July 2018 (18/01270/FUL) for 10 units. The agent has confirmed that the development is under construction and completions are expected in 2019/20.  The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/01504/GPDOFF</td>
+                    <td>-1.089891</td>
+                    <td>51.26301</td>
+                    <td>0.409</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>46</td>
+                    <td>46</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-09</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P9862DCR0AQ00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Innovation Court New Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior notification was approved for the conversion of the building to residential use (16/00031/GPDOFF) in March 2016 for 35 flats. A further prior notification was approved to take the number of units up to 46 was approved in August 2018 (18/01504/GPDOFF).   The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/02735/PIP</td>
+                    <td>-1.092578</td>
+                    <td>51.26266</td>
+                    <td>0.183</td>
+                    <td>2018-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-19</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PF1WD8CR0AP00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Kings School Brambleys Close Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site benefits from permission in principle granted in October 2018 (18/02735/PIP). The site is currently being marketed. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/03671/GPDOFF</td>
+                    <td>-1.054928</td>
+                    <td>51.271564</td>
+                    <td>0.324</td>
+                    <td>2019-05-14</td>
+                    <td>2019-12-23</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-05-09</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PJXX6TCR0AP00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Riverside View Basing Road Old Basing</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior notification was approved for the conversion of the building to residential use (18/03671/GPDOFF) in May 2019. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/03684/FUL</td>
+                    <td>-1.08919</td>
+                    <td>51.260733</td>
+                    <td>0.121</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>40</td>
+                    <td>40</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-02-25</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PJZODJCRGW900&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Global House Victoria Street Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site gained prior approval for 40 units in September 2018 (18/02398/GPDOFF). Following this full planning permision was granted in Feburary 2019 (18/03684/FUL).  Previously the site had prior approval (17/01714/GPDOFF) and full planning permission (17/03275/FUL) for 37 units. The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>19/00373/FUL</td>
+                    <td>-1.067293</td>
+                    <td>51.331126</td>
+                    <td>0.188</td>
+                    <td>2019-05-14</td>
+                    <td>2019-12-23</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-02-05</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PMH8UOCRIRD00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Minchens Court Minchens Lane Bramley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Prior approval granted for 14 flats (18/01517/GPDOFF) in October 2018. External alterations were then approved in April 2019 (19/00373/FUL). The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>19/00717/GPDOFF</td>
+                    <td>-1.064105</td>
+                    <td>51.298152</td>
+                    <td>3.139</td>
+                    <td>2019-05-14</td>
+                    <td>2019-12-23</td>
+                    <td>240</td>
+                    <td>240</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-04-30</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=POARJZCR0AQ00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Unity Place Lime Tree Way Chineham</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A prior notification was approved for the conversion of the building to residential use (19/00717/GPDOFF) in April 2019. An application for condition discharge was submitted in early May (19/01269/CONDN). The site is deliverable within five years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS004</td>
+                    <td>-1.076987</td>
+                    <td>51.268749</td>
+                    <td>25.856</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>300</td>
+                    <td>300</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Basing View Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The regeneration of Basing View  is being actively pursued by the borough council. This is reflected in  Local Plan policy SS8 which supports the redevelopment of the area for a mix of uses including a residential component of approximately 300 units. The site is in a suitable location for housing development, lying in a highly accessible location with good access to public transport interchanges, town centre facilities and employment opportunities. The Council has recently published the Basing View Masterplan which includes provision for residential development.  The site plan shows the whole of basing view reflecting the local plan allocation. The precise location of the residential element will be determined through site masterplanning.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS012</td>
+                    <td>-1.082542</td>
+                    <td>51.262864</td>
+                    <td>0.326</td>
+                    <td>2017-12-31</td>
+                    <td>2019-05-14</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>pending decision</td>
+                    <td>Police Station London Road Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is a SHELAA site (BAS012) which falls within the built up area of Basingstoke and within the SPB in an area of predominantly residential development in close proximity to the town. The current use as a police station is due to cease (as part of the wider review of Hampshire Constabulary sites) and the site is currently being marketed for redevelopment.  An applicaton was submited in Feburary 2019 (19/00436/FUL) and is pending consideration for 55 retirements apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS031</td>
+                    <td>-1.123164</td>
+                    <td>51.270351</td>
+                    <td>0.381</td>
+                    <td>2017-12-31</td>
+                    <td>2019-05-14</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Land At Former Newman Bassett House Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Consent was originally granted on the wider site  for the demolition of the Former Newman Bassett House building and a replacement smaller ‘respite unit’ which has now been completed. (Hindson House).Therefore, this retains the facility and service use and frees up the remainder of the land for residential redevelopment. The land is vacant but not currently available as it is being used as a temporary construction compound, the requirement for which is due to cease in late 2018. Afterwhich HCC confirm that they intend to apply for planning permission for residential development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BDB/63103</td>
+                    <td>-1.257512</td>
+                    <td>51.354703</td>
+                    <td>0.284</td>
+                    <td>2017-12-31</td>
+                    <td>2019-12-23</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td>2006-06-21</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZTBZCRBJ724&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Cheam Hawtreys Newbury Road Headley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is the remainder of a larger scheme for tied staff accommodation at Cheam Hawtreys School  (BDB/63103, approved 2006).  The school has confirmed, through the site monitoring consultation, that whilst the site will be delivered in due course, at present they have no intention to build out the remaining 6 units within the next 5 years.  The site has therefore been phased into the 5-10 year time band and its future delivery will continue to be reviewed through the annual monitoring process.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WHIT004</td>
+                    <td>-1.334432</td>
+                    <td>51.23491</td>
+                    <td>0.43</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Police Station Dances Lane Whitchurch</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for approximately 15 dwellings in the Whitchurch Neighbourhood Plan (Policy HA1)  which was made in October 2017 . The brownfield site is currently in use as a police station and is therefore not currently available. The Police Commissioners have confirmed that this site will cease to be used for its present purpose and will be available for housing development within the Plan Period which ends in 2029.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WHIT007</td>
+                    <td>-1.337708</td>
+                    <td>51.227053</td>
+                    <td>0.166</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>57 Winchester Road (Whitchurch Car Centre) Whitchurch</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for approximately 10 dwellings in the Whitchurch Neighbourhood Plan (Policy HA3)  which was made in October 2017 . The brownfield site is currently in use as a car centre and is therefore not currently available.  However, the owners have confirmed their intention to redevelop the site for housings over the Local Plan period which runs to 2029.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS009</td>
+                    <td>-1.088227</td>
+                    <td>51.26569</td>
+                    <td>0.421</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>300</td>
+                    <td>300</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Festival Place Hampstead House Kensington House Chelsea House and Westminster House Basingstoke</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been promoted for development through the council's Call for Sites in 2019 and the council consider this site to be potentially developable for 300 dwellings within a 5-10 year time period</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS054</td>
+                    <td>-1.122203</td>
+                    <td>51.271896</td>
+                    <td>7.253</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>74</td>
+                    <td>74</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Former Fort Hill Community School</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been promoted for development through the council's Call for Sites in 2019 by HCC. The site is considered to be potentially developable for 74 dwellings within a 5-10 year time period.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS024</td>
+                    <td>-1.110423</td>
+                    <td>51.252002</td>
+                    <td>1.856</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>160</td>
+                    <td>160</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>pending decision</td>
+                    <td>Camrose Stadium Winchester Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been promoted for development through the council's Call for Sites in 2019 and the council consider this site to be potentially developable for 160 dwellings within a 5-10 year time period</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS029</td>
+                    <td>-1.14002</td>
+                    <td>51.254913</td>
+                    <td>0.472</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Land west of 2 Kite Hill</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been promoted for development through the council's Call for Sites in 2019 and the council consider this site to be potentially developable for 10 dwellings within a 5-10 year time period</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BAS032</td>
+                    <td>-1.114918</td>
+                    <td>51.274304</td>
+                    <td>0.525</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>18</td>
+                    <td>18</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>not permissioned</td>
+                    <td>Land off Ashford Way</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been promoted for development through the council's Call for Sites in 2019 by HCC and the council consider this site to be potentially developable for 18 dwellings within a 5-10 year time period</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RO002</td>
+                    <td>-1.111786</td>
+                    <td>51.284073</td>
+                    <td>0.3</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=&activeTab=summary</td>
+                    <td>pending decision</td>
+                    <td>The Hollies Aldermaston Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been promoted for development through the council's Call for Sites in 2019 . The site is considered to be potentially developable for 21 dwellings within a 5-10 year time period.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>19/00579/FUL</td>
+                    <td>-1.145752</td>
+                    <td>51.358206</td>
+                    <td>0.176</td>
+                    <td>2019-12-23</td>
+                    <td>2019-12-23</td>
+                    <td>17</td>
+                    <td>17</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/basingstoke</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-10-15</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PNJZMICRJOC00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Boundary Place</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site gained permission in October 2019 for 17 dwellings (17/03849/FUL). The site is considered potentially developable within a 5-10 year period.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.124352, "GeoY": 51.268051, "HazardousSubstances": null, "Hectares": 0.059, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Small site granted permission (13/00747/FUL) in Feburary 2014. Currently under construction and considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-02-11", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=MO0ZDBCRAT000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Three Barrels Winklebury Centre Basingstoke", "SiteReference": "13/00747/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.119274, "GeoY": 51.280815, "HazardousSubstances": null, "Hectares": 0.254, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 19, "NetDwellingsRangeTo": 19, "Notes": "Planning permission was granted for a net gain of 19 units in March 2015 (13/02321/FUL) . The site is under construction and the developer has confirmed, through the site monitoring consultation, that the remaining units will be delivered in 2018/19.  A planning application was been submitted to provide an additional 9 units in the hall (17/00565/FUL), but this has been withdrawn. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-20", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=MVYE55CRAT000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Main Hall Park Prewett Northbrook Crescent Basingstoke", "SiteReference": "13/02321/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2018-12-31", "GeoX": -1.100087, "GeoY": 51.249227, "HazardousSubstances": null, "Hectares": 0.056, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "Small site granted permission (14/03214/FUL) in July 2015. The site is considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-28", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NDWLC6CRL0M00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Cranbourne House The Harrow Way", "SiteReference": "14/03214/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2018-12-31", "GeoX": -1.337771, "GeoY": 51.237067, "HazardousSubstances": null, "Hectares": 0.139, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Small site granted permission for 5 dwellings in July 2015 (14/03880/FUL).  No starts recorded on site at 1 April 2018 but site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-07", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NGU8J8CRFND00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "The Railway Inn Station Road", "SiteReference": "14/03880/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.172445, "GeoY": 51.257887, "HazardousSubstances": null, "Hectares": 0.496, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": "Planning permission was granted in May 2016 for the conversion of offices to 7 units and erection of 6 further units on site (15/00975/FUL). Site is under construction. At 1 April 2019 there were 5 dwellings outstanding. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-13", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NLGY47CRJBL00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Leamington Court Andover Road Newfound", "SiteReference": "15/00975/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-05-14", "GeoX": -1.125348, "GeoY": 51.323459, "HazardousSubstances": null, "Hectares": 1.025, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "Outline planning permission was granted for 12 units in Feburary 2016 (15/03029/OUT).  A reserved matters application was submitted in December 2018 which is pending consideration (18/03729/RES). The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-25", "PermissionType": "outline planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NTLFAVCRMW700\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land between Elmdene and Fairholm Aldermaston Road Pamber End", "SiteReference": "15/03029/OUT", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.10259, "GeoY": 51.252623, "HazardousSubstances": null, "Hectares": 0.669, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 70, "NetDwellingsRangeTo": 70, "Notes": "A prior notification was approved for the conversion of the building to residential use (14/02433/GPDOFF) encompassing 12 units. A new application for  70 units on the site (15/03170/FUL) was granted permission in December 2016. The site has been cleared to enable development to take place and start on site was recorded in recorded 2017.  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-23", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NUB80JCRFS600\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Wella (Gb) Wella Road Basingstoke", "SiteReference": "15/03170/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2017-12-31", "GeoX": -1.086105, "GeoY": 51.255992, "HazardousSubstances": null, "Hectares": 0.229, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Outline planning permission grated under reference BDB/74060 in July 2016.  Reserved matters approval graned July 2017 (15/04469/RES). As at the 1 April 2018 construction was yet to start. Site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": null, "PermissionDate": "2016-07-15", "PermissionType": "reserved matters approval", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NZI3KXCRKV200\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Queen Marys College Land Adjacent To Cliddesden Road Basingstoke", "SiteReference": "15/04469/RES", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.066886, "GeoY": 51.328843, "HazardousSubstances": null, "Hectares": 0.523, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Small site granted permission (15/04506/FUL) in November 2016. No start on site has been recorded at 1 April 2019 but the site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-11", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NZPT71CRL0V00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Royal British Legion The Street Bramley", "SiteReference": "15/04506/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.172679, "GeoY": 51.252745, "HazardousSubstances": null, "Hectares": 0.266, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "An full application (15/04534/FUL) for 10 units was granted in September 2016.  The site is under cosntruction and completions are expected in 2019/20.  It is considered that the site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-09", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=NZT4PMCR0AQ00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Brickells Yard Oakley Lane Oakley", "SiteReference": "15/04534/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.089371, "GeoY": 51.261669, "HazardousSubstances": null, "Hectares": 0.137, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 37, "NetDwellingsRangeTo": 37, "Notes": "A prior notification was approved for the conversion of the building to residential use (14/03542/GPDOFF) for 29 units in January 2015 with a further 1 unit added through an application in January 2016 (15/03960/FUL).  An application for 7 additional units on an additional floor was granted in December 2016 (16/00971/FUL).  The development is under construction.  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-16", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O470CHCRG9B00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Vantage (Fairfield House) Victoria Street Basingstoke", "SiteReference": "16/00971/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2017-12-31", "GeoX": -1.104813, "GeoY": 51.253292, "HazardousSubstances": null, "Hectares": 0.021, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Small site granted consent via prior approval (16/01362/GPDOFF) in September 2016. No start on site has been recorded at 1 April 2018 but the site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-27", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O5U024CR0FP00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Brackenwood House 1st \u0026 2nd Floor Kimbell Road Basingstoke", "SiteReference": "16/01362/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.0878, "GeoY": 51.263274, "HazardousSubstances": null, "Hectares": 0.047, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Small site granted permission (16/01585/FUL) in November 2016. Currently under construction and considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-09", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O6LSBICRI7100\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "21 \u0026 23 Church Street Basingstoke", "SiteReference": "16/01585/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.257537, "GeoY": 51.357905, "HazardousSubstances": null, "Hectares": 0.114, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Small site granted permission (16/02465/FUL) in November 2016. Construction has started on site and site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-28", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=O9URSKCRLFM00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Raja Newbury Road Headley", "SiteReference": "16/02465/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.380698, "GeoY": 51.239902, "HazardousSubstances": null, "Hectares": 2.44, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 44, "NetDwellingsRangeTo": 44, "Notes": "This site has detailed planning permission (16/02664/FUL) granted in November 2017. The applicant is working to discharge relevant conditions (including in relation to contaminated land) and expects completions on site from 2021.  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-09", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OAO18FCRMAW00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "JA Hirst \u0026 Sons Recycling Yard Hurstbourne Station Stoke Lane", "SiteReference": "16/02664/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.088352, "GeoY": 51.262632, "HazardousSubstances": null, "Hectares": 0.089, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": "Planning permission was granted in October 2013 for the conversion of the upper floors of the building to form 14 residential units (BDB/75489). A further application has since been granted for one additional flat (16/02676/FUL in September 2016). The site is under construction and is due to be completed in 2019/20.  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-20", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OAPTJXCRMDS00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "20 Winchester Street Basingstoke", "SiteReference": "16/02676/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.342471, "GeoY": 51.330098, "HazardousSubstances": null, "Hectares": 1.009, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Small site granted permission (16/03918/OUT) in April 2017. No start on site recorded at 1 April 2019 but site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-11", "PermissionType": "outline planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OFCTUICRJ1O00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Whitway Farm Whitway Newbury", "SiteReference": "16/03918/OUT", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2018-12-31", "GeoX": -1.141565, "GeoY": 51.354178, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "Small site granted permission for 8 self contained apartments (C3) in March 2017 (16/04074/FUL). As at the 1 April 2018 construction was yet to start. Site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-02", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OG0M89CRJN700\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Mulfords Hill Centre 37-39 Mulfords Hill", "SiteReference": "16/04074/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.084192, "GeoY": 51.259787, "HazardousSubstances": null, "Hectares": 0.128, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "The site gained full planning permission for 10 units in May 2017  (16/04288/FUL). The site is under construction and completions are expected from 2019/20. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-19", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OGUIDVCRKFQ00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "The Former Lamb Inn Hackwood Road", "SiteReference": "16/04288/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2018-12-31", "GeoX": -1.041119, "GeoY": 51.198029, "HazardousSubstances": null, "Hectares": 0.143, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Small site granted permission via prior approval  (16/04684/GPDOFF) in April 2017. Site under construction and  considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-26", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIFK4QCR0GT00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "5-9 Summerlea Court Herriard", "SiteReference": "16/04684/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2017-12-31", "GeoX": -1.087786, "GeoY": 51.262598, "HazardousSubstances": null, "Hectares": 0.019, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Small site granted permission (16/04685/FUL) in March 2017. No start on site has been recorded at 1 April 2018 but the site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-01", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIFLPRCRLST00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "10 Winchester Street Basingstoke", "SiteReference": "16/04685/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2017-12-31", "GeoX": -1.043469, "GeoY": 51.298139, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Small site granted permission (16/04693/FUL) in March 2017. The site is under construction. Site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-08", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIGOOFCRLTU00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Dairy Farm Reading Road Sherfield On Loddon", "SiteReference": "16/04693/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.086323, "GeoY": 51.258794, "HazardousSubstances": null, "Hectares": 0.088, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "Small site granted permission (16/04730/FUL) in June 2017. As at the 1 April 2019 construction was yet to start. Site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-09", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OIKXLMCRLY000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "4 Fairfields Road", "SiteReference": "16/04730/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.089319, "GeoY": 51.262634, "HazardousSubstances": null, "Hectares": 0.188, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 38, "NetDwellingsRangeTo": 38, "Notes": "The site gained prior approval for 38 units in June 2017  (17/00135/GPDOFF). A further application for 20 units (17/02933/FUL) was refused in December 2017.  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-05", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OJQ2J6CR0AP00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "32 Copenhagen Court New Street", "SiteReference": "17/00135/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.084429, "GeoY": 51.266218, "HazardousSubstances": null, "Hectares": 0.825, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 285, "NetDwellingsRangeTo": 285, "Notes": "A prior notification was first approved for the conversion of the building to residential use (16/00504/GPDOFF) in  May 2016 for 257 flats. This was increased to 283 flats by a further prior notification in April 2017 (17/00416/GPDOFF) and  for an additional 2 (penthouse) flats also in April (17/00625/FUL).   The investor and developer (Seven Capital) has confirmed, through the site monitoring consultation, that all 285 units will be delivered in 2019, although a slightly more cautious approach has been used for land supply purposes. Construction is currently ongoing. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-20", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OLIJC5CRGQO00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Churchill Plaza Churchill Way Basingstoke", "SiteReference": "17/00625/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.396959, "GeoY": 51.25304, "HazardousSubstances": null, "Hectares": 0.813, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "Small site granted permission (17/00965/FUL ) in December 2017. As at the 1 April 2019 construction has started on site. Site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-11", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OMRFGNCR0GT00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Bank Top Spring Hill Lane St Mary Bourne", "SiteReference": "17/00965/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": "2019-12-23", "FirstAddedDate": "2017-12-31", "GeoX": -1.120503, "GeoY": 51.254494, "HazardousSubstances": null, "Hectares": 0.115, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Planning permission granted in July 2017 for 5 affordable units (17/01207/FUL). The site is vacant and has been cleared.  It is considered that the site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-07-31", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=ONKV6ZCRILM00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land Adjacent To 96 Paddock Road Basingstoke", "SiteReference": "17/01207/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.08413, "GeoY": 51.264585, "HazardousSubstances": null, "Hectares": 0.126, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "The site gained permission for 10 units in December 2017 (17/01292/FUL). The original building has been demolished and significant progress has been made, completions are expected from 2019/20. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-07", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=ONW5XNCRIWO00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "15 New Road Basingstoke", "SiteReference": "17/01292/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.096966, "GeoY": 51.270089, "HazardousSubstances": null, "Hectares": 2.023, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 491, "NetDwellingsRangeTo": 491, "Notes": "Outline planning permission granted for 578 units (14/00865/OUT) in January 2015. Reserved matters consent for the full 578 units  (15/03667/RES) was granted in May 2016. Work has commenced on site and the first 12 units were completed in 2016/17 and 115 in 2017/18 and 132 in 2018/19. 56 of the units are to be delivered in the existing  \u0027white building\u0027 and an application to increase this to 96 units (17/02279/FUL) was granted in March 2018.   The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-03-23", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OSBDQHCRN0Q00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land At Chapel Hill Kingsclere Road Basingstoke", "SiteReference": "17/02279/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.05982, "GeoY": 51.29757, "HazardousSubstances": null, "Hectares": 0.412, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 36, "NetDwellingsRangeTo": 36, "Notes": "A prior approval application for conversion from office to residential was approved in February 2017 (16/04426/GPDOFF) for 33 units. A  further prior approval application  (17/02516/GPDOFF) for 36 units was granted in December 2017. Conversion of the ground floor has now commenced. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-20", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OTDRNXCR0GT00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Spinnaker House Lime Tree Way Chineham Basingstoke", "SiteReference": "17/02516/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.073896, "GeoY": 51.272301, "HazardousSubstances": null, "Hectares": 0.205, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 18, "Notes": "Prior notification was approved  for 13 flats on the  site in December 2015  (15/03777/GPDOFF). A further prior notification was approved for 18 flats in September 2017 (17/02605/GDPOFF). It is understood that the site has been sold to a developer who will implement the scheme.  Completions expected from 2021/22.   The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-20", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OTP7K2CR0GT00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Spectrum House 8 Woodlands Business Village Coronation Road Basingstoke", "SiteReference": "17/02605/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.090731, "GeoY": 51.261103, "HazardousSubstances": null, "Hectares": 0.811, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Small site granted outline permission for 9 dwellings in March 2017 (17/03309/OUT).  No starts recorded at 1 April 2019 but site considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-01", "PermissionType": "outline planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OX1TGCCRJY000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Centenary House 10 Winchester Road", "SiteReference": "17/03309/OUT", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.126015, "GeoY": 51.255129, "HazardousSubstances": null, "Hectares": 0.345, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": "This site gained planning permission in  (17/03673/FUL). Soverign who are taking the site forward state that the site will be completed by 2020/21. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2019-02-11", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=OYQJP6CRLFS00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Deeside Alliston Way", "SiteReference": "17/03673/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.1191, "GeoY": 51.255846, "HazardousSubstances": null, "Hectares": 0.157, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": "The site gained full planning permission in Feburary 2019 (17/04029/FUL). The site is being actively persued by a housing association. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2019-02-19", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P0544CCRMRI00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Sandringham Court Paddock Road Basingstoke", "SiteReference": "17/04029/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.075252, "GeoY": 51.280971, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Planning permission for the conversion of this council owned building was granted in October 2014 (14/00759/FUL). This permission lapsed in 2018 and a new permission was granted in September 2018 (17/04259/FUL).  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-05-25", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P19XN0CRFZC00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Chineham House Shakespeare Road Basingstoke", "SiteReference": "17/04259/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.150834, "GeoY": 51.355794, "HazardousSubstances": null, "Hectares": 1.408, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 36, "NetDwellingsRangeTo": 36, "Notes": "Outline planning permission for 36 residential units was granted in March 2016 (14/02200/OUT) and reserved matters approval in October 2018 (18/00524/RES). Aster Communities who are developing the site expect it be complete in 2019/20. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-10-08", "PermissionType": "reserved matters approval", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P4EQ9KCRIHF00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Burnham Copse Infant School New Church Road Tadley", "SiteReference": "18/00524/RES", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.122148, "GeoY": 51.267083, "HazardousSubstances": null, "Hectares": 0.193, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "This site benefits from full planning permission granted in June 2018 (18/01184/FUL). The site is considered deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-06-19", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P7NBIVCRLCN00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Site Of Harlech Hall Harlech Close Winklebury Basingstoke", "SiteReference": "18/01184/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.085914, "GeoY": 51.262597, "HazardousSubstances": null, "Hectares": 0.032, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "This site gained planning permission in July 2018 (18/01270/FUL) for 10 units. The agent has confirmed that the development is under construction and completions are expected in 2019/20.  The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-13", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P820CXCRLQC00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "12 London Street Basingstoke", "SiteReference": "18/01270/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.089891, "GeoY": 51.26301, "HazardousSubstances": null, "Hectares": 0.409, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 46, "NetDwellingsRangeTo": 46, "Notes": "A prior notification was approved for the conversion of the building to residential use (16/00031/GPDOFF) in March 2016 for 35 flats. A further prior notification was approved to take the number of units up to 46 was approved in August 2018 (18/01504/GPDOFF).   The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-09", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=P9862DCR0AQ00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Innovation Court New Street Basingstoke", "SiteReference": "18/01504/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -1.092578, "GeoY": 51.26266, "HazardousSubstances": null, "Hectares": 0.183, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "This site benefits from permission in principle granted in October 2018 (18/02735/PIP). The site is currently being marketed. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-19", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PF1WD8CR0AP00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Kings School Brambleys Close Basingstoke", "SiteReference": "18/02735/PIP", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-05-14", "GeoX": -1.054928, "GeoY": 51.271564, "HazardousSubstances": null, "Hectares": 0.324, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "A prior notification was approved for the conversion of the building to residential use (18/03671/GPDOFF) in May 2019. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-05-09", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PJXX6TCR0AP00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Riverside View Basing Road Old Basing", "SiteReference": "18/03671/GPDOFF", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.08919, "GeoY": 51.260733, "HazardousSubstances": null, "Hectares": 0.121, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 40, "Notes": "The site gained prior approval for 40 units in September 2018 (18/02398/GPDOFF). Following this full planning permision was granted in Feburary 2019 (18/03684/FUL).  Previously the site had prior approval (17/01714/GPDOFF) and full planning permission (17/03275/FUL) for 37 units. The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-02-25", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PJZODJCRGW900\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Global House Victoria Street Basingstoke", "SiteReference": "18/03684/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-05-14", "GeoX": -1.067293, "GeoY": 51.331126, "HazardousSubstances": null, "Hectares": 0.188, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "Prior approval granted for 14 flats (18/01517/GPDOFF) in October 2018. External alterations were then approved in April 2019 (19/00373/FUL). The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-02-05", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PMH8UOCRIRD00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Minchens Court Minchens Lane Bramley", "SiteReference": "19/00373/FUL", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-05-14", "GeoX": -1.064105, "GeoY": 51.298152, "HazardousSubstances": null, "Hectares": 3.139, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 240, "NetDwellingsRangeTo": 240, "Notes": "A prior notification was approved for the conversion of the building to residential use (19/00717/GPDOFF) in April 2019. An application for condition discharge was submitted in early May (19/01269/CONDN). The site is deliverable within five years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-04-30", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=POARJZCR0AQ00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Unity Place Lime Tree Way Chineham", "SiteReference": "19/00717/GPDOFF", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.076987, "GeoY": 51.268749, "HazardousSubstances": null, "Hectares": 25.856, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 300, "NetDwellingsRangeTo": 300, "Notes": "The regeneration of Basing View  is being actively pursued by the borough council. This is reflected in  Local Plan policy SS8 which supports the redevelopment of the area for a mix of uses including a residential component of approximately 300 units. The site is in a suitable location for housing development, lying in a highly accessible location with good access to public transport interchanges, town centre facilities and employment opportunities. The Council has recently published the Basing View Masterplan which includes provision for residential development.  The site plan shows the whole of basing view reflecting the local plan allocation. The precise location of the residential element will be determined through site masterplanning.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Basing View Basingstoke", "SiteReference": "BAS004", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.082542, "GeoY": 51.262864, "HazardousSubstances": null, "Hectares": 0.326, "LastUpdatedDate": "2019-05-14", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": "The site is a SHELAA site (BAS012) which falls within the built up area of Basingstoke and within the SPB in an area of predominantly residential development in close proximity to the town. The current use as a police station is due to cease (as part of the wider review of Hampshire Constabulary sites) and the site is currently being marketed for redevelopment.  An applicaton was submited in Feburary 2019 (19/00436/FUL) and is pending consideration for 55 retirements apartments.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "pending decision", "SiteNameAddress": "Police Station London Road Basingstoke", "SiteReference": "BAS012", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.123164, "GeoY": 51.270351, "HazardousSubstances": null, "Hectares": 0.381, "LastUpdatedDate": "2019-05-14", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "Consent was originally granted on the wider site  for the demolition of the Former Newman Bassett House building and a replacement smaller \u2018respite unit\u2019 which has now been completed. (Hindson House).Therefore, this retains the facility and service use and frees up the remainder of the land for residential redevelopment. The land is vacant but not currently available as it is being used as a temporary construction compound, the requirement for which is due to cease in late 2018. Afterwhich HCC confirm that they intend to apply for planning permission for residential development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land At Former Newman Bassett House Basingstoke", "SiteReference": "BAS031", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.257512, "GeoY": 51.354703, "HazardousSubstances": null, "Hectares": 0.284, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "The site is the remainder of a larger scheme for tied staff accommodation at Cheam Hawtreys School  (BDB/63103, approved 2006).  The school has confirmed, through the site monitoring consultation, that whilst the site will be delivered in due course, at present they have no intention to build out the remaining 6 units within the next 5 years.  The site has therefore been phased into the 5-10 year time band and its future delivery will continue to be reviewed through the annual monitoring process.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2006-06-21", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZTBZCRBJ724\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Cheam Hawtreys Newbury Road Headley", "SiteReference": "BDB/63103", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.334432, "GeoY": 51.23491, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": "The site is allocated for approximately 15 dwellings in the Whitchurch Neighbourhood Plan (Policy HA1)  which was made in October 2017 . The brownfield site is currently in use as a police station and is therefore not currently available. The Police Commissioners have confirmed that this site will cease to be used for its present purpose and will be available for housing development within the Plan Period which ends in 2029.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Police Station Dances Lane Whitchurch", "SiteReference": "WHIT004", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.337708, "GeoY": 51.227053, "HazardousSubstances": null, "Hectares": 0.166, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "The site is allocated for approximately 10 dwellings in the Whitchurch Neighbourhood Plan (Policy HA3)  which was made in October 2017 . The brownfield site is currently in use as a car centre and is therefore not currently available.  However, the owners have confirmed their intention to redevelop the site for housings over the Local Plan period which runs to 2029.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "57 Winchester Road (Whitchurch Car Centre) Whitchurch", "SiteReference": "WHIT007", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.088227, "GeoY": 51.26569, "HazardousSubstances": null, "Hectares": 0.421, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 300, "NetDwellingsRangeTo": 300, "Notes": "The site has been promoted for development through the council\u0027s Call for Sites in 2019 and the council consider this site to be potentially developable for 300 dwellings within a 5-10 year time period", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Festival Place Hampstead House Kensington House Chelsea House and Westminster House Basingstoke", "SiteReference": "BAS009", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.122203, "GeoY": 51.271896, "HazardousSubstances": null, "Hectares": 7.253, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 74, "NetDwellingsRangeTo": 74, "Notes": "The site has been promoted for development through the council\u0027s Call for Sites in 2019 by HCC. The site is considered to be potentially developable for 74 dwellings within a 5-10 year time period.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Fort Hill Community School", "SiteReference": "BAS054", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.110423, "GeoY": 51.252002, "HazardousSubstances": null, "Hectares": 1.856, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 160, "NetDwellingsRangeTo": 160, "Notes": "The site has been promoted for development through the council\u0027s Call for Sites in 2019 and the council consider this site to be potentially developable for 160 dwellings within a 5-10 year time period", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "pending decision", "SiteNameAddress": "Camrose Stadium Winchester Road", "SiteReference": "BAS024", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.14002, "GeoY": 51.254913, "HazardousSubstances": null, "Hectares": 0.472, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "The site has been promoted for development through the council\u0027s Call for Sites in 2019 and the council consider this site to be potentially developable for 10 dwellings within a 5-10 year time period", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land west of 2 Kite Hill", "SiteReference": "BAS029", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.114918, "GeoY": 51.274304, "HazardousSubstances": null, "Hectares": 0.525, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 18, "Notes": "The site has been promoted for development through the council\u0027s Call for Sites in 2019 by HCC and the council consider this site to be potentially developable for 18 dwellings within a 5-10 year time period", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Ashford Way", "SiteReference": "BAS032", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.111786, "GeoY": 51.284073, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 21, "Notes": "The site has been promoted for development through the council\u0027s Call for Sites in 2019 . The site is considered to be potentially developable for 21 dwellings within a 5-10 year time period.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=\u0026activeTab=summary", "PlanningStatus": "pending decision", "SiteNameAddress": "The Hollies Aldermaston Road", "SiteReference": "RO002", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-23", "GeoX": -1.145752, "GeoY": 51.358206, "HazardousSubstances": null, "Hectares": 0.176, "LastUpdatedDate": "2019-12-23", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 17, "Notes": "The site gained permission in October 2019 for 17 dwellings (17/03849/FUL). The site is considered potentially developable within a 5-10 year period.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/basingstoke", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-10-15", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.basingstoke.gov.uk/online-applications/applicationDetails.do?keyVal=PNJZMICRJOC00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Boundary Place", "SiteReference": "19/00579/FUL", "SiteplanURL": null}];
+    const bbox = [-1.411294648924002, -1.0267833510759983, 51.18904584341859, 51.36718915658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">01c922a3...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.tamworth.gov.uk/sites/default/files/planning_docs/Brownfield_register/App_A_tamworthbc_brownfieldregister_2017-12-08_rev1.csv">https://www.tamworth.gov.uk/sites/default/files/planning_docs/Brownfield_register/App_A_tamworthbc_brownfieldregister_2017-12-08_rev1.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:TAW">Tamworth Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/01c922a3f33dda8ce6b5ab57a5522319157911a039a6441699ed40984555e094/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/01c922a3f33dda8ce6b5ab57a5522319157911a039a6441699ed40984555e094">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">39 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">16.76
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>39</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/01c922a3f33dda8ce6b5ab57a5522319157911a039a6441699ed40984555e094.csv"
+        download="01c922a3f33dda8ce6b5ab57a5522319157911a039a6441699ed40984555e094_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/01c922a3f33dda8ce6b5ab57a5522319157911a039a6441699ed40984555e094"
+        download="01c922a3f33dda8ce6b5ab57a5522319157911a039a6441699ed40984555e094_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR011</td>
+                    <td>-1.712869</td>
+                    <td>52.635352</td>
+                    <td>0.66</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Coton's van Hire / Millfields House, Lichfield Road</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR011.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR039</td>
+                    <td>-1.699491</td>
+                    <td>52.629559</td>
+                    <td>0.32</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Co-op filling station</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR039.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR007</td>
+                    <td>-1.680263</td>
+                    <td>52.611496</td>
+                    <td>0.23</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Station Car Park off B5404</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR007.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR010</td>
+                    <td>-1.687781</td>
+                    <td>52.635679</td>
+                    <td>0.51</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Jewsons, Saxon Drive</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR010.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR005</td>
+                    <td>-1.694985</td>
+                    <td>52.635379</td>
+                    <td>0.39</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Arriva Bus Depot, Aldergate</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR005.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR001</td>
+                    <td>-1.697015</td>
+                    <td>52.635747</td>
+                    <td>0.31</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Phoenix Special Purpose Machines, Hospital Street</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR001.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR008</td>
+                    <td>-1.702254</td>
+                    <td>52.634382</td>
+                    <td>0.24</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Hyundai Garage, Lichfield Street</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR008.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR004</td>
+                    <td>-1.699216</td>
+                    <td>52.634251</td>
+                    <td>0.2</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Norris Bros, Lichfield Street</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR004.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR002</td>
+                    <td>-1.681157</td>
+                    <td>52.610778</td>
+                    <td>1.5</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land off Cottage Farm Road</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR002.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR009</td>
+                    <td>-1.675176</td>
+                    <td>52.610289</td>
+                    <td>0.17</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Factory north of B5404</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR009.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR003</td>
+                    <td>-1.681992</td>
+                    <td>52.611262</td>
+                    <td>0.17</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Derelict buildings south of B5404</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR003.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031.  Lapsed planning permission 0551/2007</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR006</td>
+                    <td>-1.676942</td>
+                    <td>52.611137</td>
+                    <td>1.04</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Northern Part of Beauchamp Employment Area</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR006.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR012</td>
+                    <td>-1.677611</td>
+                    <td>52.632459</td>
+                    <td>0.39</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Amington Pub</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR012.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR013</td>
+                    <td>-1.686562</td>
+                    <td>52.618959</td>
+                    <td>0.42</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Park off Park Farm Road</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR013.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR014</td>
+                    <td>-1.698548</td>
+                    <td>52.622974</td>
+                    <td>0.52</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fazeley Autocentre and Units behind</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR014.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR015</td>
+                    <td>-1.662618</td>
+                    <td>52.601313</td>
+                    <td>0.24</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Sandyback Pub, Overwoods Road</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR015.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR016</td>
+                    <td>-1.6664</td>
+                    <td>52.606859</td>
+                    <td>0.5</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Staffs County Council Care Home, New Road</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR016.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR018</td>
+                    <td>-1.677326</td>
+                    <td>52.615641</td>
+                    <td>0.36</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Seaton Hire Ltd and land to south, Wilnecote Lane</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR018.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR019</td>
+                    <td>-1.685074</td>
+                    <td>52.628256</td>
+                    <td>0.39</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Royal Mail sorting office, Blythe Street</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR019.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR020</td>
+                    <td>-1.678921</td>
+                    <td>52.629539</td>
+                    <td>0.31</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Briers Scrapyard, Glascote</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR020.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR021</td>
+                    <td>-1.682306</td>
+                    <td>52.634188</td>
+                    <td>0.15</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>JE Harrison Depot, Moor Lane</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR021.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR022</td>
+                    <td>-1.689229</td>
+                    <td>52.62507</td>
+                    <td>0.16</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Units North of Campion Drive</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR022.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR023</td>
+                    <td>-1.683806</td>
+                    <td>52.600677</td>
+                    <td>0.38</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Treetops Garage, Dosthill</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR023.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR024</td>
+                    <td>-1.69317</td>
+                    <td>52.635819</td>
+                    <td>0.15</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Club, Spinning School Lane</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR024.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR025</td>
+                    <td>-1.692722</td>
+                    <td>52.636195</td>
+                    <td>0.21</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Youth Centre, Albert Road</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR025.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site allocation in TBC LP 2006-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR026</td>
+                    <td>-1.689894</td>
+                    <td>52.632666</td>
+                    <td>0.19</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Job Centre, Saxon Mill Lane</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR026.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR027</td>
+                    <td>-1.680749</td>
+                    <td>52.612989</td>
+                    <td>0.86</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former railway goods yard, Wilnecote</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR027.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>site allocation in TBC LP 2006-2031.  Wilnecote regeneration corridor</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR028</td>
+                    <td>-1.678944</td>
+                    <td>52.611247</td>
+                    <td>0.63</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Beauchamp Employment Area</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR028.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR017</td>
+                    <td>-1.667514</td>
+                    <td>52.625832</td>
+                    <td>0.48</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Profile Wrappers, Marlborough Way</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR017.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Now Wake engineering.  Lapsed pp 0289/2008</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR029</td>
+                    <td>-1.676404</td>
+                    <td>52.610578</td>
+                    <td>0.26</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Petrol filling station, part of Beauchamp Employment Area</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR029.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR030</td>
+                    <td>-1.699467</td>
+                    <td>52.634638</td>
+                    <td>0.09</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Progressive Club, Halford Street</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR030.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>behind Norris Brothers on Lichfield Street</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR031</td>
+                    <td>-1.671011</td>
+                    <td>52.60133</td>
+                    <td>0.73</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Adjacent to Tame Valley Alloys</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR031.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR032</td>
+                    <td>-1.705751</td>
+                    <td>52.644359</td>
+                    <td>0.78</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Solway Close</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR032.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>TBC owned.  In LP 25006-2031.  Planning app in with resolution to permit 0424/2015</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR033</td>
+                    <td>-1.685056</td>
+                    <td>52.624756</td>
+                    <td>1.05</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Kettlebrook Road Industrial Estate, South</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR033.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR034</td>
+                    <td>-1.671804</td>
+                    <td>52.632273</td>
+                    <td>0.17</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Winning Post Pub, Argyle Street</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR034.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR035</td>
+                    <td>-1.668806</td>
+                    <td>52.607151</td>
+                    <td>0.7</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>WMC, Bowling Green Avenue</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR035.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR036</td>
+                    <td>-1.683875</td>
+                    <td>52.611669</td>
+                    <td>0.66</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Two Gates Working Mens Club</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR036.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR037</td>
+                    <td>-1.660506</td>
+                    <td>52.633164</td>
+                    <td>0.19</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>High Wynard, Highfield Avenue, Amington, Tamworth, B77 3JB</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR037.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>0326/2016</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR038</td>
+                    <td>-1.692466</td>
+                    <td>52.633853</td>
+                    <td>0.05</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/tamworth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>10 Colehill, Tamworth, B79 7HE</td>
+                    <td>https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR038.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>0467/2016.  Change of use of 4 units on ground floor with A1/A2/A3/B1 use and creation of 5 residential units on first and second floors</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.712869, "GeoY": 52.635352, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Coton\u0027s van Hire / Millfields House, Lichfield Road", "SiteReference": "BR011", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR011.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.699491, "GeoY": 52.629559, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Co-op filling station", "SiteReference": "BR039", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR039.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.680263, "GeoY": 52.611496, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Station Car Park off B5404", "SiteReference": "BR007", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR007.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.687781, "GeoY": 52.635679, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Jewsons, Saxon Drive", "SiteReference": "BR010", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR010.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.694985, "GeoY": 52.635379, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Arriva Bus Depot, Aldergate", "SiteReference": "BR005", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR005.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.697015, "GeoY": 52.635747, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Phoenix Special Purpose Machines, Hospital Street", "SiteReference": "BR001", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR001.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.702254, "GeoY": 52.634382, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Hyundai Garage, Lichfield Street", "SiteReference": "BR008", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR008.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.699216, "GeoY": 52.634251, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Norris Bros, Lichfield Street", "SiteReference": "BR004", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR004.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.681157, "GeoY": 52.610778, "HazardousSubstances": null, "Hectares": 1.5, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Cottage Farm Road", "SiteReference": "BR002", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR002.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.675176, "GeoY": 52.610289, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Factory north of B5404", "SiteReference": "BR009", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR009.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.681992, "GeoY": 52.611262, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031.  Lapsed planning permission 0551/2007", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Derelict buildings south of B5404", "SiteReference": "BR003", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR003.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.676942, "GeoY": 52.611137, "HazardousSubstances": null, "Hectares": 1.04, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Northern Part of Beauchamp Employment Area", "SiteReference": "BR006", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR006.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.677611, "GeoY": 52.632459, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Amington Pub", "SiteReference": "BR012", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR012.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.686562, "GeoY": 52.618959, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Park off Park Farm Road", "SiteReference": "BR013", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR013.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.698548, "GeoY": 52.622974, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fazeley Autocentre and Units behind", "SiteReference": "BR014", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR014.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.662618, "GeoY": 52.601313, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Sandyback Pub, Overwoods Road", "SiteReference": "BR015", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR015.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.6664, "GeoY": 52.606859, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Staffs County Council Care Home, New Road", "SiteReference": "BR016", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR016.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.677326, "GeoY": 52.615641, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Seaton Hire Ltd and land to south, Wilnecote Lane", "SiteReference": "BR018", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR018.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.685074, "GeoY": 52.628256, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Royal Mail sorting office, Blythe Street", "SiteReference": "BR019", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR019.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.678921, "GeoY": 52.629539, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Briers Scrapyard, Glascote", "SiteReference": "BR020", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR020.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.682306, "GeoY": 52.634188, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "JE Harrison Depot, Moor Lane", "SiteReference": "BR021", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR021.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.689229, "GeoY": 52.62507, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Units North of Campion Drive", "SiteReference": "BR022", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR022.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.683806, "GeoY": 52.600677, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Treetops Garage, Dosthill", "SiteReference": "BR023", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR023.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.69317, "GeoY": 52.635819, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Club, Spinning School Lane", "SiteReference": "BR024", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR024.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.692722, "GeoY": 52.636195, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site allocation in TBC LP 2006-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Youth Centre, Albert Road", "SiteReference": "BR025", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR025.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.689894, "GeoY": 52.632666, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Job Centre, Saxon Mill Lane", "SiteReference": "BR026", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR026.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.680749, "GeoY": 52.612989, "HazardousSubstances": null, "Hectares": 0.86, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "site allocation in TBC LP 2006-2031.  Wilnecote regeneration corridor", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former railway goods yard, Wilnecote", "SiteReference": "BR027", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR027.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.678944, "GeoY": 52.611247, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Beauchamp Employment Area", "SiteReference": "BR028", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR028.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.667514, "GeoY": 52.625832, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Now Wake engineering.  Lapsed pp 0289/2008", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Profile Wrappers, Marlborough Way", "SiteReference": "BR017", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR017.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.676404, "GeoY": 52.610578, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Petrol filling station, part of Beauchamp Employment Area", "SiteReference": "BR029", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR029.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.699467, "GeoY": 52.634638, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "behind Norris Brothers on Lichfield Street", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Progressive Club, Halford Street", "SiteReference": "BR030", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR030.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.671011, "GeoY": 52.60133, "HazardousSubstances": null, "Hectares": 0.73, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Adjacent to Tame Valley Alloys", "SiteReference": "BR031", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR031.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.705751, "GeoY": 52.644359, "HazardousSubstances": null, "Hectares": 0.78, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "TBC owned.  In LP 25006-2031.  Planning app in with resolution to permit 0424/2015", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Solway Close", "SiteReference": "BR032", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR032.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.685056, "GeoY": 52.624756, "HazardousSubstances": null, "Hectares": 1.05, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Kettlebrook Road Industrial Estate, South", "SiteReference": "BR033", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR033.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.671804, "GeoY": 52.632273, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Winning Post Pub, Argyle Street", "SiteReference": "BR034", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR034.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.668806, "GeoY": 52.607151, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "WMC, Bowling Green Avenue", "SiteReference": "BR035", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR035.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.683875, "GeoY": 52.611669, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Two Gates Working Mens Club", "SiteReference": "BR036", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR036.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.660506, "GeoY": 52.633164, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "0326/2016", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-08", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "High Wynard, Highfield Avenue, Amington, Tamworth, B77 3JB", "SiteReference": "BR037", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR037.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.692466, "GeoY": 52.633853, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "0467/2016.  Change of use of 4 units on ground floor with A1/A2/A3/B1 use and creation of 5 residential units on first and second floors", "OrganisationURI": "http://opendatacommunities.org/id/district-council/tamworth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-22", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "10 Colehill, Tamworth, B79 7HE", "SiteReference": "BR038", "SiteplanURL": "https://www.tamworth.gov.uk/sites/default/files/planning_docs/brownfield_register/BR038.pdf"}];
+    const bbox = [-1.7276593403907574, -1.6457156596092426, 52.5916938434186, 52.6533421565814];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

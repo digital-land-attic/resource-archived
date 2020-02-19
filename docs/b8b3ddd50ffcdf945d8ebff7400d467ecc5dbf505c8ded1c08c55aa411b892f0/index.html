@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b8b3ddd5...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.westlancs.gov.uk/media/543716/blr-2017-final.csv">http://www.westlancs.gov.uk/media/543716/blr-2017-final.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WLA">West Lancashire Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b8b3ddd50ffcdf945d8ebff7400d467ecc5dbf505c8ded1c08c55aa411b892f0/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b8b3ddd50ffcdf945d8ebff7400d467ecc5dbf505c8ded1c08c55aa411b892f0">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">25 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">41.94
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>25</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b8b3ddd50ffcdf945d8ebff7400d467ecc5dbf505c8ded1c08c55aa411b892f0.csv"
+        download="b8b3ddd50ffcdf945d8ebff7400d467ecc5dbf505c8ded1c08c55aa411b892f0_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b8b3ddd50ffcdf945d8ebff7400d467ecc5dbf505c8ded1c08c55aa411b892f0"
+        download="b8b3ddd50ffcdf945d8ebff7400d467ecc5dbf505c8ded1c08c55aa411b892f0_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>WL002</td>
+                    <td>-2.751925</td>
+                    <td>53.544701</td>
+                    <td>1.8</td>
+                    <td>2016-08-03</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Hope High School, Tanhouse Road, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "" Site promoted through the SHELAA, it is partly covered by EN3 designation however, part of the remaining site can be developed for residential development therefore a yield of 27.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL003</td>
+                    <td>-2.95556</td>
+                    <td>53.620126</td>
+                    <td>0.71</td>
+                    <td>2016-08-03</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>pending decision</td>
+                    <td>Former Reynolds Garage (part), Southport Road, Brown Edge, Scarisbrick</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2017/0427/FUL erection of 47 affordable housing units - pending."". ""Site has a pending planning application for 47 affordable dwellings.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL004</td>
+                    <td>-2.771123</td>
+                    <td>53.553449</td>
+                    <td>3.34</td>
+                    <td>2016-08-03</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-03-15</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Land at Findon, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. ""Site has an LDO 2015/1328/LDO with a figure of upto 128 dwellings on the site.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL005</td>
+                    <td>-2.768379</td>
+                    <td>53.541465</td>
+                    <td>2.56</td>
+                    <td>2016-08-03</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-03-15</td>
+                    <td>planning permission granted under an order</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Site of Former Sports Centre, Digmoor Road, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. ""Site has an LDO 2015/1327/LDO with the figure of 45 dwellings on the site.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL006</td>
+                    <td>-2.91439</td>
+                    <td>53.676507</td>
+                    <td>10.26</td>
+                    <td>2016-08-04</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-06-27</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Site of Former Greaves Hall Hospital, Greaves Hall Avenue, Banks</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2016/0706/ARM For 128 dwellings light industrial units and assoicated road and infrastructure including details of appearance landscaping layout and scale - Pending decision."". ""Site promoted through the SHELAA and has planning permission outline 2013/0104/OUT for residenital development and a reserved pending planning application for the erection of 128 dwellings 2016/0706/AMR.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL007</td>
+                    <td>-2.836296</td>
+                    <td>53.607522</td>
+                    <td>0.51</td>
+                    <td>2016-08-04</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-28</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Longreach Warpers Moss Lane, Burscough</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. ""Site promoted through SHELAA and has Outline planning permission 2013/0517/OUT for 6 residential dwellings.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL008</td>
+                    <td>-2.889392</td>
+                    <td>53.564807</td>
+                    <td>0.26</td>
+                    <td>2016-08-04</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Site of Former 111 Aughton Street, Ormskirk</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2013/1002/OUT erection of mixed use residential and office building including details of landscaping expired 29/10/2016."". ""Expired planning permission for 6 apartments and groundfloor commercial units 2013/0975/OUT.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL009</td>
+                    <td>-2.835198</td>
+                    <td>53.697869</td>
+                    <td>16.5</td>
+                    <td>2016-08-04</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-30</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Henry Alty Lts Station Road, Hesketh Bank</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. ""Outline planning permission 2013/1258/OUT , followed by the the approval of reserved matters application 2017/0492/AMR which is pending for 212 dwellings.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL010</td>
+                    <td>-2.862039</td>
+                    <td>53.588021</td>
+                    <td>0.27</td>
+                    <td>2016-08-04</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-08-15</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Bull And Dog Inn, 5 Liverpool Road South, Burscough</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2014/0079/FUL construction of 6 new build dwellings and conversion of existing barn to 1 4 bed dwelling plus associated parking driveways and landscaping. "". ""Site is promoted in the SHELAA, the site has planning permission for the construction of 6 new dwellings and the conversion of an existing barn 2014/0079/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL011</td>
+                    <td>-2.830759</td>
+                    <td>53.678908</td>
+                    <td>0.19</td>
+                    <td>2016-08-05</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-13</td>
+                    <td>reserved matters approval</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Rear of 94 Church Road, Tarleton</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2014/1177/ARM erection of 5 2 storey dwellings."". ""Site was promoted through the SHELAA, planning permission for 5 two storey dwellings 2014/1177/AMR.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL012</td>
+                    <td>-2.958746</td>
+                    <td>53.553569</td>
+                    <td>0.26</td>
+                    <td>2016-08-05</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-06</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Downholland Bridge Business Park, Mairscough Lane, Downholland</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2015/0959/OUT construction of six dwellings following demolition of existing commercial premises including details of access layout and scale."". ""Site promoted through the SHELAA, outline permission for 6 dwellings 2015/0959/OUT.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL013</td>
+                    <td>-2.829326</td>
+                    <td>53.679616</td>
+                    <td>0.76</td>
+                    <td>2016-08-05</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-16</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>The Barrons 104 Church Road, Tarleton</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2015/0951/FUL residential development including 4 three bedroom detached dwellings and associated external works."". ""Site promoted through the SHELAA, full planning permission for 7 dwellings 2015/0951/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL014</td>
+                    <td>-2.905238</td>
+                    <td>53.542832</td>
+                    <td>0.23</td>
+                    <td>2016-08-05</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-27</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Land to the rear of 69-75 Town Green Lane, Aughton</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2015/06/1186/OUT residential development to provide up to 5 dwtached dwellings including details of access."". ""Site promoted through the SHELAA, outline planning permission for 5 dwellings 2015/1186/OUT.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL015</td>
+                    <td>-2.770818</td>
+                    <td>53.540033</td>
+                    <td>0.17</td>
+                    <td>2016-08-05</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-03</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>The Almond Tree, Abbeystead, Digmoor, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2015/0723/OUT development of 12 residential flats with associated car parking and green space following the demolition of the existing public house."". "Site promoted through the SHELAA, outline planning permission for 12 apartments 2015/0723/OUT.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL028</td>
+                    <td>-2.805693</td>
+                    <td>53.550898</td>
+                    <td>0.1</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-02-18</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>The Comerades Club, Witham Road, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2013/0823/FUL demolition of existing social club and erection of two 3 storey apartment blocks comprising 12 2 bedroom self contained flats and provision for 15 car parkign spaces."". ""Site promoted through SHELAA and has full planning permission for 12 self contained flats.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL029</td>
+                    <td>-2.88653</td>
+                    <td>53.568479</td>
+                    <td>0.12</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-10-11</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Land the The Stiles, Ormskirk</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"" 2011/0148/FUL mixed use development comprising 2 commercial units and 17 3 bed aprtments with associated amenity space and car parking."". ""Site promoted throught SHELAA which is parked due to multiple ownership constraints. Permission for a mixed use development for ground floor commercial units and 17 apartments 2011/0148/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL031</td>
+                    <td>-2.772431</td>
+                    <td>53.541108</td>
+                    <td>0.38</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-20</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Shannons Social Club, Spencers Lane, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2014/0812/FULdemolition of the existing social club building and development of 18 new dwellings."". ""Site promoted through SHELAA planning permission for 18 dwellings 2014/0812/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL032</td>
+                    <td>-2.846435</td>
+                    <td>53.604186</td>
+                    <td>0.13</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-03-24</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Site of Former 82 Orrell Lane, Burscough</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2013/0740/FUL Demolition of existing buildings and erection of 1 detached house and 4 semi detached houses."". ""Site promoted through SHELAA planning permission for erection of 5 dwelings 2013/0740/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL034</td>
+                    <td>-2.882558</td>
+                    <td>53.57104</td>
+                    <td>0.48</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-01</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>The Bath House, 130 Burscough Street, Ormskirk</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2015/0265/FUL demolition of former primary school and adjacent dwellings for affordable residential development totalling 29 dwelings. Comprising of 12 1 and 2 bed flats 12 2 and 3 bed semi detached houses and 5 3 and 4 bed detached unitis with assocaited new access and hard and soft landscaping."". ""Site has full planning permission for 29 dwellings 2015/0265/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL035</td>
+                    <td>-2.845739</td>
+                    <td>53.707964</td>
+                    <td>1.6</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-05-13</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>9 Shore Road, Hesketh Bank</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2013/1138/FUL demolition of outbuildings and erection of 6 detached and semi detached dwellings with off street parking and new access road."". ""Site has full planning permission for the erection of 6 dwellings 2013/1138/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL036</td>
+                    <td>-3.010677</td>
+                    <td>53.614275</td>
+                    <td>0.3</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-19</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>14A New Cut Lane, Halsall</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2016/1173/FUL erection of one dwelling with private rear garden in curtilage car parking and new access road."". ""Site has permission for the erection of one dwelling 2016/1173/FUL. Larger site with capacity for 7 other dwellings.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL037</td>
+                    <td>-2.887008</td>
+                    <td>53.551022</td>
+                    <td>0.29</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-11</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>30A Scarth Hill Lane, Aughton</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2016/0878/FUL erection of eight dwellings and access road following demolition of existing buildings."". ""Site has permission for the erection of 8 dwellings 2016/0878/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL038</td>
+                    <td>-2.762776</td>
+                    <td>53.553586</td>
+                    <td>0.22</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-09</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Former Silver Birch Hotel, Floron, Birch Green, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"" 2016/0832/FUL demolition of existing vacant commercial building and construction of mixed use development comprising 4 retail/commercial units and 18 self contained apartments with associated car parking and landscaping."". ""Site has permission for 4 commercial units and 18 self contained apartments 2016/0832/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL039</td>
+                    <td>-2.915401</td>
+                    <td>53.623916</td>
+                    <td>0.35</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-10</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>4 Bescar Lane, Scarisbrick</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2016/1050/FUL demolition of existing industrial units and construction of 5 resdiential units 3 and 4 bed. "". ""Site has permission for the erection of 5 dwellings 2016/1050/FUL.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WL040</td>
+                    <td>-2.903018</td>
+                    <td>53.542849</td>
+                    <td>0.15</td>
+                    <td>2017-06-13</td>
+                    <td>2017-10-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-lancashire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-12</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.westlancs.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Garages to the east of Arnian Court, Molyneux Road, Skelmersdale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>""2017/0185/OUT demolition of 31 lock up garages and outline application including means of access for the redevelopmentof the site to provide up to 7 dwellings."". "" Site has outline permission for the erection of 7 dwellings 2017/0185/OUT.""</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-03", "GeoX": -2.751925, "GeoY": 53.544701, "HazardousSubstances": null, "Hectares": 1.8, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"\" Site promoted through the SHELAA, it is partly covered by EN3 designation however, part of the remaining site can be developed for residential development therefore a yield of 27.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Hope High School, Tanhouse Road, Skelmersdale", "SiteReference": "WL002", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-03", "GeoX": -2.95556, "GeoY": 53.620126, "HazardousSubstances": null, "Hectares": 0.71, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2017/0427/FUL erection of 47 affordable housing units - pending.\"\". \"\"Site has a pending planning application for 47 affordable dwellings.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "pending decision", "SiteNameAddress": "Former Reynolds Garage (part), Southport Road, Brown Edge, Scarisbrick", "SiteReference": "WL003", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-03", "GeoX": -2.771123, "GeoY": 53.553449, "HazardousSubstances": null, "Hectares": 3.34, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"\"Site has an LDO 2015/1328/LDO with a figure of upto 128 dwellings on the site.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-03-15", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Findon, Skelmersdale", "SiteReference": "WL004", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-03", "GeoX": -2.768379, "GeoY": 53.541465, "HazardousSubstances": null, "Hectares": 2.56, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"\"Site has an LDO 2015/1327/LDO with the figure of 45 dwellings on the site.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-03-15", "PermissionType": "planning permission granted under an order", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Former Sports Centre, Digmoor Road, Skelmersdale", "SiteReference": "WL005", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-04", "GeoX": -2.91439, "GeoY": 53.676507, "HazardousSubstances": null, "Hectares": 10.26, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2016/0706/ARM For 128 dwellings light industrial units and assoicated road and infrastructure including details of appearance landscaping layout and scale - Pending decision.\"\". \"\"Site promoted through the SHELAA and has planning permission outline 2013/0104/OUT for residenital development and a reserved pending planning application for the erection of 128 dwellings 2016/0706/AMR.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-06-27", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Former Greaves Hall Hospital, Greaves Hall Avenue, Banks", "SiteReference": "WL006", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-04", "GeoX": -2.836296, "GeoY": 53.607522, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"\"Site promoted through SHELAA and has Outline planning permission 2013/0517/OUT for 6 residential dwellings.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-28", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Longreach Warpers Moss Lane, Burscough", "SiteReference": "WL007", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-04", "GeoX": -2.889392, "GeoY": 53.564807, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2013/1002/OUT erection of mixed use residential and office building including details of landscaping expired 29/10/2016.\"\". \"\"Expired planning permission for 6 apartments and groundfloor commercial units 2013/0975/OUT.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Site of Former 111 Aughton Street, Ormskirk", "SiteReference": "WL008", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-04", "GeoX": -2.835198, "GeoY": 53.697869, "HazardousSubstances": null, "Hectares": 16.5, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"\"Outline planning permission 2013/1258/OUT , followed by the the approval of reserved matters application 2017/0492/AMR which is pending for 212 dwellings.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-30", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Henry Alty Lts Station Road, Hesketh Bank", "SiteReference": "WL009", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-04", "GeoX": -2.862039, "GeoY": 53.588021, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2014/0079/FUL construction of 6 new build dwellings and conversion of existing barn to 1 4 bed dwelling plus associated parking driveways and landscaping. \"\". \"\"Site is promoted in the SHELAA, the site has planning permission for the construction of 6 new dwellings and the conversion of an existing barn 2014/0079/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-08-15", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Bull And Dog Inn, 5 Liverpool Road South, Burscough", "SiteReference": "WL010", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-05", "GeoX": -2.830759, "GeoY": 53.678908, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2014/1177/ARM erection of 5 2 storey dwellings.\"\". \"\"Site was promoted through the SHELAA, planning permission for 5 two storey dwellings 2014/1177/AMR.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-13", "PermissionType": "reserved matters approval", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 94 Church Road, Tarleton", "SiteReference": "WL011", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-05", "GeoX": -2.958746, "GeoY": 53.553569, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2015/0959/OUT construction of six dwellings following demolition of existing commercial premises including details of access layout and scale.\"\". \"\"Site promoted through the SHELAA, outline permission for 6 dwellings 2015/0959/OUT.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-06", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Downholland Bridge Business Park, Mairscough Lane, Downholland", "SiteReference": "WL012", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-05", "GeoX": -2.829326, "GeoY": 53.679616, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2015/0951/FUL residential development including 4 three bedroom detached dwellings and associated external works.\"\". \"\"Site promoted through the SHELAA, full planning permission for 7 dwellings 2015/0951/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-16", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "The Barrons 104 Church Road, Tarleton", "SiteReference": "WL013", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-05", "GeoX": -2.905238, "GeoY": 53.542832, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2015/06/1186/OUT residential development to provide up to 5 dwtached dwellings including details of access.\"\". \"\"Site promoted through the SHELAA, outline planning permission for 5 dwellings 2015/1186/OUT.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-27", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Land to the rear of 69-75 Town Green Lane, Aughton", "SiteReference": "WL014", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-08-05", "GeoX": -2.770818, "GeoY": 53.540033, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2015/0723/OUT development of 12 residential flats with associated car parking and green space following the demolition of the existing public house.\"\". \"Site promoted through the SHELAA, outline planning permission for 12 apartments 2015/0723/OUT.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-03", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "The Almond Tree, Abbeystead, Digmoor, Skelmersdale", "SiteReference": "WL015", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.805693, "GeoY": 53.550898, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2013/0823/FUL demolition of existing social club and erection of two 3 storey apartment blocks comprising 12 2 bedroom self contained flats and provision for 15 car parkign spaces.\"\". \"\"Site promoted through SHELAA and has full planning permission for 12 self contained flats.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-02-18", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "The Comerades Club, Witham Road, Skelmersdale", "SiteReference": "WL028", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.88653, "GeoY": 53.568479, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\" 2011/0148/FUL mixed use development comprising 2 commercial units and 17 3 bed aprtments with associated amenity space and car parking.\"\". \"\"Site promoted throught SHELAA which is parked due to multiple ownership constraints. Permission for a mixed use development for ground floor commercial units and 17 apartments 2011/0148/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-10-11", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Land the The Stiles, Ormskirk", "SiteReference": "WL029", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.772431, "GeoY": 53.541108, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2014/0812/FULdemolition of the existing social club building and development of 18 new dwellings.\"\". \"\"Site promoted through SHELAA planning permission for 18 dwellings 2014/0812/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-20", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Shannons Social Club, Spencers Lane, Skelmersdale", "SiteReference": "WL031", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.846435, "GeoY": 53.604186, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2013/0740/FUL Demolition of existing buildings and erection of 1 detached house and 4 semi detached houses.\"\". \"\"Site promoted through SHELAA planning permission for erection of 5 dwelings 2013/0740/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-03-24", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Former 82 Orrell Lane, Burscough", "SiteReference": "WL032", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.882558, "GeoY": 53.57104, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2015/0265/FUL demolition of former primary school and adjacent dwellings for affordable residential development totalling 29 dwelings. Comprising of 12 1 and 2 bed flats 12 2 and 3 bed semi detached houses and 5 3 and 4 bed detached unitis with assocaited new access and hard and soft landscaping.\"\". \"\"Site has full planning permission for 29 dwellings 2015/0265/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-01", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "The Bath House, 130 Burscough Street, Ormskirk", "SiteReference": "WL034", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.845739, "GeoY": 53.707964, "HazardousSubstances": null, "Hectares": 1.6, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2013/1138/FUL demolition of outbuildings and erection of 6 detached and semi detached dwellings with off street parking and new access road.\"\". \"\"Site has full planning permission for the erection of 6 dwellings 2013/1138/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-05-13", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "9 Shore Road, Hesketh Bank", "SiteReference": "WL035", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -3.010677, "GeoY": 53.614275, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2016/1173/FUL erection of one dwelling with private rear garden in curtilage car parking and new access road.\"\". \"\"Site has permission for the erection of one dwelling 2016/1173/FUL. Larger site with capacity for 7 other dwellings.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-19", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "14A New Cut Lane, Halsall", "SiteReference": "WL036", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.887008, "GeoY": 53.551022, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2016/0878/FUL erection of eight dwellings and access road following demolition of existing buildings.\"\". \"\"Site has permission for the erection of 8 dwellings 2016/0878/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-11", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "30A Scarth Hill Lane, Aughton", "SiteReference": "WL037", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.762776, "GeoY": 53.553586, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\" 2016/0832/FUL demolition of existing vacant commercial building and construction of mixed use development comprising 4 retail/commercial units and 18 self contained apartments with associated car parking and landscaping.\"\". \"\"Site has permission for 4 commercial units and 18 self contained apartments 2016/0832/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-09", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Silver Birch Hotel, Floron, Birch Green, Skelmersdale", "SiteReference": "WL038", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.915401, "GeoY": 53.623916, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2016/1050/FUL demolition of existing industrial units and construction of 5 resdiential units 3 and 4 bed. \"\". \"\"Site has permission for the erection of 5 dwellings 2016/1050/FUL.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-10", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "4 Bescar Lane, Scarisbrick", "SiteReference": "WL039", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-06-13", "GeoX": -2.903018, "GeoY": 53.542849, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-10-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"\"2017/0185/OUT demolition of 31 lock up garages and outline application including means of access for the redevelopmentof the site to provide up to 7 dwellings.\"\". \"\" Site has outline permission for the erection of 7 dwellings 2017/0185/OUT.\"\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-lancashire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-12", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.westlancs.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Garages to the east of Arnian Court, Molyneux Road, Skelmersdale", "SiteReference": "WL040", "SiteplanURL": null}];
+    const bbox = [-3.0257935176139807, -2.736808482386019, 53.531049843418586, 53.71694715658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

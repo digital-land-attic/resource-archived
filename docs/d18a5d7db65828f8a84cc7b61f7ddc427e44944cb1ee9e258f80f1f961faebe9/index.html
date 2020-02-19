@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">d18a5d7d...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://data.cambridgeshireinsight.org.uk/sites/default/files/South%20Cambridgeshire%20Brownfield%20Register%202017.csv">https://data.cambridgeshireinsight.org.uk/sites/default/files/South%20Cambridgeshire%20Brownfield%20Register%202017.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SCA">South Cambridgeshire District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/d18a5d7db65828f8a84cc7b61f7ddc427e44944cb1ee9e258f80f1f961faebe9/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/d18a5d7db65828f8a84cc7b61f7ddc427e44944cb1ee9e258f80f1f961faebe9">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">34 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">1612.28
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>34</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/d18a5d7db65828f8a84cc7b61f7ddc427e44944cb1ee9e258f80f1f961faebe9.csv"
+        download="d18a5d7db65828f8a84cc7b61f7ddc427e44944cb1ee9e258f80f1f961faebe9_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/d18a5d7db65828f8a84cc7b61f7ddc427e44944cb1ee9e258f80f1f961faebe9"
+        download="d18a5d7db65828f8a84cc7b61f7ddc427e44944cb1ee9e258f80f1f961faebe9_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>17SC0001</td>
+                    <td>0.155241</td>
+                    <td>52.114315</td>
+                    <td>0.65</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2013-05-06</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0641/13/OL</td>
+                    <td>permissioned</td>
+                    <td>Granta Processors, Mill Lane, Whittlesford, Cambridge, Cambridgeshire, CB22 4XL</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0001</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 06/05/2014 | Lapses 2 years from the date of Approval of the last Reserved Matters to be approved. "Outline application for the erection of 16 dwellings following the demolition of existing buildings including footpath link to Lettice Martin Croft"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0002</td>
+                    <td>-0.04421</td>
+                    <td>52.081691</td>
+                    <td>0.94</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2015-11-05</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1199/13/OL</td>
+                    <td>permissioned</td>
+                    <td>Land to the rear of, 131 The Causeway, Bassingbourn Cum Kneesworth, Royston, Cambridgeshire, SG8 5JB</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0002</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 05/11/2015. "Outline Application for the Erection of 20 Residential Units (10 Market Units & 10 Affordable Units), (All Matters Reserved)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0003</td>
+                    <td>0.376576</td>
+                    <td>52.075476</td>
+                    <td>0.82</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2015-03-23</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1271/13/FL</td>
+                    <td>permissioned</td>
+                    <td>The Oaks, Blacksmiths Lane, Shudy Camps, Cambridge, Cambridgeshire, CB21 4RQ</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0003</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 23/03/2015 | Lapse date 22/03/2018. "Demolition of existing dwelling and industrial buildings and erection of 2 no. 3-bedroom bungalows and associated garages, and alteration of access"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0004</td>
+                    <td>0.0934</td>
+                    <td>52.15169</td>
+                    <td>8.76</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2010-02-12</td>
+                    <td>other</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2308/06/O</td>
+                    <td>permissioned</td>
+                    <td>Bayer CropScience, Hauxton, Cambridgeshire</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0004</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Planning History: Outline planning permission was granted in February 2010 for up to 380 dwellings and other uses. This permission has now lapsed." | Phase 1 detailed planning permission for 201 dwellings was granted in November 2014 and the development is under construction. | "Detailed masterplanning of the site has resulted in the site being anticipated to provide 285 dwellings, rather than 380 dwellings as anticipated in the outline planning permission.". "Planning Status: Allocated in Policy SP/8 in the Site Specific Policies Development Plan Document (2010)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0004a</td>
+                    <td>0.093579</td>
+                    <td>52.15117</td>
+                    <td>7.24</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2014-11-13</td>
+                    <td>reserved matters approval</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1911/14/RM</td>
+                    <td>permissioned</td>
+                    <td>Former Bayer Cropscience Site, Cambridge Road, Hauxton, Cambridge, Cambridgeshire, CB22 5HT</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0004a</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 14/11/2014 | "March 2015: 25 dwellings under construction, 176 dwellings where no construction had started". "Phase 1 (201 dwellings)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0005</td>
+                    <td>0.088665</td>
+                    <td>52.226015</td>
+                    <td>0.34</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-07-12</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0849/16/FL</td>
+                    <td>permissioned</td>
+                    <td>17-19, Bandon Road, Girton, Cambridgeshire, CB3 OLU</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0005</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 12/07/2016 | Lapse date 11/07/2019. "Demolition of 19 Bandon Road and erection of three dwellings, garaging with residential annexe above and associated works"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0006</td>
+                    <td>0.044141</td>
+                    <td>52.129764</td>
+                    <td>31.63</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-10-27</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2365/14/OL</td>
+                    <td>permissioned</td>
+                    <td>Former CEMEX Cement Works, Barrington Cement Plant, Haslingfield Road, Barrington, Cambridge, Cambridgeshire, CB22 7RQ</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0006</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 27/10/2016 | "Planning Status: resolution to grant planning permission - planning committee in June 2015 gave officers delegated powers to approve the application subject to the prior completion of a s106 agreement". "Outline application for the demolition of all existing buildings and structures, and redevelopment to provide up to 220 residential units, formal and informal open space including allotments, car parking for Barrington Primary School, new pedestrian and cycle links to Barrington village and Foxton Station, and associated works - details of vehicular site access arrangements are submitted for approval, with all other matters (layout, scale, appearance and landscaping) reserved for future approval."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0007</td>
+                    <td>0.083177</td>
+                    <td>52.143765</td>
+                    <td>0.32</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-05-04</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0731/16/FL</td>
+                    <td>permissioned</td>
+                    <td>Sheepshead Lane, Harston, Cambridgeshire</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0007</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 05/06/2013 | Lasped date June 2016. "New dwelling, extant planning permission S/2545/12/FL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0008</td>
+                    <td>0.18802</td>
+                    <td>52.18499</td>
+                    <td>26.91</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2010-01-28</td>
+                    <td>other</td>
+                    <td>https://www.scambs.gov.uk/content/site-specific-policies-dpd</td>
+                    <td>permissioned</td>
+                    <td>Fulbourn & Ida Darwin Hospitals, Fulbourn Old Drift, Cambridgeshire</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0008</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Important Note: this site includes both greenfield and brownfield land; the information presented in the 'SiteplanURL', 'Hectares', 'PlanningHistory', 'MinNetDwellings', 'Development Description', 'Non-HousingDevelopment' columns is for whole site and not just the brownfield land" | "Planning History: Planning committee in June 2014 endorsed a development brief for the site as a material consideration for all subsequent planning applications" | Outline planning permission for 180 dwellings and 70 unit extra care facility was refused by planning committee in June 2014 | It is unlikely that the site will be able to accommodate any more than 230 dwellings due to the discussions undertaken in the consideration of the planning application.. "Planning Status: Allocated in Policy SP/9 in the Site Specific Policies Development Plan Document (2010)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0008a</td>
+                    <td>0.200671</td>
+                    <td>52.18615</td>
+                    <td>13.38</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2017-02-28</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0670/17/OL</td>
+                    <td>permissioned</td>
+                    <td>Ida Darwin Hospital, Fulbourn Old Drift, FULBOURN, CB21 5EE</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0008a</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline planning application for up to 203 dwellings including affordable housing and land for community provision with access and associated works, open space and landscaping, following the demolition of existing buildings on site | Lapses 27/02/2020". "Outline planning application for up to 203 dwellings including affordable housing and land for community provision with access and associated works, open space and landscaping, following the demolition of existing buildings on site"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0009</td>
+                    <td>0.034437</td>
+                    <td>52.267471</td>
+                    <td>1380.9</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2007-07-19</td>
+                    <td>other</td>
+                    <td>https://www.scambs.gov.uk/content/northstowe-area-action-plan</td>
+                    <td>permissioned</td>
+                    <td>Northstowe, Longstanton Road, Cambridgeshire</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0009</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Important Note: this site includes both greenfield and brownfield land; the information presented in the 'SiteplanURL', 'Hectares', 'PlanningHistory', 'MinNetDwellings', 'Development Description', 'Non-HousingDevelopment' columns is for whole site and not just the brownfield land" | "Ownership Status: partly public ownership" | "Planning History: Northstowe Joint Development Control
+Committee in July 2012 endorsed (with some revisions) the site wide masterplan (Development Framework Document) as a material consideration for all subsequent planning applications." | "Outline planning permission granted in April 2014 for phase 1 comprising up to 1,500 dwellings, a primary school, a mixed-use local centre, leisure, community, residential institutions, cultural, health, and employment provision including a household recycling centre, recreational space and landscaped areas, and infrastructure works." | "Northstowe Joint Development Control Committee in June 2015 resolved to grant outline planning permission for phase 2 (up to 3,500 dwellings, a secondary school, two primary schools, a town centre and sports hub), subject to the prior completion of a s106 agreement. The conditions and s106 agreement were agreed by the Joint Northstowe Development Control Committee in July 2015.". "Ownership Status: partly public ownership | Planning History: Northstowe Joint Development Control
+Committee in July 2012 endorsed (with some revisions) the site wide masterplan (Development Framework
+Document) as a material consideration for all subsequent planning applications. | Outline planning
+permission granted in April 2014 for phase 1 comprising up to 1,500 dwellings, a primary school, a mixed-use
+local centre, leisure, community, residential institutions, cultural, health, and employment provision
+including a household recycling centre, recreational space and landscaped areas, and infrastructure works. |
+Northstowe Joint Development Control Committee in June 2015 resolved to grant outline planning
+permission for phase 2 (up to 3,500 dwellings, a secondary school, two primary schools, a town centre and
+sports hub), subject to the prior completion of a s106 agreement. The conditions and s106 agreement were
+agreed by the Joint Northstowe Development Control Committee in July 2015."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0009a</td>
+                    <td>0.063898</td>
+                    <td>52.281724</td>
+                    <td>63.3</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2017-01-08</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2011/14/OL</td>
+                    <td>permissioned</td>
+                    <td>Land to the East of B1050 and Longstanton, West of the Cambridgeshire Guided Busway (CGB) and North of Oakington</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0009a</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Important Note: this site includes both greenfield and brownfield land; the information presented in the 'SiteplanURL', 'Hectares', 'PlanningHistory', 'MinNetDwellings', 'Development Description', 'Non-HousingDevelopment' columns is for whole site and not just the brownfield land" | Approved 09/01/2017 | Whole site housing estimate for 3500 dwellings.. "Development of Phase 2 of Northstowe with details of appearance, landscaping, layout, scale and access reserved (save for the matters submitted in respect of the Southern Access Road (West)) comprising: 1), construction haul route, engineering and infrastructure works; and 2) construction of a highway link (Southern Access Road (West)) between the proposed new town of Northstowe and the B1050, improvements to the B1050, and associated landscaping and drainage"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0010</td>
+                    <td>0.234045</td>
+                    <td>52.122875</td>
+                    <td>0.48</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-06-01</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0261/16/FL</td>
+                    <td>permissioned</td>
+                    <td>27, Cambridge Road, Little Abington, Cambridgeshire, CB21 6BL</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0010</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 01/06/2016 | Lapse date 31/05/2019. "Erection of a replacement passivhaus and two new passivhaus dwellings, following the demolition of the existing dwelling house"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0011</td>
+                    <td>0.287163</td>
+                    <td>52.097775</td>
+                    <td>0.29</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-11-30</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0623/16/OL</td>
+                    <td>permissioned</td>
+                    <td>1, Horseheath Road, Linton, Cambridge, Cambridgeshire, CB21 4LU</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0011</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 30/11/2016 | Lapses 2 years from the date of Approval of the last Reserved Matters to be approved. "Outline planning permission for demolition of the existing dwelling and erection of 7 dwellings all matters reserved except access"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0012</td>
+                    <td>-0.126409</td>
+                    <td>52.084078</td>
+                    <td>0.34</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-12-09</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0696/16/FL</td>
+                    <td>permissioned</td>
+                    <td>60, New Road, Guilden Morden, Royston, Cambridgeshire, SG8 0JN</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0012</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 09/12/2016 | Lapse date 08/12/2019. "Replacement Dwelling"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0013</td>
+                    <td>0.050903</td>
+                    <td>52.183769</td>
+                    <td>0.27</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-02-15</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0844/15/OL</td>
+                    <td>permissioned</td>
+                    <td>15, Comberton Road, Barton, Cambridge, Cambridgeshire, CB23 7BA</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0013</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 15/02/2016 | Lapses 2 years from the date of Approval of the last Reserved Matters to be approved. "Outline Application - Demolition of existing house and construction of three dwellings with access (all other matters are to be reserved including apperance, landscaping, layout and scale)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0014</td>
+                    <td>0.206727</td>
+                    <td>52.188798</td>
+                    <td>0.47</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-09-21</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1055/16/FL</td>
+                    <td>permissioned</td>
+                    <td>L Abri, Teversham Road, Fulbourn, Cambridge, Cambridgeshire, CB21 5EB</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0014</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 21/09/2016 | Lapse date 20/09/2019. "Demolition of existing dwelling and attached accommodation and erection of replacement dwelling"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0015</td>
+                    <td>0.21817</td>
+                    <td>52.186785</td>
+                    <td>0.54</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-09-29</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1275/15/FL</td>
+                    <td>permissioned</td>
+                    <td>Land to the east of, Cox's Drove, Fulbourn, CB21 5HE</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0015</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 29/09/2016 | Lapse date 28/09/2019. "Erection of Six Dwellings with Associated Works Including Access Alterations and Landscaping Following the Removal of the Existing Timber Yard and Associated Structures"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0016</td>
+                    <td>-0.101183</td>
+                    <td>52.203408</td>
+                    <td>0.5</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-06-14</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1389/15/FL</td>
+                    <td>permissioned</td>
+                    <td>The Plant Depot, Church Farm, Gransden Road, Caxton, Cambridge, CB23 3PL</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0016</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 14/06/2016 | Lapse date 13/06/2019. "Redevelopment of former plant depot to provide two linked detached houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0017</td>
+                    <td>0.070734</td>
+                    <td>52.095751</td>
+                    <td>0.48</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-10-24</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1506/15/FL</td>
+                    <td>permissioned</td>
+                    <td>The Willows & Highbank, Long Lane, Fowlmere, Royston, Herts, SG8 7TG</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0017</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 24/10/2016 | Lapse date 23/10/2019. "The erection of 5 no. dwellings with associated access & landscaping, following demolition of the existing dwellings & outbuildings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0018</td>
+                    <td>0.159502</td>
+                    <td>52.242544</td>
+                    <td>0.62</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-09-27</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1673/16/FL</td>
+                    <td>permissioned</td>
+                    <td>2, Cambridge Road, Milton, Cambridge, Cambridgeshire, CB24 6AW</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0018</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 27/09/2016 | Lapse date 26/09/2019. "Erection of four dwellings and associated siteworks including demolition of two existing dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0019</td>
+                    <td>0.041528</td>
+                    <td>52.310158</td>
+                    <td>0.67</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-10-04</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2042/16/FL</td>
+                    <td>permissioned</td>
+                    <td>Cold Harbour Farm, Willingham Road, OVER, CB24 5EY</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0019</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 04/10/2016 | Lapse date 03/10/2019. "Demolition of the existing residential dwelling and replacement with four bedroom detached dwelling with associated garage"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0020</td>
+                    <td>-0.016122</td>
+                    <td>52.216656</td>
+                    <td>0.59</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2015-06-26</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2186/14/FL</td>
+                    <td>permissioned</td>
+                    <td>Westwind, Highfields Road, Highfields Caldecote, Caldecote, Cambridge, Cambridgeshire, CB23 7NX</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0020</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 26/06/2015 | Lapse date 25/06/2018. "Change of use of the existing residential annexe and store to form an independent dwelling"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0021</td>
+                    <td>0.13387</td>
+                    <td>52.294768</td>
+                    <td>0.37</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-02-29</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2220/15/FL</td>
+                    <td>permissioned</td>
+                    <td>40, Church Lane, Cottenham, Cambridge, Cambridgeshire, CB24 8SN</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0021</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 29/02/2016 | Lapse date 28/02/2019. "Change of use of warehouse/storage facility to residential"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0022</td>
+                    <td>0.007776</td>
+                    <td>52.209364</td>
+                    <td>0.41</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-02-19</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2935/15/FL</td>
+                    <td>permissioned</td>
+                    <td>44, Main Street, Hardwick, Cambridge, Cambridgeshire, CB23 7QS</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0022</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 19/02/2016 | Lapse date 18/02/2019. "Extension to and change of use of existing self-catering holiday accommodation unit to residential dwelling with new cart lodge and alterations and extension to the existing dwelling"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0023</td>
+                    <td>0.084115</td>
+                    <td>52.044548</td>
+                    <td>0.4</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2017-02-17</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3025/16/FL</td>
+                    <td>permissioned</td>
+                    <td>Woodstock, 63, Fowlmere Road, Heydon, Cambridgeshire, SG8 8PZ</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0023</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 17/02/2017 | Lapse date 16/02/2020. "Demolition of existing dwelling and construction of two detached dwellings, allocated garaging and access improvements"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0024</td>
+                    <td>0.385033</td>
+                    <td>52.043309</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-11-02</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3092/15/FL</td>
+                    <td>permissioned</td>
+                    <td>Meadowside Lodge, Olmstead Green, Castle Camps, Cambridge, Cambridgeshire, CB21 4TW</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 02/11/2016 | Lapse date 01/11/2019. "Erection of Dwelling following Demolition of Existing Bungalow"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0025</td>
+                    <td>-0.04199</td>
+                    <td>52.300144</td>
+                    <td>0.33</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2017-03-17</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3565/16/FL</td>
+                    <td>permissioned</td>
+                    <td>56, Park Lane, FEN DRAYTON, CB24 4SW</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0025</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 17/03/2017 | Lapse date 16/03/2020. "Change of use to form one dwelling"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0026</td>
+                    <td>0.19736</td>
+                    <td>52.212163</td>
+                    <td>0.47</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2017-02-16</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3607/16/FL</td>
+                    <td>permissioned</td>
+                    <td>Quy Water, Newmarket Road, Fen Ditton, Cambridge, Cambridgeshire, CB1 9AT</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0026</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 16/02/2017 | Lapse date 15/02/2020. "Replacement dwelling including excavation of ground floor basement level following demolition of existing four-bedroom detached dwellinghouse (Use Class C3)."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0027</td>
+                    <td>0.119568</td>
+                    <td>52.29623</td>
+                    <td>0.82</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2015-09-22</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1578/15/FL</td>
+                    <td>permissioned</td>
+                    <td>Cottenham Farm, Broad Lane, Cottenham, Cambs., CB24 8SW</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0027</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 22/09/2015 | Lapse date 21/09/2018. "Replacement Dwelling"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0028</td>
+                    <td>-0.128221</td>
+                    <td>52.062041</td>
+                    <td>0.09</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2017-03-28</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1614/16/FL</td>
+                    <td>permissioned</td>
+                    <td>Land to rear of 4, Mill Courtyard, Steeple Morden, Royston, Cambridgeshire, SG8 0NH</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0028</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 24/03/2017. "2 detached 4 bedroom houses with integral garages (Following outline approval S/1774/01/O and reserved matters S/1133/05/RM)."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0029</td>
+                    <td>-0.015692</td>
+                    <td>52.072142</td>
+                    <td>1.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-12-27</td>
+                    <td>full planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2972/16/FL</td>
+                    <td>permissioned</td>
+                    <td>Westfield Orchard, Ashwell Street, Melbourn, Cambridgeshire, SG8 0RS</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0029</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Important Note: this site includes both greenfield and brownfield land; the information presented in the 'SiteplanURL', 'Hectares', 'PlanningHistory', 'MinNetDwellings', 'Development Description', 'Non-HousingDevelopment' columns is for whole site and not just the brownfield land" | Approved 27/12/2016 | Lapse date 26/12/2020. "Removal of existing stables, storage and mobile home and erection of dwelling and detached garaging with associated drive hardstanding and security gate"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0030</td>
+                    <td>0.175242</td>
+                    <td>52.213355</td>
+                    <td>64.51</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-30</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2682/13/O</td>
+                    <td>permissioned</td>
+                    <td>Cambridge East, Land North of Newmarket Road, Newmarket Road, Cambridge</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0030</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Important Note: this site includes both greenfield and brownfield land; the information presented in the 'SiteplanURL', 'Hectares', 'PlanningHistory', 'MinNetDwellings', 'Development Description', 'Non-HousingDevelopment' columns is for whole site and not just the brownfield land" | Approved 30/11/2016 | Lapse date 29/11/2019 | "Up to 1,300 homes, primary school, food store, community facilities, open spaces, landscaping and associated infrastructure and other development" | https://www.scambs.gov.uk/content/cambridge-east-area-action-plan | "Development Control Committee (Cambridge Fringe Sites) in April 2016 resolved to approve an outline planning application for up to 1,300 homes, a primary school, food store, community facilities and open spaces.". "Up to 1,300 homes, primary school, food store, community facilities, open spaces, landscaping and associated infrastructure and other development"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17SC0031</td>
+                    <td>-0.196794</td>
+                    <td>52.156651</td>
+                    <td>2.92</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-cambridgeshire</td>
+                    <td></td>
+                    <td>2016-12-07</td>
+                    <td>outline planning permission</td>
+                    <td>http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2068/15/OL</td>
+                    <td>permissioned</td>
+                    <td>Land at Green End Industrial Estate, Green End, Gamlingay, Gamlingay, Cambridgeshire, SG19 3LX</td>
+                    <td>https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New&queryTable=/NamedTables/SCDC_Brownfieldregister&queryColumn=Site_Reference&queryValues=17SC0031</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Approved 07/12/2016. "Outline application for the demolition of existing industrial and office units and 5 dwellings and the erection of up to 90 dwellings, together with associated garaging, parking, public open space, landscaping, access, highways drainage and infrastructure works. All matters reserved except access"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.155241, "GeoY": 52.114315, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 06/05/2014 | Lapses 2 years from the date of Approval of the last Reserved Matters to be approved. \"Outline application for the erection of 16 dwellings following the demolition of existing buildings including footpath link to Lettice Martin Croft\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2013-05-06", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0641/13/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "Granta Processors, Mill Lane, Whittlesford, Cambridge, Cambridgeshire, CB22 4XL", "SiteReference": "17SC0001", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0001"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.04421, "GeoY": 52.081691, "HazardousSubstances": null, "Hectares": 0.94, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 05/11/2015. \"Outline Application for the Erection of 20 Residential Units (10 Market Units \u0026 10 Affordable Units), (All Matters Reserved)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2015-11-05", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1199/13/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land to the rear of, 131 The Causeway, Bassingbourn Cum Kneesworth, Royston, Cambridgeshire, SG8 5JB", "SiteReference": "17SC0002", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0002"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.376576, "GeoY": 52.075476, "HazardousSubstances": null, "Hectares": 0.82, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 23/03/2015 | Lapse date 22/03/2018. \"Demolition of existing dwelling and industrial buildings and erection of 2 no. 3-bedroom bungalows and associated garages, and alteration of access\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2015-03-23", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1271/13/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Oaks, Blacksmiths Lane, Shudy Camps, Cambridge, Cambridgeshire, CB21 4RQ", "SiteReference": "17SC0003", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0003"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.0934, "GeoY": 52.15169, "HazardousSubstances": null, "Hectares": 8.76, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Planning History: Outline planning permission was granted in February 2010 for up to 380 dwellings and other uses. This permission has now lapsed.\" | Phase 1 detailed planning permission for 201 dwellings was granted in November 2014 and the development is under construction. | \"Detailed masterplanning of the site has resulted in the site being anticipated to provide 285 dwellings, rather than 380 dwellings as anticipated in the outline planning permission.\". \"Planning Status: Allocated in Policy SP/8 in the Site Specific Policies Development Plan Document (2010)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2010-02-12", "PermissionType": "other", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2308/06/O", "PlanningStatus": "permissioned", "SiteNameAddress": "Bayer CropScience, Hauxton, Cambridgeshire", "SiteReference": "17SC0004", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0004"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.093579, "GeoY": 52.15117, "HazardousSubstances": null, "Hectares": 7.24, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 14/11/2014 | \"March 2015: 25 dwellings under construction, 176 dwellings where no construction had started\". \"Phase 1 (201 dwellings)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2014-11-13", "PermissionType": "reserved matters approval", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1911/14/RM", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Bayer Cropscience Site, Cambridge Road, Hauxton, Cambridge, Cambridgeshire, CB22 5HT", "SiteReference": "17SC0004a", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0004a"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.088665, "GeoY": 52.226015, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 12/07/2016 | Lapse date 11/07/2019. \"Demolition of 19 Bandon Road and erection of three dwellings, garaging with residential annexe above and associated works\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-07-12", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0849/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "17-19, Bandon Road, Girton, Cambridgeshire, CB3 OLU", "SiteReference": "17SC0005", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0005"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.044141, "GeoY": 52.129764, "HazardousSubstances": null, "Hectares": 31.63, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 27/10/2016 | \"Planning Status: resolution to grant planning permission - planning committee in June 2015 gave officers delegated powers to approve the application subject to the prior completion of a s106 agreement\". \"Outline application for the demolition of all existing buildings and structures, and redevelopment to provide up to 220 residential units, formal and informal open space including allotments, car parking for Barrington Primary School, new pedestrian and cycle links to Barrington village and Foxton Station, and associated works - details of vehicular site access arrangements are submitted for approval, with all other matters (layout, scale, appearance and landscaping) reserved for future approval.\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-10-27", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2365/14/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "Former CEMEX Cement Works, Barrington Cement Plant, Haslingfield Road, Barrington, Cambridge, Cambridgeshire, CB22 7RQ", "SiteReference": "17SC0006", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0006"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.083177, "GeoY": 52.143765, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 05/06/2013 | Lasped date June 2016. \"New dwelling, extant planning permission S/2545/12/FL\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-05-04", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0731/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Sheepshead Lane, Harston, Cambridgeshire", "SiteReference": "17SC0007", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0007"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.18802, "GeoY": 52.18499, "HazardousSubstances": null, "Hectares": 26.91, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Important Note: this site includes both greenfield and brownfield land; the information presented in the \u0027SiteplanURL\u0027, \u0027Hectares\u0027, \u0027PlanningHistory\u0027, \u0027MinNetDwellings\u0027, \u0027Development Description\u0027, \u0027Non-HousingDevelopment\u0027 columns is for whole site and not just the brownfield land\" | \"Planning History: Planning committee in June 2014 endorsed a development brief for the site as a material consideration for all subsequent planning applications\" | Outline planning permission for 180 dwellings and 70 unit extra care facility was refused by planning committee in June 2014 | It is unlikely that the site will be able to accommodate any more than 230 dwellings due to the discussions undertaken in the consideration of the planning application.. \"Planning Status: Allocated in Policy SP/9 in the Site Specific Policies Development Plan Document (2010)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2010-01-28", "PermissionType": "other", "PlanningHistory": "https://www.scambs.gov.uk/content/site-specific-policies-dpd", "PlanningStatus": "permissioned", "SiteNameAddress": "Fulbourn \u0026 Ida Darwin Hospitals, Fulbourn Old Drift, Cambridgeshire", "SiteReference": "17SC0008", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0008"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.200671, "GeoY": 52.18615, "HazardousSubstances": null, "Hectares": 13.38, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline planning application for up to 203 dwellings including affordable housing and land for community provision with access and associated works, open space and landscaping, following the demolition of existing buildings on site | Lapses 27/02/2020\". \"Outline planning application for up to 203 dwellings including affordable housing and land for community provision with access and associated works, open space and landscaping, following the demolition of existing buildings on site\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2017-02-28", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0670/17/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "Ida Darwin Hospital, Fulbourn Old Drift, FULBOURN, CB21 5EE", "SiteReference": "17SC0008a", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0008a"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.034437, "GeoY": 52.267471, "HazardousSubstances": null, "Hectares": 1380.9, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Important Note: this site includes both greenfield and brownfield land; the information presented in the \u0027SiteplanURL\u0027, \u0027Hectares\u0027, \u0027PlanningHistory\u0027, \u0027MinNetDwellings\u0027, \u0027Development Description\u0027, \u0027Non-HousingDevelopment\u0027 columns is for whole site and not just the brownfield land\" | \"Ownership Status: partly public ownership\" | \"Planning History: Northstowe Joint Development Control\r\nCommittee in July 2012 endorsed (with some revisions) the site wide masterplan (Development Framework Document) as a material consideration for all subsequent planning applications.\" | \"Outline planning permission granted in April 2014 for phase 1 comprising up to 1,500 dwellings, a primary school, a mixed-use local centre, leisure, community, residential institutions, cultural, health, and employment provision including a household recycling centre, recreational space and landscaped areas, and infrastructure works.\" | \"Northstowe Joint Development Control Committee in June 2015 resolved to grant outline planning permission for phase 2 (up to 3,500 dwellings, a secondary school, two primary schools, a town centre and sports hub), subject to the prior completion of a s106 agreement. The conditions and s106 agreement were agreed by the Joint Northstowe Development Control Committee in July 2015.\". \"Ownership Status: partly public ownership | Planning History: Northstowe Joint Development Control\r\nCommittee in July 2012 endorsed (with some revisions) the site wide masterplan (Development Framework\r\nDocument) as a material consideration for all subsequent planning applications. | Outline planning\r\npermission granted in April 2014 for phase 1 comprising up to 1,500 dwellings, a primary school, a mixed-use\r\nlocal centre, leisure, community, residential institutions, cultural, health, and employment provision\r\nincluding a household recycling centre, recreational space and landscaped areas, and infrastructure works. |\r\nNorthstowe Joint Development Control Committee in June 2015 resolved to grant outline planning\r\npermission for phase 2 (up to 3,500 dwellings, a secondary school, two primary schools, a town centre and\r\nsports hub), subject to the prior completion of a s106 agreement. The conditions and s106 agreement were\r\nagreed by the Joint Northstowe Development Control Committee in July 2015.\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2007-07-19", "PermissionType": "other", "PlanningHistory": "https://www.scambs.gov.uk/content/northstowe-area-action-plan", "PlanningStatus": "permissioned", "SiteNameAddress": "Northstowe, Longstanton Road, Cambridgeshire", "SiteReference": "17SC0009", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0009"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.063898, "GeoY": 52.281724, "HazardousSubstances": null, "Hectares": 63.3, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Important Note: this site includes both greenfield and brownfield land; the information presented in the \u0027SiteplanURL\u0027, \u0027Hectares\u0027, \u0027PlanningHistory\u0027, \u0027MinNetDwellings\u0027, \u0027Development Description\u0027, \u0027Non-HousingDevelopment\u0027 columns is for whole site and not just the brownfield land\" | Approved 09/01/2017 | Whole site housing estimate for 3500 dwellings.. \"Development of Phase 2 of Northstowe with details of appearance, landscaping, layout, scale and access reserved (save for the matters submitted in respect of the Southern Access Road (West)) comprising: 1), construction haul route, engineering and infrastructure works; and 2) construction of a highway link (Southern Access Road (West)) between the proposed new town of Northstowe and the B1050, improvements to the B1050, and associated landscaping and drainage\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2017-01-08", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2011/14/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land to the East of B1050 and Longstanton, West of the Cambridgeshire Guided Busway (CGB) and North of Oakington", "SiteReference": "17SC0009a", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0009a"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.234045, "GeoY": 52.122875, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 01/06/2016 | Lapse date 31/05/2019. \"Erection of a replacement passivhaus and two new passivhaus dwellings, following the demolition of the existing dwelling house\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-06-01", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0261/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "27, Cambridge Road, Little Abington, Cambridgeshire, CB21 6BL", "SiteReference": "17SC0010", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0010"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.287163, "GeoY": 52.097775, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 30/11/2016 | Lapses 2 years from the date of Approval of the last Reserved Matters to be approved. \"Outline planning permission for demolition of the existing dwelling and erection of 7 dwellings all matters reserved except access\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-11-30", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0623/16/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "1, Horseheath Road, Linton, Cambridge, Cambridgeshire, CB21 4LU", "SiteReference": "17SC0011", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0011"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.126409, "GeoY": 52.084078, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 09/12/2016 | Lapse date 08/12/2019. \"Replacement Dwelling\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-12-09", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0696/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "60, New Road, Guilden Morden, Royston, Cambridgeshire, SG8 0JN", "SiteReference": "17SC0012", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0012"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.050903, "GeoY": 52.183769, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 15/02/2016 | Lapses 2 years from the date of Approval of the last Reserved Matters to be approved. \"Outline Application - Demolition of existing house and construction of three dwellings with access (all other matters are to be reserved including apperance, landscaping, layout and scale)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-02-15", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/0844/15/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "15, Comberton Road, Barton, Cambridge, Cambridgeshire, CB23 7BA", "SiteReference": "17SC0013", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0013"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.206727, "GeoY": 52.188798, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 21/09/2016 | Lapse date 20/09/2019. \"Demolition of existing dwelling and attached accommodation and erection of replacement dwelling\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-09-21", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1055/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "L Abri, Teversham Road, Fulbourn, Cambridge, Cambridgeshire, CB21 5EB", "SiteReference": "17SC0014", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0014"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.21817, "GeoY": 52.186785, "HazardousSubstances": null, "Hectares": 0.54, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 29/09/2016 | Lapse date 28/09/2019. \"Erection of Six Dwellings with Associated Works Including Access Alterations and Landscaping Following the Removal of the Existing Timber Yard and Associated Structures\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-09-29", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1275/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land to the east of, Cox\u0027s Drove, Fulbourn, CB21 5HE", "SiteReference": "17SC0015", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0015"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.101183, "GeoY": 52.203408, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 14/06/2016 | Lapse date 13/06/2019. \"Redevelopment of former plant depot to provide two linked detached houses\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-06-14", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1389/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Plant Depot, Church Farm, Gransden Road, Caxton, Cambridge, CB23 3PL", "SiteReference": "17SC0016", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0016"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.070734, "GeoY": 52.095751, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 24/10/2016 | Lapse date 23/10/2019. \"The erection of 5 no. dwellings with associated access \u0026 landscaping, following demolition of the existing dwellings \u0026 outbuildings\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-10-24", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1506/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Willows \u0026 Highbank, Long Lane, Fowlmere, Royston, Herts, SG8 7TG", "SiteReference": "17SC0017", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0017"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.159502, "GeoY": 52.242544, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 27/09/2016 | Lapse date 26/09/2019. \"Erection of four dwellings and associated siteworks including demolition of two existing dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-09-27", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1673/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "2, Cambridge Road, Milton, Cambridge, Cambridgeshire, CB24 6AW", "SiteReference": "17SC0018", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0018"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.041528, "GeoY": 52.310158, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 04/10/2016 | Lapse date 03/10/2019. \"Demolition of the existing residential dwelling and replacement with four bedroom detached dwelling with associated garage\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-10-04", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2042/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Cold Harbour Farm, Willingham Road, OVER, CB24 5EY", "SiteReference": "17SC0019", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0019"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.016122, "GeoY": 52.216656, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 26/06/2015 | Lapse date 25/06/2018. \"Change of use of the existing residential annexe and store to form an independent dwelling\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2015-06-26", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2186/14/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Westwind, Highfields Road, Highfields Caldecote, Caldecote, Cambridge, Cambridgeshire, CB23 7NX", "SiteReference": "17SC0020", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0020"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.13387, "GeoY": 52.294768, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 29/02/2016 | Lapse date 28/02/2019. \"Change of use of warehouse/storage facility to residential\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-02-29", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2220/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "40, Church Lane, Cottenham, Cambridge, Cambridgeshire, CB24 8SN", "SiteReference": "17SC0021", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0021"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.007776, "GeoY": 52.209364, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 19/02/2016 | Lapse date 18/02/2019. \"Extension to and change of use of existing self-catering holiday accommodation unit to residential dwelling with new cart lodge and alterations and extension to the existing dwelling\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-02-19", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2935/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "44, Main Street, Hardwick, Cambridge, Cambridgeshire, CB23 7QS", "SiteReference": "17SC0022", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0022"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.084115, "GeoY": 52.044548, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 17/02/2017 | Lapse date 16/02/2020. \"Demolition of existing dwelling and construction of two detached dwellings, allocated garaging and access improvements\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2017-02-17", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3025/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Woodstock, 63, Fowlmere Road, Heydon, Cambridgeshire, SG8 8PZ", "SiteReference": "17SC0023", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0023"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.385033, "GeoY": 52.043309, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 02/11/2016 | Lapse date 01/11/2019. \"Erection of Dwelling following Demolition of Existing Bungalow\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-11-02", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3092/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Meadowside Lodge, Olmstead Green, Castle Camps, Cambridge, Cambridgeshire, CB21 4TW", "SiteReference": "17SC0024", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.04199, "GeoY": 52.300144, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 17/03/2017 | Lapse date 16/03/2020. \"Change of use to form one dwelling\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2017-03-17", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3565/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "56, Park Lane, FEN DRAYTON, CB24 4SW", "SiteReference": "17SC0025", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0025"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.19736, "GeoY": 52.212163, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 16/02/2017 | Lapse date 15/02/2020. \"Replacement dwelling including excavation of ground floor basement level following demolition of existing four-bedroom detached dwellinghouse (Use Class C3).\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2017-02-16", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/3607/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Quy Water, Newmarket Road, Fen Ditton, Cambridge, Cambridgeshire, CB1 9AT", "SiteReference": "17SC0026", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0026"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.119568, "GeoY": 52.29623, "HazardousSubstances": null, "Hectares": 0.82, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 22/09/2015 | Lapse date 21/09/2018. \"Replacement Dwelling\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2015-09-22", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1578/15/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Cottenham Farm, Broad Lane, Cottenham, Cambs., CB24 8SW", "SiteReference": "17SC0027", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0027"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.128221, "GeoY": 52.062041, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 24/03/2017. \"2 detached 4 bedroom houses with integral garages (Following outline approval S/1774/01/O and reserved matters S/1133/05/RM).\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2017-03-28", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/1614/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land to rear of 4, Mill Courtyard, Steeple Morden, Royston, Cambridgeshire, SG8 0NH", "SiteReference": "17SC0028", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0028"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.015692, "GeoY": 52.072142, "HazardousSubstances": null, "Hectares": 1.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Important Note: this site includes both greenfield and brownfield land; the information presented in the \u0027SiteplanURL\u0027, \u0027Hectares\u0027, \u0027PlanningHistory\u0027, \u0027MinNetDwellings\u0027, \u0027Development Description\u0027, \u0027Non-HousingDevelopment\u0027 columns is for whole site and not just the brownfield land\" | Approved 27/12/2016 | Lapse date 26/12/2020. \"Removal of existing stables, storage and mobile home and erection of dwelling and detached garaging with associated drive hardstanding and security gate\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-12-27", "PermissionType": "full planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2972/16/FL", "PlanningStatus": "permissioned", "SiteNameAddress": "Westfield Orchard, Ashwell Street, Melbourn, Cambridgeshire, SG8 0RS", "SiteReference": "17SC0029", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0029"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 0.175242, "GeoY": 52.213355, "HazardousSubstances": null, "Hectares": 64.51, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Important Note: this site includes both greenfield and brownfield land; the information presented in the \u0027SiteplanURL\u0027, \u0027Hectares\u0027, \u0027PlanningHistory\u0027, \u0027MinNetDwellings\u0027, \u0027Development Description\u0027, \u0027Non-HousingDevelopment\u0027 columns is for whole site and not just the brownfield land\" | Approved 30/11/2016 | Lapse date 29/11/2019 | \"Up to 1,300 homes, primary school, food store, community facilities, open spaces, landscaping and associated infrastructure and other development\" | https://www.scambs.gov.uk/content/cambridge-east-area-action-plan | \"Development Control Committee (Cambridge Fringe Sites) in April 2016 resolved to approve an outline planning application for up to 1,300 homes, a primary school, food store, community facilities and open spaces.\". \"Up to 1,300 homes, primary school, food store, community facilities, open spaces, landscaping and associated infrastructure and other development\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-30", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2682/13/O", "PlanningStatus": "permissioned", "SiteNameAddress": "Cambridge East, Land North of Newmarket Road, Newmarket Road, Cambridge", "SiteReference": "17SC0030", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0030"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.196794, "GeoY": 52.156651, "HazardousSubstances": null, "Hectares": 2.92, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Approved 07/12/2016. \"Outline application for the demolition of existing industrial and office units and 5 dwellings and the erection of up to 90 dwellings, together with associated garaging, parking, public open space, landscaping, access, highways drainage and infrastructure works. All matters reserved except access\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-cambridgeshire", "OwnershipStatus": null, "PermissionDate": "2016-12-07", "PermissionType": "outline planning permission", "PlanningHistory": "http://plan.scambs.gov.uk/swiftlg/apas/run/WPHAPPDETAIL.DisplayUrl?theApnID=S/2068/15/OL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Green End Industrial Estate, Green End, Gamlingay, Gamlingay, Cambridgeshire, SG19 3LX", "SiteReference": "17SC0031", "SiteplanURL": "https://gismaps.scambs.gov.uk/connect/analyst/mobile/#/main?mapcfg=BrownFieldRegister_New\u0026queryTable=/NamedTables/SCDC_Brownfieldregister\u0026queryColumn=Site_Reference\u0026queryValues=17SC0031"}];
+    const bbox = [-0.21139919949218416, 0.3996381994921842, 52.03432584341859, 52.31914115658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

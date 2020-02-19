@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">2c8470a8...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.london.gov.uk/sites/default/files/oldoakandparkroyaldevelopmentcorporation_brownfieldregister_2017-12-31_rev1.csv">https://www.london.gov.uk/sites/default/files/oldoakandparkroyaldevelopmentcorporation_brownfieldregister_2017-12-31_rev1.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="development-corporation:Q20648596">Old Oak and Park Royal Development Corporation</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/2c8470a8cf8f80693ba26bc208c754c2c5c6f02c27ec8be74df629c51e050935/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/2c8470a8cf8f80693ba26bc208c754c2c5c6f02c27ec8be74df629c51e050935">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">38 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">57.00
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>38</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/2c8470a8cf8f80693ba26bc208c754c2c5c6f02c27ec8be74df629c51e050935.csv"
+        download="2c8470a8cf8f80693ba26bc208c754c2c5c6f02c27ec8be74df629c51e050935_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/2c8470a8cf8f80693ba26bc208c754c2c5c6f02c27ec8be74df629c51e050935"
+        download="2c8470a8cf8f80693ba26bc208c754c2c5c6f02c27ec8be74df629c51e050935_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>DCS1</td>
+                    <td>-0.240301</td>
+                    <td>51.53246</td>
+                    <td>1.6</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land east of Willesden Junction Station</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS2</td>
+                    <td>-0.237725</td>
+                    <td>51.531963</td>
+                    <td>0.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6062&Ver=4</td>
+                    <td>pending decision</td>
+                    <td>2 Scrubs Lane</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission is subject to S106 being agreed. "20-storey building, 85 C3 homes  of which 28 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS5</td>
+                    <td>-0.239694</td>
+                    <td>51.527272</td>
+                    <td>9.7</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Giant</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS6</td>
+                    <td>-0.241983</td>
+                    <td>51.529977</td>
+                    <td>1.8</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>EMR</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS7</td>
+                    <td>-0.23737</td>
+                    <td>51.529215</td>
+                    <td>1.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Cumberland Business Park</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS8</td>
+                    <td>-0.235402</td>
+                    <td>51.527993</td>
+                    <td>0.2</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6044&Ver=4</td>
+                    <td>pending decision</td>
+                    <td>North Kensington Gate North</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission is subject to S106 being agreed. "4-storey and 11-storey buildings, 47 C3 homes of which 15 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS9</td>
+                    <td>-0.235433</td>
+                    <td>51.527194</td>
+                    <td>0.5</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6060&Ver=4</td>
+                    <td>pending decision</td>
+                    <td>Mitre Yard</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission is subject to S106 being agreed. "19-storey building, 200 C3 homes of which 67 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS10</td>
+                    <td>-0.234356</td>
+                    <td>51.526645</td>
+                    <td>0.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6045&Ver=4</td>
+                    <td>pending decision</td>
+                    <td>North Kensington Gate South</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission is subject to S106 being agreed. "6 to 20-storey buildings, 164  C3 homes of which 44 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS11</td>
+                    <td>-0.234097</td>
+                    <td>51.526241</td>
+                    <td>0.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Mitre Wharf</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS12</td>
+                    <td>-0.239968</td>
+                    <td>51.531449</td>
+                    <td>0.2</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Willesden Junction Depot</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS13</td>
+                    <td>-0.256048</td>
+                    <td>51.524965</td>
+                    <td></td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>2 Victoria Terrace</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS14</td>
+                    <td>-0.249123</td>
+                    <td>51.528293</td>
+                    <td>0.3</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Oaklands Triangle</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS15</td>
+                    <td>-0.248928</td>
+                    <td>51.527815</td>
+                    <td>0.7</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Oaklands North</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS16</td>
+                    <td>-0.249166</td>
+                    <td>51.527171</td>
+                    <td>1.0</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-13</td>
+                    <td>full planning permission</td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6033&Ver=4</td>
+                    <td>permissioned</td>
+                    <td>Oaklands, Old Oak Common Lane, London, NW10 6DU</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "6 to 26-storey buildings, 601 C3 homes of which 242 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS17</td>
+                    <td>-0.246297</td>
+                    <td>51.525819</td>
+                    <td>14.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Oak South</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS19</td>
+                    <td>-0.233539</td>
+                    <td>51.5249</td>
+                    <td>0.2</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Big Yellow Storage</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS21</td>
+                    <td>-0.230991</td>
+                    <td>51.5245</td>
+                    <td>0.9</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Mitre Industrial Estate</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS22</td>
+                    <td>-0.231601</td>
+                    <td>51.52371</td>
+                    <td>0.4</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tea Crate</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS23</td>
+                    <td>-0.255338</td>
+                    <td>51.52456</td>
+                    <td>3.5</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Acton Wells</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS24</td>
+                    <td>-0.25665</td>
+                    <td>51.52378</td>
+                    <td>0.7</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Boden House</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS25</td>
+                    <td>-0.253385</td>
+                    <td>51.525368</td>
+                    <td>0.2</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Midland Gate</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS26</td>
+                    <td>-0.258666</td>
+                    <td>51.522915</td>
+                    <td>0.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-14</td>
+                    <td>full planning permission</td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?keyVal=O4SO8BJM02F00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Holbrook House, Victoria Road Acton W3 6UW</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "16 to 24-storey buildings comprising 424 student bed spaces"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS27</td>
+                    <td>-0.257501</td>
+                    <td>51.52227</td>
+                    <td>0.5</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ORUF2VJM09P00</td>
+                    <td>pending decision</td>
+                    <td>Perfume Factory North, 140 Wales Farm Road, Acton W3 6UG</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Application pending consideration. "3  buildings between 12 and 25 storeys in height to provide 390 residential units of which 105 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS29</td>
+                    <td>-0.257258</td>
+                    <td>51.520648</td>
+                    <td>1.7</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Victoria Estate</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS30</td>
+                    <td>-0.262053</td>
+                    <td>51.522109</td>
+                    <td>0.6</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-14</td>
+                    <td>full planning permission</td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?keyVal=O4G865JM02A00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>6 Portal West, North Acton W3 6RU</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Four buildings of 2, 9, 11, 32 and 42 storeys comprising 578 residential flats, 164 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS31</td>
+                    <td>-0.260823</td>
+                    <td>51.521577</td>
+                    <td>1.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-08</td>
+                    <td>outline planning permission</td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW7QJMTA375</td>
+                    <td>permissioned</td>
+                    <td>Carphone Warehouse 1 Portal Way Acton W3 6RT</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. " 8 blocks ranging in height from 6 to 32 storeys to incorporate up to 764 residential flats"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS32</td>
+                    <td>-0.259372</td>
+                    <td>51.522012</td>
+                    <td>0.1</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OFPEEQJM09L00</td>
+                    <td>pending decision</td>
+                    <td>The Portal, The Portal Land At Wales Farm Road & Portal Way. Acton W3 6EJ</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission is subject to S106 being agreed. "Part 10, part 36 storey building comprising 355 residential units, 30% affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS33</td>
+                    <td>-0.258008</td>
+                    <td>51.521764</td>
+                    <td>0.5</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-06</td>
+                    <td>full planning permission</td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OQIGENJM09L00</td>
+                    <td>permissioned</td>
+                    <td>Perfume Factory South, 140 Wales Farm Road, Acton W3 6UG</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Five buildings of 5, 7, 10, 11 and 31 storeys comprising 736 student bed spaces, 85 residential flats"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS34</td>
+                    <td>-0.262619</td>
+                    <td>51.52168</td>
+                    <td>0.4</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Algerian Embassy</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS35</td>
+                    <td>-0.261495</td>
+                    <td>51.52073</td>
+                    <td>0.2</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OY0WU3JM0E200</td>
+                    <td>pending decision</td>
+                    <td>2 Portal Way, Acton W3 6RT</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Application pending consideration. "Two buildings of 25 and 35 storeys comprising 380 residential flats"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS36</td>
+                    <td>-0.262254</td>
+                    <td>51.520037</td>
+                    <td>0.2</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Shurguard</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS37</td>
+                    <td>-0.26154</td>
+                    <td>51.51957</td>
+                    <td>0.5</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Big Yellow Storage (Wales Farm Road)</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS39</td>
+                    <td>-0.253067</td>
+                    <td>51.520129</td>
+                    <td>3.7</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Westway Estate</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS40</td>
+                    <td>-0.251536</td>
+                    <td>51.521258</td>
+                    <td>0.6</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Oak Common Lane sites</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS41</td>
+                    <td>-0.269333</td>
+                    <td>51.52842</td>
+                    <td>4.0</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>ASDA, Park Royal</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS42</td>
+                    <td>-0.258556</td>
+                    <td>51.534934</td>
+                    <td>0.3</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6064&Ver=4</td>
+                    <td>pending decision</td>
+                    <td>247 Acton Lane</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission is subject to S106 being agreed. "Part 4, 5, 6 and 9 storey building comprising 141  extra care units (Use Class C2), 48 being affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS43</td>
+                    <td>-0.282546</td>
+                    <td>51.530042</td>
+                    <td>2.7</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-06-27</td>
+                    <td>full planning permission</td>
+                    <td>https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW7UJMTA945</td>
+                    <td>permissioned</td>
+                    <td>First Central and surrounds</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site includes an extant pemission for a hotel to the south of Coronation Road which has not been built out</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DCS43a</td>
+                    <td>-0.282546</td>
+                    <td>51.530042</td>
+                    <td>2.4</td>
+                    <td>2027-12-15</td>
+                    <td>2027-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-11</td>
+                    <td>full planning permission</td>
+                    <td>https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381&MId=6062&Ver=4</td>
+                    <td>permissioned</td>
+                    <td>First Central, Lakeside Drive</td>
+                    <td>https://data.london.gov.uk/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "5 to 27-storey buildings, 807 C3 homes of which 263 affordable"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.240301, "GeoY": 51.53246, "HazardousSubstances": null, "Hectares": 1.6, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land east of Willesden Junction Station", "SiteReference": "DCS1", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.237725, "GeoY": 51.531963, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission is subject to S106 being agreed. \"20-storey building, 85 C3 homes  of which 28 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6062\u0026Ver=4", "PlanningStatus": "pending decision", "SiteNameAddress": "2 Scrubs Lane", "SiteReference": "DCS2", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.239694, "GeoY": 51.527272, "HazardousSubstances": null, "Hectares": 9.7, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Giant", "SiteReference": "DCS5", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.241983, "GeoY": 51.529977, "HazardousSubstances": null, "Hectares": 1.8, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "EMR", "SiteReference": "DCS6", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.23737, "GeoY": 51.529215, "HazardousSubstances": null, "Hectares": 1.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Cumberland Business Park", "SiteReference": "DCS7", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.235402, "GeoY": 51.527993, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission is subject to S106 being agreed. \"4-storey and 11-storey buildings, 47 C3 homes of which 15 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6044\u0026Ver=4", "PlanningStatus": "pending decision", "SiteNameAddress": "North Kensington Gate North", "SiteReference": "DCS8", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.235433, "GeoY": 51.527194, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission is subject to S106 being agreed. \"19-storey building, 200 C3 homes of which 67 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6060\u0026Ver=4", "PlanningStatus": "pending decision", "SiteNameAddress": "Mitre Yard", "SiteReference": "DCS9", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.234356, "GeoY": 51.526645, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission is subject to S106 being agreed. \"6 to 20-storey buildings, 164  C3 homes of which 44 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6045\u0026Ver=4", "PlanningStatus": "pending decision", "SiteNameAddress": "North Kensington Gate South", "SiteReference": "DCS10", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.234097, "GeoY": 51.526241, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Mitre Wharf", "SiteReference": "DCS11", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.239968, "GeoY": 51.531449, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Willesden Junction Depot", "SiteReference": "DCS12", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.256048, "GeoY": 51.524965, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "2 Victoria Terrace", "SiteReference": "DCS13", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.249123, "GeoY": 51.528293, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Oaklands Triangle", "SiteReference": "DCS14", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.248928, "GeoY": 51.527815, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Oaklands North", "SiteReference": "DCS15", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.249166, "GeoY": 51.527171, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"6 to 26-storey buildings, 601 C3 homes of which 242 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-13", "PermissionType": "full planning permission", "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6033\u0026Ver=4", "PlanningStatus": "permissioned", "SiteNameAddress": "Oaklands, Old Oak Common Lane, London, NW10 6DU", "SiteReference": "DCS16", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.246297, "GeoY": 51.525819, "HazardousSubstances": null, "Hectares": 14.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Oak South", "SiteReference": "DCS17", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.233539, "GeoY": 51.5249, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Big Yellow Storage", "SiteReference": "DCS19", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.230991, "GeoY": 51.5245, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Mitre Industrial Estate", "SiteReference": "DCS21", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.231601, "GeoY": 51.52371, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tea Crate", "SiteReference": "DCS22", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.255338, "GeoY": 51.52456, "HazardousSubstances": null, "Hectares": 3.5, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Acton Wells", "SiteReference": "DCS23", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.25665, "GeoY": 51.52378, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Boden House", "SiteReference": "DCS24", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.253385, "GeoY": 51.525368, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Midland Gate", "SiteReference": "DCS25", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.258666, "GeoY": 51.522915, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"16 to 24-storey buildings comprising 424 student bed spaces\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-14", "PermissionType": "full planning permission", "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?keyVal=O4SO8BJM02F00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Holbrook House, Victoria Road Acton W3 6UW", "SiteReference": "DCS26", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.257501, "GeoY": 51.52227, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Application pending consideration. \"3  buildings between 12 and 25 storeys in height to provide 390 residential units of which 105 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ORUF2VJM09P00", "PlanningStatus": "pending decision", "SiteNameAddress": "Perfume Factory North, 140 Wales Farm Road, Acton W3 6UG", "SiteReference": "DCS27", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.257258, "GeoY": 51.520648, "HazardousSubstances": null, "Hectares": 1.7, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Victoria Estate", "SiteReference": "DCS29", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.262053, "GeoY": 51.522109, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"Four buildings of 2, 9, 11, 32 and 42 storeys comprising 578 residential flats, 164 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-14", "PermissionType": "full planning permission", "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?keyVal=O4G865JM02A00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "6 Portal West, North Acton W3 6RU", "SiteReference": "DCS30", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.260823, "GeoY": 51.521577, "HazardousSubstances": null, "Hectares": 1.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \" 8 blocks ranging in height from 6 to 32 storeys to incorporate up to 764 residential flats\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-08", "PermissionType": "outline planning permission", "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW7QJMTA375", "PlanningStatus": "permissioned", "SiteNameAddress": "Carphone Warehouse 1 Portal Way Acton W3 6RT", "SiteReference": "DCS31", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.259372, "GeoY": 51.522012, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission is subject to S106 being agreed. \"Part 10, part 36 storey building comprising 355 residential units, 30% affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OFPEEQJM09L00", "PlanningStatus": "pending decision", "SiteNameAddress": "The Portal, The Portal Land At Wales Farm Road \u0026 Portal Way. Acton W3 6EJ", "SiteReference": "DCS32", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.258008, "GeoY": 51.521764, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"Five buildings of 5, 7, 10, 11 and 31 storeys comprising 736 student bed spaces, 85 residential flats\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-06", "PermissionType": "full planning permission", "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OQIGENJM09L00", "PlanningStatus": "permissioned", "SiteNameAddress": "Perfume Factory South, 140 Wales Farm Road, Acton W3 6UG", "SiteReference": "DCS33", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.262619, "GeoY": 51.52168, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Algerian Embassy", "SiteReference": "DCS34", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.261495, "GeoY": 51.52073, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Application pending consideration. \"Two buildings of 25 and 35 storeys comprising 380 residential flats\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OY0WU3JM0E200", "PlanningStatus": "pending decision", "SiteNameAddress": "2 Portal Way, Acton W3 6RT", "SiteReference": "DCS35", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.262254, "GeoY": 51.520037, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Shurguard", "SiteReference": "DCS36", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.26154, "GeoY": 51.51957, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Big Yellow Storage (Wales Farm Road)", "SiteReference": "DCS37", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.253067, "GeoY": 51.520129, "HazardousSubstances": null, "Hectares": 3.7, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Westway Estate", "SiteReference": "DCS39", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.251536, "GeoY": 51.521258, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Oak Common Lane sites", "SiteReference": "DCS40", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.269333, "GeoY": 51.52842, "HazardousSubstances": null, "Hectares": 4.0, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "ASDA, Park Royal", "SiteReference": "DCS41", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.258556, "GeoY": 51.534934, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission is subject to S106 being agreed. \"Part 4, 5, 6 and 9 storey building comprising 141  extra care units (Use Class C2), 48 being affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6064\u0026Ver=4", "PlanningStatus": "pending decision", "SiteNameAddress": "247 Acton Lane", "SiteReference": "DCS42", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.282546, "GeoY": 51.530042, "HazardousSubstances": null, "Hectares": 2.7, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "This site includes an extant pemission for a hotel to the south of Coronation Road which has not been built out", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-06-27", "PermissionType": "full planning permission", "PlanningHistory": "https://pam.ealing.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW7UJMTA945", "PlanningStatus": "permissioned", "SiteNameAddress": "First Central and surrounds", "SiteReference": "DCS43", "SiteplanURL": "https://data.london.gov.uk/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2027-12-15", "GeoX": -0.282546, "GeoY": 51.530042, "HazardousSubstances": null, "Hectares": 2.4, "LastUpdatedDate": "2027-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"5 to 27-storey buildings, 807 C3 homes of which 263 affordable\"", "OrganisationURI": "http://opendatacommunities.org/id/dev-corp/old-oak-and-park-royal", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-11", "PermissionType": "full planning permission", "PlanningHistory": "https://www.london.gov.uk/moderngovopdc/ieListDocuments.aspx?CId=381\u0026MId=6062\u0026Ver=4", "PlanningStatus": "permissioned", "SiteNameAddress": "First Central, Lakeside Drive", "SiteReference": "DCS43a", "SiteplanURL": "https://data.london.gov.uk/"}];
+    const bbox = [-0.29698263427310334, -0.21655436572689668, 51.510586843418594, 51.54391715658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

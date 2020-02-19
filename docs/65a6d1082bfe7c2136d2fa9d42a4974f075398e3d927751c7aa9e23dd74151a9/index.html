@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">65a6d108...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.sunderland.gov.uk/media/22098/Brownfield-Site-Register-2019-CSV/CSV/Brownfield_Site_Register_2019_CSV1.csv">https://www.sunderland.gov.uk/media/22098/Brownfield-Site-Register-2019-CSV/CSV/Brownfield_Site_Register_2019_CSV1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.sunderland.gov.uk/article/12739/Brownfield-Land-Register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SND">Sunderland City Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/65a6d1082bfe7c2136d2fa9d42a4974f075398e3d927751c7aa9e23dd74151a9/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/65a6d1082bfe7c2136d2fa9d42a4974f075398e3d927751c7aa9e23dd74151a9">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">65 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">13 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">157.74
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                4494</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                4961</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">2
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>65</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/65a6d1082bfe7c2136d2fa9d42a4974f075398e3d927751c7aa9e23dd74151a9.csv"
+        download="65a6d1082bfe7c2136d2fa9d42a4974f075398e3d927751c7aa9e23dd74151a9_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/65a6d1082bfe7c2136d2fa9d42a4974f075398e3d927751c7aa9e23dd74151a9"
+        download="65a6d1082bfe7c2136d2fa9d42a4974f075398e3d927751c7aa9e23dd74151a9_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>18</td>
+                    <td>-1.376472</td>
+                    <td>54.906179</td>
+                    <td>0.06</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>54</td>
+                    <td>54</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-09</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>42 to 45 Nile Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 16/00748/FU4. Part of Sunniside Planning & Design Framework SPD and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>54</td>
+                    <td>-1.441783</td>
+                    <td>54.89645</td>
+                    <td>0.19</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Former Eagle Public House, Portsmouth Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 16/00509/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>70</td>
+                    <td>-1.411003</td>
+                    <td>54.910395</td>
+                    <td>1.32</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-21</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Site of Foundry (The Forge, Pallion)</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 17/02370/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>080A</td>
+                    <td>-1.386577</td>
+                    <td>54.912467</td>
+                    <td>1.25</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>45</td>
+                    <td>50</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Stadium Village, Sheepfolds Central</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Stadium Village Development Framework SPD masterplan and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>080B</td>
+                    <td>-1.384731</td>
+                    <td>54.912772</td>
+                    <td>0.89</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>63</td>
+                    <td>70</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Stadium Village, Sheepfolds South</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Stadium Village Development Framework SPD masterplan and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>080C</td>
+                    <td>-1.385584</td>
+                    <td>54.911051</td>
+                    <td>0.91</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>72</td>
+                    <td>80</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Stadium Village, Sheepfolds Cliff Top</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Stadium Village Development Framework SPD masterplan and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>85</td>
+                    <td>-1.424707</td>
+                    <td>54.914136</td>
+                    <td>31.21</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>630</td>
+                    <td>700</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>pending decision</td>
+                    <td>Former Groves Site, Woodbine Terrace, Pallion</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Groves Development Framework. Intention for developer to submit planning application for 700 dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>86</td>
+                    <td>-1.432274</td>
+                    <td>54.805212</td>
+                    <td>2.95</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>116</td>
+                    <td>116</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2019-05-02</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Former Easington Lane Primary School Building</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Easington Lane Development Framework SPD and Development Brief"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>87</td>
+                    <td>-1.500423</td>
+                    <td>54.842598</td>
+                    <td>0.3</td>
+                    <td>2019-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>17</td>
+                    <td>17</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td>2019-04-02</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Former Dubmire Primary School, Britannia Terrace</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 17 units: 18/02002/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>98</td>
+                    <td>-1.55298</td>
+                    <td>54.889873</td>
+                    <td>1.58</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>36</td>
+                    <td>40</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>pending decision</td>
+                    <td>Ayton Village Primary School, Dunlin Drive, Ayton</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Application Pending for 56 dwellings 19/01484/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>104</td>
+                    <td>-1.399579</td>
+                    <td>54.927575</td>
+                    <td>4.2</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>99</td>
+                    <td>110</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Carley Hill School, Emsworth Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Pre-application enquiry ref. 16/01431/P1 expired"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>107</td>
+                    <td>-1.445092</td>
+                    <td>54.892781</td>
+                    <td>16.72</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>450</td>
+                    <td>500</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2019-06-28</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Phases 2-6, Chester Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 18/00255/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>109</td>
+                    <td>-1.527058</td>
+                    <td>54.898914</td>
+                    <td>1.64</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>43</td>
+                    <td>43</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-23</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Glebe Parkway</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 16/01045/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>112</td>
+                    <td>-1.457422</td>
+                    <td>54.832565</td>
+                    <td>3.9</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>148</td>
+                    <td>148</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-18</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Site of former Broomhill Estate.</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 16/01161/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>194</td>
+                    <td>-1.504737</td>
+                    <td>54.849984</td>
+                    <td>4.43</td>
+                    <td>2017-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>252</td>
+                    <td>274</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>pending decision</td>
+                    <td>Lambton Lane, land at</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Live application pending ref. 17/00589/FUL - proposed combined total 271 dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>312</td>
+                    <td>-1.522537</td>
+                    <td>54.912052</td>
+                    <td>0.29</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2016-11-28</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Former Junglerama, Victoria Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 16/00115/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>328</td>
+                    <td>-1.447475</td>
+                    <td>54.830192</td>
+                    <td>3.97</td>
+                    <td>2017-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>100</td>
+                    <td>112</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2019-04-18</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Hetton Downs Phase 2</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 17/02178/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>380</td>
+                    <td>-1.359341</td>
+                    <td>54.876147</td>
+                    <td>1.27</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>46</td>
+                    <td>46</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-08</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Grangetown Autos and land to the South. East side of Ryhope Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted outline application ref. 15/01629/OUT, with live application pending ref. 17/00386/FUL for 48 units on land to the north"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>469</td>
+                    <td>-1.482169</td>
+                    <td>54.850061</td>
+                    <td>0.64</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>19</td>
+                    <td>19</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-03-07</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Site of former Kentmere House</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Pre-application ref. 13/01367/P7 - proposed 20 dwellings, development acceptable in principle. Concise brief prepared. Full application for 19 17/02296/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>470</td>
+                    <td>-1.481507</td>
+                    <td>54.850616</td>
+                    <td>0.34</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Site of former Gilpin House</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Pre-application ref. 13/01367/P7 - proposed 12 dwellings, development acceptable in principle"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>502</td>
+                    <td>-1.402311</td>
+                    <td>54.872735</td>
+                    <td>0.09</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-20</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Vane Arms, Silksworth</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 17/01168/FUL - proposed conversion to 7 self-contained apartments"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>504</td>
+                    <td>-1.411645</td>
+                    <td>54.869555</td>
+                    <td>3.99</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-06-13</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Doxford Park Phase 6</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of South Sunderland Growth Area masterplan and draft SPD. Permitted application: 18/00438/FUL for 100"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>531</td>
+                    <td>-1.405567</td>
+                    <td>54.875987</td>
+                    <td>0.14</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>3</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2011-11-01</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Council Yard, North St, Silksworth</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 11/01908/FUL - under construction"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>537</td>
+                    <td>-1.421299</td>
+                    <td>54.924409</td>
+                    <td>0.28</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-02-27</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Land at Redcar Road/Rawdon Rd</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Pre-application enquiry ref. 10/00104/ENQ - proposed 8 bungalows and a core house, development acceptable in principle. Development Brief prepared"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>563</td>
+                    <td>-1.417629</td>
+                    <td>54.923556</td>
+                    <td>3.55</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>90</td>
+                    <td>105</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>pending decision</td>
+                    <td>Hylton Skills campus, north Hylton Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Planning application ref. 19/01427/FUL - Demolition of redundant former college buildings and construction of 105 dwellings and associated infrastructure, boundaries and landscaping."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>565</td>
+                    <td>-1.422453</td>
+                    <td>54.922276</td>
+                    <td>3.98</td>
+                    <td>2017-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>118</td>
+                    <td>118</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-31</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Pheonix Tower Business Park, Castletown Way</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 18/00823/REM - Reserved matters to previously approved outline application 14/00292/OUT - Approval sought for appearance, landscaping, layout and scale (for 118 dwellings). (Amended Description)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>568</td>
+                    <td>-1.383924</td>
+                    <td>54.928981</td>
+                    <td>0.27</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>23</td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>pending decision</td>
+                    <td>Fulwell Fire Station, Station Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>655</td>
+                    <td>-1.387873</td>
+                    <td>54.904107</td>
+                    <td>0.21</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>115</td>
+                    <td>128</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Galen Building</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>659</td>
+                    <td>-1.37711</td>
+                    <td>54.907279</td>
+                    <td>1.21</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>18</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Sunniside Central Area, Villiers Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Sunniside Planning & Design Framework SPD and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>660</td>
+                    <td>-1.382274</td>
+                    <td>54.907224</td>
+                    <td>0.02</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>63 Fawcett Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>661</td>
+                    <td>-1.381455</td>
+                    <td>54.906708</td>
+                    <td>0.02</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-25</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>12 Fawcett Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 14/01962/FUL and 16/00357/FUL. Part of Sunniside Planning & Design Framework SPD and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>665</td>
+                    <td>-1.384552</td>
+                    <td>54.90711</td>
+                    <td>0.04</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-02</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>255 High Street West</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 18/00531/FUL. Part of Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>678</td>
+                    <td>-1.443164</td>
+                    <td>54.901462</td>
+                    <td>2.53</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>50</td>
+                    <td>55</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>South Hylton House</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>687</td>
+                    <td>-1.446771</td>
+                    <td>54.922749</td>
+                    <td>0.18</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-26</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Former Hylton Castle Library, Cranleigh Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 17/00427/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>688</td>
+                    <td>-1.53494</td>
+                    <td>54.896896</td>
+                    <td>0.05</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>48</td>
+                    <td>48</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-09</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Derwent House, Washington Town Centre</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted Prior Notification application ref. 17/00087/PCJ"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>690</td>
+                    <td>-1.381143</td>
+                    <td>54.905682</td>
+                    <td>0.02</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-01</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>First Floor, the Old Vestry, 23 Fawcett Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 9 units 17/01442/FUL. Part of Sunniside Planning & Design Framework SPD and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>693</td>
+                    <td>-1.455713</td>
+                    <td>54.923751</td>
+                    <td>0.52</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>19</td>
+                    <td>19</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-07-03</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Former Cheadle Centre, Caithness Road, Hylton</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 19 units: 17/02446/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>698</td>
+                    <td>-1.368075</td>
+                    <td>54.899756</td>
+                    <td>0.03</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-31</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Gray Road, Hendon</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>699</td>
+                    <td>-1.381278</td>
+                    <td>54.906178</td>
+                    <td>0.02</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-12</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Upper floors 18 Fawcett Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>701</td>
+                    <td>-1.38106</td>
+                    <td>54.907156</td>
+                    <td>0.02</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-02</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>67 John Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 9 units 16/02216/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>703</td>
+                    <td>-1.395253</td>
+                    <td>54.90508</td>
+                    <td>0.06</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-08</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Westbourne Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 9 units: 16/01749/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>704</td>
+                    <td>-1.504538</td>
+                    <td>54.846093</td>
+                    <td>0.1</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-08</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Fence Houses Comrades Club, Station Avenue North, Fence Houses</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 8 units: 17/00578/SUB"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>705</td>
+                    <td>-1.383635</td>
+                    <td>54.899899</td>
+                    <td>0.02</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-18</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>2 Grange Crescent</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>706</td>
+                    <td>-1.375046</td>
+                    <td>54.887634</td>
+                    <td>0.08</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-22</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Mayholme, 31 Sea View Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>714</td>
+                    <td>-1.439408</td>
+                    <td>54.898048</td>
+                    <td>0.49</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>27</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Pennywell Business Centre, Pennywell</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>720</td>
+                    <td>-1.378118</td>
+                    <td>54.914842</td>
+                    <td>0.19</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Land at Dixon Square, Causeway</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>721</td>
+                    <td>-1.402178</td>
+                    <td>54.913462</td>
+                    <td>1.54</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>43</td>
+                    <td>48</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>The Ropery, Websters Bank</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>724</td>
+                    <td>-1.380318</td>
+                    <td>54.897582</td>
+                    <td>0.58</td>
+                    <td>2019-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>57</td>
+                    <td>57</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-11</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Former Sunderland High School</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 57 units of extra-care: 17/01761/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>725</td>
+                    <td>-1.378075</td>
+                    <td>54.902495</td>
+                    <td>0.16</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-09</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Camrex House/Tatham Street Hostel, 3 Tatham Strt, Sunderla</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 50 units: 18/00825/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>726</td>
+                    <td>-1.394215</td>
+                    <td>54.902513</td>
+                    <td>0.04</td>
+                    <td>2019-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-03-05</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>9-12 Summerhill, Sundend, SR2 7NX</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 10 units: 18/01849/FUL"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>727</td>
+                    <td>-1.383791</td>
+                    <td>54.917235</td>
+                    <td>0.05</td>
+                    <td>2019-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-04-09</td>
+                    <td>permission in principle</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>43-45 Newcastle Road, Sunderland</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permission in principle - 18/02210/PIP"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>728</td>
+                    <td>-1.376187</td>
+                    <td>54.904597</td>
+                    <td>0.04</td>
+                    <td>2018-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-26</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>12-13 Toward Road, Sunderland</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted Prior Notification for 12 units: 18/01450/PCJ"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>729</td>
+                    <td>-1.379707</td>
+                    <td>54.897758</td>
+                    <td>0.21</td>
+                    <td>2019-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-20</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Sunderland Church High School Mowbray Road Sunderland SR2 8HY</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission for 15 units: 18/00485/FDC"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>742</td>
+                    <td>-1.383852</td>
+                    <td>54.91737</td>
+                    <td>0.02</td>
+                    <td>2019-11-30</td>
+                    <td>2019-11-30</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-05-08</td>
+                    <td>permission in principle</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>47-49 Newcastle Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permission in principle - 19/00614/PIP"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B056</td>
+                    <td>-1.533492</td>
+                    <td>54.918358</td>
+                    <td>0.65</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>14</td>
+                    <td>56</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2017-06-14</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>High Usworth School, Well Bank Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 16/02266/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>B062</td>
+                    <td>-1.374281</td>
+                    <td>54.861397</td>
+                    <td>27.67</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>640</td>
+                    <td>640</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td>2017-06-26</td>
+                    <td>other</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Ryhope and Cherry Knowles Hospital</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted hybrid application ref. 16/01524/HYB - Full Planning Permission for 304 dwellings, with Outline Planning Permission for 496 dwellings and an 80-bed care village. Part of South Sunderland Growth Area masterplan (Cherry Knowle) and draft SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B078</td>
+                    <td>-1.393119</td>
+                    <td>54.912014</td>
+                    <td>1.99</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>44</td>
+                    <td>48</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Farringdon Row Phase 2-4</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of Farringdon Row Development Framework SPD and Central Area Urban Design Strategy SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B091</td>
+                    <td>-1.407579</td>
+                    <td>54.920479</td>
+                    <td>1.49</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>22</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Southwick Primary School, Clarence Street</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B106</td>
+                    <td>-1.431928</td>
+                    <td>54.903135</td>
+                    <td>1.91</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>116</td>
+                    <td>285</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-10-25</td>
+                    <td>full planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>High Ford Estate, Flodden Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Permitted application ref. 11/01794/FUL - under construction"</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-30</td>
+                </tr>
+                
+                <tr>
+                    <td>B293A</td>
+                    <td>-1.463323</td>
+                    <td>54.81017</td>
+                    <td>3.19</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>59</td>
+                    <td>66</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>pending decision</td>
+                    <td>Low Moorsley, land at (Ennerdale Street)</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Live outline application ref. 14/01371/OUT - proposed 83 dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B330A</td>
+                    <td>-1.478291</td>
+                    <td>54.864495</td>
+                    <td>17.29</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>250</td>
+                    <td>250</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-10</td>
+                    <td>other</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Philadelphia Complex</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Reserved matter application pursuant to 14/00538/HYB, seeking approval of the details of access, appearance, landscaping, layout and scale for the erection of 452 residential units on Phase 1(a), 2(a), 3 and 4."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B413</td>
+                    <td>-1.370399</td>
+                    <td>54.936576</td>
+                    <td>2.47</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>140</td>
+                    <td>140</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-10-31</td>
+                    <td>outline planning permission</td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>permissioned</td>
+                    <td>Seaburn Amusements, Whitburn Road</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Live outline hybrid application pending ref. 16/02056/HY4 - proposed mixed-use development with up to 279 dwellings overall. Part of Seaburn Masterplan and Design Code SPD"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B448</td>
+                    <td>-1.499632</td>
+                    <td>54.869823</td>
+                    <td>1.09</td>
+                    <td>2016-06-30</td>
+                    <td>2018-11-30</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Penshaw House</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Application Pending for 18 units: 17/01631/FU4"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B451</td>
+                    <td>-1.381338</td>
+                    <td>54.885831</td>
+                    <td>0.81</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>18</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Former Stannington Centre and adjoining greenspace, Hillview, Stannington Grove</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Enquiry ref. 10/02550/MNQ refused - interest in residential development"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B467B</td>
+                    <td>-1.395466</td>
+                    <td>54.92715</td>
+                    <td>0.37</td>
+                    <td>2017-11-30</td>
+                    <td>2018-11-30</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/sunderland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://www.sunderland.gov.uk/online-applications</td>
+                    <td>not permissioned</td>
+                    <td>Thornbeck College site</td>
+                    <td>https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Enquiry ref. 11/01303/MNQ - proposed extra care facilities"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.376472, "GeoY": 54.906179, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 54, "NetDwellingsRangeTo": 54, "Notes": "\"Permitted application ref. 16/00748/FU4. Part of Sunniside Planning \u0026 Design Framework SPD and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-09", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "42 to 45 Nile Street", "SiteReference": "18", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.441783, "GeoY": 54.89645, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "\"Permitted application ref. 16/00509/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Eagle Public House, Portsmouth Road", "SiteReference": "54", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.411003, "GeoY": 54.910395, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 22, "Notes": "\"Permitted application ref. 17/02370/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-21", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Foundry (The Forge, Pallion)", "SiteReference": "70", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.386577, "GeoY": 54.912467, "HazardousSubstances": null, "Hectares": 1.25, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 45, "NetDwellingsRangeTo": 50, "Notes": "\"Part of Stadium Village Development Framework SPD masterplan and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Stadium Village, Sheepfolds Central", "SiteReference": "080A", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.384731, "GeoY": 54.912772, "HazardousSubstances": null, "Hectares": 0.89, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 63, "NetDwellingsRangeTo": 70, "Notes": "\"Part of Stadium Village Development Framework SPD masterplan and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Stadium Village, Sheepfolds South", "SiteReference": "080B", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.385584, "GeoY": 54.911051, "HazardousSubstances": null, "Hectares": 0.91, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 72, "NetDwellingsRangeTo": 80, "Notes": "\"Part of Stadium Village Development Framework SPD masterplan and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Stadium Village, Sheepfolds Cliff Top", "SiteReference": "080C", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.424707, "GeoY": 54.914136, "HazardousSubstances": null, "Hectares": 31.21, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 630, "NetDwellingsRangeTo": 700, "Notes": "\"Part of Groves Development Framework. Intention for developer to submit planning application for 700 dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "pending decision", "SiteNameAddress": "Former Groves Site, Woodbine Terrace, Pallion", "SiteReference": "85", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.432274, "GeoY": 54.805212, "HazardousSubstances": null, "Hectares": 2.95, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 116, "NetDwellingsRangeTo": 116, "Notes": "\"Part of Easington Lane Development Framework SPD and Development Brief\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2019-05-02", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Easington Lane Primary School Building", "SiteReference": "86", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-30", "GeoX": -1.500423, "GeoY": 54.842598, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 17, "Notes": "\"Full permission for 17 units: 18/02002/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2019-04-02", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Dubmire Primary School, Britannia Terrace", "SiteReference": "87", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.55298, "GeoY": 54.889873, "HazardousSubstances": null, "Hectares": 1.58, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 36, "NetDwellingsRangeTo": 40, "Notes": "\"Application Pending for 56 dwellings 19/01484/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "pending decision", "SiteNameAddress": "Ayton Village Primary School, Dunlin Drive, Ayton", "SiteReference": "98", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.399579, "GeoY": 54.927575, "HazardousSubstances": null, "Hectares": 4.2, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 99, "NetDwellingsRangeTo": 110, "Notes": "\"Pre-application enquiry ref. 16/01431/P1 expired\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Carley Hill School, Emsworth Road", "SiteReference": "104", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.445092, "GeoY": 54.892781, "HazardousSubstances": null, "Hectares": 16.72, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 450, "NetDwellingsRangeTo": 500, "Notes": "\"Permitted application ref. 18/00255/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2019-06-28", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Phases 2-6, Chester Road", "SiteReference": "107", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.527058, "GeoY": 54.898914, "HazardousSubstances": null, "Hectares": 1.64, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 43, "NetDwellingsRangeTo": 43, "Notes": "\"Permitted application ref. 16/01045/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-23", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Glebe Parkway", "SiteReference": "109", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.457422, "GeoY": 54.832565, "HazardousSubstances": null, "Hectares": 3.9, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 148, "NetDwellingsRangeTo": 148, "Notes": "\"Permitted application ref. 16/01161/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-18", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of former Broomhill Estate.", "SiteReference": "112", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.504737, "GeoY": 54.849984, "HazardousSubstances": null, "Hectares": 4.43, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 252, "NetDwellingsRangeTo": 274, "Notes": "\"Live application pending ref. 17/00589/FUL - proposed combined total 271 dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "pending decision", "SiteNameAddress": "Lambton Lane, land at", "SiteReference": "194", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.522537, "GeoY": 54.912052, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "\"Permitted application ref. 16/00115/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2016-11-28", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Junglerama, Victoria Road", "SiteReference": "312", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.447475, "GeoY": 54.830192, "HazardousSubstances": null, "Hectares": 3.97, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 112, "Notes": "\"Permitted application ref. 17/02178/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2019-04-18", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Hetton Downs Phase 2", "SiteReference": "328", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.359341, "GeoY": 54.876147, "HazardousSubstances": null, "Hectares": 1.27, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 46, "NetDwellingsRangeTo": 46, "Notes": "\"Permitted outline application ref. 15/01629/OUT, with live application pending ref. 17/00386/FUL for 48 units on land to the north\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-08", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Grangetown Autos and land to the South. East side of Ryhope Road", "SiteReference": "380", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.482169, "GeoY": 54.850061, "HazardousSubstances": null, "Hectares": 0.64, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 19, "NetDwellingsRangeTo": 19, "Notes": "\"Pre-application ref. 13/01367/P7 - proposed 20 dwellings, development acceptable in principle. Concise brief prepared. Full application for 19 17/02296/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-03-07", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of former Kentmere House", "SiteReference": "469", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.481507, "GeoY": 54.850616, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 12, "Notes": "\"Pre-application ref. 13/01367/P7 - proposed 12 dwellings, development acceptable in principle\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Site of former Gilpin House", "SiteReference": "470", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.402311, "GeoY": 54.872735, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "\"Permitted application ref. 17/01168/FUL - proposed conversion to 7 self-contained apartments\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-20", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Vane Arms, Silksworth", "SiteReference": "502", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.411645, "GeoY": 54.869555, "HazardousSubstances": null, "Hectares": 3.99, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": "\"Part of South Sunderland Growth Area masterplan and draft SPD. Permitted application: 18/00438/FUL for 100\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-06-13", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Doxford Park Phase 6", "SiteReference": "504", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.405567, "GeoY": 54.875987, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 3, "NetDwellingsRangeTo": 6, "Notes": "\"Permitted application ref. 11/01908/FUL - under construction\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2011-11-01", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Council Yard, North St, Silksworth", "SiteReference": "531", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.421299, "GeoY": 54.924409, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "\"Pre-application enquiry ref. 10/00104/ENQ - proposed 8 bungalows and a core house, development acceptable in principle. Development Brief prepared\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-02-27", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Redcar Road/Rawdon Rd", "SiteReference": "537", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.417629, "GeoY": 54.923556, "HazardousSubstances": null, "Hectares": 3.55, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 90, "NetDwellingsRangeTo": 105, "Notes": "\"Planning application ref. 19/01427/FUL - Demolition of redundant former college buildings and construction of 105 dwellings and associated infrastructure, boundaries and landscaping.\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "pending decision", "SiteNameAddress": "Hylton Skills campus, north Hylton Road", "SiteReference": "563", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.422453, "GeoY": 54.922276, "HazardousSubstances": null, "Hectares": 3.98, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 118, "NetDwellingsRangeTo": 118, "Notes": "\"Permitted application ref. 18/00823/REM - Reserved matters to previously approved outline application 14/00292/OUT - Approval sought for appearance, landscaping, layout and scale (for 118 dwellings). (Amended Description)\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-31", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Pheonix Tower Business Park, Castletown Way", "SiteReference": "565", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.383924, "GeoY": 54.928981, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 23, "NetDwellingsRangeTo": 25, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "pending decision", "SiteNameAddress": "Fulwell Fire Station, Station Road", "SiteReference": "568", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.387873, "GeoY": 54.904107, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 115, "NetDwellingsRangeTo": 128, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Galen Building", "SiteReference": "655", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.37711, "GeoY": 54.907279, "HazardousSubstances": null, "Hectares": 1.21, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 20, "Notes": "\"Part of Sunniside Planning \u0026 Design Framework SPD and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Sunniside Central Area, Villiers Street", "SiteReference": "659", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.382274, "GeoY": 54.907224, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "63 Fawcett Street", "SiteReference": "660", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.381455, "GeoY": 54.906708, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "\"Permitted application ref. 14/01962/FUL and 16/00357/FUL. Part of Sunniside Planning \u0026 Design Framework SPD and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-25", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "12 Fawcett Street", "SiteReference": "661", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.384552, "GeoY": 54.90711, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "\"Permitted application ref. 18/00531/FUL. Part of Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-02", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "255 High Street West", "SiteReference": "665", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.443164, "GeoY": 54.901462, "HazardousSubstances": null, "Hectares": 2.53, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 50, "NetDwellingsRangeTo": 55, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "South Hylton House", "SiteReference": "678", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.446771, "GeoY": 54.922749, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "\"Permitted application ref. 17/00427/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-26", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Hylton Castle Library, Cranleigh Road", "SiteReference": "687", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.53494, "GeoY": 54.896896, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 48, "NetDwellingsRangeTo": 48, "Notes": "\"Permitted Prior Notification application ref. 17/00087/PCJ\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-09", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Derwent House, Washington Town Centre", "SiteReference": "688", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.381143, "GeoY": 54.905682, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "\"Full permission for 9 units 17/01442/FUL. Part of Sunniside Planning \u0026 Design Framework SPD and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-01", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "First Floor, the Old Vestry, 23 Fawcett Street", "SiteReference": "690", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.455713, "GeoY": 54.923751, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 19, "NetDwellingsRangeTo": 19, "Notes": "\"Full permission for 19 units: 17/02446/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-07-03", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Cheadle Centre, Caithness Road, Hylton", "SiteReference": "693", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2018-11-30", "GeoX": -1.368075, "GeoY": 54.899756, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-31", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Gray Road, Hendon", "SiteReference": "698", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": "2019-11-30", "FirstAddedDate": "2018-11-30", "GeoX": -1.381278, "GeoY": 54.906178, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-12", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Upper floors 18 Fawcett Street", "SiteReference": "699", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.38106, "GeoY": 54.907156, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "\"Full permission for 9 units 16/02216/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-02", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "67 John Street", "SiteReference": "701", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.395253, "GeoY": 54.90508, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "\"Full permission for 9 units: 16/01749/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-08", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Westbourne Road", "SiteReference": "703", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.504538, "GeoY": 54.846093, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "\"Full permission for 8 units: 17/00578/SUB\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-08", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Fence Houses Comrades Club, Station Avenue North, Fence Houses", "SiteReference": "704", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2018-11-30", "GeoX": -1.383635, "GeoY": 54.899899, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-18", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "2 Grange Crescent", "SiteReference": "705", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2018-11-30", "GeoX": -1.375046, "GeoY": 54.887634, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-22", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Mayholme, 31 Sea View Road", "SiteReference": "706", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.439408, "GeoY": 54.898048, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 30, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Pennywell Business Centre, Pennywell", "SiteReference": "714", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.378118, "GeoY": 54.914842, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Dixon Square, Causeway", "SiteReference": "720", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.402178, "GeoY": 54.913462, "HazardousSubstances": null, "Hectares": 1.54, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 43, "NetDwellingsRangeTo": 48, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "The Ropery, Websters Bank", "SiteReference": "721", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-30", "GeoX": -1.380318, "GeoY": 54.897582, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 57, "NetDwellingsRangeTo": 57, "Notes": "\"Full permission for 57 units of extra-care: 17/01761/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-11", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Sunderland High School", "SiteReference": "724", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.378075, "GeoY": 54.902495, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 50, "NetDwellingsRangeTo": 50, "Notes": "\"Full permission for 50 units: 18/00825/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-09", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Camrex House/Tatham Street Hostel, 3 Tatham Strt, Sunderla", "SiteReference": "725", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-30", "GeoX": -1.394215, "GeoY": 54.902513, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "\"Full permission for 10 units: 18/01849/FUL\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-03-05", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "9-12 Summerhill, Sundend, SR2 7NX", "SiteReference": "726", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-30", "GeoX": -1.383791, "GeoY": 54.917235, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "\"Permission in principle - 18/02210/PIP\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-04-09", "PermissionType": "permission in principle", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "43-45 Newcastle Road, Sunderland", "SiteReference": "727", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-30", "GeoX": -1.376187, "GeoY": 54.904597, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "\"Permitted Prior Notification for 12 units: 18/01450/PCJ\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-26", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "12-13 Toward Road, Sunderland", "SiteReference": "728", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-30", "GeoX": -1.379707, "GeoY": 54.897758, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": "\"Full permission for 15 units: 18/00485/FDC\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-20", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Sunderland Church High School Mowbray Road Sunderland SR2 8HY", "SiteReference": "729", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-11-30", "GeoX": -1.383852, "GeoY": 54.91737, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2019-11-30", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "\"Permission in principle - 19/00614/PIP\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-05-08", "PermissionType": "permission in principle", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "47-49 Newcastle Road", "SiteReference": "742", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2016-06-30", "GeoX": -1.533492, "GeoY": 54.918358, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 56, "Notes": "\"Permitted application ref. 16/02266/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2017-06-14", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "High Usworth School, Well Bank Road", "SiteReference": "B056", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.374281, "GeoY": 54.861397, "HazardousSubstances": null, "Hectares": 27.67, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 640, "NetDwellingsRangeTo": 640, "Notes": "\"Permitted hybrid application ref. 16/01524/HYB - Full Planning Permission for 304 dwellings, with Outline Planning Permission for 496 dwellings and an 80-bed care village. Part of South Sunderland Growth Area masterplan (Cherry Knowle) and draft SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": "2017-06-26", "PermissionType": "other", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Ryhope and Cherry Knowles Hospital", "SiteReference": "B062", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.393119, "GeoY": 54.912014, "HazardousSubstances": null, "Hectares": 1.99, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 44, "NetDwellingsRangeTo": 48, "Notes": "\"Part of Farringdon Row Development Framework SPD and Central Area Urban Design Strategy SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Farringdon Row Phase 2-4", "SiteReference": "B078", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.407579, "GeoY": 54.920479, "HazardousSubstances": null, "Hectares": 1.49, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 24, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Southwick Primary School, Clarence Street", "SiteReference": "B091", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": "2019-11-30", "FirstAddedDate": "2017-11-30", "GeoX": -1.431928, "GeoY": 54.903135, "HazardousSubstances": null, "Hectares": 1.91, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 116, "NetDwellingsRangeTo": 285, "Notes": "\"Permitted application ref. 11/01794/FUL - under construction\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-10-25", "PermissionType": "full planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "High Ford Estate, Flodden Road", "SiteReference": "B106", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.463323, "GeoY": 54.81017, "HazardousSubstances": null, "Hectares": 3.19, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 59, "NetDwellingsRangeTo": 66, "Notes": "\"Live outline application ref. 14/01371/OUT - proposed 83 dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "pending decision", "SiteNameAddress": "Low Moorsley, land at (Ennerdale Street)", "SiteReference": "B293A", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.478291, "GeoY": 54.864495, "HazardousSubstances": null, "Hectares": 17.29, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 250, "NetDwellingsRangeTo": 250, "Notes": "\"Reserved matter application pursuant to 14/00538/HYB, seeking approval of the details of access, appearance, landscaping, layout and scale for the erection of 452 residential units on Phase 1(a), 2(a), 3 and 4.\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-10", "PermissionType": "other", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Philadelphia Complex", "SiteReference": "B330A", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.370399, "GeoY": 54.936576, "HazardousSubstances": null, "Hectares": 2.47, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 140, "NetDwellingsRangeTo": 140, "Notes": "\"Live outline hybrid application pending ref. 16/02056/HY4 - proposed mixed-use development with up to 279 dwellings overall. Part of Seaburn Masterplan and Design Code SPD\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-10-31", "PermissionType": "outline planning permission", "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "permissioned", "SiteNameAddress": "Seaburn Amusements, Whitburn Road", "SiteReference": "B413", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-06-30", "GeoX": -1.499632, "GeoY": 54.869823, "HazardousSubstances": null, "Hectares": 1.09, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 10, "Notes": "\"Application Pending for 18 units: 17/01631/FU4\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Penshaw House", "SiteReference": "B448", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.381338, "GeoY": 54.885831, "HazardousSubstances": null, "Hectares": 0.81, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 20, "Notes": "\"Enquiry ref. 10/02550/MNQ refused - interest in residential development\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Stannington Centre and adjoining greenspace, Hillview, Stannington Grove", "SiteReference": "B451", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.395466, "GeoY": 54.92715, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2018-11-30", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 11, "Notes": "\"Enquiry ref. 11/01303/MNQ - proposed extra care facilities\"", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/sunderland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://www.sunderland.gov.uk/online-applications", "PlanningStatus": "not permissioned", "SiteNameAddress": "Thornbeck College site", "SiteReference": "B467B", "SiteplanURL": "https://www.sunderland.gov.uk/article/12739/Brownfield-Sites-Register"}];
+    const bbox = [-1.5685660712937612, -1.3437549287062387, 54.79622884341859, 54.94555915658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

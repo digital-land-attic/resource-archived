@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b7451b9c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://data.barrowbc.gov.uk/dataset/3f587e30-a91e-4d0e-9525-a660706df8c0/resource/e6c654ca-95c8-4896-a33c-43cd88bbad63/download/barrow-in-furnessbrownfieldregister2018-06-28rev1.csv">https://data.barrowbc.gov.uk/dataset/3f587e30-a91e-4d0e-9525-a660706df8c0/resource/e6c654ca-95c8-4896-a33c-43cd88bbad63/download/barrow-in-furnessbrownfieldregister2018-06-28rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.barrowbc.gov.uk/residents/planning/planning-policy/brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 01 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BAR">Barrow-in-Furness Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b7451b9cd95a34bcf55cef1b9a044c2c07f75d92b2fd149517ffb1b5f7d1e4d0/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b7451b9cd95a34bcf55cef1b9a044c2c07f75d92b2fd149517ffb1b5f7d1e4d0">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">27 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">70.39
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>27</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b7451b9cd95a34bcf55cef1b9a044c2c07f75d92b2fd149517ffb1b5f7d1e4d0.csv"
+        download="b7451b9cd95a34bcf55cef1b9a044c2c07f75d92b2fd149517ffb1b5f7d1e4d0_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b7451b9cd95a34bcf55cef1b9a044c2c07f75d92b2fd149517ffb1b5f7d1e4d0"
+        download="b7451b9cd95a34bcf55cef1b9a044c2c07f75d92b2fd149517ffb1b5f7d1e4d0_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BFLR/2017/0001</td>
+                    <td>-3.220789</td>
+                    <td>54.109013</td>
+                    <td>0.39</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2005-08-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former North Lonsdale Hospital</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=320284.28&northing=468815.02&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development comprising of 32 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0002</td>
+                    <td>-3.198981</td>
+                    <td>54.121855</td>
+                    <td>1.45</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-01-06</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>11 Smallholding</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=321734.21&northing=470219.32&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 30 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0004</td>
+                    <td>-3.23147</td>
+                    <td>54.126202</td>
+                    <td>0.26</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-16</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Cemetery Cottages</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319619.3&northing=470739.52&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of Club and associated buildings and the construction of 8 semi-detached dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0020</td>
+                    <td>-3.205839</td>
+                    <td>54.190542</td>
+                    <td>1.58</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Urofoam Factory</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=321416.44&northing=477869.08&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Hosuing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0027</td>
+                    <td>-3.182018</td>
+                    <td>54.157564</td>
+                    <td>0.03</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Dalton Library</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=322909.3&northing=474173.66&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of former library into 7 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0022</td>
+                    <td>-3.210498</td>
+                    <td>54.132282</td>
+                    <td>0.42</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rock Lea</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=321001.36&northing=471392.26&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 10 dwellings on site of former nursing home.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0024</td>
+                    <td>-3.212351</td>
+                    <td>54.120649</td>
+                    <td>2.35</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-06-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Park View</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=320858.08&northing=470100.14&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 54-61 dwellings on site of former school.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0021</td>
+                    <td>-3.223597</td>
+                    <td>54.11262</td>
+                    <td>0.08</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Presbytarian Church</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=320107.65&northing=469219.53&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Vacant site of former church in town centre.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0003</td>
+                    <td>-3.226751</td>
+                    <td>54.105285</td>
+                    <td>0.98</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Cavendish Villas</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319886.99&northing=468406.78&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of existing disused buildings to 23 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0005</td>
+                    <td>-3.230275</td>
+                    <td>54.104576</td>
+                    <td>0.12</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2008-11-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Buxton Street</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319655.54&northing=468332.12&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of existing office buildings into 18 self-contained dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0006</td>
+                    <td>-3.236305</td>
+                    <td>54.124448</td>
+                    <td>2.82</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-23</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Bradys Yard</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319299.94&northing=470549.84&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of warehouse and industrial land to residential with 84 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0011</td>
+                    <td>-3.227241</td>
+                    <td>54.117641</td>
+                    <td>0.5</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Kwik Save</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319879.14&northing=469782.19&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Opportunity Area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0012</td>
+                    <td>-3.215112</td>
+                    <td>54.107322</td>
+                    <td>25.28</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Marina Village</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=320652.16&northing=468620.41&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Allocated for residential development in Saved Local Plan 2001, allocation carried forward into Emerging Local Plan for 650 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0014</td>
+                    <td>-3.255877</td>
+                    <td>54.110077</td>
+                    <td>5.93</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Park Vale</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=317992.49&northing=468973.55&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Forms part of proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0017</td>
+                    <td>-3.21986</td>
+                    <td>54.114242</td>
+                    <td>1.49</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>North Central Clearance Area</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=320355.03&northing=469395.76&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0019</td>
+                    <td>-3.170703</td>
+                    <td>54.159014</td>
+                    <td>1.44</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Crooklands</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=323650.84&northing=474322.65&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0023</td>
+                    <td>-3.202778</td>
+                    <td>54.120612</td>
+                    <td>0.29</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Bevan House</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=321483.67&northing=470085.32&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 18 dwellings on site of former nursing home.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0025</td>
+                    <td>-3.221179</td>
+                    <td>54.128293</td>
+                    <td>0.84</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Thorncliffe South (Former Tennis Courts)</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=320295.8&northing=470960.47&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Forms part of proposed allocation - Housing.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0026</td>
+                    <td>-3.229243</td>
+                    <td>54.114947</td>
+                    <td>0.02</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-11</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former 68 Abbey Road</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319743.07&northing=469484.72&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construction of a block of 8 apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0007</td>
+                    <td>-3.208162</td>
+                    <td>54.186137</td>
+                    <td>1.14</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Beach St / Sharp St</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=321256.45&northing=477381.52&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Allocated for residential development of approx 45 dwellings in Saved Local Plan 2001.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0015</td>
+                    <td>-3.234887</td>
+                    <td>54.130857</td>
+                    <td>1.16</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Candleworks</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319405.06&northing=471261.27&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0016</td>
+                    <td>-3.231282</td>
+                    <td>54.139987</td>
+                    <td>2.75</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land South of Ashley & Rock</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319658.32&northing=472273.05&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0018</td>
+                    <td>-3.253755</td>
+                    <td>54.112722</td>
+                    <td>0.53</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Avon Garden Centre</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=318136.43&northing=469265.32&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0013</td>
+                    <td>-3.25566</td>
+                    <td>54.111945</td>
+                    <td>0.5</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Island Tavern</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=318010.33&northing=469181.14&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Forms part of proposed allocation - Housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0008</td>
+                    <td>-3.241665</td>
+                    <td>54.113935</td>
+                    <td>2.3</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Channelside</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=318929.13&northing=469386.36&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Opportunity Area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0009</td>
+                    <td>-3.237086</td>
+                    <td>54.128104</td>
+                    <td>6.71</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Golf Driving Range</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=319255.98&northing=470957.58&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Opportunity Area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFLR/2017/0010</td>
+                    <td>-3.198992</td>
+                    <td>54.10884</td>
+                    <td>9.03</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/barrow-in-furness</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Salthouse Mills</td>
+                    <td>https://webgis1.barrowbc.gov.uk/webgis/?easting=321708.94&northing=468771.31&zoom=8&action=layer&layer=BBC:CURRENTBROWNFIELDLANDREGIST</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed allocation - Opportunity Area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.220789, "GeoY": 54.109013, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development comprising of 32 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2005-08-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former North Lonsdale Hospital", "SiteReference": "BFLR/2017/0001", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=320284.28\u0026northing=468815.02\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.198981, "GeoY": 54.121855, "HazardousSubstances": null, "Hectares": 1.45, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 30 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-01-06", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "11 Smallholding", "SiteReference": "BFLR/2017/0002", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=321734.21\u0026northing=470219.32\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.23147, "GeoY": 54.126202, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of Club and associated buildings and the construction of 8 semi-detached dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-16", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Cemetery Cottages", "SiteReference": "BFLR/2017/0004", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319619.3\u0026northing=470739.52\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.205839, "GeoY": 54.190542, "HazardousSubstances": null, "Hectares": 1.58, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Hosuing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Urofoam Factory", "SiteReference": "BFLR/2017/0020", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=321416.44\u0026northing=477869.08\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.182018, "GeoY": 54.157564, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of former library into 7 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Dalton Library", "SiteReference": "BFLR/2017/0027", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=322909.3\u0026northing=474173.66\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.210498, "GeoY": 54.132282, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 10 dwellings on site of former nursing home.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rock Lea", "SiteReference": "BFLR/2017/0022", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=321001.36\u0026northing=471392.26\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.212351, "GeoY": 54.120649, "HazardousSubstances": null, "Hectares": 2.35, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 54-61 dwellings on site of former school.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-06-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Park View", "SiteReference": "BFLR/2017/0024", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=320858.08\u0026northing=470100.14\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.223597, "GeoY": 54.11262, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Vacant site of former church in town centre.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Presbytarian Church", "SiteReference": "BFLR/2017/0021", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=320107.65\u0026northing=469219.53\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.226751, "GeoY": 54.105285, "HazardousSubstances": null, "Hectares": 0.98, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of existing disused buildings to 23 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Cavendish Villas", "SiteReference": "BFLR/2017/0003", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319886.99\u0026northing=468406.78\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.230275, "GeoY": 54.104576, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of existing office buildings into 18 self-contained dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2008-11-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Buxton Street", "SiteReference": "BFLR/2017/0005", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319655.54\u0026northing=468332.12\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.236305, "GeoY": 54.124448, "HazardousSubstances": null, "Hectares": 2.82, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of warehouse and industrial land to residential with 84 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-23", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Bradys Yard", "SiteReference": "BFLR/2017/0006", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319299.94\u0026northing=470549.84\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.227241, "GeoY": 54.117641, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Opportunity Area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Kwik Save", "SiteReference": "BFLR/2017/0011", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319879.14\u0026northing=469782.19\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.215112, "GeoY": 54.107322, "HazardousSubstances": null, "Hectares": 25.28, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Allocated for residential development in Saved Local Plan 2001, allocation carried forward into Emerging Local Plan for 650 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Marina Village", "SiteReference": "BFLR/2017/0012", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=320652.16\u0026northing=468620.41\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.255877, "GeoY": 54.110077, "HazardousSubstances": null, "Hectares": 5.93, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Forms part of proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Park Vale", "SiteReference": "BFLR/2017/0014", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=317992.49\u0026northing=468973.55\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.21986, "GeoY": 54.114242, "HazardousSubstances": null, "Hectares": 1.49, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "North Central Clearance Area", "SiteReference": "BFLR/2017/0017", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=320355.03\u0026northing=469395.76\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.170703, "GeoY": 54.159014, "HazardousSubstances": null, "Hectares": 1.44, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Crooklands", "SiteReference": "BFLR/2017/0019", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=323650.84\u0026northing=474322.65\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.202778, "GeoY": 54.120612, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 18 dwellings on site of former nursing home.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Bevan House", "SiteReference": "BFLR/2017/0023", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=321483.67\u0026northing=470085.32\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.221179, "GeoY": 54.128293, "HazardousSubstances": null, "Hectares": 0.84, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Forms part of proposed allocation - Housing.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Thorncliffe South (Former Tennis Courts)", "SiteReference": "BFLR/2017/0025", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=320295.8\u0026northing=470960.47\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.229243, "GeoY": 54.114947, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construction of a block of 8 apartments.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-11", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former 68 Abbey Road", "SiteReference": "BFLR/2017/0026", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319743.07\u0026northing=469484.72\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.208162, "GeoY": 54.186137, "HazardousSubstances": null, "Hectares": 1.14, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Allocated for residential development of approx 45 dwellings in Saved Local Plan 2001.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Beach St / Sharp St", "SiteReference": "BFLR/2017/0007", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=321256.45\u0026northing=477381.52\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.234887, "GeoY": 54.130857, "HazardousSubstances": null, "Hectares": 1.16, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Candleworks", "SiteReference": "BFLR/2017/0015", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319405.06\u0026northing=471261.27\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.231282, "GeoY": 54.139987, "HazardousSubstances": null, "Hectares": 2.75, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land South of Ashley \u0026 Rock", "SiteReference": "BFLR/2017/0016", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319658.32\u0026northing=472273.05\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.253755, "GeoY": 54.112722, "HazardousSubstances": null, "Hectares": 0.53, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Avon Garden Centre", "SiteReference": "BFLR/2017/0018", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=318136.43\u0026northing=469265.32\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -3.25566, "GeoY": 54.111945, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Forms part of proposed allocation - Housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Island Tavern", "SiteReference": "BFLR/2017/0013", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=318010.33\u0026northing=469181.14\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.241665, "GeoY": 54.113935, "HazardousSubstances": null, "Hectares": 2.3, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Opportunity Area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Channelside", "SiteReference": "BFLR/2017/0008", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=318929.13\u0026northing=469386.36\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.237086, "GeoY": 54.128104, "HazardousSubstances": null, "Hectares": 6.71, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Opportunity Area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Golf Driving Range", "SiteReference": "BFLR/2017/0009", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=319255.98\u0026northing=470957.58\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.198992, "GeoY": 54.10884, "HazardousSubstances": null, "Hectares": 9.03, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed allocation - Opportunity Area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/barrow-in-furness", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Salthouse Mills", "SiteReference": "BFLR/2017/0010", "SiteplanURL": "https://webgis1.barrowbc.gov.uk/webgis/?easting=321708.94\u0026northing=468771.31\u0026zoom=8\u0026action=layer\u0026layer=BBC:CURRENTBROWNFIELDLANDREGIST"}];
+    const bbox = [-3.271198574655005, -3.155381425344995, 54.09559284341859, 54.19952515658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

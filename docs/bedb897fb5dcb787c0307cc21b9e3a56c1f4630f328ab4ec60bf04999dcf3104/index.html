@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">bedb897f...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.eastsuffolk.gov.uk/assets/Planning/Brownfield-Land-Register/Waveney-Brownfield-Land-Register.csv">http://www.eastsuffolk.gov.uk/assets/Planning/Brownfield-Land-Register/Waveney-Brownfield-Land-Register.csv</a>
+        </dd>
+    </dl>
+    <a href="http://www.eastsuffolk.gov.uk/planning/brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 25 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WAV">Waveney District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/bedb897fb5dcb787c0307cc21b9e3a56c1f4630f328ab4ec60bf04999dcf3104/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/bedb897fb5dcb787c0307cc21b9e3a56c1f4630f328ab4ec60bf04999dcf3104">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">33 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">61.68
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                318</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                415</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>33</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/bedb897fb5dcb787c0307cc21b9e3a56c1f4630f328ab4ec60bf04999dcf3104.csv"
+        download="bedb897fb5dcb787c0307cc21b9e3a56c1f4630f328ab4ec60bf04999dcf3104_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/bedb897fb5dcb787c0307cc21b9e3a56c1f4630f328ab4ec60bf04999dcf3104"
+        download="bedb897fb5dcb787c0307cc21b9e3a56c1f4630f328ab4ec60bf04999dcf3104_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>WDC001</td>
+                    <td>1.722135</td>
+                    <td>52.482036</td>
+                    <td>2.54</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Neeves Pit Normanston Drive Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Site Specific Allocations DPD 2011 (LOW6). Allocated for housing. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Site-Specific-Allocations-DPD/01-Main-Document.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC002</td>
+                    <td>1.724297</td>
+                    <td>52.48391</td>
+                    <td>1.52</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OLFAPQQXK8F00</td>
+                    <td>pending decision</td>
+                    <td>Monckton Avenue Nursery Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2022. Residential development including new access road. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Site-Specific-Allocations-DPD/01-Main-Document.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC003</td>
+                    <td>1.439795</td>
+                    <td>52.452786</td>
+                    <td>0.26</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Telephone Exchange Lower Olland Street Bungay Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Site Specific Allocations DPD 2011 (BUN2). Allocated for housing. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Site-Specific-Allocations-DPD/01-Main-Document.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC004</td>
+                    <td>1.724245</td>
+                    <td>52.474935</td>
+                    <td>11.93</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-17</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Brooke Business Park Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of larger allocation in Area Action Plan DPD 2012 (SSP3), planning consent includes CWS and playing field. Demolition of existing industrial units. Mixed-use redevelopment of up to 850 dwellings or 950,000 sqft (whichever greater), up to 1774sqm commercial (A1-A5), marina building, 1.5 form primary school, new spine road and open space.. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Supplementary-Planning-Documents/SUN-and-Kirkley-Waterfront/Development-Brief.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC005</td>
+                    <td>1.721705</td>
+                    <td>52.472757</td>
+                    <td>8.06</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-22</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Sanyo site Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of larger allocation in Area Action Plan DPD 2012 (SSP3). OA for up to 252 residential units; Full Application for 48 residential units, 2ha open space incl replacement football pitch, changing facilities and equipped play area, highway, engineering and landscaping works and land raising.. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Supplementary-Planning-Documents/SUN-and-Kirkley-Waterfront/Development-Brief.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC006</td>
+                    <td>1.730403</td>
+                    <td>52.471808</td>
+                    <td>6.08</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>250</td>
+                    <td>300</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Part Former Jeld Wen site Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of larger allocation in Area Action Plan DPD 2012 (SSP3). Allocated for housing. Kirkley Waterfront and Sustainable Urban Neighbourhood Development Brief estimates between 250 and 300 dwellings on this site. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Supplementary-Planning-Documents/SUN-and-Kirkley-Waterfront/Development-Brief.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC007</td>
+                    <td>1.712346</td>
+                    <td>52.475148</td>
+                    <td>0.7</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-19</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NURCDGQXLQP00</td>
+                    <td>permissioned</td>
+                    <td>Oswald’s Boatyard Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site for sale see URL in SiteInformation. Allocated in Lowestoft Lake Lothing and Outer Harbour Area Action Plan 2012 (SSP7). Construction of 75 (32no. 1 bed, 33no. 2 bed and 10 no. 3 bed) residential flats, library, commercial units, conversion of existing library into 5 residential flats and boat moorings, car and cycle parking provision and associated landscaping. https://kingsbury-consultants.co.uk/properties/bridge-road-lowestoft-nr32-3lr/|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC008</td>
+                    <td>1.712502</td>
+                    <td>52.472795</td>
+                    <td>0.98</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-10</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NBSMMXQXIZM00</td>
+                    <td>permissioned</td>
+                    <td>Builders Direct Supply Co Ltd South Elmham Terrace Lowestoft Suffolk NR33 9NH</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2025. Construction of 20 No. three bedroom houses, 12 No. four bedroom houses and 12 No. two bedroom flats together with improvements to existing access road. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC009</td>
+                    <td>1.70505</td>
+                    <td>52.510475</td>
+                    <td>9.86</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-30</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O7OBW6QX01F00</td>
+                    <td>permissioned</td>
+                    <td>Former H M Prison Blundeston Lakeside Rise Blundeston Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2025. Hybrid application for demolition of prison and construction of 2 shop units with 4 flats, 3 office units, 16 affordable housing units (full submission), and residential development including care home, roads and open space (outline submission).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC010</td>
+                    <td>1.447398</td>
+                    <td>52.44929</td>
+                    <td>0.26</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-11-08</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYKJQXXE093</td>
+                    <td>permissioned</td>
+                    <td>Hillside Garage Hillside Road East Bungay Suffolk NR35 1RX</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission implemented by commencement inspection on plot 5 (Nov-2011). Site remains in commercial use. Construction of 10 dwellings with garages and new access drive and alterations to existing vehicular access</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC011</td>
+                    <td>1.708608</td>
+                    <td>52.477109</td>
+                    <td>1.47</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-02-19</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.broads-authority.gov.uk/online-applications/applicationDetails.do?keyVal=M96Z8STBT0000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Pegasus Marine Caldecott Road Lowestoft Suffolk NR32 3PH</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2024. Re-development of former Pegasus Boatyard to provide 76 dwellings, new boatyard buildings, office, moorings and new access road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC012</td>
+                    <td>1.711106</td>
+                    <td>52.472839</td>
+                    <td>0.63</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-06-22</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYKMQXXE807</td>
+                    <td>permissioned</td>
+                    <td>Oulton Broad Caravan Site Saltwater Way Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission implemented by highway works to access. Construction of 8 terraced houses, 16 flats, upto 5 shop units, 31 sheltered housing units and a wardens flat and provision of car parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC013</td>
+                    <td>1.676808</td>
+                    <td>52.329768</td>
+                    <td>0.33</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-07-15</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O5OCRLQXJOB00</td>
+                    <td>permissioned</td>
+                    <td>Unit 20 Southwold Business Centre St Edmunds Road Southwold Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>To be developed as Council Housing. Expected to complete by end 2019. Construction of 10no. houses and 10no. flats (Affordable Housing) with associated external works, including demolition of existing buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC014</td>
+                    <td>1.576951</td>
+                    <td>52.44051</td>
+                    <td>0.56</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-02-22</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=LX0PVSQX03H00</td>
+                    <td>permissioned</td>
+                    <td>Old MJ Hales Scrapyard and Landloc Cucumber Lane Weston Suffolk NR34 7XQ</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP3.1). Part of this site (0.56ha) has planning permission for 6 houses. Part of site has planning permission for the construction of 6 houses with garages and ancillary works. 70 dwellings at a density of 30 dwellings per hectare.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC015</td>
+                    <td>1.752988</td>
+                    <td>52.479638</td>
+                    <td>0.72</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>21</td>
+                    <td>36</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Lowestoft Hospital Tennyson Road Lowestoft Suffolk NR32 1PT</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Vacant building - to be added to Strategic Housing and Employment Land Availability Assessment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC016</td>
+                    <td>1.756093</td>
+                    <td>52.478388</td>
+                    <td>0.3</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Lowestoft Magistrates Court Old Nelson Street Lowestoft Suffolk NR32 1EG</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Vacant building - to be added to Strategic Housing and Employment Land Availability Assessment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC017</td>
+                    <td>1.741799</td>
+                    <td>52.462039</td>
+                    <td>0.31</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Shaftesbury Court Rectory Road Lowestoft Suffolk NR33 0BU</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Vacant site - planning application pending decision. Demolition of existing care home building and the construction of 40no. retirement apartments with associated car parking. http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OX14CAQXIX000</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC018</td>
+                    <td>1.659805</td>
+                    <td>52.5172</td>
+                    <td>0.4</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Garage site Somerleyton Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP7.5). The part of the site fronting onto The Street is a former petrol station. The Forge, a locally listed building situated within the site, is to be retained. Consideration should be given to how this building can be re-used to benefit the site and the vill. http://www.eastsuffolk.gov.uk/planning/local-plans/waveney-local-plan/new-waveney-local-plan/</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC019</td>
+                    <td>1.526501</td>
+                    <td>52.342862</td>
+                    <td>1.55</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Holton Sawmill and Timber Yard Sandy Lane Holton Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Submitted as part of the Council's Call for Sites (Site 148) but not taken forward as a Preferred Site in First Draft  Waveney Local Plan 2017. 27 dwellings at a density of 20 dwellings per hectare. This takes account of the site’s setting on the edge of a village near to a conservation area and will help to mitigate landscape impact. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC020</td>
+                    <td>1.567901</td>
+                    <td>52.456723</td>
+                    <td>1.29</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>38</td>
+                    <td>64</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Rear of Gosford Road Beccles Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of site submitted as part of the Council's Call for Sites (Site 16) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC021</td>
+                    <td>1.757473</td>
+                    <td>52.485586</td>
+                    <td>0.34</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=K78AFKQX02200</td>
+                    <td>not permissioned</td>
+                    <td>325-329 Whapload Road Lowestoft Suffolk NR32 1UL</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission expired 2008-12-22. Planning permission expired: DC/08/1059/FUL - Construction of residential development comprising 14no. apartments, 2no. houses and conversion of net store to 4no dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC022</td>
+                    <td>1.511077</td>
+                    <td>52.352811</td>
+                    <td>0.67</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-30</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OCX1OJQXFSP00</td>
+                    <td>permissioned</td>
+                    <td>Land at Fairview Road and Norwich Road Halesworth Suffolk IP19 8QG</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Under construction and expected to complete by end 2019. Demolition of Existing Workshop and Construction of 22 no. dwellings and 1 no. B1 Commercial Unit and associated works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC023</td>
+                    <td>1.745122</td>
+                    <td>52.485726</td>
+                    <td>0.47</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-02-21</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MXDKGPQXJDX00</td>
+                    <td>permissioned</td>
+                    <td>Longs Dairy St Margarets Road Lowestoft Suffolk NR32 4HN</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Under construction and expected to complete by end 2018. Construction of 16no sheltered bungalow units and 1no warden's house with plant and ancillary accommodation, alterations to access road and parking provision</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC024</td>
+                    <td>1.74215</td>
+                    <td>52.462532</td>
+                    <td>0.36</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-03</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NPZ4CAQXJD100</td>
+                    <td>permissioned</td>
+                    <td>Rectory Road Lowestoft Suffolk NR33 0ED</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Under construction and expected to complete by end 2018. Construction of 20 dwellings including partial demolition of existing building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC025</td>
+                    <td>1.667622</td>
+                    <td>52.384077</td>
+                    <td>0.54</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-29</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NK7X38QX06O00</td>
+                    <td>permissioned</td>
+                    <td>Site of former Meadowlands Care Home Walker Gardens Wrentham Suffolk NR34 7HG</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Under construction and expected to complete by end 2019. Construction of 24 houses including access road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC026</td>
+                    <td>1.716832</td>
+                    <td>52.425338</td>
+                    <td>1.26</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Ashley Nurseries Site Kessingland Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Kessingland Neighbourhood Plan 2017 (SA1). Allocated for approximately 25 dwellings, with up to 35% (9 units) provided as affordable housing; provision of 500m2 of Class B1 employment 'incubator' floorspace suitable for start-up businesses. http://www.eastsuffolk.gov.uk/assets/Planning/Neighbourhood-Planning/Designated-Neighbourhood-Areas/Kessingland/Kessingland-Neighbourhood-Plan-Adopted-25-Jan-2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC027</td>
+                    <td>1.743288</td>
+                    <td>52.470084</td>
+                    <td>0.62</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-03</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OEIGEHQXGNI00</td>
+                    <td>permissioned</td>
+                    <td>Land at Kirkley Rise Lowestoft Suffolk NR33 0PP</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of larger allocation in Area Action Plan DPD 2012 (SSP5), planning consent includes non-residential uses. Demolition of existing buildings and full planning permission for the erection of mixed-use development for retail (Use Class A3/A5) including drive-thru and residential (Use Class C3), with associated access, car parking, landscaping and associated infr. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC028</td>
+                    <td>1.563962</td>
+                    <td>52.460472</td>
+                    <td>0.1</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>19-21 Ravensmere Beccles Suffolk NR34 9DX</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Submitted as part of the Council's Call for Sites (Site 1) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 5 Dwellings at a density of 50 dwellings per hectare. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC029</td>
+                    <td>1.604434</td>
+                    <td>52.370296</td>
+                    <td>0.5</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Firs Garage Church Road Uggeshall Suffolk NR34 8BH</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Submitted as part of the Council's Call for Sites (Site 15) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 5 dwellings at 10 dwellings per hectare which is characteristic of this location. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC030</td>
+                    <td>1.559928</td>
+                    <td>52.446343</td>
+                    <td>1.32</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Montrose Garage London Road Beccles Suffolk NR34 9YU</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP3.2). Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP3.2). http://consult.waveney.gov.uk/consult.ti/firstdraftlocalplan2017/viewCompoundDoc?docid=8980084</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC031</td>
+                    <td>1.55551</td>
+                    <td>52.446693</td>
+                    <td>1.96</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>West of Ringsfield Road Beccles Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Submitted as part of the Council's Call for Sites (Site 174) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 30 dwellings at a density of 15 dwellings per hectare. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC032</td>
+                    <td>1.718015</td>
+                    <td>52.497357</td>
+                    <td>2.59</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at the former Lothingland Hospital site off Airey Close and Allington-Smith Close Lowestoft Suffolk NR32 3JQ</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Submitted as part of the Council's Call for Sites (Site 181) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 47 dwellings at a low density of 20 dwellings per hectare to take account of the setting on the edge of Lowestoft. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WDC033</td>
+                    <td>1.720172</td>
+                    <td>52.477439</td>
+                    <td>1.2</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/waveney</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Harbour Road Lowestoft Suffolk</td>
+                    <td>http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Submitted as part of the Council's Call for Sites (Site 204) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 30 dwellings at a density of 50 dwellings per hectare, taking account of urban setting. This assumes only half of the site is developed to take into account the need to protect the beach and avoid areas at risk from flooding. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.722135, "GeoY": 52.482036, "HazardousSubstances": null, "Hectares": 2.54, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Allocated in Site Specific Allocations DPD 2011 (LOW6). Allocated for housing. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Site-Specific-Allocations-DPD/01-Main-Document.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Neeves Pit Normanston Drive Lowestoft Suffolk", "SiteReference": "WDC001", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.724297, "GeoY": 52.48391, "HazardousSubstances": null, "Hectares": 1.52, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Owned by a developer and expected to complete by 2022. Residential development including new access road. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Site-Specific-Allocations-DPD/01-Main-Document.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OLFAPQQXK8F00", "PlanningStatus": "pending decision", "SiteNameAddress": "Monckton Avenue Nursery Lowestoft Suffolk", "SiteReference": "WDC002", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.439795, "GeoY": 52.452786, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Allocated in Site Specific Allocations DPD 2011 (BUN2). Allocated for housing. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Site-Specific-Allocations-DPD/01-Main-Document.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Telephone Exchange Lower Olland Street Bungay Suffolk", "SiteReference": "WDC003", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.724245, "GeoY": 52.474935, "HazardousSubstances": null, "Hectares": 11.93, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Part of larger allocation in Area Action Plan DPD 2012 (SSP3), planning consent includes CWS and playing field. Demolition of existing industrial units. Mixed-use redevelopment of up to 850 dwellings or 950,000 sqft (whichever greater), up to 1774sqm commercial (A1-A5), marina building, 1.5 form primary school, new spine road and open space.. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Supplementary-Planning-Documents/SUN-and-Kirkley-Waterfront/Development-Brief.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-17", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Brooke Business Park Lowestoft Suffolk", "SiteReference": "WDC004", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.721705, "GeoY": 52.472757, "HazardousSubstances": null, "Hectares": 8.06, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Part of larger allocation in Area Action Plan DPD 2012 (SSP3). OA for up to 252 residential units; Full Application for 48 residential units, 2ha open space incl replacement football pitch, changing facilities and equipped play area, highway, engineering and landscaping works and land raising.. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Supplementary-Planning-Documents/SUN-and-Kirkley-Waterfront/Development-Brief.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-22", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Sanyo site Lowestoft Suffolk", "SiteReference": "WDC005", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.730403, "GeoY": 52.471808, "HazardousSubstances": null, "Hectares": 6.08, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 250, "NetDwellingsRangeTo": 300, "Notes": "Part of larger allocation in Area Action Plan DPD 2012 (SSP3). Allocated for housing. Kirkley Waterfront and Sustainable Urban Neighbourhood Development Brief estimates between 250 and 300 dwellings on this site. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Supplementary-Planning-Documents/SUN-and-Kirkley-Waterfront/Development-Brief.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Part Former Jeld Wen site Lowestoft Suffolk", "SiteReference": "WDC006", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.712346, "GeoY": 52.475148, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Site for sale see URL in SiteInformation. Allocated in Lowestoft Lake Lothing and Outer Harbour Area Action Plan 2012 (SSP7). Construction of 75 (32no. 1 bed, 33no. 2 bed and 10 no. 3 bed) residential flats, library, commercial units, conversion of existing library into 5 residential flats and boat moorings, car and cycle parking provision and associated landscaping. https://kingsbury-consultants.co.uk/properties/bridge-road-lowestoft-nr32-3lr/|http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-19", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NURCDGQXLQP00", "PlanningStatus": "permissioned", "SiteNameAddress": "Oswald\u2019s Boatyard Lowestoft Suffolk", "SiteReference": "WDC007", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.712502, "GeoY": 52.472795, "HazardousSubstances": null, "Hectares": 0.98, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Owned by a developer and expected to complete by 2025. Construction of 20 No. three bedroom houses, 12 No. four bedroom houses and 12 No. two bedroom flats together with improvements to existing access road. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-10", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NBSMMXQXIZM00", "PlanningStatus": "permissioned", "SiteNameAddress": "Builders Direct Supply Co Ltd South Elmham Terrace Lowestoft Suffolk NR33 9NH", "SiteReference": "WDC008", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.70505, "GeoY": 52.510475, "HazardousSubstances": null, "Hectares": 9.86, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Owned by a developer and expected to complete by 2025. Hybrid application for demolition of prison and construction of 2 shop units with 4 flats, 3 office units, 16 affordable housing units (full submission), and residential development including care home, roads and open space (outline submission).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-30", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O7OBW6QX01F00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former H M Prison Blundeston Lakeside Rise Blundeston Suffolk", "SiteReference": "WDC009", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.447398, "GeoY": 52.44929, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Permission implemented by commencement inspection on plot 5 (Nov-2011). Site remains in commercial use. Construction of 10 dwellings with garages and new access drive and alterations to existing vehicular access", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-11-08", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYKJQXXE093", "PlanningStatus": "permissioned", "SiteNameAddress": "Hillside Garage Hillside Road East Bungay Suffolk NR35 1RX", "SiteReference": "WDC010", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.708608, "GeoY": 52.477109, "HazardousSubstances": null, "Hectares": 1.47, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Owned by a developer and expected to complete by 2024. Re-development of former Pegasus Boatyard to provide 76 dwellings, new boatyard buildings, office, moorings and new access road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-02-19", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.broads-authority.gov.uk/online-applications/applicationDetails.do?keyVal=M96Z8STBT0000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Pegasus Marine Caldecott Road Lowestoft Suffolk NR32 3PH", "SiteReference": "WDC011", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.711106, "GeoY": 52.472839, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Permission implemented by highway works to access. Construction of 8 terraced houses, 16 flats, upto 5 shop units, 31 sheltered housing units and a wardens flat and provision of car parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-06-22", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYKMQXXE807", "PlanningStatus": "permissioned", "SiteNameAddress": "Oulton Broad Caravan Site Saltwater Way Lowestoft Suffolk", "SiteReference": "WDC012", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.676808, "GeoY": 52.329768, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "To be developed as Council Housing. Expected to complete by end 2019. Construction of 10no. houses and 10no. flats (Affordable Housing) with associated external works, including demolition of existing buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-07-15", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O5OCRLQXJOB00", "PlanningStatus": "permissioned", "SiteNameAddress": "Unit 20 Southwold Business Centre St Edmunds Road Southwold Suffolk", "SiteReference": "WDC013", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.576951, "GeoY": 52.44051, "HazardousSubstances": null, "Hectares": 0.56, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP3.1). Part of this site (0.56ha) has planning permission for 6 houses. Part of site has planning permission for the construction of 6 houses with garages and ancillary works. 70 dwellings at a density of 30 dwellings per hectare.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-02-22", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=LX0PVSQX03H00", "PlanningStatus": "permissioned", "SiteNameAddress": "Old MJ Hales Scrapyard and Landloc Cucumber Lane Weston Suffolk NR34 7XQ", "SiteReference": "WDC014", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.752988, "GeoY": 52.479638, "HazardousSubstances": null, "Hectares": 0.72, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 36, "Notes": "Vacant building - to be added to Strategic Housing and Employment Land Availability Assessment", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Lowestoft Hospital Tennyson Road Lowestoft Suffolk NR32 1PT", "SiteReference": "WDC015", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.756093, "GeoY": 52.478388, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 15, "Notes": "Vacant building - to be added to Strategic Housing and Employment Land Availability Assessment", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Lowestoft Magistrates Court Old Nelson Street Lowestoft Suffolk NR32 1EG", "SiteReference": "WDC016", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.741799, "GeoY": 52.462039, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Vacant site - planning application pending decision. Demolition of existing care home building and the construction of 40no. retirement apartments with associated car parking. http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OX14CAQXIX000", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Shaftesbury Court Rectory Road Lowestoft Suffolk NR33 0BU", "SiteReference": "WDC017", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.659805, "GeoY": 52.5172, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP7.5). The part of the site fronting onto The Street is a former petrol station. The Forge, a locally listed building situated within the site, is to be retained. Consideration should be given to how this building can be re-used to benefit the site and the vill. http://www.eastsuffolk.gov.uk/planning/local-plans/waveney-local-plan/new-waveney-local-plan/", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Garage site Somerleyton Suffolk", "SiteReference": "WDC018", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.526501, "GeoY": 52.342862, "HazardousSubstances": null, "Hectares": 1.55, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Submitted as part of the Council\u0027s Call for Sites (Site 148) but not taken forward as a Preferred Site in First Draft  Waveney Local Plan 2017. 27 dwellings at a density of 20 dwellings per hectare. This takes account of the site\u2019s setting on the edge of a village near to a conservation area and will help to mitigate landscape impact. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Holton Sawmill and Timber Yard Sandy Lane Holton Suffolk", "SiteReference": "WDC019", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.567901, "GeoY": 52.456723, "HazardousSubstances": null, "Hectares": 1.29, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 38, "NetDwellingsRangeTo": 64, "Notes": "Part of site submitted as part of the Council\u0027s Call for Sites (Site 16) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Rear of Gosford Road Beccles Suffolk", "SiteReference": "WDC020", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.757473, "GeoY": 52.485586, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Planning permission expired 2008-12-22. Planning permission expired: DC/08/1059/FUL - Construction of residential development comprising 14no. apartments, 2no. houses and conversion of net store to 4no dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=K78AFKQX02200", "PlanningStatus": "not permissioned", "SiteNameAddress": "325-329 Whapload Road Lowestoft Suffolk NR32 1UL", "SiteReference": "WDC021", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.511077, "GeoY": 52.352811, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Under construction and expected to complete by end 2019. Demolition of Existing Workshop and Construction of 22 no. dwellings and 1 no. B1 Commercial Unit and associated works", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-30", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OCX1OJQXFSP00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Fairview Road and Norwich Road Halesworth Suffolk IP19 8QG", "SiteReference": "WDC022", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.745122, "GeoY": 52.485726, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Under construction and expected to complete by end 2018. Construction of 16no sheltered bungalow units and 1no warden\u0027s house with plant and ancillary accommodation, alterations to access road and parking provision", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-02-21", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MXDKGPQXJDX00", "PlanningStatus": "permissioned", "SiteNameAddress": "Longs Dairy St Margarets Road Lowestoft Suffolk NR32 4HN", "SiteReference": "WDC023", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.74215, "GeoY": 52.462532, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Under construction and expected to complete by end 2018. Construction of 20 dwellings including partial demolition of existing building", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-03", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NPZ4CAQXJD100", "PlanningStatus": "permissioned", "SiteNameAddress": "Rectory Road Lowestoft Suffolk NR33 0ED", "SiteReference": "WDC024", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.667622, "GeoY": 52.384077, "HazardousSubstances": null, "Hectares": 0.54, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Under construction and expected to complete by end 2019. Construction of 24 houses including access road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-29", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NK7X38QX06O00", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of former Meadowlands Care Home Walker Gardens Wrentham Suffolk NR34 7HG", "SiteReference": "WDC025", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.716832, "GeoY": 52.425338, "HazardousSubstances": null, "Hectares": 1.26, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Allocated in Kessingland Neighbourhood Plan 2017 (SA1). Allocated for approximately 25 dwellings, with up to 35% (9 units) provided as affordable housing; provision of 500m2 of Class B1 employment \u0027incubator\u0027 floorspace suitable for start-up businesses. http://www.eastsuffolk.gov.uk/assets/Planning/Neighbourhood-Planning/Designated-Neighbourhood-Areas/Kessingland/Kessingland-Neighbourhood-Plan-Adopted-25-Jan-2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Ashley Nurseries Site Kessingland Suffolk", "SiteReference": "WDC026", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.743288, "GeoY": 52.470084, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Part of larger allocation in Area Action Plan DPD 2012 (SSP5), planning consent includes non-residential uses. Demolition of existing buildings and full planning permission for the erection of mixed-use development for retail (Use Class A3/A5) including drive-thru and residential (Use Class C3), with associated access, car parking, landscaping and associated infr. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/Adopted-AAP/Adopted-Area-Action-Plan.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-03", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OEIGEHQXGNI00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Kirkley Rise Lowestoft Suffolk NR33 0PP", "SiteReference": "WDC027", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.563962, "GeoY": 52.460472, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Submitted as part of the Council\u0027s Call for Sites (Site 1) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 5 Dwellings at a density of 50 dwellings per hectare. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "19-21 Ravensmere Beccles Suffolk NR34 9DX", "SiteReference": "WDC028", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.604434, "GeoY": 52.370296, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Submitted as part of the Council\u0027s Call for Sites (Site 15) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 5 dwellings at 10 dwellings per hectare which is characteristic of this location. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Firs Garage Church Road Uggeshall Suffolk NR34 8BH", "SiteReference": "WDC029", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.559928, "GeoY": 52.446343, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP3.2). Forms part of a larger site (part greenfield) published as a Preferred Site in Waveney First Draft Local Plan 2017 (WLP3.2). http://consult.waveney.gov.uk/consult.ti/firstdraftlocalplan2017/viewCompoundDoc?docid=8980084", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Montrose Garage London Road Beccles Suffolk NR34 9YU", "SiteReference": "WDC030", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.55551, "GeoY": 52.446693, "HazardousSubstances": null, "Hectares": 1.96, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Submitted as part of the Council\u0027s Call for Sites (Site 174) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 30 dwellings at a density of 15 dwellings per hectare. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "West of Ringsfield Road Beccles Suffolk", "SiteReference": "WDC031", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.718015, "GeoY": 52.497357, "HazardousSubstances": null, "Hectares": 2.59, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Submitted as part of the Council\u0027s Call for Sites (Site 181) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 47 dwellings at a low density of 20 dwellings per hectare to take account of the setting on the edge of Lowestoft. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at the former Lothingland Hospital site off Airey Close and Allington-Smith Close Lowestoft Suffolk NR32 3JQ", "SiteReference": "WDC032", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.720172, "GeoY": 52.477439, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Submitted as part of the Council\u0027s Call for Sites (Site 204) but not taken forward as a Preferred Site in First Draft Waveney Local Plan 2017. 30 dwellings at a density of 50 dwellings per hectare, taking account of urban setting. This assumes only half of the site is developed to take into account the need to protect the beach and avoid areas at risk from flooding. http://www.eastsuffolk.gov.uk/assets/Planning/Waveney-Local-Plan/First-Draft-Local-Plan/Draft-Strategic-Housing-and-Employment-Land-Availability-Assessment.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/waveney", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Harbour Road Lowestoft Suffolk", "SiteReference": "WDC033", "SiteplanURL": "http://waveney.maps.arcgis.com/apps/MapJournal/index.html?appid=1a787ff0d2604387987c86ac1ae56188"}];
+    const bbox = [1.4250954038875565, 1.7721725961124437, 52.32078484341859, 52.52618315658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

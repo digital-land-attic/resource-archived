@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">9205559f...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.wyre.gov.uk/download/downloads/id/5527/wyre_council_brownfield_register_september_2019.csv">http://www.wyre.gov.uk/download/downloads/id/5527/wyre_council_brownfield_register_september_2019.csv</a>
+        </dd>
+    </dl>
+    <a href="http://www.wyreforestdc.gov.uk/planning-and-buildings/planning-policy/brownfield-land-register.aspx">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 11 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WYR">Wyre Borough Council</a>,</dd><dd>
+            <a href="local-authority-eng:WYE">Wyre Forest District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/9205559f67e6e40585bafdb6cc892392f39b9434b29012e8985f4eb8561995be/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/9205559f67e6e40585bafdb6cc892392f39b9434b29012e8985f4eb8561995be">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">28 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">59.40
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>28</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/9205559f67e6e40585bafdb6cc892392f39b9434b29012e8985f4eb8561995be.csv"
+        download="9205559f67e6e40585bafdb6cc892392f39b9434b29012e8985f4eb8561995be_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/9205559f67e6e40585bafdb6cc892392f39b9434b29012e8985f4eb8561995be"
+        download="9205559f67e6e40585bafdb6cc892392f39b9434b29012e8985f4eb8561995be_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR003</td>
+                    <td>-3.01868</td>
+                    <td>53.921435</td>
+                    <td>0.05</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>52-60 Poulton Road, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of six two bedroomed and three one bedroomed self-contained apartments with parking to the rear (resubmission of 13/00712/FULMAJ)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR004</td>
+                    <td>-3.005927</td>
+                    <td>53.888771</td>
+                    <td>4.11</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-10-10</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land north and east of Bourne Road, Thornton.</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development consisting of 186 dwellings. Technical commencement</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR005</td>
+                    <td>-2.988458</td>
+                    <td>53.850689</td>
+                    <td>0.12</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-02-07</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Royal Oak, 64 Breck Road, Poulton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Retrospective application for the demolition of former Public House and the erection of a three storey and part two storey apartment block (12 apartments) including associated access/parking provision and a cycle store</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR006</td>
+                    <td>-2.962063</td>
+                    <td>53.921991</td>
+                    <td>0.12</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-22</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Preesall Service Station, Sandy Lane, Preesall</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Reserved matters application for the appearance, landscaping and scale of six dwellings, following outline approval 11/00599/OUT</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR007</td>
+                    <td>-2.992506</td>
+                    <td>53.844418</td>
+                    <td>0.14</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-14</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Brimelows Garage, 54 Hardhorn Road, Poulton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Reserved matters application for the appearance and landscaping of 7 town houses and 6 apartments following outline approval 11/00765/OUTMAJ. Technical commencement.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR008</td>
+                    <td>-2.978081</td>
+                    <td>53.830047</td>
+                    <td>1.18</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-27</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Fairfield Nurseries, Puddle House Lane, Poulton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Reserved matters application for the erection of nine detached dwellings (following outline approval 17/00410/OUTMAJ)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR011</td>
+                    <td>-2.882255</td>
+                    <td>53.921166</td>
+                    <td>1.69</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-16</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>North of Garstang Road, Pilling</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Reserved matters application for the erection of 40 dwellings following planning permission 16/00317/OUTMAJ (reserved matters relating to appearance, landscaping, layout and scale)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR012</td>
+                    <td>-2.774727</td>
+                    <td>53.955946</td>
+                    <td>0.27</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Throstles Nest, Whinney Brow Lane, Forton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of two detached dwellings with associated access and landscaping (18/00589/FUL) &  Planning application for substitution of house type for plot 2 of planning consent 15/00122/FUL.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR013</td>
+                    <td>-2.985434</td>
+                    <td>53.857851</td>
+                    <td>0.61</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-25</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Prospect Farm, Skippool Road, Thornton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 9 dwellings with associated parking and landscaping (following demolition of existing agricultural buildings and farmhouse). Planning permission expires 25.5.19</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR014</td>
+                    <td>-3.006143</td>
+                    <td>53.924354</td>
+                    <td>0.05</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-25</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Rear The Steamer, Victoria Street, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of three 3 bed dwellings and two 1 bed flats. Planning permission expires 29.6.19</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR017</td>
+                    <td>-2.773271</td>
+                    <td>53.902791</td>
+                    <td>0.07</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-07-30</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Garstang Business & Community Centre, 96 High Street, Garstang</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Variation of condition 2 (approved Plans) on application 16/00550/FULMAJ for the erection of a three storey building following partial demolition of existing building to provide approx. 1400sqm (gross) of retail floor space (Class A1) and 18 residential apartments with new and re-configured car parking (re-submission of planning application 19/00007/FULMAJ to allow for full demolition and reconstruction of the facade)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR018</td>
+                    <td>-3.012169</td>
+                    <td>53.927979</td>
+                    <td>0.22</td>
+                    <td>2017-12-14</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Fleetwood Pier, The Esplanade, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application for the erection of 15 apartments for persons aged 55 and over together with retail unit and car parking (re-submission 16/00407/OUTMAJ). Committee resolved to approve application subject to s106 Agreement.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR019</td>
+                    <td>-3.014364</td>
+                    <td>53.921139</td>
+                    <td>0.07</td>
+                    <td>2017-12-14</td>
+                    <td>2017-12-14</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-27</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Carleton Court, 155-161 Lord Street, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of first floor offices and conversion of roof area to form 20 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR020</td>
+                    <td>-3.016704</td>
+                    <td>53.862632</td>
+                    <td>13.61</td>
+                    <td>2017-12-15</td>
+                    <td>2019-10-30</td>
+                    <td>220.0</td>
+                    <td>338.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>North of Norcross Lane, Thornton Cleveleys</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Housing estimates reflects planning permission for 82 dwellings and the remaining housing allocations (60 dwellings) identified in the Wyre adopted local plan. Part of the site has full planning permission for retail use but this does not affect the housing capacity of the site. The adjacent site has planning permission for 158 dwellings and is under construction.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR021</td>
+                    <td>-3.017116</td>
+                    <td>53.912846</td>
+                    <td>32.67</td>
+                    <td>2017-12-15</td>
+                    <td>2019-10-30</td>
+                    <td>120.0</td>
+                    <td>120.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td></td>
+                    <td>South of Fleetwood Dock, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is allocated for 120 dwellings in the adopted Wyre Local Plan</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR022</td>
+                    <td>-2.768701</td>
+                    <td>53.886849</td>
+                    <td>0.29</td>
+                    <td>2017-12-15</td>
+                    <td>2019-10-30</td>
+                    <td>9.0</td>
+                    <td>9.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-06-06</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Garstang Country Hotel & Golf Club, Garstang Road, Bowgreave</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is a small parcel of a much larger site with permission for 86 dwellings but mostly greenfield. The PDL section is 0.29 ha.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR025</td>
+                    <td>-3.012866</td>
+                    <td>53.922769</td>
+                    <td>0.2</td>
+                    <td>2018-09-30</td>
+                    <td>2018-09-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-21</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Former Fleetwood Health Centre, London Street, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Housing estimate reflects planning permission - Part demolition and part refurbishment to create 19 residential units and 3 dwellings; erection of 4 dwellings and a 12 unit flat development</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR026</td>
+                    <td>-2.985177</td>
+                    <td>53.829423</td>
+                    <td>0.31</td>
+                    <td>2018-09-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-12</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land at Foxes Farm, Hardhorn Road, Poulton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Application for the erection of 2 detached dwellings with associated access and landscaping (following the demolition of existing buildings) (re-submission of 17/00220/FUL)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR027</td>
+                    <td>-2.778352</td>
+                    <td>53.912457</td>
+                    <td>0.01</td>
+                    <td>2018-09-30</td>
+                    <td>2018-09-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-05-04</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Acresfield, 9 Garstang Bypass Road, Garstang</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Housing estimate reflects planning permission - Erection of building to form 7 apartments (following demolition of existing dwelling)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR028</td>
+                    <td>-3.008473</td>
+                    <td>53.827072</td>
+                    <td>0.07</td>
+                    <td>2018-09-30</td>
+                    <td>2018-09-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-06-06</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>15 Newton Drive East, Normoss</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Housing estimate reflects planning permission - Erection of 8 apartments following demolition of existing residential dwelling</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR029</td>
+                    <td>-2.785418</td>
+                    <td>53.961251</td>
+                    <td>0.37</td>
+                    <td>2018-09-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-07-31</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Bloomfield Garage, Cockerham Road, Forton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Reserved matters application for appearance, landscaping, layout and scale for the erection of three detached dwellings (following outline application 16/00354/OUT)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR030</td>
+                    <td>-3.012701</td>
+                    <td>53.924784</td>
+                    <td>0.11</td>
+                    <td>2018-09-30</td>
+                    <td>2018-09-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-09-28</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Rear 91 Victoria Street, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Housing estimate reflects planning permission - Outline application for demolition of existing garage, warehouse and store buildings and erection of two 2/3 bed mews houses and four 1 bed apartments with associated access (all other matters reserved) (re-submission of 17/00977/OUTMAJ)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR032</td>
+                    <td>-3.045538</td>
+                    <td>53.913986</td>
+                    <td>0.84</td>
+                    <td>2019-10-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-28</td>
+                    <td></td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td></td>
+                    <td>Land at Crake Avenue, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 72 properties in total comprising houses and flats on Crake Avenue, numbers (1-7), (8-14), (9-15), (16-22), (17-23), (25-31), (33-39), (41-47), (49-55), (59-63), (67-73), 6 and 5</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR033</td>
+                    <td>-3.046027</td>
+                    <td>53.91284</td>
+                    <td>0.54</td>
+                    <td>2019-10-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-28</td>
+                    <td></td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td></td>
+                    <td>Land at Martindale Avenue, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 63 properties in total comprising houses and flats on Martindale Avenue, numbers (1-11), (2-8), (31-45), (46-60) and (47-61)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR034</td>
+                    <td>-3.044414</td>
+                    <td>53.913484</td>
+                    <td>0.59</td>
+                    <td>2019-10-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-28</td>
+                    <td></td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td></td>
+                    <td>Land at Rede Avenue, Fleetwood</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 45 properties in total comprising houses and flats on Rede Avenue, numbers (1-7), (2A-2D), (4A-4D), (9-15), (19-25), (27-33), (39-45), 17 and 35</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR035</td>
+                    <td>-2.77666</td>
+                    <td>53.909879</td>
+                    <td>0.11</td>
+                    <td>2019-10-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-10-05</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>The Rockery, Green Lane East, Cabus</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing house and warehouse and erection of 7 new dwellings. Technical commencement</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR036</td>
+                    <td>-2.987186</td>
+                    <td>53.841208</td>
+                    <td>0.37</td>
+                    <td>2019-10-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-08</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Carr Head Adult Education Centre, Carr Head Lane, Poulton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application for a residential development for upto 8 dwellings following the demolition of the adult learning centre with access applied for (all other matters reserved)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR037</td>
+                    <td>-2.998019</td>
+                    <td>53.83018</td>
+                    <td>0.61</td>
+                    <td>2019-10-30</td>
+                    <td>2019-10-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wyre</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-28</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.wyre.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Normoss Farm, Normoss Road, Poulton</td>
+                    <td>https://arcg.is/1yDieW</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of existing farm and caravan park to create 21 residential units with associated landscaping and vehicular access onto Normoss Road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.01868, "GeoY": 53.921435, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of six two bedroomed and three one bedroomed self-contained apartments with parking to the rear (resubmission of 13/00712/FULMAJ)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "52-60 Poulton Road, Fleetwood", "SiteReference": "BR003", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.005927, "GeoY": 53.888771, "HazardousSubstances": null, "Hectares": 4.11, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development consisting of 186 dwellings. Technical commencement", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-10-10", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land north and east of Bourne Road, Thornton.", "SiteReference": "BR004", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.988458, "GeoY": 53.850689, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Retrospective application for the demolition of former Public House and the erection of a three storey and part two storey apartment block (12 apartments) including associated access/parking provision and a cycle store", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-02-07", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Royal Oak, 64 Breck Road, Poulton", "SiteReference": "BR005", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.962063, "GeoY": 53.921991, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Reserved matters application for the appearance, landscaping and scale of six dwellings, following outline approval 11/00599/OUT", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-22", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Preesall Service Station, Sandy Lane, Preesall", "SiteReference": "BR006", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.992506, "GeoY": 53.844418, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Reserved matters application for the appearance and landscaping of 7 town houses and 6 apartments following outline approval 11/00765/OUTMAJ. Technical commencement.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-14", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Brimelows Garage, 54 Hardhorn Road, Poulton", "SiteReference": "BR007", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.978081, "GeoY": 53.830047, "HazardousSubstances": null, "Hectares": 1.18, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Reserved matters application for the erection of nine detached dwellings (following outline approval 17/00410/OUTMAJ)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-27", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Fairfield Nurseries, Puddle House Lane, Poulton", "SiteReference": "BR008", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.882255, "GeoY": 53.921166, "HazardousSubstances": null, "Hectares": 1.69, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Reserved matters application for the erection of 40 dwellings following planning permission 16/00317/OUTMAJ (reserved matters relating to appearance, landscaping, layout and scale)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-16", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "North of Garstang Road, Pilling", "SiteReference": "BR011", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.774727, "GeoY": 53.955946, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of two detached dwellings with associated access and landscaping (18/00589/FUL) \u0026  Planning application for substitution of house type for plot 2 of planning consent 15/00122/FUL.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Throstles Nest, Whinney Brow Lane, Forton", "SiteReference": "BR012", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.985434, "GeoY": 53.857851, "HazardousSubstances": null, "Hectares": 0.61, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 9 dwellings with associated parking and landscaping (following demolition of existing agricultural buildings and farmhouse). Planning permission expires 25.5.19", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-25", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Prospect Farm, Skippool Road, Thornton", "SiteReference": "BR013", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.006143, "GeoY": 53.924354, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of three 3 bed dwellings and two 1 bed flats. Planning permission expires 29.6.19", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-25", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear The Steamer, Victoria Street, Fleetwood", "SiteReference": "BR014", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -2.773271, "GeoY": 53.902791, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Variation of condition 2 (approved Plans) on application 16/00550/FULMAJ for the erection of a three storey building following partial demolition of existing building to provide approx. 1400sqm (gross) of retail floor space (Class A1) and 18 residential apartments with new and re-configured car parking (re-submission of planning application 19/00007/FULMAJ to allow for full demolition and reconstruction of the facade)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-07-30", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Garstang Business \u0026 Community Centre, 96 High Street, Garstang", "SiteReference": "BR017", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.012169, "GeoY": 53.927979, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application for the erection of 15 apartments for persons aged 55 and over together with retail unit and car parking (re-submission 16/00407/OUTMAJ). Committee resolved to approve application subject to s106 Agreement.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Fleetwood Pier, The Esplanade, Fleetwood", "SiteReference": "BR018", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -3.014364, "GeoY": 53.921139, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of first floor offices and conversion of roof area to form 20 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-27", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Carleton Court, 155-161 Lord Street, Fleetwood", "SiteReference": "BR019", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.016704, "GeoY": 53.862632, "HazardousSubstances": null, "Hectares": 13.61, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": 220.0, "NetDwellingsRangeTo": 338.0, "Notes": ". Housing estimates reflects planning permission for 82 dwellings and the remaining housing allocations (60 dwellings) identified in the Wyre adopted local plan. Part of the site has full planning permission for retail use but this does not affect the housing capacity of the site. The adjacent site has planning permission for 158 dwellings and is under construction.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "North of Norcross Lane, Thornton Cleveleys", "SiteReference": "BR020", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.017116, "GeoY": 53.912846, "HazardousSubstances": null, "Hectares": 32.67, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": 120.0, "NetDwellingsRangeTo": 120.0, "Notes": ". The site is allocated for 120 dwellings in the adopted Wyre Local Plan", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": null, "SiteNameAddress": "South of Fleetwood Dock, Fleetwood", "SiteReference": "BR021", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -2.768701, "GeoY": 53.886849, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 9.0, "Notes": ". The site is a small parcel of a much larger site with permission for 86 dwellings but mostly greenfield. The PDL section is 0.29 ha.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-06-06", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Garstang Country Hotel \u0026 Golf Club, Garstang Road, Bowgreave", "SiteReference": "BR022", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-09-30", "GeoX": -3.012866, "GeoY": 53.922769, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-09-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Housing estimate reflects planning permission - Part demolition and part refurbishment to create 19 residential units and 3 dwellings; erection of 4 dwellings and a 12 unit flat development", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-21", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Fleetwood Health Centre, London Street, Fleetwood", "SiteReference": "BR025", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-09-30", "GeoX": -2.985177, "GeoY": 53.829423, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Application for the erection of 2 detached dwellings with associated access and landscaping (following the demolition of existing buildings) (re-submission of 17/00220/FUL)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-12", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Foxes Farm, Hardhorn Road, Poulton", "SiteReference": "BR026", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-09-30", "GeoX": -2.778352, "GeoY": 53.912457, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2018-09-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Housing estimate reflects planning permission - Erection of building to form 7 apartments (following demolition of existing dwelling)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-05-04", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Acresfield, 9 Garstang Bypass Road, Garstang", "SiteReference": "BR027", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-09-30", "GeoX": -3.008473, "GeoY": 53.827072, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-09-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Housing estimate reflects planning permission - Erection of 8 apartments following demolition of existing residential dwelling", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-06-06", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "15 Newton Drive East, Normoss", "SiteReference": "BR028", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-09-30", "GeoX": -2.785418, "GeoY": 53.961251, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Reserved matters application for appearance, landscaping, layout and scale for the erection of three detached dwellings (following outline application 16/00354/OUT)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-07-31", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Bloomfield Garage, Cockerham Road, Forton", "SiteReference": "BR029", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-09-30", "GeoX": -3.012701, "GeoY": 53.924784, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-09-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Housing estimate reflects planning permission - Outline application for demolition of existing garage, warehouse and store buildings and erection of two 2/3 bed mews houses and four 1 bed apartments with associated access (all other matters reserved) (re-submission of 17/00977/OUTMAJ)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-09-28", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear 91 Victoria Street, Fleetwood", "SiteReference": "BR030", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-10-30", "GeoX": -3.045538, "GeoY": 53.913986, "HazardousSubstances": null, "Hectares": 0.84, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 72 properties in total comprising houses and flats on Crake Avenue, numbers (1-7), (8-14), (9-15), (16-22), (17-23), (25-31), (33-39), (41-47), (49-55), (59-63), (67-73), 6 and 5", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-28", "PermissionType": null, "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": null, "SiteNameAddress": "Land at Crake Avenue, Fleetwood", "SiteReference": "BR032", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-10-30", "GeoX": -3.046027, "GeoY": 53.91284, "HazardousSubstances": null, "Hectares": 0.54, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 63 properties in total comprising houses and flats on Martindale Avenue, numbers (1-11), (2-8), (31-45), (46-60) and (47-61)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-28", "PermissionType": null, "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": null, "SiteNameAddress": "Land at Martindale Avenue, Fleetwood", "SiteReference": "BR033", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-10-30", "GeoX": -3.044414, "GeoY": 53.913484, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 45 properties in total comprising houses and flats on Rede Avenue, numbers (1-7), (2A-2D), (4A-4D), (9-15), (19-25), (27-33), (39-45), 17 and 35", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-28", "PermissionType": null, "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": null, "SiteNameAddress": "Land at Rede Avenue, Fleetwood", "SiteReference": "BR034", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-10-30", "GeoX": -2.77666, "GeoY": 53.909879, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing house and warehouse and erection of 7 new dwellings. Technical commencement", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-10-05", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "The Rockery, Green Lane East, Cabus", "SiteReference": "BR035", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-10-30", "GeoX": -2.987186, "GeoY": 53.841208, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application for a residential development for upto 8 dwellings following the demolition of the adult learning centre with access applied for (all other matters reserved)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-08", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Carr Head Adult Education Centre, Carr Head Lane, Poulton", "SiteReference": "BR036", "SiteplanURL": "https://arcg.is/1yDieW"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-10-30", "GeoX": -2.998019, "GeoY": 53.83018, "HazardousSubstances": null, "Hectares": 0.61, "LastUpdatedDate": "2019-10-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of existing farm and caravan park to create 21 residential units with associated landscaping and vehicular access onto Normoss Road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wyre", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-28", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.wyre.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Normoss Farm, Normoss Road, Poulton", "SiteReference": "BR037", "SiteplanURL": "https://arcg.is/1yDieW"}];
+    const bbox = [-3.061246902551162, -2.7534810974488377, 53.818088843418586, 53.97023415658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

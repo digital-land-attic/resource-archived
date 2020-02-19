@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">671862da...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.south-norfolk.gov.uk/sites/default/files/downloads/southnorfolk_brownfieldregister_2018-12-31_0.csv">https://www.south-norfolk.gov.uk/sites/default/files/downloads/southnorfolk_brownfieldregister_2018-12-31_0.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.south-norfolk.gov.uk/residents/planning/brownfield-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SNO">South Norfolk District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/671862da7b7345ad6019817cd796a866fa1f09a5c809873cb33e63436474041f/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/671862da7b7345ad6019817cd796a866fa1f09a5c809873cb33e63436474041f">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">23 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0.00
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>23</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/671862da7b7345ad6019817cd796a866fa1f09a5c809873cb33e63436474041f.csv"
+        download="671862da7b7345ad6019817cd796a866fa1f09a5c809873cb33e63436474041f_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/671862da7b7345ad6019817cd796a866fa1f09a5c809873cb33e63436474041f"
+        download="671862da7b7345ad6019817cd796a866fa1f09a5c809873cb33e63436474041f_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>2018/1765</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>104-106 Denmark Street, Diss</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=125449.0376%2C6866791.3792%2C125902.8824%2C6867033.2308%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2018/1528</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>The Bungalow, Station Road, Spooner Row, Wymondham, NR18 9JR</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=120218.5576%2C6897672.5142%2C120672.4024%2C6897914.3658%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2017/1177</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>A140 Cars, Norwich Road, Swainsthorpe, Norfolk, NR14 8PU</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=141595.9226%2C6901510.6792%2C142049.7674%2C6901752.5308%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2017/0182</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Friarscroft Garage, 2 Friarscroft Lane, Wymondham</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=123685.6326%2C6903562.8892%2C124139.4774%2C6903804.7408%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DIS 5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Haulage Depot, Park Road, Diss</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=122887.5776%2C6868524.3892%2C123341.4224%2C6868766.2408%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HAR 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Howard Rotavator Works, Mendham Lane, Harleston</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=145131.7976%2C6872386.9592%2C145585.6424%2C6872628.8108%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ASL 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Cooper's scrapyard, Church Road, Aslacton</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=131072.1826%2C6886263.6442%2C131526.0274%2C6886505.4958%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DIS 6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Hamlin's Factory site, Diss</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=122905.2876%2C6867793.5942%2C123359.1324%2C6868035.4458%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WYM 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Sale Ground, Cemetery Rd, Wymondham</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=123920.6001%2C6902932.6935%2C124828.2899%2C6903416.3965%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>DIS 7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Feather Factory site, Diss</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=122428.1901%2C6867625.1185%2C123335.8799%2C6868108.8215%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2012/1558</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Maltings, Tudor Rose Way, Harleston</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=144506.8776%2C6873430.4342%2C144960.7224%2C6873672.2858%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2013/1904</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Long Lane, Framingham Earl</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=149739.4376%2C6904760.0692%2C150193.2824%2C6905001.9208%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2015/2843</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>The Business Centre, Intwood Road, Cringleford</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=138398.9976%2C6910131.4392%2C138852.8424%2C6910373.2908%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2017/1000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Cedar House, Church Road, Yelverton, Norfolk, NR14 7PB</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=153500.0576%2C6903592.5242%2C153953.9024%2C6903834.3758%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2011/0664</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>High Oaks Works, Wicklewood</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=116936.6801%2C6903214.1585%2C117844.3699%2C6903697.8615%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2010/1776</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Cook's Garage, Carleton Rode</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=124304.7726%2C6887355.8792%2C124758.6174%2C6887597.7308%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2015/0570</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Costessey: North of the River Tud/Queen's Hills</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=130979.9826%2C6920987.3742%2C131433.8274%2C6921229.2258%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2016/2000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Rackham's Builders Yard, Diss</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=121972.1276%2C6867927.4192%2C122425.9724%2C6868169.2708%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2011/0026</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former workshop, Yarmouth Road, Hales</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=167335.5326%2C6895032.2642%2C167789.3774%2C6895274.1158%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GNLP0593</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Roundwell Works, Costessey</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=133697.5351%2C6917488.4285%2C134605.2249%2C6917972.1315%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GNLP0361</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Off Ipswich Road, Dickleburgh and Rushall</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=131525.1326%2C6871771.3342%2C131978.9774%2C6872013.1858%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GNLP0263</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Apollo Club, Mendham Lane, Harleston</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=144677.9326%2C6872453.6842%2C145131.7774%2C6872695.5358%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2011/0152</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-norfolk</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>May Gurney & Keir site & Carrow Yacht Club, Trowse</td>
+                    <td>https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&extent=144834.7656%2C6911505.0639%2C148465.5244%2C6913439.8761%2C102100</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "104-106 Denmark Street, Diss", "SiteReference": "2018/1765", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=125449.0376%2C6866791.3792%2C125902.8824%2C6867033.2308%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "The Bungalow, Station Road, Spooner Row, Wymondham, NR18 9JR", "SiteReference": "2018/1528", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=120218.5576%2C6897672.5142%2C120672.4024%2C6897914.3658%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "A140 Cars, Norwich Road, Swainsthorpe, Norfolk, NR14 8PU", "SiteReference": "2017/1177", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=141595.9226%2C6901510.6792%2C142049.7674%2C6901752.5308%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Friarscroft Garage, 2 Friarscroft Lane, Wymondham", "SiteReference": "2017/0182", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=123685.6326%2C6903562.8892%2C124139.4774%2C6903804.7408%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Haulage Depot, Park Road, Diss", "SiteReference": "DIS 5", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=122887.5776%2C6868524.3892%2C123341.4224%2C6868766.2408%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Howard Rotavator Works, Mendham Lane, Harleston", "SiteReference": "HAR 3", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=145131.7976%2C6872386.9592%2C145585.6424%2C6872628.8108%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Cooper\u0027s scrapyard, Church Road, Aslacton", "SiteReference": "ASL 1", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=131072.1826%2C6886263.6442%2C131526.0274%2C6886505.4958%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Hamlin\u0027s Factory site, Diss", "SiteReference": "DIS 6", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=122905.2876%2C6867793.5942%2C123359.1324%2C6868035.4458%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Sale Ground, Cemetery Rd, Wymondham", "SiteReference": "WYM 2", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=123920.6001%2C6902932.6935%2C124828.2899%2C6903416.3965%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Feather Factory site, Diss", "SiteReference": "DIS 7", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=122428.1901%2C6867625.1185%2C123335.8799%2C6868108.8215%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Maltings, Tudor Rose Way, Harleston", "SiteReference": "2012/1558", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=144506.8776%2C6873430.4342%2C144960.7224%2C6873672.2858%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Long Lane, Framingham Earl", "SiteReference": "2013/1904", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=149739.4376%2C6904760.0692%2C150193.2824%2C6905001.9208%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "The Business Centre, Intwood Road, Cringleford", "SiteReference": "2015/2843", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=138398.9976%2C6910131.4392%2C138852.8424%2C6910373.2908%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Cedar House, Church Road, Yelverton, Norfolk, NR14 7PB", "SiteReference": "2017/1000", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=153500.0576%2C6903592.5242%2C153953.9024%2C6903834.3758%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "High Oaks Works, Wicklewood", "SiteReference": "2011/0664", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=116936.6801%2C6903214.1585%2C117844.3699%2C6903697.8615%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Cook\u0027s Garage, Carleton Rode", "SiteReference": "2010/1776", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=124304.7726%2C6887355.8792%2C124758.6174%2C6887597.7308%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Costessey: North of the River Tud/Queen\u0027s Hills", "SiteReference": "2015/0570", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=130979.9826%2C6920987.3742%2C131433.8274%2C6921229.2258%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Rackham\u0027s Builders Yard, Diss", "SiteReference": "2016/2000", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=121972.1276%2C6867927.4192%2C122425.9724%2C6868169.2708%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former workshop, Yarmouth Road, Hales", "SiteReference": "2011/0026", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=167335.5326%2C6895032.2642%2C167789.3774%2C6895274.1158%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Roundwell Works, Costessey", "SiteReference": "GNLP0593", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=133697.5351%2C6917488.4285%2C134605.2249%2C6917972.1315%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Off Ipswich Road, Dickleburgh and Rushall", "SiteReference": "GNLP0361", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=131525.1326%2C6871771.3342%2C131978.9774%2C6872013.1858%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Apollo Club, Mendham Lane, Harleston", "SiteReference": "GNLP0263", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=144677.9326%2C6872453.6842%2C145131.7774%2C6872695.5358%2C102100"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-10-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-norfolk", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "May Gurney \u0026 Keir site \u0026 Carrow Yacht Club, Trowse", "SiteReference": "2011/0152", "SiteplanURL": "https://ncc.maps.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026extent=144834.7656%2C6911505.0639%2C148465.5244%2C6913439.8761%2C102100"}];
+    const bbox = [NaN, NaN, NaN, NaN];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

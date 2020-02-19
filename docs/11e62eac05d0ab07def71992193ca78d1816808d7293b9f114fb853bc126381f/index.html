@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">11e62eac...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.wycombe.gov.uk/uploads/public/documents/Planning/Adopted-core-strategy/Brownfield-land-register-2017.xlsx">https://www.wycombe.gov.uk/uploads/public/documents/Planning/Adopted-core-strategy/Brownfield-land-register-2017.xlsx</a>
+        </dd>
+    </dl>
+    <a href="https://www.wycombe.gov.uk/pages/Planning-and-building-control/Adopted-Wycombe-planning-policy-and-guidance/Brownfield-land-register.aspx">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 21 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WYO">Wycombe District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/11e62eac05d0ab07def71992193ca78d1816808d7293b9f114fb853bc126381f/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/11e62eac05d0ab07def71992193ca78d1816808d7293b9f114fb853bc126381f">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">70 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">48.34
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                1518</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                1518</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>70</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/11e62eac05d0ab07def71992193ca78d1816808d7293b9f114fb853bc126381f.csv"
+        download="11e62eac05d0ab07def71992193ca78d1816808d7293b9f114fb853bc126381f_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/11e62eac05d0ab07def71992193ca78d1816808d7293b9f114fb853bc126381f"
+        download="11e62eac05d0ab07def71992193ca78d1816808d7293b9f114fb853bc126381f_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>HABBEY304</td>
+                    <td>-0.747469</td>
+                    <td>51.6284</td>
+                    <td>0.04</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>6 Easton Street, High Wycombe, HP11 1NJ</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486794.0&StartNorthing=192928.92&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/05813/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HABBEY322</td>
+                    <td>-0.747603</td>
+                    <td>51.6279</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>89-90 Easton Street, High Wycombe, HP11 1LT</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486785.78&StartNorthing=192868.61&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07396/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HABBEY323</td>
+                    <td>-0.766004</td>
+                    <td>51.618</td>
+                    <td>0.08</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>30 & 30a Marlow Road, High Wycombe, HP11 1TB</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485530.735&StartNorthing=191744.725&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/05169/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HABBEY331</td>
+                    <td>-0.757558</td>
+                    <td>51.6329</td>
+                    <td>0.42</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>72</td>
+                    <td>72</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Aria House, 80 Oxford Road, High Wycombe, HP11 2DX</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486087.23&StartNorthing=193415.731&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/06651/PNP30</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HABBEY334</td>
+                    <td>-0.764279</td>
+                    <td>51.6261</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>195b, c, d, & e Desborough Avenue, High Wycombe, HP11 2TW</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485634.905&StartNorthing=192648.62&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07009/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HBOURN143</td>
+                    <td>-0.711494</td>
+                    <td>51.5768</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Unit 3, Station Court, Station Road, Bourne End</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=489385.314&StartNorthing=187225.263&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07068/PNP30</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HBOURN144</td>
+                    <td>-0.706859</td>
+                    <td>51.5772</td>
+                    <td>0.1</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land North of Comino House, Furlong Road, Bourne End</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=489705.595&StartNorthing=187278.875&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/05972/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HMARSE090</td>
+                    <td>-0.774797</td>
+                    <td>51.5733</td>
+                    <td>0.03</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Abbey House, 28-30 Chapel Street, Marlow, SL7 1DD</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485005.199&StartNorthing=186769.642&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>13/07614/PAJ</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HMARSE119</td>
+                    <td>-0.774195</td>
+                    <td>51.5697</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>79-81 High Street Marlow Buckinghamshire SL7 1AB</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485053.66&StartNorthing=186369.271&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/07708/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HOAKCA216</td>
+                    <td>-0.768</td>
+                    <td>51.6333</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2 Dashwood Avenue High Wycombe Buckinghamshire HP12 3DN</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485363.835&StartNorthing=193446.147&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/06506/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HOAKCA219</td>
+                    <td>-0.772412</td>
+                    <td>51.6334</td>
+                    <td>0.04</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Half Moon Dashwood Avenue High Wycombe Buckinghamshire HP12 3DZ</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485058.365&StartNorthing=193447.02&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07458/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HRYEME183</td>
+                    <td>-0.733508</td>
+                    <td>51.6259</td>
+                    <td>0.05</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Princes Gate High Wycombe Buckinghamshire</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487765.265&StartNorthing=192659.886&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/05625/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HSANDS123</td>
+                    <td>-0.775635</td>
+                    <td>51.6386</td>
+                    <td>0.22</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>232 & 232C West Wycombe Road High Wycombe Buckinghamshire HP12 3AR</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=484825.47&StartNorthing=194030.735&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/05948/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HSANDS126</td>
+                    <td>-0.77738</td>
+                    <td>51.6344</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>15 Prestwood Close High Wycombe Buckinghamshire HP12 3DE</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=484712.582&StartNorthing=193559.13&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07317/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HSTOKE150</td>
+                    <td>-0.909563</td>
+                    <td>51.661</td>
+                    <td>0.48</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>40</td>
+                    <td>40</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Axis40 Oxford Road Stokenchurch Buckinghamshire HP14 3SX</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=475520.68&StartNorthing=196366.144&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07762/PNP3O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTERAH209</td>
+                    <td>-0.73356</td>
+                    <td>51.6437</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>133 Amersham Road High Wycombe Buckinghamshire HP13 5AD</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487727.372&StartNorthing=194637.814&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/06681/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTERAH234</td>
+                    <td>-0.750159</td>
+                    <td>51.6325</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Priory Centre 11 Priory Road High Wycombe Buckinghamshire HP13 6SL</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486600.103&StartNorthing=193378.304&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/08332/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTERAH240</td>
+                    <td>-0.748728</td>
+                    <td>51.6378</td>
+                    <td>0.18</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>10-12 Coningsby Road High Wycombe Buckinghamshire HP13 5NX</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486689.02&StartNorthing=193970.599&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/08508/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTHRIS175</td>
+                    <td>-0.830451</td>
+                    <td>51.7283</td>
+                    <td>0.22</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>8-10 Wellington Avenue Princes Risborough Buckinghamshire HP27 9HY</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=480872.61&StartNorthing=203937.43&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07148/OUT</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTHWOO101</td>
+                    <td>-0.684571</td>
+                    <td>51.5872</td>
+                    <td>0.08</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>35 The Green Wooburn Green Buckinghamshire HP10 0EU</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=491229.965&StartNorthing=188420.282&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/07355/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTYLER152</td>
+                    <td>-0.703891</td>
+                    <td>51.6117</td>
+                    <td>0.41</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Oakingham House Kingsmead Business Park Frederick Place Loudwater Buckinghamshire HP11 1JU</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=489843.14&StartNorthing=191124.675&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07011/PNP3O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HTYLER153</td>
+                    <td>-0.700812</td>
+                    <td>51.6054</td>
+                    <td>0.25</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Attobus Treadaway Hill Loudwater Buckinghamshire HP10 9QL</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=490068.975&StartNorthing=190418.685&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/07721/PNP3O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SBE0050</td>
+                    <td>-0.710374</td>
+                    <td>51.5825</td>
+                    <td>0.15</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Windrush House, Bourne End</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=489451.7&StartNorthing=187862.575&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0020</td>
+                    <td>-0.771823</td>
+                    <td>51.6338</td>
+                    <td>0.9</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Dashwood Avenue, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485098.225&StartNorthing=193501.722&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0067</td>
+                    <td>-0.760696</td>
+                    <td>51.634</td>
+                    <td>0.08</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>46 West Wycombe Road High Wycombe Buckinghamshire HP11 2LW</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485868.1&StartNorthing=193526.89&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/06043/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0121</td>
+                    <td>-0.750474</td>
+                    <td>51.6406</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>207 Hughenden Road High Wycombe Buckinghamshire HP13 5PL</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486562.875&StartNorthing=194278.04&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>10/07474/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0210</td>
+                    <td>-0.769934</td>
+                    <td>51.6335</td>
+                    <td>0.02</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>34 Dashwood Avenue High Wycombe Buckinghamshire HP12 3DX</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485229.691&StartNorthing=193460.123&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0262</td>
+                    <td>-0.773306</td>
+                    <td>51.6372</td>
+                    <td>0.14</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>209-211 West Wycombe Road High Wycombe Buckinghamshire HP12 3AW</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=484989.36&StartNorthing=193871.555&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/07637/FUL, 14/05432/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0263</td>
+                    <td>-0.771874</td>
+                    <td>51.6368</td>
+                    <td>0.19</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>193-197 West Wycombe Road High Wycombe Buckinghamshire HP12 3AW</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485089.15&StartNorthing=193833.58&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/08277/MINAMD, 16/05324/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0322</td>
+                    <td>-0.744881</td>
+                    <td>51.6283</td>
+                    <td>3.21</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>137</td>
+                    <td>137</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Easton Street / Eastern Quarter, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486973.3&StartNorthing=192920.825&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0332</td>
+                    <td>-0.742521</td>
+                    <td>51.6291</td>
+                    <td>0.68</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>90</td>
+                    <td>90</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Duke Street, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487135.125&StartNorthing=193012.501&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in the Delivery and Site Allocations document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0334</td>
+                    <td>-0.765186</td>
+                    <td>51.6327</td>
+                    <td>0.55</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land forming part of the former Green Street County First School site, Desborough Street, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485559.65&StartNorthing=193385.275&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in the Delivery and Site Allocations document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0335</td>
+                    <td>-0.763971</td>
+                    <td>51.6318</td>
+                    <td>0.33</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>77</td>
+                    <td>77</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Needham Bowl, Leigh Street</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485645.585&StartNorthing=193278.135&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/05594/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0339</td>
+                    <td>-0.757783</td>
+                    <td>51.6307</td>
+                    <td>0.18</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>45</td>
+                    <td>45</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Collins House and 32 Bridge St, Corner of Bridge St/Desborough Rd</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486075.755&StartNorthing=193172.39&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in the Delivery and Site Allocations document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0400</td>
+                    <td>-0.777399</td>
+                    <td>51.6238</td>
+                    <td>0.7</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>40</td>
+                    <td>40</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Delafield Heights South, Longland Way / Pettifer Way, previously known as Flats off Chairborough Road</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=484731.15&StartNorthing=192372.572&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0402</td>
+                    <td>-0.728796</td>
+                    <td>51.6236</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Frank Hudson Furniture Factory, Rosebery Avenue, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=488095.865&StartNorthing=192410.2&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0406</td>
+                    <td>-0.770595</td>
+                    <td>51.6329</td>
+                    <td>0.21</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Ogilvie Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485184.94&StartNorthing=193400.5&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0419</td>
+                    <td>-0.733671</td>
+                    <td>51.6255</td>
+                    <td>0.16</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>32</td>
+                    <td>32</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>JC and MP Smith, Princes Gate (also known as Ricketts road, Ryedale), High Wycombe, HP13 7AB</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487754.704&StartNorthing=192618.725&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/06660/FUL. Resolution to permit.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0421</td>
+                    <td>-0.735804</td>
+                    <td>51.6261</td>
+                    <td>0.19</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Netley Works, 89 Queens Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487605.86&StartNorthing=192684.315&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0432</td>
+                    <td>-0.765098</td>
+                    <td>51.6302</td>
+                    <td>0.24</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kitchener Works, Kitchener Road, adjacent to Smewin Court, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485570.535&StartNorthing=193100.88&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/05718/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0436</td>
+                    <td>-0.780564</td>
+                    <td>51.624</td>
+                    <td>0.39</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garages between Chiltern Avenue and Rutland Avenue, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=484511.575&StartNorthing=192395.63&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0440</td>
+                    <td>-0.758454</td>
+                    <td>51.6322</td>
+                    <td>0.19</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Brook Street, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486026.65&StartNorthing=193328.925&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in the Delivery and Site Allocations document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0463</td>
+                    <td>-0.75682</td>
+                    <td>51.6319</td>
+                    <td>0.51</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Corner of Bridge Street/Oxford Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486140.212&StartNorthing=193305.32&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in the Delivery and Site Allocations document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0466</td>
+                    <td>-0.7219</td>
+                    <td>51.6416</td>
+                    <td>0.25</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garages at Tyzack Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=488538.125&StartNorthing=194424.95&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0503</td>
+                    <td>-0.745292</td>
+                    <td>51.6281</td>
+                    <td>0.12</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Adjacent 23 Easton Street High Wycombe Buckinghamshire HP11 1NJ</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486945.395&StartNorthing=192890.125&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/05700/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0524</td>
+                    <td>-0.764604</td>
+                    <td>51.6313</td>
+                    <td>1.23</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>228</td>
+                    <td>228</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Remainder of Leigh Street employment area, Desborough road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485602.575&StartNorthing=193231.825&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0526</td>
+                    <td>-0.791014</td>
+                    <td>51.6185</td>
+                    <td>0.03</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garages at Havenfield Road, High Wycombe, HP12 4ST</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=483798.375&StartNorthing=191770.125&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0543</td>
+                    <td>-0.735124</td>
+                    <td>51.6258</td>
+                    <td>0.08</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>185-197 Gordon Road, High Wycombe, Bucks, HP13 6AP</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487653.55&StartNorthing=192647.925&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>12/07667/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0548</td>
+                    <td>-0.761643</td>
+                    <td>51.6328</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Victoria Pharmacy, 19 Desborough Avenue, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485804.73&StartNorthing=193395.551&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/08119/FUL, 14/06330/FUL, 13/07187/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0550</td>
+                    <td>-0.702602</td>
+                    <td>51.6376</td>
+                    <td>0.09</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Sunnyside and St.Johns House, 16-18 St.Johns Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=489881.365&StartNorthing=193998.785&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>13/07334/PAJ. Has a prior notification approval for part of the site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0561</td>
+                    <td>-0.803652</td>
+                    <td>51.6067</td>
+                    <td>0.91</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Notcutts Garden Centre, Clay Lane, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=482944.9&StartNorthing=190444.89&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0564</td>
+                    <td>-0.777665</td>
+                    <td>51.6259</td>
+                    <td>1.74</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>32</td>
+                    <td>32</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Delafield Heights North, (Longland Way / Pettifer Way, also known as Castlefield Estate, High Wycombe)</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=484708.745&StartNorthing=192611.399&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0583</td>
+                    <td>-0.737968</td>
+                    <td>51.6263</td>
+                    <td>0.1</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Nag's Head and land to rear, 63 London Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487455.65&StartNorthing=192705.79&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/06780/FUL, 14/06781/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0584</td>
+                    <td>-0.764636</td>
+                    <td>51.6338</td>
+                    <td>0.03</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>1-9 Shaftesbury Street, High Wycombe, HP11 2NA</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485595.625&StartNorthing=193509.475&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0589</td>
+                    <td>-0.750157</td>
+                    <td>51.6293</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>7-8 High Street, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486606.285&StartNorthing=193021.105&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/05538/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0596</td>
+                    <td>-0.753361</td>
+                    <td>51.6313</td>
+                    <td>0.04</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>17-19 Frogmoor, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486380.75&StartNorthing=193241.15&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/07782/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0597</td>
+                    <td>-0.735611</td>
+                    <td>51.6274</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Gordon Arms, Gordon Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487616.66&StartNorthing=192830.375&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/07956/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0600</td>
+                    <td>-0.748974</td>
+                    <td>51.6283</td>
+                    <td>0.01</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>27 High Street, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=486690.065&StartNorthing=192914.475&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/07328/FUL, 16/06154/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0603</td>
+                    <td>-0.769667</td>
+                    <td>51.637</td>
+                    <td>0.1</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rear of 154-156 West Wycombe Road, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485241.525&StartNorthing=193858.122&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/05788/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHW0651</td>
+                    <td>-0.733499</td>
+                    <td>51.6139</td>
+                    <td>3.91</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Wycombe Summit, High Wycombe</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487788.891&StartNorthing=191331.09&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/06045/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHZ0005</td>
+                    <td>-0.704974</td>
+                    <td>51.6577</td>
+                    <td>0.62</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Highbury Works/Hazlemere Coach Works, Chestnut Lane, Hazlemere, High Wycombe, Bucks</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=489677.625&StartNorthing=196229.8&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SLW0031</td>
+                    <td>-0.69345</td>
+                    <td>51.6069</td>
+                    <td>0.09</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Burleighfield House (Mayflower House), London road, Loudwater</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=490575.65&StartNorthing=190600.755&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/05582/PNP3O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SMA0044</td>
+                    <td>-0.770391</td>
+                    <td>51.5756</td>
+                    <td>1.57</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Foxes Piece Marlow Buckinghamshire</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485306.315&StartNorthing=187027.665&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SMA0100</td>
+                    <td>-0.773938</td>
+                    <td>51.57</td>
+                    <td>0.21</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Regal House, 4-6 Station Road, Marlow SL7 1NZ</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=485070.965&StartNorthing=186399.805&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/05668/PAJ</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SPR0032</td>
+                    <td>-0.842814</td>
+                    <td>51.7178</td>
+                    <td>2.02</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>45</td>
+                    <td>45</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Princes Risborough Railway Station</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=480037.27&StartNorthing=202757.835&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SRD0008</td>
+                    <td>-0.822603</td>
+                    <td>51.6756</td>
+                    <td>0.67</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Coal Yard Smalldean Lane Saunderton Buckinghamshire</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=481509.122&StartNorthing=198086.345&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/08368/OUT</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SRD0126</td>
+                    <td>-0.832861</td>
+                    <td>51.6794</td>
+                    <td>10.32</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Molins Factory, Haw Lane, Saunderton, HP14 4JE</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=480793.05&StartNorthing=198498.405&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SRD0148</td>
+                    <td>-0.738119</td>
+                    <td>51.6576</td>
+                    <td>7.61</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>59</td>
+                    <td>59</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Uplands House Hotel, Four Ashes Road, Cryers Hill, Bucks, HP15 6LB</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=487385.23&StartNorthing=196177.437&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/05053/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SWC0012</td>
+                    <td>-0.798019</td>
+                    <td>51.6081</td>
+                    <td>0.63</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Westside Fruit / The Apple Orchard, Clay Lane, Booker</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=483332.452&StartNorthing=190605.505&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>03/05990/OUT</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SWC0068</td>
+                    <td>-0.841252</td>
+                    <td>51.5473</td>
+                    <td>3.31</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/wycombe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Water Research Centre Laboratries, Medmenham</td>
+                    <td>https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps&StartEasting=480445.826&StartNorthing=183798.555&StartZoom=300&o=1&Layers=brownfield&ZoomPin=1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>11/05434/OUT, 16/07321/REM</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.747469, "GeoY": 51.6284, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "17/05813/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "6 Easton Street, High Wycombe, HP11 1NJ", "SiteReference": "HABBEY304", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486794.0\u0026StartNorthing=192928.92\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.747603, "GeoY": 51.6279, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "17/07396/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "89-90 Easton Street, High Wycombe, HP11 1LT", "SiteReference": "HABBEY322", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486785.78\u0026StartNorthing=192868.61\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.766004, "GeoY": 51.618, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "17/05169/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "30 \u0026 30a Marlow Road, High Wycombe, HP11 1TB", "SiteReference": "HABBEY323", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485530.735\u0026StartNorthing=191744.725\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.757558, "GeoY": 51.6329, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 72, "NetDwellingsRangeTo": 72, "Notes": "17/06651/PNP30", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Aria House, 80 Oxford Road, High Wycombe, HP11 2DX", "SiteReference": "HABBEY331", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486087.23\u0026StartNorthing=193415.731\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.764279, "GeoY": 51.6261, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "17/07009/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "195b, c, d, \u0026 e Desborough Avenue, High Wycombe, HP11 2TW", "SiteReference": "HABBEY334", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485634.905\u0026StartNorthing=192648.62\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.711494, "GeoY": 51.5768, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "17/07068/PNP30", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Unit 3, Station Court, Station Road, Bourne End", "SiteReference": "HBOURN143", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=489385.314\u0026StartNorthing=187225.263\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.706859, "GeoY": 51.5772, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "17/05972/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land North of Comino House, Furlong Road, Bourne End", "SiteReference": "HBOURN144", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=489705.595\u0026StartNorthing=187278.875\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.774797, "GeoY": 51.5733, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "13/07614/PAJ", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Abbey House, 28-30 Chapel Street, Marlow, SL7 1DD", "SiteReference": "HMARSE090", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485005.199\u0026StartNorthing=186769.642\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.774195, "GeoY": 51.5697, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "16/07708/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "79-81 High Street Marlow Buckinghamshire SL7 1AB", "SiteReference": "HMARSE119", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485053.66\u0026StartNorthing=186369.271\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.768, "GeoY": 51.6333, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "17/06506/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2 Dashwood Avenue High Wycombe Buckinghamshire HP12 3DN", "SiteReference": "HOAKCA216", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485363.835\u0026StartNorthing=193446.147\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.772412, "GeoY": 51.6334, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "17/07458/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Half Moon Dashwood Avenue High Wycombe Buckinghamshire HP12 3DZ", "SiteReference": "HOAKCA219", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485058.365\u0026StartNorthing=193447.02\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.733508, "GeoY": 51.6259, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "17/05625/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Princes Gate High Wycombe Buckinghamshire", "SiteReference": "HRYEME183", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487765.265\u0026StartNorthing=192659.886\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.775635, "GeoY": 51.6386, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "17/05948/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "232 \u0026 232C West Wycombe Road High Wycombe Buckinghamshire HP12 3AR", "SiteReference": "HSANDS123", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=484825.47\u0026StartNorthing=194030.735\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.77738, "GeoY": 51.6344, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "17/07317/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "15 Prestwood Close High Wycombe Buckinghamshire HP12 3DE", "SiteReference": "HSANDS126", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=484712.582\u0026StartNorthing=193559.13\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.909563, "GeoY": 51.661, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 40, "Notes": "17/07762/PNP3O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Axis40 Oxford Road Stokenchurch Buckinghamshire HP14 3SX", "SiteReference": "HSTOKE150", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=475520.68\u0026StartNorthing=196366.144\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.73356, "GeoY": 51.6437, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "15/06681/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "133 Amersham Road High Wycombe Buckinghamshire HP13 5AD", "SiteReference": "HTERAH209", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487727.372\u0026StartNorthing=194637.814\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.750159, "GeoY": 51.6325, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "16/08332/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Priory Centre 11 Priory Road High Wycombe Buckinghamshire HP13 6SL", "SiteReference": "HTERAH234", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486600.103\u0026StartNorthing=193378.304\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.748728, "GeoY": 51.6378, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "16/08508/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "10-12 Coningsby Road High Wycombe Buckinghamshire HP13 5NX", "SiteReference": "HTERAH240", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486689.02\u0026StartNorthing=193970.599\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.830451, "GeoY": 51.7283, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "17/07148/OUT", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "8-10 Wellington Avenue Princes Risborough Buckinghamshire HP27 9HY", "SiteReference": "HTHRIS175", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=480872.61\u0026StartNorthing=203937.43\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.684571, "GeoY": 51.5872, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "16/07355/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "35 The Green Wooburn Green Buckinghamshire HP10 0EU", "SiteReference": "HTHWOO101", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=491229.965\u0026StartNorthing=188420.282\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.703891, "GeoY": 51.6117, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "17/07011/PNP3O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Oakingham House Kingsmead Business Park Frederick Place Loudwater Buckinghamshire HP11 1JU", "SiteReference": "HTYLER152", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=489843.14\u0026StartNorthing=191124.675\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.700812, "GeoY": 51.6054, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 27, "Notes": "17/07721/PNP3O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Attobus Treadaway Hill Loudwater Buckinghamshire HP10 9QL", "SiteReference": "HTYLER153", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=490068.975\u0026StartNorthing=190418.685\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.710374, "GeoY": 51.5825, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Windrush House, Bourne End", "SiteReference": "SBE0050", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=489451.7\u0026StartNorthing=187862.575\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.771823, "GeoY": 51.6338, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 70, "NetDwellingsRangeTo": 70, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Dashwood Avenue, High Wycombe", "SiteReference": "SHW0020", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485098.225\u0026StartNorthing=193501.722\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.760696, "GeoY": 51.634, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": "15/06043/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "46 West Wycombe Road High Wycombe Buckinghamshire HP11 2LW", "SiteReference": "SHW0067", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485868.1\u0026StartNorthing=193526.89\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.750474, "GeoY": 51.6406, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "10/07474/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "207 Hughenden Road High Wycombe Buckinghamshire HP13 5PL", "SiteReference": "SHW0121", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486562.875\u0026StartNorthing=194278.04\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.769934, "GeoY": 51.6335, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "34 Dashwood Avenue High Wycombe Buckinghamshire HP12 3DX", "SiteReference": "SHW0210", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485229.691\u0026StartNorthing=193460.123\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.773306, "GeoY": 51.6372, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "16/07637/FUL, 14/05432/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "209-211 West Wycombe Road High Wycombe Buckinghamshire HP12 3AW", "SiteReference": "SHW0262", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=484989.36\u0026StartNorthing=193871.555\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.771874, "GeoY": 51.6368, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "16/08277/MINAMD, 16/05324/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "193-197 West Wycombe Road High Wycombe Buckinghamshire HP12 3AW", "SiteReference": "SHW0263", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485089.15\u0026StartNorthing=193833.58\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.744881, "GeoY": 51.6283, "HazardousSubstances": null, "Hectares": 3.21, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 137, "NetDwellingsRangeTo": 137, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Easton Street / Eastern Quarter, High Wycombe", "SiteReference": "SHW0322", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486973.3\u0026StartNorthing=192920.825\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.742521, "GeoY": 51.6291, "HazardousSubstances": null, "Hectares": 0.68, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 90, "NetDwellingsRangeTo": 90, "Notes": "Allocated in the Delivery and Site Allocations document.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Duke Street, High Wycombe", "SiteReference": "SHW0332", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487135.125\u0026StartNorthing=193012.501\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.765186, "GeoY": 51.6327, "HazardousSubstances": null, "Hectares": 0.55, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "Allocated in the Delivery and Site Allocations document.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land forming part of the former Green Street County First School site, Desborough Street, High Wycombe", "SiteReference": "SHW0334", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485559.65\u0026StartNorthing=193385.275\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.763971, "GeoY": 51.6318, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 77, "NetDwellingsRangeTo": 77, "Notes": "15/05594/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Needham Bowl, Leigh Street", "SiteReference": "SHW0335", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485645.585\u0026StartNorthing=193278.135\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.757783, "GeoY": 51.6307, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 45, "NetDwellingsRangeTo": 45, "Notes": "Allocated in the Delivery and Site Allocations document.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Collins House and 32 Bridge St, Corner of Bridge St/Desborough Rd", "SiteReference": "SHW0339", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486075.755\u0026StartNorthing=193172.39\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.777399, "GeoY": 51.6238, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 40, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Delafield Heights South, Longland Way / Pettifer Way, previously known as Flats off Chairborough Road", "SiteReference": "SHW0400", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=484731.15\u0026StartNorthing=192372.572\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.728796, "GeoY": 51.6236, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Frank Hudson Furniture Factory, Rosebery Avenue, High Wycombe", "SiteReference": "SHW0402", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=488095.865\u0026StartNorthing=192410.2\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.770595, "GeoY": 51.6329, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Ogilvie Road, High Wycombe", "SiteReference": "SHW0406", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485184.94\u0026StartNorthing=193400.5\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.733671, "GeoY": 51.6255, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 32, "NetDwellingsRangeTo": 32, "Notes": "15/06660/FUL. Resolution to permit.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "JC and MP Smith, Princes Gate (also known as Ricketts road, Ryedale), High Wycombe, HP13 7AB", "SiteReference": "SHW0419", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487754.704\u0026StartNorthing=192618.725\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.735804, "GeoY": 51.6261, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Netley Works, 89 Queens Road, High Wycombe", "SiteReference": "SHW0421", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487605.86\u0026StartNorthing=192684.315\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.765098, "GeoY": 51.6302, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "16/05718/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kitchener Works, Kitchener Road, adjacent to Smewin Court, High Wycombe", "SiteReference": "SHW0432", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485570.535\u0026StartNorthing=193100.88\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.780564, "GeoY": 51.624, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garages between Chiltern Avenue and Rutland Avenue, High Wycombe", "SiteReference": "SHW0436", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=484511.575\u0026StartNorthing=192395.63\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.758454, "GeoY": 51.6322, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Allocated in the Delivery and Site Allocations document.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Brook Street, High Wycombe", "SiteReference": "SHW0440", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486026.65\u0026StartNorthing=193328.925\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.75682, "GeoY": 51.6319, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "Allocated in the Delivery and Site Allocations document.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Corner of Bridge Street/Oxford Road, High Wycombe", "SiteReference": "SHW0463", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486140.212\u0026StartNorthing=193305.32\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.7219, "GeoY": 51.6416, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garages at Tyzack Road, High Wycombe", "SiteReference": "SHW0466", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=488538.125\u0026StartNorthing=194424.95\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.745292, "GeoY": 51.6281, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "15/05700/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Adjacent 23 Easton Street High Wycombe Buckinghamshire HP11 1NJ", "SiteReference": "SHW0503", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486945.395\u0026StartNorthing=192890.125\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.764604, "GeoY": 51.6313, "HazardousSubstances": null, "Hectares": 1.23, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 228, "NetDwellingsRangeTo": 228, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Remainder of Leigh Street employment area, Desborough road, High Wycombe", "SiteReference": "SHW0524", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485602.575\u0026StartNorthing=193231.825\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.791014, "GeoY": 51.6185, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garages at Havenfield Road, High Wycombe, HP12 4ST", "SiteReference": "SHW0526", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=483798.375\u0026StartNorthing=191770.125\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.735124, "GeoY": 51.6258, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "12/07667/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "185-197 Gordon Road, High Wycombe, Bucks, HP13 6AP", "SiteReference": "SHW0543", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487653.55\u0026StartNorthing=192647.925\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.761643, "GeoY": 51.6328, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "16/08119/FUL, 14/06330/FUL, 13/07187/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Victoria Pharmacy, 19 Desborough Avenue, High Wycombe", "SiteReference": "SHW0548", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485804.73\u0026StartNorthing=193395.551\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.702602, "GeoY": 51.6376, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "13/07334/PAJ. Has a prior notification approval for part of the site.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Sunnyside and St.Johns House, 16-18 St.Johns Road, High Wycombe", "SiteReference": "SHW0550", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=489881.365\u0026StartNorthing=193998.785\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.803652, "GeoY": 51.6067, "HazardousSubstances": null, "Hectares": 0.91, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Notcutts Garden Centre, Clay Lane, High Wycombe", "SiteReference": "SHW0561", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=482944.9\u0026StartNorthing=190444.89\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.777665, "GeoY": 51.6259, "HazardousSubstances": null, "Hectares": 1.74, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 32, "NetDwellingsRangeTo": 32, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Delafield Heights North, (Longland Way / Pettifer Way, also known as Castlefield Estate, High Wycombe)", "SiteReference": "SHW0564", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=484708.745\u0026StartNorthing=192611.399\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.737968, "GeoY": 51.6263, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "14/06780/FUL, 14/06781/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Nag\u0027s Head and land to rear, 63 London Road, High Wycombe", "SiteReference": "SHW0583", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487455.65\u0026StartNorthing=192705.79\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.764636, "GeoY": 51.6338, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "1-9 Shaftesbury Street, High Wycombe, HP11 2NA", "SiteReference": "SHW0584", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485595.625\u0026StartNorthing=193509.475\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.750157, "GeoY": 51.6293, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "16/05538/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "7-8 High Street, High Wycombe", "SiteReference": "SHW0589", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486606.285\u0026StartNorthing=193021.105\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.753361, "GeoY": 51.6313, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "15/07782/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "17-19 Frogmoor, High Wycombe", "SiteReference": "SHW0596", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486380.75\u0026StartNorthing=193241.15\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.735611, "GeoY": 51.6274, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "14/07956/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Gordon Arms, Gordon Road, High Wycombe", "SiteReference": "SHW0597", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487616.66\u0026StartNorthing=192830.375\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.748974, "GeoY": 51.6283, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "15/07328/FUL, 16/06154/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "27 High Street, High Wycombe", "SiteReference": "SHW0600", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=486690.065\u0026StartNorthing=192914.475\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.769667, "GeoY": 51.637, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "15/05788/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 154-156 West Wycombe Road, High Wycombe", "SiteReference": "SHW0603", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485241.525\u0026StartNorthing=193858.122\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.733499, "GeoY": 51.6139, "HazardousSubstances": null, "Hectares": 3.91, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": "16/06045/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Wycombe Summit, High Wycombe", "SiteReference": "SHW0651", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487788.891\u0026StartNorthing=191331.09\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.704974, "GeoY": 51.6577, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Highbury Works/Hazlemere Coach Works, Chestnut Lane, Hazlemere, High Wycombe, Bucks", "SiteReference": "SHZ0005", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=489677.625\u0026StartNorthing=196229.8\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.69345, "GeoY": 51.6069, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "16/05582/PNP3O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Burleighfield House (Mayflower House), London road, Loudwater", "SiteReference": "SLW0031", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=490575.65\u0026StartNorthing=190600.755\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.770391, "GeoY": 51.5756, "HazardousSubstances": null, "Hectares": 1.57, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Foxes Piece Marlow Buckinghamshire", "SiteReference": "SMA0044", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485306.315\u0026StartNorthing=187027.665\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.773938, "GeoY": 51.57, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "14/05668/PAJ", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Regal House, 4-6 Station Road, Marlow SL7 1NZ", "SiteReference": "SMA0100", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=485070.965\u0026StartNorthing=186399.805\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.842814, "GeoY": 51.7178, "HazardousSubstances": null, "Hectares": 2.02, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 45, "NetDwellingsRangeTo": 45, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Princes Risborough Railway Station", "SiteReference": "SPR0032", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=480037.27\u0026StartNorthing=202757.835\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.822603, "GeoY": 51.6756, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "15/08368/OUT", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Coal Yard Smalldean Lane Saunderton Buckinghamshire", "SiteReference": "SRD0008", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=481509.122\u0026StartNorthing=198086.345\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.832861, "GeoY": 51.6794, "HazardousSubstances": null, "Hectares": 10.32, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Molins Factory, Haw Lane, Saunderton, HP14 4JE", "SiteReference": "SRD0126", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=480793.05\u0026StartNorthing=198498.405\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.738119, "GeoY": 51.6576, "HazardousSubstances": null, "Hectares": 7.61, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 59, "NetDwellingsRangeTo": 59, "Notes": "16/05053/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Uplands House Hotel, Four Ashes Road, Cryers Hill, Bucks, HP15 6LB", "SiteReference": "SRD0148", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=487385.23\u0026StartNorthing=196177.437\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.798019, "GeoY": 51.6081, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "03/05990/OUT", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Westside Fruit / The Apple Orchard, Clay Lane, Booker", "SiteReference": "SWC0012", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=483332.452\u0026StartNorthing=190605.505\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.841252, "GeoY": 51.5473, "HazardousSubstances": null, "Hectares": 3.31, "LastUpdatedDate": "2019-10-21", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "11/05434/OUT, 16/07321/REM", "OrganisationURI": "http://opendatacommunities.org/id/district-council/wycombe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Water Research Centre Laboratries, Medmenham", "SiteReference": "SWC0068", "SiteplanURL": "https://mywycombe.wycombe.gov.uk/mywycombe.aspx?MapSource=Wycombe/AllMaps\u0026StartEasting=480445.826\u0026StartNorthing=183798.555\u0026StartZoom=300\u0026o=1\u0026Layers=brownfield\u0026ZoomPin=1"}];
+    const bbox = [-0.92400843139425, -0.6701255686057499, 51.53831684341859, 51.737283156581405];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">da787466...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.canterbury.gov.uk/download/downloads/id/1217/canterbury_brownfield_land_register.csv">https://www.canterbury.gov.uk/download/downloads/id/1217/canterbury_brownfield_land_register.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.canterbury.gov.uk/brownfield-land">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 19 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:CAT">Canterbury City Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/da787466995e063f8e2c510c82b805cd1e28e229227540cc63287abe00bd2a18/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/da787466995e063f8e2c510c82b805cd1e28e229227540cc63287abe00bd2a18">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">50 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">6 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">45.86
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                1359</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                1417</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>50</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/da787466995e063f8e2c510c82b805cd1e28e229227540cc63287abe00bd2a18.csv"
+        download="da787466995e063f8e2c510c82b805cd1e28e229227540cc63287abe00bd2a18_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/da787466995e063f8e2c510c82b805cd1e28e229227540cc63287abe00bd2a18"
+        download="da787466995e063f8e2c510c82b805cd1e28e229227540cc63287abe00bd2a18_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR-002</td>
+                    <td>1.106021</td>
+                    <td>51.277165</td>
+                    <td>6.39</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>163</td>
+                    <td>163</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>St Martin's Hospital, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616725,157695,27700&scale=2000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 164 Units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-004</td>
+                    <td>1.076847</td>
+                    <td>51.285042</td>
+                    <td>0.22</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land Adjacent to Canterbury West Station, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614654,158485,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 20 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-006</td>
+                    <td>1.078092</td>
+                    <td>51.276419</td>
+                    <td>0.08</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Employment Exchange, St Johns Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614781,157530,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 24 Dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-007</td>
+                    <td>1.078642</td>
+                    <td>51.273697</td>
+                    <td>0.48</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Canterbury East Station (North side) Car Park, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614832,157229,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 24 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-008</td>
+                    <td>1.086126</td>
+                    <td>51.284168</td>
+                    <td>0.21</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Northgate Car Park, Norhgate, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615305,158415,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 21 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-009</td>
+                    <td>1.075498</td>
+                    <td>51.275579</td>
+                    <td>0.28</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>54</td>
+                    <td>54</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Castle Street Car Park, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614604,157429,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 54 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-010</td>
+                    <td>1.085929</td>
+                    <td>51.274162</td>
+                    <td>0.43</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>BT Car park, Upper Chantry Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615338,157302,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 20 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-011</td>
+                    <td>1.083241</td>
+                    <td>51.275564</td>
+                    <td>0.54</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Holmans Meadow Car Park, Dover Street, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615144,157450,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 20 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-012</td>
+                    <td>1.075695</td>
+                    <td>51.276806</td>
+                    <td>0.27</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Rosemary Lane Car Park, Rosemary Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614612,157566,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 20 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-014</td>
+                    <td>1.079038</td>
+                    <td>51.278769</td>
+                    <td>0.19</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>White Horse Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614836,157794,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for  10 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-015</td>
+                    <td>1.087611</td>
+                    <td>51.276798</td>
+                    <td>0.08</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Ivy Lane Car Park, Ivy Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615443,157600,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 10 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-016</td>
+                    <td>1.078822</td>
+                    <td>51.278325</td>
+                    <td>0.03</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Hawks Lane Car Park, Hawks Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614823,157744,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 9 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-017</td>
+                    <td>1.082287</td>
+                    <td>51.283163</td>
+                    <td>0.07</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>St Radigunds Car Park, St Radigunds Street, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615042,158292,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 7 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-019</td>
+                    <td>1.077595</td>
+                    <td>51.276711</td>
+                    <td>0.06</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>St Johns Lane Car Park, St Johns Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614745,157561,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 5 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-020</td>
+                    <td>1.126311</td>
+                    <td>51.369332</td>
+                    <td>0.13</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>43</td>
+                    <td>43</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garage Site at Kings Road/Park Road Junction, Herne Bay</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617703,168002,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 43 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-021</td>
+                    <td>1.116319</td>
+                    <td>51.364598</td>
+                    <td>0.58</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>35</td>
+                    <td>35</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Herne Bay Station, Herne Bay</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617030,167446,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 35 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-023</td>
+                    <td>1.126429</td>
+                    <td>51.372324</td>
+                    <td>0.33</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>14</td>
+                    <td>19</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Beach Street, Herne Bay</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617697,168335,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part Of Herne Bay Action Plan HB2. Full Application is pending decision</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-025</td>
+                    <td>1.048979</td>
+                    <td>51.363996</td>
+                    <td>0.19</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>17</td>
+                    <td>17</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tankerton Road Car Park & Garage, Whitstable</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=612346,167172,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 17 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-026</td>
+                    <td>1.024079</td>
+                    <td>51.35724</td>
+                    <td>0.15</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>124 & Adjoining Middle Wall, Whitstable</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610644,166359,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Canterbury District's Adopted Local Plan (2017) for 7 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-029</td>
+                    <td>1.133075</td>
+                    <td>51.361695</td>
+                    <td>3.76</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>157</td>
+                    <td>157</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2017-12-15</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Herne Bay Court, Canterbury Road, Herne Bay, CT6 5TD</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=618210,167173,27700&scale=2000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Full planning permission (CA//13/00195) granted for the erection of retirement village with a clubhouse, health and wellness centre and spa on 2014-12-03. Certificate of proposed lawful use or development granted in 2017</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-034</td>
+                    <td>1.10296</td>
+                    <td>51.289839</td>
+                    <td>0.26</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-10-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Site of Former Sturry Road Social Club, East Street, Canterbury, CT1 1EE</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616452,159095,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Erection of 10 bungalows</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-041</td>
+                    <td>1.025181</td>
+                    <td>51.353253</td>
+                    <td>0.06</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-07-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>49-55 Canterbury Road, Whitstable, CT5 4HH</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610739,165919,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Change of use of  ground floor of 49-55 Canterbury Road from restaurant to three flats, and change of use of first floor of 49-51 Canterbury Road to two flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-053</td>
+                    <td>1.078152</td>
+                    <td>51.278603</td>
+                    <td>0.07</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2016-05-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Old Brewery Business Centre, 75 Stour Street, Canterbury, CT1 2NR</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614775,157773,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Demolition of rear extension to 75 Stour Street together with internal alterations, change of use and construction of 2 new buildings within the courtyard to form 5 new residential dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-059</td>
+                    <td>1.086598</td>
+                    <td>51.283723</td>
+                    <td>0.12</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2016-08-17</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Northgate House, 115-120 Northgate, Canterbury, CT1 1EZ</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615340,158367,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Convert existing offices into 24 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-062</td>
+                    <td>1.083002</td>
+                    <td>51.276074</td>
+                    <td>0.04</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2016-09-27</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>10 Upper Bridge Street, Canterbury, CT1 2NA</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615125,157506,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Convert existing offices into 8 units of residential accommodation.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-063</td>
+                    <td>1.117588</td>
+                    <td>51.371445</td>
+                    <td>0.04</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2017-03-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>21 St Georges Terrace, Herne Bay, CT6 8RH</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617086,168211,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed four-storey building containing 7 apartments following demolition of the existing dwelling.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-065</td>
+                    <td>1.076278</td>
+                    <td>51.282538</td>
+                    <td>0.04</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2016-12-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>8b-11 North Lane, Canterbury, CT2 7SL</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614626,158205,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Conversion to 4 townhouses and demolition of existing outbuildings to rear and erection of 2no. apartments and 1no. studio unit.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-087</td>
+                    <td>1.127194</td>
+                    <td>51.372799</td>
+                    <td>0.03</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2017-04-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>64-65 Central Paradee, Herne Bay, CT6 5JG</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617748,168390,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Demolition of existing building and erection of five-storey building with 12. Ground floor commercial unit, bin and cycle store</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-088</td>
+                    <td>1.117255</td>
+                    <td>51.371409</td>
+                    <td>0.09</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2017-10-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>St Benedict Nursing Home, 22-23 St George's Terrace, Herne Bay, CT6 8RH</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617063,168206,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed change of use from care home to residential; together with two-storey rear and roof extension, to provide 10 apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-091</td>
+                    <td>1.113434</td>
+                    <td>51.359341</td>
+                    <td>0.31</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>1</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Herne Bay Golf Driving Range, Greenhill</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616854,166853,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This is part of a larger Local Plan allocated site for 40 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-092</td>
+                    <td>1.167528</td>
+                    <td>51.312367</td>
+                    <td>19.24</td>
+                    <td>2018-11-22</td>
+                    <td>2019-12-09</td>
+                    <td>370</td>
+                    <td>370</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2018-11-22</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Chislet Colliery, Hersden</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=620845,161972,27700&scale=2000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Mixed-use development of up to 370 dwellings. 370m2 of A1 floorspace. Local centre, open space, community ecological park, hard and soft landscaping and associated infrastructure with access from a new roundabout on Island Road.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-096</td>
+                    <td>1.099357</td>
+                    <td>51.276379</td>
+                    <td>0.09</td>
+                    <td>2018-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>owned by a public authority</td>
+                    <td>2018-01-12</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land adjacent to 64 Warwick Road, Canterbury, CT1 1RQ</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616264,157588,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed 8 flats together with associated parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-097</td>
+                    <td>1.077194</td>
+                    <td>51.201174</td>
+                    <td>0.4</td>
+                    <td>2018-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2018-02-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Two Acres, Hardes Court Road, Canterbury, CT4 6EA</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615069,149162,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed five two-storey detached dwellings with associated garages following demolition of detached dwelling and outbuilding.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-100</td>
+                    <td>1.086727</td>
+                    <td>51.277082</td>
+                    <td>0.07</td>
+                    <td>2018-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2018-07-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Builders Yard and, 14 Ivy Lane, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615380,157629,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed six two-storey dwellings following the demolition of storage/office buildings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-101</td>
+                    <td>1.076344</td>
+                    <td>51.281376</td>
+                    <td>0.04</td>
+                    <td>2018-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2016-12-23</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>28-30 St Peters Street, Canterbury, CT1 2BQ</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614636,158076,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Convert offices into 22 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-103</td>
+                    <td>1.132309</td>
+                    <td>51.368156</td>
+                    <td>0.05</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-02-12</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>1-9 Kings Road, Herne Bay, CT6 5DB</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=618126,167889,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed detached four-storey building comprising of 9 no. flats following demolition of existing workshops.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-104</td>
+                    <td>1.128107</td>
+                    <td>51.372495</td>
+                    <td>0.13</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-03-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Scruffy Duck, 10 William Street</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617813,168359,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed four-storey building comprising of 20 no 2 bedroomed apartments with associated parking. Four retail units fronting William Street.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-105</td>
+                    <td>1.027665</td>
+                    <td>51.320782</td>
+                    <td>0.4</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2018-06-14</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Dockers Field Farm, Pean Hill, Blean, CT5 3BP</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=611061,162316,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline planninger permission (CA//17/01907) granted for the erection of four detached dwellings following the demolition of existing buildings and structures on 2018-03-16. Reserved matters granted for approval of access, appearance, landscaping, layout and scale on 2018-06-14.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-107</td>
+                    <td>1.027408</td>
+                    <td>51.361309</td>
+                    <td>0.02</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-01-18</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Marsh House, St Peter's Road, Whitstable, CT5 1SU</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610857,166821,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed three-storey extension to front and side, demolition of existing garages and construction of two-storey extension to form 7 no. additional flats, with associated parking.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-109</td>
+                    <td>1.178034</td>
+                    <td>51.352415</td>
+                    <td>0.4</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-06-18</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Highstead Riding School, Highstead, Chislet, CT3 4LX</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=621384,166276,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed erection of 2no. two-storey detached dwellings with associated parking following demolition of former riding school and ancillary buildings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-110</td>
+                    <td>1.088041</td>
+                    <td>51.270805</td>
+                    <td>0.06</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-05-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2-2A Ethelbert Road, Canterbury, CT1 3NE</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615501,156935,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed part 3 and part 4 storey building comprising 10 no. flats with associated parking and external works following demolition of properties.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-111</td>
+                    <td>1.093518</td>
+                    <td>51.288083</td>
+                    <td>0.4</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>0</td>
+                    <td>36</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-07-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Parham Student Village: 8-13 Albert Mews, 105 Sturry Road, 1-4 Riverdale House, Sturry Road, 1-3 Parham Close, Parham Road, 1-12 Becket Mews, Parham Close</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615802,158872,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Change of use from existing student accommodation at 8-13 Albert Mews, 105 Sturry Road, Canterbury to C3 residential dwellings; change of use from existing student accommodation at 1-4 Riverdale House, Sturry Road, Canterbury to C3 residential dwellings; change of use from existing student accommodation at 1-3 Parham Close, Parham Road, Canterbury to C3 residential dwellings with alterations to convert two end terrace properties into 2 no. one-bedroom and 2 no. two-bedroom flats including new and amended door openings; and change of use from existing student accommodation at 1-12 Becket Mews, Parham Close to C3 residential dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-112</td>
+                    <td>1.018488</td>
+                    <td>51.349118</td>
+                    <td>0.6</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-05-15</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Ladesfield, Vulcan Close, Whitstable, CT5 4LZ</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610292,165440,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline application for proposed 14 no. dwellings with all matters reserved except access.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-113</td>
+                    <td>1.085205</td>
+                    <td>51.283472</td>
+                    <td>0.08</td>
+                    <td>2019-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2019-10-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>41-45 Northgate, Canterbury, CT1 1BE</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615244,158335,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed 10 no. almshouse flats above 5 no. commercial units, following demolition of existing buildings at 41, 42 and 43-45 Northgate.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR-005</td>
+                    <td>1.087569</td>
+                    <td>51.285578</td>
+                    <td>3.85</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>32</td>
+                    <td>32</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td>2019-02-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingsmead Depot, Kingsmead Road, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615399,158576,27700&scale=2000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is currently under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-04</td>
+                </tr>
+                
+                <tr>
+                    <td>BR-018</td>
+                    <td>1.079927</td>
+                    <td>51.284124</td>
+                    <td>0.14</td>
+                    <td>2017-11-01</td>
+                    <td>2019-05-15</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2017-06-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Garth, St Stephens Road, Canterbury</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614873,158392,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is currently under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-05-15</td>
+                </tr>
+                
+                <tr>
+                    <td>BR-022</td>
+                    <td>1.126575</td>
+                    <td>51.370468</td>
+                    <td>3.7</td>
+                    <td>2017-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>46</td>
+                    <td>56</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Central Development Area, Herne Bay</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617716,168129,27700&scale=1000</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is not currently considered to be achievable</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-01-15</td>
+                </tr>
+                
+                <tr>
+                    <td>BR-047</td>
+                    <td>1.068045</td>
+                    <td>51.285318</td>
+                    <td>0.11</td>
+                    <td>2017-11-01</td>
+                    <td>2019-03-03</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2016-03-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Wesley Manse, 71 Whitstable Road, Canterbury, CT2 8EA</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614039,158490,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission lapsed and building still in original use</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-03</td>
+                </tr>
+                
+                <tr>
+                    <td>BR-095</td>
+                    <td>1.087275</td>
+                    <td>51.270717</td>
+                    <td>0.22</td>
+                    <td>2018-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2018-05-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>7-9 Ethelbert Road, Canterbury, CT1 3ND</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615448,156923,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is currently under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-04</td>
+                </tr>
+                
+                <tr>
+                    <td>BR-099</td>
+                    <td>1.17733</td>
+                    <td>51.200979</td>
+                    <td>0.33</td>
+                    <td>2018-11-01</td>
+                    <td>2019-12-09</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/canterbury</td>
+                    <td></td>
+                    <td>2018-08-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Arter Brothers, Eagle Motor Works, Old Dover Road, Barham, CT4 6EX</td>
+                    <td>https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=622064,149438,27700&scale=500</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is currently under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-04</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.106021, "GeoY": 51.277165, "HazardousSubstances": null, "Hectares": 6.39, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 163, "NetDwellingsRangeTo": 163, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 164 Units.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "St Martin\u0027s Hospital, Canterbury", "SiteReference": "BR-002", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616725,157695,27700\u0026scale=2000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.076847, "GeoY": 51.285042, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 20 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land Adjacent to Canterbury West Station, Canterbury", "SiteReference": "BR-004", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614654,158485,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.078092, "GeoY": 51.276419, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 24 Dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Employment Exchange, St Johns Lane, Canterbury", "SiteReference": "BR-006", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614781,157530,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.078642, "GeoY": 51.273697, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 24 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Canterbury East Station (North side) Car Park, Canterbury", "SiteReference": "BR-007", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614832,157229,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.086126, "GeoY": 51.284168, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 21, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 21 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Northgate Car Park, Norhgate, Canterbury", "SiteReference": "BR-008", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615305,158415,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.075498, "GeoY": 51.275579, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 54, "NetDwellingsRangeTo": 54, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 54 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Castle Street Car Park, Canterbury", "SiteReference": "BR-009", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614604,157429,27700\u0026scale=1000"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.085929, "GeoY": 51.274162, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 20 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "BT Car park, Upper Chantry Lane, Canterbury", "SiteReference": "BR-010", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615338,157302,27700\u0026scale=1000"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.083241, "GeoY": 51.275564, "HazardousSubstances": null, "Hectares": 0.54, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 20 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Holmans Meadow Car Park, Dover Street, Canterbury", "SiteReference": "BR-011", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615144,157450,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.075695, "GeoY": 51.276806, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 20 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Rosemary Lane Car Park, Rosemary Lane, Canterbury", "SiteReference": "BR-012", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614612,157566,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.079038, "GeoY": 51.278769, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for  10 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "White Horse Lane, Canterbury", "SiteReference": "BR-014", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614836,157794,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.087611, "GeoY": 51.276798, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 10 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Ivy Lane Car Park, Ivy Lane, Canterbury", "SiteReference": "BR-015", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615443,157600,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.078822, "GeoY": 51.278325, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 9 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Hawks Lane Car Park, Hawks Lane, Canterbury", "SiteReference": "BR-016", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614823,157744,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.082287, "GeoY": 51.283163, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 7 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "St Radigunds Car Park, St Radigunds Street, Canterbury", "SiteReference": "BR-017", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615042,158292,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.077595, "GeoY": 51.276711, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 5 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "St Johns Lane Car Park, St Johns Lane, Canterbury", "SiteReference": "BR-019", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614745,157561,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.126311, "GeoY": 51.369332, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 43, "NetDwellingsRangeTo": 43, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 43 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garage Site at Kings Road/Park Road Junction, Herne Bay", "SiteReference": "BR-020", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617703,168002,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.116319, "GeoY": 51.364598, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 35, "NetDwellingsRangeTo": 35, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 35 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Herne Bay Station, Herne Bay", "SiteReference": "BR-021", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617030,167446,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.126429, "GeoY": 51.372324, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 19, "Notes": "Part Of Herne Bay Action Plan HB2. Full Application is pending decision", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Beach Street, Herne Bay", "SiteReference": "BR-023", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617697,168335,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.048979, "GeoY": 51.363996, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 17, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 17 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tankerton Road Car Park \u0026 Garage, Whitstable", "SiteReference": "BR-025", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=612346,167172,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.024079, "GeoY": 51.35724, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "Allocated in Canterbury District\u0027s Adopted Local Plan (2017) for 7 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "124 \u0026 Adjoining Middle Wall, Whitstable", "SiteReference": "BR-026", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610644,166359,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.133075, "GeoY": 51.361695, "HazardousSubstances": null, "Hectares": 3.76, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 157, "NetDwellingsRangeTo": 157, "Notes": "Full planning permission (CA//13/00195) granted for the erection of retirement village with a clubhouse, health and wellness centre and spa on 2014-12-03. Certificate of proposed lawful use or development granted in 2017", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2017-12-15", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Herne Bay Court, Canterbury Road, Herne Bay, CT6 5TD", "SiteReference": "BR-029", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=618210,167173,27700\u0026scale=2000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.10296, "GeoY": 51.289839, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Erection of 10 bungalows", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-10-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Former Sturry Road Social Club, East Street, Canterbury, CT1 1EE", "SiteReference": "BR-034", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616452,159095,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.025181, "GeoY": 51.353253, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": "Change of use of  ground floor of 49-55 Canterbury Road from restaurant to three flats, and change of use of first floor of 49-51 Canterbury Road to two flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-07-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "49-55 Canterbury Road, Whitstable, CT5 4HH", "SiteReference": "BR-041", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610739,165919,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.078152, "GeoY": 51.278603, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Demolition of rear extension to 75 Stour Street together with internal alterations, change of use and construction of 2 new buildings within the courtyard to form 5 new residential dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2016-05-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Old Brewery Business Centre, 75 Stour Street, Canterbury, CT1 2NR", "SiteReference": "BR-053", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614775,157773,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.086598, "GeoY": 51.283723, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": "Convert existing offices into 24 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2016-08-17", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Northgate House, 115-120 Northgate, Canterbury, CT1 1EZ", "SiteReference": "BR-059", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615340,158367,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.083002, "GeoY": 51.276074, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "Convert existing offices into 8 units of residential accommodation.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2016-09-27", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "10 Upper Bridge Street, Canterbury, CT1 2NA", "SiteReference": "BR-062", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615125,157506,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.117588, "GeoY": 51.371445, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Proposed four-storey building containing 7 apartments following demolition of the existing dwelling.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2017-03-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "21 St Georges Terrace, Herne Bay, CT6 8RH", "SiteReference": "BR-063", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617086,168211,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.076278, "GeoY": 51.282538, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "Conversion to 4 townhouses and demolition of existing outbuildings to rear and erection of 2no. apartments and 1no. studio unit.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2016-12-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "8b-11 North Lane, Canterbury, CT2 7SL", "SiteReference": "BR-065", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614626,158205,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.127194, "GeoY": 51.372799, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "Demolition of existing building and erection of five-storey building with 12. Ground floor commercial unit, bin and cycle store", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2017-04-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "64-65 Central Paradee, Herne Bay, CT6 5JG", "SiteReference": "BR-087", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617748,168390,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.117255, "GeoY": 51.371409, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Proposed change of use from care home to residential; together with two-storey rear and roof extension, to provide 10 apartments.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2017-10-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "St Benedict Nursing Home, 22-23 St George\u0027s Terrace, Herne Bay, CT6 8RH", "SiteReference": "BR-088", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617063,168206,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": 1.113434, "GeoY": 51.359341, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 1, "NetDwellingsRangeTo": 8, "Notes": "This is part of a larger Local Plan allocated site for 40 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Herne Bay Golf Driving Range, Greenhill", "SiteReference": "BR-091", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616854,166853,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-22", "GeoX": 1.167528, "GeoY": 51.312367, "HazardousSubstances": null, "Hectares": 19.24, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 370, "NetDwellingsRangeTo": 370, "Notes": "Mixed-use development of up to 370 dwellings. 370m2 of A1 floorspace. Local centre, open space, community ecological park, hard and soft landscaping and associated infrastructure with access from a new roundabout on Island Road.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2018-11-22", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Chislet Colliery, Hersden", "SiteReference": "BR-092", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=620845,161972,27700\u0026scale=2000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-01", "GeoX": 1.099357, "GeoY": 51.276379, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "Proposed 8 flats together with associated parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2018-01-12", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent to 64 Warwick Road, Canterbury, CT1 1RQ", "SiteReference": "BR-096", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=616264,157588,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-01", "GeoX": 1.077194, "GeoY": 51.201174, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": "Proposed five two-storey detached dwellings with associated garages following demolition of detached dwelling and outbuilding.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2018-02-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Two Acres, Hardes Court Road, Canterbury, CT4 6EA", "SiteReference": "BR-097", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615069,149162,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-01", "GeoX": 1.086727, "GeoY": 51.277082, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Proposed six two-storey dwellings following the demolition of storage/office buildings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2018-07-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Builders Yard and, 14 Ivy Lane, Canterbury", "SiteReference": "BR-100", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615380,157629,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-11-01", "GeoX": 1.076344, "GeoY": 51.281376, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 22, "Notes": "Convert offices into 22 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2016-12-23", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "28-30 St Peters Street, Canterbury, CT1 2BQ", "SiteReference": "BR-101", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614636,158076,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.132309, "GeoY": 51.368156, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Proposed detached four-storey building comprising of 9 no. flats following demolition of existing workshops.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-02-12", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "1-9 Kings Road, Herne Bay, CT6 5DB", "SiteReference": "BR-103", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=618126,167889,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.128107, "GeoY": 51.372495, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Proposed four-storey building comprising of 20 no 2 bedroomed apartments with associated parking. Four retail units fronting William Street.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-03-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Scruffy Duck, 10 William Street", "SiteReference": "BR-104", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617813,168359,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.027665, "GeoY": 51.320782, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": "Outline planninger permission (CA//17/01907) granted for the erection of four detached dwellings following the demolition of existing buildings and structures on 2018-03-16. Reserved matters granted for approval of access, appearance, landscaping, layout and scale on 2018-06-14.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2018-06-14", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Dockers Field Farm, Pean Hill, Blean, CT5 3BP", "SiteReference": "BR-105", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=611061,162316,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.027408, "GeoY": 51.361309, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": "Proposed three-storey extension to front and side, demolition of existing garages and construction of two-storey extension to form 7 no. additional flats, with associated parking.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-01-18", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Marsh House, St Peter\u0027s Road, Whitstable, CT5 1SU", "SiteReference": "BR-107", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610857,166821,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.178034, "GeoY": 51.352415, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 2, "NetDwellingsRangeTo": 2, "Notes": "Proposed erection of 2no. two-storey detached dwellings with associated parking following demolition of former riding school and ancillary buildings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-06-18", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Highstead Riding School, Highstead, Chislet, CT3 4LX", "SiteReference": "BR-109", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=621384,166276,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.088041, "GeoY": 51.270805, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 3, "NetDwellingsRangeTo": 3, "Notes": "Proposed part 3 and part 4 storey building comprising 10 no. flats with associated parking and external works following demolition of properties.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-05-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2-2A Ethelbert Road, Canterbury, CT1 3NE", "SiteReference": "BR-110", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615501,156935,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.093518, "GeoY": 51.288083, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 36, "Notes": "Change of use from existing student accommodation at 8-13 Albert Mews, 105 Sturry Road, Canterbury to C3 residential dwellings; change of use from existing student accommodation at 1-4 Riverdale House, Sturry Road, Canterbury to C3 residential dwellings; change of use from existing student accommodation at 1-3 Parham Close, Parham Road, Canterbury to C3 residential dwellings with alterations to convert two end terrace properties into 2 no. one-bedroom and 2 no. two-bedroom flats including new and amended door openings; and change of use from existing student accommodation at 1-12 Becket Mews, Parham Close to C3 residential dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-07-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Parham Student Village: 8-13 Albert Mews, 105 Sturry Road, 1-4 Riverdale House, Sturry Road, 1-3 Parham Close, Parham Road, 1-12 Becket Mews, Parham Close", "SiteReference": "BR-111", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615802,158872,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.018488, "GeoY": 51.349118, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "Outline application for proposed 14 no. dwellings with all matters reserved except access.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-05-15", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Ladesfield, Vulcan Close, Whitstable, CT5 4LZ", "SiteReference": "BR-112", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=610292,165440,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-01", "GeoX": 1.085205, "GeoY": 51.283472, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Proposed 10 no. almshouse flats above 5 no. commercial units, following demolition of existing buildings at 41, 42 and 43-45 Northgate.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2019-10-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "41-45 Northgate, Canterbury, CT1 1BE", "SiteReference": "BR-113", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615244,158335,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": "2019-12-04", "FirstAddedDate": "2017-11-01", "GeoX": 1.087569, "GeoY": 51.285578, "HazardousSubstances": null, "Hectares": 3.85, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 32, "NetDwellingsRangeTo": 32, "Notes": "Site is currently under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": "2019-02-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingsmead Depot, Kingsmead Road, Canterbury", "SiteReference": "BR-005", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615399,158576,27700\u0026scale=2000"}, {"Deliverable": "yes", "EndDate": "2019-05-15", "FirstAddedDate": "2017-11-01", "GeoX": 1.079927, "GeoY": 51.284124, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2019-05-15", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "Site is currently under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2017-06-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Garth, St Stephens Road, Canterbury", "SiteReference": "BR-018", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614873,158392,27700\u0026scale=500"}, {"Deliverable": null, "EndDate": "2019-01-15", "FirstAddedDate": "2017-11-01", "GeoX": 1.126575, "GeoY": 51.370468, "HazardousSubstances": null, "Hectares": 3.7, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 46, "NetDwellingsRangeTo": 56, "Notes": "Site is not currently considered to be achievable", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Central Development Area, Herne Bay", "SiteReference": "BR-022", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=617716,168129,27700\u0026scale=1000"}, {"Deliverable": "yes", "EndDate": "2019-03-03", "FirstAddedDate": "2017-11-01", "GeoX": 1.068045, "GeoY": 51.285318, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-03-03", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "Planning permission lapsed and building still in original use", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2016-03-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Wesley Manse, 71 Whitstable Road, Canterbury, CT2 8EA", "SiteReference": "BR-047", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=614039,158490,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": "2019-12-04", "FirstAddedDate": "2018-11-01", "GeoX": 1.087275, "GeoY": 51.270717, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Site is currently under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2018-05-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "7-9 Ethelbert Road, Canterbury, CT1 3ND", "SiteReference": "BR-095", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=615448,156923,27700\u0026scale=500"}, {"Deliverable": "yes", "EndDate": "2019-12-04", "FirstAddedDate": "2018-11-01", "GeoX": 1.17733, "GeoY": 51.200979, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Site is currently under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/canterbury", "OwnershipStatus": null, "PermissionDate": "2018-08-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Arter Brothers, Eagle Motor Works, Old Dover Road, Barham, CT4 6EX", "SiteReference": "BR-099", "SiteplanURL": "https://mapping.canterbury.gov.uk/webapps/Brownfield_Sites/?center=622064,149438,27700\u0026scale=500"}];
+    const bbox = [1.0041514330483774, 1.1923705669516225, 51.19199584341859, 51.38178215658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

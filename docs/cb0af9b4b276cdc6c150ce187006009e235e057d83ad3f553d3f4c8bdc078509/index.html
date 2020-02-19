@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">cb0af9b4...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://inspire.halton.gov.uk/data/halton_brownfieldregister_2017-12-31_rev1.csv">http://inspire.halton.gov.uk/data/halton_brownfieldregister_2017-12-31_rev1.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:HAL">Halton Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/cb0af9b4b276cdc6c150ce187006009e235e057d83ad3f553d3f4c8bdc078509/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/cb0af9b4b276cdc6c150ce187006009e235e057d83ad3f553d3f4c8bdc078509">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">30 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">41.90
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                899</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                2083</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>30</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/cb0af9b4b276cdc6c150ce187006009e235e057d83ad3f553d3f4c8bdc078509.csv"
+        download="cb0af9b4b276cdc6c150ce187006009e235e057d83ad3f553d3f4c8bdc078509_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/cb0af9b4b276cdc6c150ce187006009e235e057d83ad3f553d3f4c8bdc078509"
+        download="cb0af9b4b276cdc6c150ce187006009e235e057d83ad3f553d3f4c8bdc078509_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>H1032</td>
+                    <td>-2.727265</td>
+                    <td>53.341239</td>
+                    <td>0.9</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>24</td>
+                    <td>32</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Busway and Former Petrol Station, Bridge Street, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1032</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Physical constraints identified include woodland and potentially contaminated land.. "Potential for housing and apartments."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1077</td>
+                    <td>-2.652483</td>
+                    <td>53.319595</td>
+                    <td>0.88</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>20</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Highways Agency Depot, Chester Road, Preston Brook</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1077</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is currently in use. Minimum capacity to allow for other uses, whilst maximum capacity is based on a density multiplier at 35dph. The relocation of the existing depot would be a constraint to the development of the site.. "Potential for houses, along with potential for community uses and small scale retail to support the local centre"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1079</td>
+                    <td>-2.721994</td>
+                    <td>53.343069</td>
+                    <td>1.46</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>39</td>
+                    <td>52</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land to the south of Old Quay Street and Mason Street, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1079</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Potentially contaminated land within the site from former use as a brickworks and due to landfilling within part of the site.. "Potential for housing and apartments."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1085</td>
+                    <td>-2.715237</td>
+                    <td>53.33875</td>
+                    <td>3.71</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>53</td>
+                    <td>118</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-28</td>
+                    <td>outline planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00563/OUT</td>
+                    <td>permissioned</td>
+                    <td>Paramount Foods, Halton Road, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1085</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on the planning permission for part of the site and the maximum at 40dph across the site. Physical constraints identified include potentially contaminated land.. "Outline application for part of the site, with all matters reserved, for demolition of existing buildings and erection of up to 53 dwellings with associated access, landscaping and ancillary works at Former Warehouse Halton Court". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=10/00397/OUT&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1104</td>
+                    <td>-2.725689</td>
+                    <td>53.340457</td>
+                    <td>1.44</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Polar Ford and surrounds, Victoria Road, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1104</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity reflects the available part of site. Physical constraints identified include potentially contaminated land.. "Potential for housing and apartments."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1109</td>
+                    <td>-2.695043</td>
+                    <td>53.327094</td>
+                    <td>1.14</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>30</td>
+                    <td>448</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-15</td>
+                    <td>other</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00034/P3JPA</td>
+                    <td>permissioned</td>
+                    <td>East Lane House, East Lane, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1109</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and the maximum capacity based on the extant Prior Approval for the site. The site is currently developed but derelict.. "Potential for demolition and new houses or apartments or potential for conversion of existing building in line with planning permission. Prior Approval (15/00034/P3JPA) - Proposed change of use from former office building (use class B1) to 448 no. self contained apartments comprising 54 1 bedroom flats and 394 studio flats.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=15/00034/P3JPA&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1118</td>
+                    <td>-2.730964</td>
+                    <td>53.364326</td>
+                    <td>0.33</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>9</td>
+                    <td>16</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Brosley House, Widnes Road, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1118</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph. Site is developed. No other known constraints on the site.. "Potential for houses and / or apartments"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1120</td>
+                    <td>-2.726502</td>
+                    <td>53.363545</td>
+                    <td>0.39</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>10</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Foundry, Lugsdale Road, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1120</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Potentially contaminated land within the site.. "Potential for houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1155</td>
+                    <td>-2.724735</td>
+                    <td>53.340005</td>
+                    <td>0.37</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>11</td>
+                    <td>18</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Polar Ford Second Hand Cars Site, Victoria Road, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1155</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph. Potentially contaminated land within the site.. "Potential for houses on this site"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1159</td>
+                    <td>-2.722781</td>
+                    <td>53.339891</td>
+                    <td>0.66</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>17</td>
+                    <td>81</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=11/00018/FUL</td>
+                    <td>not permissioned</td>
+                    <td>Former Express Dairies Site, Sewell Street, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1159</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum based on SHLAA capacity. Lapsed planning permission 11/00018/FUL granted 12/12/2012.. "Potential for houses and / or apartments". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=11/00018/FUL&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1177</td>
+                    <td>-2.737075</td>
+                    <td>53.342284</td>
+                    <td>0.65</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>17</td>
+                    <td>29</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=13/00429/DEM</td>
+                    <td>not permissioned</td>
+                    <td>Site of former Rathbone Institute, Waterloo Road, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1177</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph. Physical constraints identified include heritage assets and PADHI pipelines. 13/00429/DEM - permission for demolition of building, now demolished.. "Potential for houses and / or apartments"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1195</td>
+                    <td>-2.720699</td>
+                    <td>53.382969</td>
+                    <td>5.24</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>110</td>
+                    <td>116</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-19</td>
+                    <td>full planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00430/FUL</td>
+                    <td>permissioned</td>
+                    <td>Former Eternit, Derby Road, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1195</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum based on the extant Planning Permission. Potentially contaminated land identified on this site.. "Proposed residential development comprising 116 no. dwellings, road, open space, substation and all associated works". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=15/00430/FUL&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1201</td>
+                    <td>-2.694365</td>
+                    <td>53.327835</td>
+                    <td>1.53</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>54</td>
+                    <td>241</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-06</td>
+                    <td>other</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=17/00209/P3JPA</td>
+                    <td>permissioned</td>
+                    <td>Castle View House, East Lane, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1201</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum based on the extant Prior Approval. Physical constraints identified include trees and woodland. Previous prior approval for 188 dwellings (15/00520/P3JPA). "Proposed change of use from office building to 241 residential units". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=17/00209/P3JPA&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1275</td>
+                    <td>-2.731749</td>
+                    <td>53.349625</td>
+                    <td>0.51</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>13</td>
+                    <td>90</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-27</td>
+                    <td>full planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00392/FUL</td>
+                    <td>permissioned</td>
+                    <td>RMC House, Terrace Road, West Bank, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1275</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum in line with planning permission. Contamination and heritage constraints have been identified.. "Proposed development comprising 92 no. one and two bedroom apartments for the over 55's spread over 2 no. 6 storey blocks". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=15/00392/FUL&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1277</td>
+                    <td>-2.729241</td>
+                    <td>53.343546</td>
+                    <td>2.36</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>27</td>
+                    <td>178</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2005-12-12</td>
+                    <td>reserved matters approval</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=05/00590/REM</td>
+                    <td>permissioned</td>
+                    <td>The Deck, Mersey Road, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1277</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site under construction, with 6 of the 10 apartment buildings completed. Site could still accommodate the remaining 4 buildings. Potential capacity based on a density multiplier with the minimum based on 30dph on the land remaining and maximum  based on the 178 dwellings remaining on extant planning permission.. "Proposed residential development consisting of 10 no. apartment blocks ranging between 5 & 6 storeys (466 no. apartments) and 3 no. retail/ leisure units with associated road layout, car parking and landscaping. Permission granted 2005 - site partially built part still extant.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=05/00590/REM&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1280</td>
+                    <td>-2.747804</td>
+                    <td>53.381157</td>
+                    <td>0.34</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00343/FUL</td>
+                    <td>not permissioned</td>
+                    <td>Land Opposite Motherwell Close, Lanark Gardens, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1280</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier of 30dph. Current permission for a medical centre. Previous permission now lapsed (11/00197/FUL) for 12 dwellings.. "Potential for residential development, if currently proposed medical centre is not built."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1303</td>
+                    <td>-2.698308</td>
+                    <td>53.324737</td>
+                    <td>1.61</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>29</td>
+                    <td>35</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land to the east of Kestrel's Way, Hallwood Park, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1303</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on retention of part of the woodland area and a maximum based on 30dph across the site. Yield affected by woodland and open space.. "Potential for residential development in line with surrounding Hallwood Park residential area."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1343</td>
+                    <td>-2.717341</td>
+                    <td>53.367438</td>
+                    <td>1.12</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>30</td>
+                    <td>40</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Walmsley Street Site, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1343</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Previously in employment use. Constraints identified include potentially contaminated land. It is also noted that the site has not been developed in recent years yet sits in an area of development potential.. "Potential for residential development in line with recent residential development in the surrounds."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1347</td>
+                    <td>-2.723154</td>
+                    <td>53.379646</td>
+                    <td>0.4</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>10</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Part of Former Fairfield school site, Peel House Lane, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1347</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph.. "Potential for residential development, in line with new development adjacent."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1622</td>
+                    <td>-2.733266</td>
+                    <td>53.340869</td>
+                    <td>0.72</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>19</td>
+                    <td>32</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Park between High Street and Bridgewater Canal, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1622</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph.. "Potential for residential development to support Runcorn Old Town and to make most of waterfront location."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1635</td>
+                    <td>-2.716652</td>
+                    <td>53.368467</td>
+                    <td>0.3</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>12</td>
+                    <td>58</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-09-10</td>
+                    <td>full planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=14/00269/S73</td>
+                    <td>permissioned</td>
+                    <td>Greenoaks Farm Industrial Estate, Warrington Road, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1635</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 40dph and maximum based on planning permission. Current permission for home for the elderly, could have potential for residential development.. "Potential for residential development if current application for a new planning permission to replace extant planning permission 08/00217/FUL, for proposed construction of three storey residential home for the elderly, is not completed.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=14/00269/S73&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1714</td>
+                    <td>-2.734182</td>
+                    <td>53.326005</td>
+                    <td>1.74</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>46</td>
+                    <td>50</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Heath Offices, Heath Road South, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1714</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph.. "Potential for residential development, appropriate landscaping would be required to existing employment development and to retain amenity of adjacent residential properties."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1733</td>
+                    <td>-2.736632</td>
+                    <td>53.323554</td>
+                    <td>4.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>53</td>
+                    <td>53</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-07</td>
+                    <td>outline planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=12/00100/OUT</td>
+                    <td>permissioned</td>
+                    <td>Land at The Heath Business Park, Heath Road South, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1733</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Dwelling figures to reflect planning permission. Development in the area will be limited due to its location within the inner zone of a PADHI.. "Outline planning application (with all matters reserved) for construction of up to 53 residential dwellings.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=12/00100/OUT&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1784</td>
+                    <td>-2.692612</td>
+                    <td>53.341094</td>
+                    <td>0.36</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-05</td>
+                    <td>full planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00267/FUL</td>
+                    <td>permissioned</td>
+                    <td>The Old Bridgewater Centre, Castlefields Avenue North, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1784</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site cleared. Dwelling figures to reflect planning permission.. "Proposed demolition of existing building and construction of 20 no. dwellings comprising 10 no. houses and 10 no. apartments.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=15/00267/FUL&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1808</td>
+                    <td>-2.704987</td>
+                    <td>53.322801</td>
+                    <td>1.88</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>50</td>
+                    <td>67</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land to the rear of Gaunts Way, Hallwood Park, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1808</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph.. "Potential for residential development in line with surrounding Hallwood Park residential area, would need to retain amenity of existing properties."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1839</td>
+                    <td>-2.732665</td>
+                    <td>53.375867</td>
+                    <td>0.29</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-25</td>
+                    <td>reserved matters approval</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=16/00282/REM</td>
+                    <td>permissioned</td>
+                    <td>Land At Rose View Avenue, Widnes</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1839</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Application for approval of reserved matters on Planning Permission 13/00285/OUT for access, appearance, landscaping, layout and scale for erection of 4 no. detached dwellings". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=16/00282/REM&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H1962</td>
+                    <td>-2.7454</td>
+                    <td>53.341666</td>
+                    <td>4.0</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>120</td>
+                    <td>128</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-19</td>
+                    <td>outline planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=16/00131/OUT</td>
+                    <td>permissioned</td>
+                    <td>Fomer Riverside College, Campus Drive, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H1962</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on planning application and maximum at 40dph. Physical constraints identified include potentially contaminated land (99%); the proximity to a Listed Building; the existing development on the site; the wooded area; and landfill (Canal basin).. "Outline application, with all matters reserved, for development of up to 120 dwellings, open space, infrastructure and associated works.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=16/00131/OUT&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H2001</td>
+                    <td>-2.665368</td>
+                    <td>53.323766</td>
+                    <td>0.46</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>18</td>
+                    <td>18</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-07</td>
+                    <td>full planning permission</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=14/00563/FUL</td>
+                    <td>permissioned</td>
+                    <td>Former Jolly Brewer, The Ridgeway, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H2001</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Proposed construction of 18 dwellings comprising 10 no. two bedroom flats and 8 no. two bedroom houses with associated infrastructure and landscaping.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=14/00563/FUL&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H2026</td>
+                    <td>-2.696394</td>
+                    <td>53.328892</td>
+                    <td>2.32</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>18</td>
+                    <td>63</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-01</td>
+                    <td>other</td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00155/P3JPA</td>
+                    <td>permissioned</td>
+                    <td>Grosvenor House, Northway, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H2026</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 40dph and maximum based on Prior Approval. Existing development on site.. "Proposed change of use from former office building to residential (use class C3), creating 63 dwellings comprising of 2 No. 1 bedroom apartments, 55 No. 2 bedroom apartments and 6 No. 3 bedroom apartments.". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning&overlayname=All&schemacolumn=REFVAL&UID=15/00155/P3JPA&resolution=1&initialDialog=layersDialog</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H2035</td>
+                    <td>-2.717266</td>
+                    <td>53.328086</td>
+                    <td>0.53</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/halton</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00365/DEM</td>
+                    <td>not permissioned</td>
+                    <td>Grangeway Court, Runcorn</td>
+                    <td>http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked&overlayname=Brownfield%20Register&schemacolumn=Ref&resolution=1&UID=H2035</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph.. "Potential for residential development to be replaced with more appropriate dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.727265, "GeoY": 53.341239, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 32, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Physical constraints identified include woodland and potentially contaminated land.. \"Potential for housing and apartments.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Busway and Former Petrol Station, Bridge Street, Runcorn", "SiteReference": "H1032", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1032"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.652483, "GeoY": 53.319595, "HazardousSubstances": null, "Hectares": 0.88, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 30, "Notes": "Site is currently in use. Minimum capacity to allow for other uses, whilst maximum capacity is based on a density multiplier at 35dph. The relocation of the existing depot would be a constraint to the development of the site.. \"Potential for houses, along with potential for community uses and small scale retail to support the local centre\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Highways Agency Depot, Chester Road, Preston Brook", "SiteReference": "H1077", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1077"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.721994, "GeoY": 53.343069, "HazardousSubstances": null, "Hectares": 1.46, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 39, "NetDwellingsRangeTo": 52, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Potentially contaminated land within the site from former use as a brickworks and due to landfilling within part of the site.. \"Potential for housing and apartments.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land to the south of Old Quay Street and Mason Street, Runcorn", "SiteReference": "H1079", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1079"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.715237, "GeoY": 53.33875, "HazardousSubstances": null, "Hectares": 3.71, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 53, "NetDwellingsRangeTo": 118, "Notes": "Potential capacity based on a density multiplier with the minimum based on the planning permission for part of the site and the maximum at 40dph across the site. Physical constraints identified include potentially contaminated land.. \"Outline application for part of the site, with all matters reserved, for demolition of existing buildings and erection of up to 53 dwellings with associated access, landscaping and ancillary works at Former Warehouse Halton Court\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=10/00397/OUT\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-28", "PermissionType": "outline planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00563/OUT", "PlanningStatus": "permissioned", "SiteNameAddress": "Paramount Foods, Halton Road, Runcorn", "SiteReference": "H1085", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1085"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.725689, "GeoY": 53.340457, "HazardousSubstances": null, "Hectares": 1.44, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Potential capacity reflects the available part of site. Physical constraints identified include potentially contaminated land.. \"Potential for housing and apartments.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Polar Ford and surrounds, Victoria Road, Runcorn", "SiteReference": "H1104", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1104"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.695043, "GeoY": 53.327094, "HazardousSubstances": null, "Hectares": 1.14, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 448, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and the maximum capacity based on the extant Prior Approval for the site. The site is currently developed but derelict.. \"Potential for demolition and new houses or apartments or potential for conversion of existing building in line with planning permission. Prior Approval (15/00034/P3JPA) - Proposed change of use from former office building (use class B1) to 448 no. self contained apartments comprising 54 1 bedroom flats and 394 studio flats.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=15/00034/P3JPA\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-15", "PermissionType": "other", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00034/P3JPA", "PlanningStatus": "permissioned", "SiteNameAddress": "East Lane House, East Lane, Runcorn", "SiteReference": "H1109", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1109"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.730964, "GeoY": 53.364326, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 16, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph. Site is developed. No other known constraints on the site.. \"Potential for houses and / or apartments\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Brosley House, Widnes Road, Widnes", "SiteReference": "H1118", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1118"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.726502, "GeoY": 53.363545, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 14, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Potentially contaminated land within the site.. \"Potential for houses\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Foundry, Lugsdale Road, Widnes", "SiteReference": "H1120", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1120"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.724735, "GeoY": 53.340005, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 18, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph. Potentially contaminated land within the site.. \"Potential for houses on this site\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Polar Ford Second Hand Cars Site, Victoria Road, Runcorn", "SiteReference": "H1155", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1155"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.722781, "GeoY": 53.339891, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 81, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum based on SHLAA capacity. Lapsed planning permission 11/00018/FUL granted 12/12/2012.. \"Potential for houses and / or apartments\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=11/00018/FUL\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=11/00018/FUL", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Express Dairies Site, Sewell Street, Runcorn", "SiteReference": "H1159", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1159"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.737075, "GeoY": 53.342284, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 29, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph. Physical constraints identified include heritage assets and PADHI pipelines. 13/00429/DEM - permission for demolition of building, now demolished.. \"Potential for houses and / or apartments\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=13/00429/DEM", "PlanningStatus": "not permissioned", "SiteNameAddress": "Site of former Rathbone Institute, Waterloo Road, Runcorn", "SiteReference": "H1177", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1177"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.720699, "GeoY": 53.382969, "HazardousSubstances": null, "Hectares": 5.24, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 110, "NetDwellingsRangeTo": 116, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum based on the extant Planning Permission. Potentially contaminated land identified on this site.. \"Proposed residential development comprising 116 no. dwellings, road, open space, substation and all associated works\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=15/00430/FUL\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-19", "PermissionType": "full planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00430/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Eternit, Derby Road, Widnes", "SiteReference": "H1195", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1195"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.694365, "GeoY": 53.327835, "HazardousSubstances": null, "Hectares": 1.53, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 54, "NetDwellingsRangeTo": 241, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum based on the extant Prior Approval. Physical constraints identified include trees and woodland. Previous prior approval for 188 dwellings (15/00520/P3JPA). \"Proposed change of use from office building to 241 residential units\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=17/00209/P3JPA\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-06", "PermissionType": "other", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=17/00209/P3JPA", "PlanningStatus": "permissioned", "SiteNameAddress": "Castle View House, East Lane, Runcorn", "SiteReference": "H1201", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1201"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.731749, "GeoY": 53.349625, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 90, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum in line with planning permission. Contamination and heritage constraints have been identified.. \"Proposed development comprising 92 no. one and two bedroom apartments for the over 55\u0027s spread over 2 no. 6 storey blocks\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=15/00392/FUL\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-27", "PermissionType": "full planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00392/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "RMC House, Terrace Road, West Bank, Widnes", "SiteReference": "H1275", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1275"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.729241, "GeoY": 53.343546, "HazardousSubstances": null, "Hectares": 2.36, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 178, "Notes": "Site under construction, with 6 of the 10 apartment buildings completed. Site could still accommodate the remaining 4 buildings. Potential capacity based on a density multiplier with the minimum based on 30dph on the land remaining and maximum  based on the 178 dwellings remaining on extant planning permission.. \"Proposed residential development consisting of 10 no. apartment blocks ranging between 5 \u0026 6 storeys (466 no. apartments) and 3 no. retail/ leisure units with associated road layout, car parking and landscaping. Permission granted 2005 - site partially built part still extant.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=05/00590/REM\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2005-12-12", "PermissionType": "reserved matters approval", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=05/00590/REM", "PlanningStatus": "permissioned", "SiteNameAddress": "The Deck, Mersey Road, Widnes", "SiteReference": "H1277", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1277"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.747804, "GeoY": 53.381157, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Potential capacity based on a density multiplier of 30dph. Current permission for a medical centre. Previous permission now lapsed (11/00197/FUL) for 12 dwellings.. \"Potential for residential development, if currently proposed medical centre is not built.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00343/FUL", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land Opposite Motherwell Close, Lanark Gardens, Widnes", "SiteReference": "H1280", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1280"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.698308, "GeoY": 53.324737, "HazardousSubstances": null, "Hectares": 1.61, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 29, "NetDwellingsRangeTo": 35, "Notes": "Potential capacity based on a density multiplier with the minimum based on retention of part of the woodland area and a maximum based on 30dph across the site. Yield affected by woodland and open space.. \"Potential for residential development in line with surrounding Hallwood Park residential area.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land to the east of Kestrel\u0027s Way, Hallwood Park, Runcorn", "SiteReference": "H1303", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1303"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.717341, "GeoY": 53.367438, "HazardousSubstances": null, "Hectares": 1.12, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 40, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph. Previously in employment use. Constraints identified include potentially contaminated land. It is also noted that the site has not been developed in recent years yet sits in an area of development potential.. \"Potential for residential development in line with recent residential development in the surrounds.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Walmsley Street Site, Widnes", "SiteReference": "H1343", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1343"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.723154, "GeoY": 53.379646, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 14, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph.. \"Potential for residential development, in line with new development adjacent.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Part of Former Fairfield school site, Peel House Lane, Widnes", "SiteReference": "H1347", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1347"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.733266, "GeoY": 53.340869, "HazardousSubstances": null, "Hectares": 0.72, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 19, "NetDwellingsRangeTo": 32, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 50dph.. \"Potential for residential development to support Runcorn Old Town and to make most of waterfront location.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Park between High Street and Bridgewater Canal, Runcorn", "SiteReference": "H1622", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1622"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.716652, "GeoY": 53.368467, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 58, "Notes": "Potential capacity based on a density multiplier with the minimum based on 40dph and maximum based on planning permission. Current permission for home for the elderly, could have potential for residential development.. \"Potential for residential development if current application for a new planning permission to replace extant planning permission 08/00217/FUL, for proposed construction of three storey residential home for the elderly, is not completed.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=14/00269/S73\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-09-10", "PermissionType": "full planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=14/00269/S73", "PlanningStatus": "permissioned", "SiteNameAddress": "Greenoaks Farm Industrial Estate, Warrington Road, Widnes", "SiteReference": "H1635", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1635"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.734182, "GeoY": 53.326005, "HazardousSubstances": null, "Hectares": 1.74, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 46, "NetDwellingsRangeTo": 50, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph.. \"Potential for residential development, appropriate landscaping would be required to existing employment development and to retain amenity of adjacent residential properties.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Heath Offices, Heath Road South, Runcorn", "SiteReference": "H1714", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1714"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.736632, "GeoY": 53.323554, "HazardousSubstances": null, "Hectares": 4.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 53, "NetDwellingsRangeTo": 53, "Notes": "Dwelling figures to reflect planning permission. Development in the area will be limited due to its location within the inner zone of a PADHI.. \"Outline planning application (with all matters reserved) for construction of up to 53 residential dwellings.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=12/00100/OUT\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-07", "PermissionType": "outline planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=12/00100/OUT", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at The Heath Business Park, Heath Road South, Runcorn", "SiteReference": "H1733", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1733"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.692612, "GeoY": 53.341094, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Site cleared. Dwelling figures to reflect planning permission.. \"Proposed demolition of existing building and construction of 20 no. dwellings comprising 10 no. houses and 10 no. apartments.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=15/00267/FUL\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-05", "PermissionType": "full planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00267/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Bridgewater Centre, Castlefields Avenue North, Runcorn", "SiteReference": "H1784", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1784"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.704987, "GeoY": 53.322801, "HazardousSubstances": null, "Hectares": 1.88, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 50, "NetDwellingsRangeTo": 67, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph.. \"Potential for residential development in line with surrounding Hallwood Park residential area, would need to retain amenity of existing properties.\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land to the rear of Gaunts Way, Hallwood Park, Runcorn", "SiteReference": "H1808", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1808"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.732665, "GeoY": 53.375867, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": ". \"Application for approval of reserved matters on Planning Permission 13/00285/OUT for access, appearance, landscaping, layout and scale for erection of 4 no. detached dwellings\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=16/00282/REM\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-25", "PermissionType": "reserved matters approval", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=16/00282/REM", "PlanningStatus": "permissioned", "SiteNameAddress": "Land At Rose View Avenue, Widnes", "SiteReference": "H1839", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1839"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.7454, "GeoY": 53.341666, "HazardousSubstances": null, "Hectares": 4.0, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 120, "NetDwellingsRangeTo": 128, "Notes": "Potential capacity based on a density multiplier with the minimum based on planning application and maximum at 40dph. Physical constraints identified include potentially contaminated land (99%); the proximity to a Listed Building; the existing development on the site; the wooded area; and landfill (Canal basin).. \"Outline application, with all matters reserved, for development of up to 120 dwellings, open space, infrastructure and associated works.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=16/00131/OUT\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-19", "PermissionType": "outline planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=16/00131/OUT", "PlanningStatus": "permissioned", "SiteNameAddress": "Fomer Riverside College, Campus Drive, Runcorn", "SiteReference": "H1962", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H1962"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.665368, "GeoY": 53.323766, "HazardousSubstances": null, "Hectares": 0.46, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 18, "Notes": ". \"Proposed construction of 18 dwellings comprising 10 no. two bedroom flats and 8 no. two bedroom houses with associated infrastructure and landscaping.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=14/00563/FUL\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-07", "PermissionType": "full planning permission", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=14/00563/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Jolly Brewer, The Ridgeway, Runcorn", "SiteReference": "H2001", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H2001"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.696394, "GeoY": 53.328892, "HazardousSubstances": null, "Hectares": 2.32, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 63, "Notes": "Potential capacity based on a density multiplier with the minimum based on 40dph and maximum based on Prior Approval. Existing development on site.. \"Proposed change of use from former office building to residential (use class C3), creating 63 dwellings comprising of 2 No. 1 bedroom apartments, 55 No. 2 bedroom apartments and 6 No. 3 bedroom apartments.\". http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Planning\u0026overlayname=All\u0026schemacolumn=REFVAL\u0026UID=15/00155/P3JPA\u0026resolution=1\u0026initialDialog=layersDialog", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-01", "PermissionType": "other", "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00155/P3JPA", "PlanningStatus": "permissioned", "SiteNameAddress": "Grosvenor House, Northway, Runcorn", "SiteReference": "H2026", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H2026"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.717266, "GeoY": 53.328086, "HazardousSubstances": null, "Hectares": 0.53, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 8, "Notes": "Potential capacity based on a density multiplier with the minimum based on 30dph and maximum at 40dph.. \"Potential for residential development to be replaced with more appropriate dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/halton", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://webapp.halton.gov.uk/planningAPPS/showCaseData.asp?CaseNo=15/00365/DEM", "PlanningStatus": "not permissioned", "SiteNameAddress": "Grangeway Court, Runcorn", "SiteReference": "H2035", "SiteplanURL": "http://map.halton.gov.uk/WebMapLayers8External/map.aspx?MapName=Linked\u0026overlayname=Brownfield%20Register\u0026schemacolumn=Ref\u0026resolution=1\u0026UID=H2035"}];
+    const bbox = [-2.7628423241690303, -2.6374446758309698, 53.310611843418584, 53.391952156581404];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

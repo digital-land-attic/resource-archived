@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">c0f874ac...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.preston.gov.uk/media/1736/Brownfield-Register/pdf/Brownfield-Land-Register-November-2018_(6)_(1).pdf?">https://www.preston.gov.uk/media/1736/Brownfield-Register/pdf/Brownfield-Land-Register-November-2018_(6)_(1).pdf?</a>
+        </dd>
+    </dl>
+    <a href="https://www.preston.gov.uk/article/1196/Brownfield-Land-Register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 16 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:PRE">Preston City Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/c0f874ac423d633e2fb43f9c547cdd2642338e96ec4e10d746987ac4a04d0df4/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/c0f874ac423d633e2fb43f9c547cdd2642338e96ec4e10d746987ac4a04d0df4">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">58 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">26.75
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>58</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/c0f874ac423d633e2fb43f9c547cdd2642338e96ec4e10d746987ac4a04d0df4.csv"
+        download="c0f874ac423d633e2fb43f9c547cdd2642338e96ec4e10d746987ac4a04d0df4_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/c0f874ac423d633e2fb43f9c547cdd2642338e96ec4e10d746987ac4a04d0df4"
+        download="c0f874ac423d633e2fb43f9c547cdd2642338e96ec4e10d746987ac4a04d0df4_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR01</td>
+                    <td>-2.701826</td>
+                    <td>53.78008</td>
+                    <td>5.33</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2007-09-03</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Preston.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR04</td>
+                    <td>-2.748499</td>
+                    <td>53.77879</td>
+                    <td>8.42</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td>93.0</td>
+                    <td>93.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-02-15</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Cottam Brickworks</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR06</td>
+                    <td>-2.696637</td>
+                    <td>53.75721</td>
+                    <td>0.6</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td>15.0</td>
+                    <td>15.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2007-08-30</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Avenham Street Car Park</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR08</td>
+                    <td>-2.703164</td>
+                    <td>53.7557</td>
+                    <td>0.06</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Mount Street / Garden Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former St Joseph's Orphanage, Theatre</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR09</td>
+                    <td>-2.704228</td>
+                    <td>53.75672</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2004-12-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR10</td>
+                    <td>-2.702766</td>
+                    <td>53.7555</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td>29.0</td>
+                    <td>29.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2018-08-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Lancashire House, Winckley Square.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR15</td>
+                    <td>-2.721206</td>
+                    <td>53.75974</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Alstom site, Channel Way</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR16</td>
+                    <td>-2.713846</td>
+                    <td>53.7658</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td>95.0</td>
+                    <td>95.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Goss Graphics, Fylde Road.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR17</td>
+                    <td>-2.721496</td>
+                    <td>53.76606</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td>12.0</td>
+                    <td>12.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2014-01-13</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Ashton Basin</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Byron Hotel, 25-35 Grimshaw</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR18</td>
+                    <td>-2.692242</td>
+                    <td>53.75929</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2006-12-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Street.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR19</td>
+                    <td>-2.698086</td>
+                    <td>53.75863</td>
+                    <td>0.2</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Miller Arcade, Church Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR20</td>
+                    <td>-2.700183</td>
+                    <td>53.7543</td>
+                    <td>0.07</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2004-08-11</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>6&7 Ribblesdale Place</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR21</td>
+                    <td>-2.699702</td>
+                    <td>53.75729</td>
+                    <td>0.02</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>37/38 Cannon Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR22</td>
+                    <td>-2.700259</td>
+                    <td>53.75979</td>
+                    <td>0.06</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-04-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>5-13 Market Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR23</td>
+                    <td>-2.685136</td>
+                    <td>53.76159</td>
+                    <td>0.33</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2008-12-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Hemmings Mill, New Hall Lane</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR25</td>
+                    <td>-2.721194</td>
+                    <td>53.76875</td>
+                    <td>1.3</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Parker Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR26</td>
+                    <td>-2.755092</td>
+                    <td>53.76986</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Ainsdale House Site</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Brethren's Meeting Room, Egerton Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR27</td>
+                    <td>-2.739178</td>
+                    <td>53.76567</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Ashton.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR28</td>
+                    <td>-2.707321</td>
+                    <td>53.7585</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Railway land, Corporation Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR29</td>
+                    <td>-2.692935</td>
+                    <td>53.75807</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Oak Street, off Manchester Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former Spindlemakers Arms, Lancaster</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR30</td>
+                    <td>-2.700376</td>
+                    <td>53.76409</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2002-07-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Road North</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR31</td>
+                    <td>-2.706521</td>
+                    <td>53.76141</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2012-02-14</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>170 Corporation Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR35</td>
+                    <td>-2.714388</td>
+                    <td>53.76468</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>161-171 Fylde Rd</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR36</td>
+                    <td>-2.705016</td>
+                    <td>53.75849</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>52-62 Corporation Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Former County Arms Hotel site, 2 Deepale</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR37</td>
+                    <td>-2.689775</td>
+                    <td>53.76236</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2008-04-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Road.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR41</td>
+                    <td>-2.704075</td>
+                    <td>53.77115</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2017-02-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>5&7 Moor Park Avenue</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR42</td>
+                    <td>-2.727184</td>
+                    <td>53.76161</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2017-10-10</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Oyston Mill, Strand Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR48</td>
+                    <td>-2.685838</td>
+                    <td>53.76748</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2015-03-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Deepdale Mill Street.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR49</td>
+                    <td>-2.698792</td>
+                    <td>53.76184</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2013-10-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Victoria House, 9-11 Ormskirk Road.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR50</td>
+                    <td>-2.700903</td>
+                    <td>53.75472</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2014-07-01</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>10 & 11 Camden Place</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR51</td>
+                    <td>-2.698114</td>
+                    <td>53.76031</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2013-12-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Golden Cross Hotel, 60 Lancaster Road.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR52</td>
+                    <td>-2.703378</td>
+                    <td>53.75398</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2014-04-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>East Cliff House, 5 East Cliff</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR53</td>
+                    <td>-2.699722</td>
+                    <td>53.75664</td>
+                    <td>0.02</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-10</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>63 Guildhall Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR60</td>
+                    <td>-2.692809</td>
+                    <td>53.75868</td>
+                    <td>0.04</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>33 Manchester Road</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR62</td>
+                    <td>-2.651301</td>
+                    <td>53.76499</td>
+                    <td>1.0</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>owned by a public authority</td>
+                    <td>2015-09-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Royal Cross site</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR63</td>
+                    <td>-2.709582</td>
+                    <td>53.80441</td>
+                    <td>3.49</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at D'Urton Lane, Broughton.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR66</td>
+                    <td>-2.704359</td>
+                    <td>53.76546</td>
+                    <td>0.01</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Lodge Bank, Moor Lane</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR70</td>
+                    <td>-2.716647</td>
+                    <td>53.7984</td>
+                    <td>1.5</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lancashire Fire and Rescue HQ, Garstang Road. WGS84</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR71</td>
+                    <td>-2.693877</td>
+                    <td>53.76829</td>
+                    <td>4.3</td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Argyll Rd Depot</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2019-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Deepdale Mill, Deepdale Mill Street /</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR73</td>
+                    <td>-2.684194</td>
+                    <td>53.76713</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td>2015-06-23</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Isherwood Street</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR76</td>
+                    <td>-2.694566</td>
+                    <td>53.75858</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Rear Bull & Royal Public House, Church St.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR77</td>
+                    <td>-2.6946</td>
+                    <td>53.75876</td>
+                    <td></td>
+                    <td>2016-09-06</td>
+                    <td>2018-11-19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/preston</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>North of Shepherd St</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.701826, "GeoY": 53.78008, "HazardousSubstances": null, "Hectares": 5.33, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2007-09-03", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Preston.", "SiteReference": "BR01", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.748499, "GeoY": 53.77879, "HazardousSubstances": null, "Hectares": 8.42, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": 93.0, "NetDwellingsRangeTo": 93.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-02-15", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Cottam Brickworks", "SiteReference": "BR04", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.696637, "GeoY": 53.75721, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": 15.0, "NetDwellingsRangeTo": 15.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2007-08-30", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Avenham Street Car Park", "SiteReference": "BR06", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.703164, "GeoY": 53.7557, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Mount Street / Garden Street", "SiteReference": "BR08", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former St Joseph\u0027s Orphanage, Theatre", "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.704228, "GeoY": 53.75672, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2004-12-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Street", "SiteReference": "BR09", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.702766, "GeoY": 53.7555, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": 29.0, "NetDwellingsRangeTo": 29.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2018-08-30", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Lancashire House, Winckley Square.", "SiteReference": "BR10", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.721206, "GeoY": 53.75974, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Alstom site, Channel Way", "SiteReference": "BR15", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.713846, "GeoY": 53.7658, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": 95.0, "NetDwellingsRangeTo": 95.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Goss Graphics, Fylde Road.", "SiteReference": "BR16", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.721496, "GeoY": 53.76606, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": 12.0, "NetDwellingsRangeTo": 12.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2014-01-13", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Ashton Basin", "SiteReference": "BR17", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Byron Hotel, 25-35 Grimshaw", "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.692242, "GeoY": 53.75929, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2006-12-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Street.", "SiteReference": "BR18", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.698086, "GeoY": 53.75863, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Miller Arcade, Church Street", "SiteReference": "BR19", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.700183, "GeoY": 53.7543, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2004-08-11", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "6\u00267 Ribblesdale Place", "SiteReference": "BR20", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.699702, "GeoY": 53.75729, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "37/38 Cannon Street", "SiteReference": "BR21", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.700259, "GeoY": 53.75979, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-04-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "5-13 Market Street", "SiteReference": "BR22", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.685136, "GeoY": 53.76159, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2008-12-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Hemmings Mill, New Hall Lane", "SiteReference": "BR23", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.721194, "GeoY": 53.76875, "HazardousSubstances": null, "Hectares": 1.3, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Parker Street", "SiteReference": "BR25", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.755092, "GeoY": 53.76986, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Ainsdale House Site", "SiteReference": "BR26", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Brethren\u0027s Meeting Room, Egerton Road", "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.739178, "GeoY": 53.76567, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Ashton.", "SiteReference": "BR27", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.707321, "GeoY": 53.7585, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Railway land, Corporation Street", "SiteReference": "BR28", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.692935, "GeoY": 53.75807, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Oak Street, off Manchester Road", "SiteReference": "BR29", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former Spindlemakers Arms, Lancaster", "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.700376, "GeoY": 53.76409, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2002-07-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Road North", "SiteReference": "BR30", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.706521, "GeoY": 53.76141, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2012-02-14", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "170 Corporation Street", "SiteReference": "BR31", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.714388, "GeoY": 53.76468, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "161-171 Fylde Rd", "SiteReference": "BR35", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.705016, "GeoY": 53.75849, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "52-62 Corporation Street", "SiteReference": "BR36", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Former County Arms Hotel site, 2 Deepale", "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.689775, "GeoY": 53.76236, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2008-04-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Road.", "SiteReference": "BR37", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.704075, "GeoY": 53.77115, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2017-02-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "5\u00267 Moor Park Avenue", "SiteReference": "BR41", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.727184, "GeoY": 53.76161, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2017-10-10", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Oyston Mill, Strand Road", "SiteReference": "BR42", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.685838, "GeoY": 53.76748, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2015-03-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Deepdale Mill Street.", "SiteReference": "BR48", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.698792, "GeoY": 53.76184, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2013-10-15", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Victoria House, 9-11 Ormskirk Road.", "SiteReference": "BR49", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.700903, "GeoY": 53.75472, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2014-07-01", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "10 \u0026 11 Camden Place", "SiteReference": "BR50", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.698114, "GeoY": 53.76031, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2013-12-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Golden Cross Hotel, 60 Lancaster Road.", "SiteReference": "BR51", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.703378, "GeoY": 53.75398, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2014-04-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "East Cliff House, 5 East Cliff", "SiteReference": "BR52", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": null, "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.699722, "GeoY": 53.75664, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-10", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "63 Guildhall Street", "SiteReference": "BR53", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.692809, "GeoY": 53.75868, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": 0.0, "NetDwellingsRangeTo": 0.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "33 Manchester Road", "SiteReference": "BR60", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.651301, "GeoY": 53.76499, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2015-09-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Royal Cross site", "SiteReference": "BR62", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.709582, "GeoY": 53.80441, "HazardousSubstances": null, "Hectares": 3.49, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at D\u0027Urton Lane, Broughton.", "SiteReference": "BR63", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.704359, "GeoY": 53.76546, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Lodge Bank, Moor Lane", "SiteReference": "BR66", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.716647, "GeoY": 53.7984, "HazardousSubstances": null, "Hectares": 1.5, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lancashire Fire and Rescue HQ, Garstang Road. WGS84", "SiteReference": "BR70", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.693877, "GeoY": 53.76829, "HazardousSubstances": null, "Hectares": 4.3, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Argyll Rd Depot", "SiteReference": "BR71", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2019-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Deepdale Mill, Deepdale Mill Street /", "SiteReference": null, "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.684194, "GeoY": 53.76713, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": "2015-06-23", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Isherwood Street", "SiteReference": "BR73", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.694566, "GeoY": 53.75858, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Rear Bull \u0026 Royal Public House, Church St.", "SiteReference": "BR76", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2016-09-06", "GeoX": -2.6946, "GeoY": 53.75876, "HazardousSubstances": null, "Hectares": null, "LastUpdatedDate": "2018-11-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/preston", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "North of Shepherd St", "SiteReference": "BR77", "SiteplanURL": null}];
+    const bbox = [-2.770285406274774, -2.6361075937252254, 53.7449968434186, 53.813393156581405];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

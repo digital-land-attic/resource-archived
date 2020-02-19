@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">bc54634a...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.broadland.gov.uk/download/downloads/id/3836/broadland_brownfield_sites_register.csv">https://www.broadland.gov.uk/download/downloads/id/3836/broadland_brownfield_sites_register.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BRO">Broadland District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/bc54634a7481440ff8fe1d0ec012edc1f94052102f67ccfa984246b361a7a88f/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/bc54634a7481440ff8fe1d0ec012edc1f94052102f67ccfa984246b361a7a88f">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">103.92
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>22</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/bc54634a7481440ff8fe1d0ec012edc1f94052102f67ccfa984246b361a7a88f.csv"
+        download="bc54634a7481440ff8fe1d0ec012edc1f94052102f67ccfa984246b361a7a88f_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/bc54634a7481440ff8fe1d0ec012edc1f94052102f67ccfa984246b361a7a88f"
+        download="bc54634a7481440ff8fe1d0ec012edc1f94052102f67ccfa984246b361a7a88f_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>B/AYL/001</td>
+                    <td>1.260888</td>
+                    <td>52.792494</td>
+                    <td>0.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>owned by a public authority</td>
+                    <td>2013-11-18</td>
+                    <td>outline planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Aegel House, Burgh Rd, Aylsham, NR116AS</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20130715</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline permission 20130715 Reserved matters application 20161711 "</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/AYL/002</td>
+                    <td>1.262561</td>
+                    <td>52.800767</td>
+                    <td>0.3</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-31</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>The Old Mill, Dunkirk, Aylsham</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20151963</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission 20151963"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/COL/001</td>
+                    <td>1.358586</td>
+                    <td>52.730921</td>
+                    <td>1.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Land at Jordan's, Station Rd, Coltishall</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CCOL2</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Allocated for 25 - 30 homes in Site Allocations DPD (policy COL2)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/DRA/001</td>
+                    <td>1.225449</td>
+                    <td>52.676424</td>
+                    <td>0.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Land east of School Road, Drayton</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CDRA2</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Allocated for commercial / community and residential development of approx 20 dwellings in Site Allocations DPD (policy DRA2)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/GLP/001</td>
+                    <td>1.40838</td>
+                    <td>52.645271</td>
+                    <td>9.7</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-24</td>
+                    <td>reserved matters approval</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Land at former Little Plumstead Hospital, Hospital Rd, Great and Little Plumstead</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20130906</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline permission 20130906 (109 dwellings, site for enlargement of primary school, community facilities) with reserved matters approval for 88 of these"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/HEL/001</td>
+                    <td>1.249625</td>
+                    <td>52.660474</td>
+                    <td>14.7</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Land at Hellesdon Hospital, Drayton High Rd, Hellesdon</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CHEL1</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Allocated in Site Allocations DPD (policy HEL1) for residential development (approx 300 homes) and B1 employment use.  Part of the original allocation  (Carrowbreck in north-west of site) has been developed for residential use(14 dwellings)  under permission 20141634"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/HEL/002</td>
+                    <td>1.258799</td>
+                    <td>52.656544</td>
+                    <td>45.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-06</td>
+                    <td>outline planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Royal Norwich Golf Club, Drayton High Rd, Hellesdon</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CHEL2</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Allocated in Site Allocations DPD  (policy HEL2) for residential and open space uses; hybrid application (20151770) - outline planning permission given for up to 1000 homes with detail for  part of this ( 108 homes) "</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/HEL/003</td>
+                    <td>1.277844</td>
+                    <td>52.659453</td>
+                    <td>1.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-29</td>
+                    <td>reserved matters approval</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Tile House, Eversley Rd, Hellesdon</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20141134</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Allocated in Site Allocations DPD (policy HEL5) for residential use (approx 55 homes).  Outline permission 20141134, and reserved matters approval 20152077"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/LIN/001</td>
+                    <td>1.48426</td>
+                    <td>52.620127</td>
+                    <td>1.2</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>owned by a public authority</td>
+                    <td>2015-04-22</td>
+                    <td>outline planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Former Lingwood Primary School, ChapelRd, Lingwood</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20140979</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline permission (20140979) for redevelopment of site for residential development and retention of existing nursery vbuilding for community use."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/MOR/001</td>
+                    <td>1.13206</td>
+                    <td>52.715119</td>
+                    <td>0.23</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-18</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Offices, Atlas Works, Norwich Rd, Lenwade</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20160525</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Prior Notification (20160525) change of use offices to residential"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/CAT/001</td>
+                    <td>1.296378</td>
+                    <td>52.661826</td>
+                    <td>0.39</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-23</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Repton House, Parkside Drive, Old Catton</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20151733</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission (20151733) for demolition of existing buildings and erection of 7 homes"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/REP/001</td>
+                    <td>1.112917</td>
+                    <td>52.76817</td>
+                    <td>2.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Former Station Yard, Station Rd, Reepham</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CREP2</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Allocated in Site Allocations DPD (policy REP2) for residential (approx 20 homes) and employment (B1 and B2 uses)."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/REP/002</td>
+                    <td>1.109187</td>
+                    <td>52.762018</td>
+                    <td>0.17</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-23</td>
+                    <td>reserved matters approval</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Abb's Garage, 32 School Rd, Reepham</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20141650</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline permission (20141650) and reserved matters (20161817) for 8 dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/REP/003</td>
+                    <td>1.111411</td>
+                    <td>52.763282</td>
+                    <td>0.5</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-12</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>The Dial House, Market Place, Reepham</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20140858</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission (20140858) for 16 dwellings, and café, retail and B&B"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/STR/001</td>
+                    <td>1.475413</td>
+                    <td>52.619065</td>
+                    <td>1.2</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-18</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Former Hamper People, 31 Norwich Rd, Strumpshaw</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20150188</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Full permission (20150188) for redevelopment and provision of 10 dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/TSA/001</td>
+                    <td>1.335275</td>
+                    <td>52.630311</td>
+                    <td>16.12</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-27</td>
+                    <td>reserved matters approval</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Pinebanks, 9 Yarmouth Rd, Thorpe St Andrew</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20130649</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline permission (20130649) and reserved matters (20160425) for 231 dwellings"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/TSA/002</td>
+                    <td>1.359094</td>
+                    <td>52.641185</td>
+                    <td>2.62</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-14</td>
+                    <td>outline planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>Oasis Centre, Thorpe St Andrew</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20151132</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Outline planning permission (20151132) for redevelopment and provision of 27 dwellings and full permission for spa and well being club."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/TSA/003</td>
+                    <td>1.332606</td>
+                    <td>52.627085</td>
+                    <td>0.19</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-19</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>27 Yarmouth Rd, thorpe St Andrew</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20161542</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Approval for change of use (20161542) from offices to residential"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/TSA/004</td>
+                    <td>1.32903</td>
+                    <td>52.629425</td>
+                    <td>0.23</td>
+                    <td></td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-12</td>
+                    <td>full planning permission</td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>permissioned</td>
+                    <td>The Oaks, 16 Harvey Lane, Thorpe St Andrew</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2C20161875</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Approval for change of use (20161875) from offices to residential"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/GLP/002</td>
+                    <td>1.416886</td>
+                    <td>52.647507</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Witton Lane Gospel Hall, Little Plumstead, Norwich</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CGNLP0357</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Site proposed as part of Greater Norwich Local Plan Call for Sites. Within existing settlement boundary"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/HOR/001</td>
+                    <td>1.24164</td>
+                    <td>52.695335</td>
+                    <td>1.76</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Land at Dog Lane, Horsford, Norwich, Norfolk NR10 3DH</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CGNLP0264</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Site proposed as part of Greater Norwich Local Plan Call for Sites. Within existing settlement boundary. Site consists of vacant paddock, former Dog Lane Blockwork premises & Former timber merchant premises now used as children's play/education centre"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/FOU/001</td>
+                    <td>1.011045</td>
+                    <td>52.779384</td>
+                    <td>0.55</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broadland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx</td>
+                    <td>not permissioned</td>
+                    <td>Site of T H Blyth and Sons Builders Yard and Land to West of Claypit Road, Claypit Road, Foulsham, Norfolk NR20 5RW</td>
+                    <td>https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e&query=BrownfieldSites_8038_0%2CAlt_Ref%2CGNLP0275</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Site proposed as part of Greater Norwich Local Plan Call for Sites. Within existing settlement boundary. Approx 45% brownfield - former builders yard."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.260888, "GeoY": 52.792494, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline permission 20130715 Reserved matters application 20161711 \"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2013-11-18", "PermissionType": "outline planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Aegel House, Burgh Rd, Aylsham, NR116AS", "SiteReference": "B/AYL/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20130715"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.262561, "GeoY": 52.800767, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Full permission 20151963\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-31", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Mill, Dunkirk, Aylsham", "SiteReference": "B/AYL/002", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20151963"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.358586, "GeoY": 52.730921, "HazardousSubstances": null, "Hectares": 1.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Allocated for 25 - 30 homes in Site Allocations DPD (policy COL2)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Jordan\u0027s, Station Rd, Coltishall", "SiteReference": "B/COL/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CCOL2"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.225449, "GeoY": 52.676424, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Allocated for commercial / community and residential development of approx 20 dwellings in Site Allocations DPD (policy DRA2)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land east of School Road, Drayton", "SiteReference": "B/DRA/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CDRA2"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.40838, "GeoY": 52.645271, "HazardousSubstances": null, "Hectares": 9.7, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline permission 20130906 (109 dwellings, site for enlargement of primary school, community facilities) with reserved matters approval for 88 of these\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-24", "PermissionType": "reserved matters approval", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at former Little Plumstead Hospital, Hospital Rd, Great and Little Plumstead", "SiteReference": "B/GLP/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20130906"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.249625, "GeoY": 52.660474, "HazardousSubstances": null, "Hectares": 14.7, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Allocated in Site Allocations DPD (policy HEL1) for residential development (approx 300 homes) and B1 employment use.  Part of the original allocation  (Carrowbreck in north-west of site) has been developed for residential use(14 dwellings)  under permission 20141634\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Hellesdon Hospital, Drayton High Rd, Hellesdon", "SiteReference": "B/HEL/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CHEL1"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.258799, "GeoY": 52.656544, "HazardousSubstances": null, "Hectares": 45.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Allocated in Site Allocations DPD  (policy HEL2) for residential and open space uses; hybrid application (20151770) - outline planning permission given for up to 1000 homes with detail for  part of this ( 108 homes) \"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-06", "PermissionType": "outline planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Royal Norwich Golf Club, Drayton High Rd, Hellesdon", "SiteReference": "B/HEL/002", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CHEL2"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.277844, "GeoY": 52.659453, "HazardousSubstances": null, "Hectares": 1.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Allocated in Site Allocations DPD (policy HEL5) for residential use (approx 55 homes).  Outline permission 20141134, and reserved matters approval 20152077\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-29", "PermissionType": "reserved matters approval", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Tile House, Eversley Rd, Hellesdon", "SiteReference": "B/HEL/003", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20141134"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.48426, "GeoY": 52.620127, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline permission (20140979) for redevelopment of site for residential development and retention of existing nursery vbuilding for community use.\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2015-04-22", "PermissionType": "outline planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Lingwood Primary School, ChapelRd, Lingwood", "SiteReference": "B/LIN/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20140979"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.13206, "GeoY": 52.715119, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Prior Notification (20160525) change of use offices to residential\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-18", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Offices, Atlas Works, Norwich Rd, Lenwade", "SiteReference": "B/MOR/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20160525"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.296378, "GeoY": 52.661826, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Full permission (20151733) for demolition of existing buildings and erection of 7 homes\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-23", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Repton House, Parkside Drive, Old Catton", "SiteReference": "B/CAT/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20151733"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.112917, "GeoY": 52.76817, "HazardousSubstances": null, "Hectares": 2.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Allocated in Site Allocations DPD (policy REP2) for residential (approx 20 homes) and employment (B1 and B2 uses).\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Station Yard, Station Rd, Reepham", "SiteReference": "B/REP/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CREP2"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.109187, "GeoY": 52.762018, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline permission (20141650) and reserved matters (20161817) for 8 dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-23", "PermissionType": "reserved matters approval", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Abb\u0027s Garage, 32 School Rd, Reepham", "SiteReference": "B/REP/002", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20141650"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.111411, "GeoY": 52.763282, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Full permission (20140858) for 16 dwellings, and caf\u00e9, retail and B\u0026B\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-12", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "The Dial House, Market Place, Reepham", "SiteReference": "B/REP/003", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20140858"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.475413, "GeoY": 52.619065, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Full permission (20150188) for redevelopment and provision of 10 dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-18", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Hamper People, 31 Norwich Rd, Strumpshaw", "SiteReference": "B/STR/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20150188"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.335275, "GeoY": 52.630311, "HazardousSubstances": null, "Hectares": 16.12, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline permission (20130649) and reserved matters (20160425) for 231 dwellings\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-27", "PermissionType": "reserved matters approval", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Pinebanks, 9 Yarmouth Rd, Thorpe St Andrew", "SiteReference": "B/TSA/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20130649"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.359094, "GeoY": 52.641185, "HazardousSubstances": null, "Hectares": 2.62, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Outline planning permission (20151132) for redevelopment and provision of 27 dwellings and full permission for spa and well being club.\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-14", "PermissionType": "outline planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "Oasis Centre, Thorpe St Andrew", "SiteReference": "B/TSA/002", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20151132"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.332606, "GeoY": 52.627085, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Approval for change of use (20161542) from offices to residential\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-19", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "27 Yarmouth Rd, thorpe St Andrew", "SiteReference": "B/TSA/003", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20161542"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": null, "GeoX": 1.32903, "GeoY": 52.629425, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Approval for change of use (20161875) from offices to residential\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-12", "PermissionType": "full planning permission", "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "permissioned", "SiteNameAddress": "The Oaks, 16 Harvey Lane, Thorpe St Andrew", "SiteReference": "B/TSA/004", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2C20161875"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.416886, "GeoY": 52.647507, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Site proposed as part of Greater Norwich Local Plan Call for Sites. Within existing settlement boundary\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Witton Lane Gospel Hall, Little Plumstead, Norwich", "SiteReference": "B/GLP/002", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CGNLP0357"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.24164, "GeoY": 52.695335, "HazardousSubstances": null, "Hectares": 1.76, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Site proposed as part of Greater Norwich Local Plan Call for Sites. Within existing settlement boundary. Site consists of vacant paddock, former Dog Lane Blockwork premises \u0026 Former timber merchant premises now used as children\u0027s play/education centre\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Dog Lane, Horsford, Norwich, Norfolk NR10 3DH", "SiteReference": "B/HOR/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CGNLP0264"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": 1.011045, "GeoY": 52.779384, "HazardousSubstances": null, "Hectares": 0.55, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Site proposed as part of Greater Norwich Local Plan Call for Sites. Within existing settlement boundary. Approx 45% brownfield - former builders yard.\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broadland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://secure.broadland.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx", "PlanningStatus": "not permissioned", "SiteNameAddress": "Site of T H Blyth and Sons Builders Yard and Land to West of Claypit Road, Claypit Road, Foulsham, Norfolk NR20 5RW", "SiteReference": "B/FOU/001", "SiteplanURL": "https://www.arcgis.com/apps/webappviewer/index.html?id=64110f1c89b340938fdc601e639d063e\u0026query=BrownfieldSites_8038_0%2CAlt_Ref%2CGNLP0275"}];
+    const bbox = [0.9962484476869091, 1.499056552313091, 52.61008184341859, 52.809750156581416];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

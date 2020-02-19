@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">ff1500c8...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.eaststaffsbc.gov.uk/sites/default/files/docs/planning/planningpolicy/brownfield/ESBC_Brownfield-Register.csv">http://www.eaststaffsbc.gov.uk/sites/default/files/docs/planning/planningpolicy/brownfield/ESBC_Brownfield-Register.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:EST">East Staffordshire Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/ff1500c81752ecbbc2e2cd44385943817d5290cc38e0f359e9b66439af470453/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/ff1500c81752ecbbc2e2cd44385943817d5290cc38e0f359e9b66439af470453">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">38 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">73.61
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>38</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/ff1500c81752ecbbc2e2cd44385943817d5290cc38e0f359e9b66439af470453.csv"
+        download="ff1500c81752ecbbc2e2cd44385943817d5290cc38e0f359e9b66439af470453_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/ff1500c81752ecbbc2e2cd44385943817d5290cc38e0f359e9b66439af470453"
+        download="ff1500c81752ecbbc2e2cd44385943817d5290cc38e0f359e9b66439af470453_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>ESBC-BR1</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.5</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Short Street Community Infants School</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Suitable Brownfield Site taken from the SHLAA (SHLAA 26)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR2</td>
+                    <td></td>
+                    <td></td>
+                    <td>9.08</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Coors Middle Yard</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Suitable Brownfield Site taken from the SHLAA  (SHLAA 71) and also Allocated in the Adopted Local Plan 2012-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR3</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.91</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Coors High Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR4</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.64</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Bargates</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031 - Application due to be submitted summer 2017</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR5</td>
+                    <td></td>
+                    <td></td>
+                    <td>19.27</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>pending decision</td>
+                    <td>Branston Depot</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031 - Resolution to approve 27/08/2013 subject to S106 legal agreement. Outline planning application for up to 483 dwellings (excluding conversion)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR6</td>
+                    <td></td>
+                    <td></td>
+                    <td>8.09</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Derby Road Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR7</td>
+                    <td></td>
+                    <td></td>
+                    <td>6.75</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-03</td>
+                    <td>other</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>JCB Pinfold Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031 - Residential Part of the Site Not Started, Retail Part complete (Outline Planning permission granted 09/08/2013). Application under Section 73 of the Town and Country Planning Act 1990 for an outline application for a mixed use development including the erection of a maximum of 257 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR8</td>
+                    <td></td>
+                    <td></td>
+                    <td>4.4</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>pending decision</td>
+                    <td>Brookside Business Park</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031 - Resolution to Approve – 22/09/2015  subject to S106 legal agreement. Outline application for a mixed use development for up to 90 residential dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR9</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.52</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>other</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Churnet Farm Rocester</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site Allocated in the Adopted Local Plan 2012-2031  (only part of the allocated site is Brownfield so the site area has been amended to reflect this) - Applications totalling 90 units submitted in May 2017 to the LPA.. Erection of 70 new dwellings and demolition of all existing buildings and erection of 20 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR10</td>
+                    <td></td>
+                    <td></td>
+                    <td>4.25</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>pending decision</td>
+                    <td>Former Alumasc Grundy Ltd Hawkins Lane</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site, removed as was being retained for employment use (i.e.: Tesco Store). Residential application with LPA awaiting determination (P/2016/01847). Erection of 204 dwellings, comprising 100 no. affordable dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR11</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.37</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>pending decision</td>
+                    <td>Land to the rear of 2 Harbury Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Resolution to Approve – 17/01/2017  subject to S106 legal agreement. Outline application for the erection of up to 14 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR12</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.21</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Imex Business Park</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site not fully occupied</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR13</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.26</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Mead Works 137-139 Horninglow Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site vacant, Extention to time limit application for dwellings never implemented (Full Application approved 19/01/2010 - PA/00560/068/CLF). Erection of 12 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR14</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.19</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Goat Maltings</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site vacant (PA/07932/027 - 2006 Application for the conversion of the Goat Maltings to 60 apartments , never implemented). Conversion of the Goat Maltings building to form 60 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR15</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.28</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Burton Beer Mats</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site vacant</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR16</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.22</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Derby Street Auction Rooms</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site vacant (P/2011/00272/MB - 2011 Application for the erection of a 61 bedroomed residential nursing home (Class C2) , never implemented)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR17</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.1</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>60-62 Queen Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site currently occupied (OU/06274/014 - 2007 Application for Outline application for residential development including means of access, never implemented)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR18</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.87</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>not permissioned</td>
+                    <td>Uttoxeter Highways Depot</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site historically a SHLAA site - Site could become vacant as new recycling centre now open (P/2010/01298/JPM - 2010 Application for the erection of upto 30 dwellings, never implemented). Outline application for the erection of up-to 30 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR19</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.13</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-30</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>132 Derby Street Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Conversion of existing buildings to form 8 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR20</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.1</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-30</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>36 Derby Road Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Erection of 7 dwellings and conversion and extension of existing building to form 3 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR21</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.91</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-24</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Proposed Residential Development Victoria Crescent</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Under Construction but no residential completions on site yet. Demolition of existing warehouse building, storage tanks and electricity sub-station to facilitate the erection of 47 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR22</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.02</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>43 High Street Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Under Construction but no residential completions on site yet</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR23</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>The Refinery</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Under Construction but no residential completions on site yet</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR24</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.09</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-05-16</td>
+                    <td>other</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Britannia House</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Change of use of first floor offices (Class B1a) to form six flats (Class C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR25</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-14</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>146 and 146A Horninglow Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Conversion of existing building to 2 self contained flats and the erection of 3 self contained flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR26</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.1</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-14</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>The Appleby Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Demolition of part of existing public house to facilitate the conversion to form 6 self contained flats and erection of a detached building to form 3 self contained flats to rear</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR27</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.14</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-01</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>126 New Street Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Conversion of the first, second and third floors to form seven self contained apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR28</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.07</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-21</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>The Old Sunday School Burton</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Conversion of the rear section of Old Sunday School to a 12 unit House in Multiple Occupation (HMO) (Class C4) and provision of cycle shelter and bin store</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR29</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.38</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-08</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Rear of 143 Horninglow Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Conversion and alterations to the Plough Maltings to form 32 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR30</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.2</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Rear of 38-54 Bridge Street</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Under Construction but no residential completions on site yet</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR31</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.15</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-03</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Wellington Inn</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Erection of four detached bungalows and one detached dwelling</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR32</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.45</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-25</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Uttoxeter Household Waste Site</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Erection of 49 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR33</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.01</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-07</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Tutbury Mill Mews</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Conversion of existing first floor retail space and existing second/third floor apartment to form five self contained apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR34</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.56</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-29</td>
+                    <td>outline planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Howards Transport</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Outline application for residential purposes (up to 86 dwellings)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR35</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.09</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-15</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Proposed Residential Development Phase 1 Rose Cottage Gardens</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Demolition of existing garages to facilitate the erection of 5 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR36</td>
+                    <td></td>
+                    <td></td>
+                    <td>3.42</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-05-16</td>
+                    <td>outline planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Model Dairy Farm</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced - Reserved Matters application submitted May 2017. Outline application to develop land by the erection of up to 84 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR37</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.17</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-11-11</td>
+                    <td>full planning permission</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Land adjacent to Eastfield Uttoxeter</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced. Erection of a detached building to form 24 sheltered accommodation apartments for the elderly with 1 apartment for warden accommodation</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ESBC-BR38</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.63</td>
+                    <td>2017-09-29</td>
+                    <td>2017-09-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-07</td>
+                    <td>reserved matters approval</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals</td>
+                    <td>permissioned</td>
+                    <td>Eyes Farm Bungalow</td>
+                    <td>http://www.eaststaffsbc.gov.uk/planning/planning-policy</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site included in the Housing Permissions  - Not yet commenced - Reserved Matters application approved 07/04/2017. Reserved matters for the erection of 16 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Suitable Brownfield Site taken from the SHLAA (SHLAA 26)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Short Street Community Infants School", "SiteReference": "ESBC-BR1", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 9.08, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Suitable Brownfield Site taken from the SHLAA  (SHLAA 71) and also Allocated in the Adopted Local Plan 2012-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Coors Middle Yard", "SiteReference": "ESBC-BR2", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.91, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Coors High Street", "SiteReference": "ESBC-BR3", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.64, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031 - Application due to be submitted summer 2017", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Bargates", "SiteReference": "ESBC-BR4", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 19.27, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031 - Resolution to approve 27/08/2013 subject to S106 legal agreement. Outline planning application for up to 483 dwellings (excluding conversion)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "pending decision", "SiteNameAddress": "Branston Depot", "SiteReference": "ESBC-BR5", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 8.09, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Derby Road Burton", "SiteReference": "ESBC-BR6", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 6.75, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031 - Residential Part of the Site Not Started, Retail Part complete (Outline Planning permission granted 09/08/2013). Application under Section 73 of the Town and Country Planning Act 1990 for an outline application for a mixed use development including the erection of a maximum of 257 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-03", "PermissionType": "other", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "JCB Pinfold Street", "SiteReference": "ESBC-BR7", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 4.4, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031 - Resolution to Approve \u2013 22/09/2015  subject to S106 legal agreement. Outline application for a mixed use development for up to 90 residential dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "pending decision", "SiteNameAddress": "Brookside Business Park", "SiteReference": "ESBC-BR8", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site Allocated in the Adopted Local Plan 2012-2031  (only part of the allocated site is Brownfield so the site area has been amended to reflect this) - Applications totalling 90 units submitted in May 2017 to the LPA.. Erection of 70 new dwellings and demolition of all existing buildings and erection of 20 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "other", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Churnet Farm Rocester", "SiteReference": "ESBC-BR9", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 4.25, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site, removed as was being retained for employment use (i.e.: Tesco Store). Residential application with LPA awaiting determination (P/2016/01847). Erection of 204 dwellings, comprising 100 no. affordable dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "pending decision", "SiteNameAddress": "Former Alumasc Grundy Ltd Hawkins Lane", "SiteReference": "ESBC-BR10", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Resolution to Approve \u2013 17/01/2017  subject to S106 legal agreement. Outline application for the erection of up to 14 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "pending decision", "SiteNameAddress": "Land to the rear of 2 Harbury Street", "SiteReference": "ESBC-BR11", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.21, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site not fully occupied", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Imex Business Park", "SiteReference": "ESBC-BR12", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site vacant, Extention to time limit application for dwellings never implemented (Full Application approved 19/01/2010 - PA/00560/068/CLF). Erection of 12 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Mead Works 137-139 Horninglow Street", "SiteReference": "ESBC-BR13", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site vacant (PA/07932/027 - 2006 Application for the conversion of the Goat Maltings to 60 apartments , never implemented). Conversion of the Goat Maltings building to form 60 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Goat Maltings", "SiteReference": "ESBC-BR14", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site vacant", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Burton Beer Mats", "SiteReference": "ESBC-BR15", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site vacant (P/2011/00272/MB - 2011 Application for the erection of a 61 bedroomed residential nursing home (Class C2) , never implemented)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Derby Street Auction Rooms", "SiteReference": "ESBC-BR16", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site currently occupied (OU/06274/014 - 2007 Application for Outline application for residential development including means of access, never implemented)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "60-62 Queen Street", "SiteReference": "ESBC-BR17", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.87, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site historically a SHLAA site - Site could become vacant as new recycling centre now open (P/2010/01298/JPM - 2010 Application for the erection of upto 30 dwellings, never implemented). Outline application for the erection of up-to 30 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "not permissioned", "SiteNameAddress": "Uttoxeter Highways Depot", "SiteReference": "ESBC-BR18", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Conversion of existing buildings to form 8 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-30", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "132 Derby Street Burton", "SiteReference": "ESBC-BR19", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Erection of 7 dwellings and conversion and extension of existing building to form 3 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-30", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "36 Derby Road Burton", "SiteReference": "ESBC-BR20", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.91, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Under Construction but no residential completions on site yet. Demolition of existing warehouse building, storage tanks and electricity sub-station to facilitate the erection of 47 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-24", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Proposed Residential Development Victoria Crescent", "SiteReference": "ESBC-BR21", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Under Construction but no residential completions on site yet", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "43 High Street Burton", "SiteReference": "ESBC-BR22", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Under Construction but no residential completions on site yet", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "The Refinery", "SiteReference": "ESBC-BR23", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Change of use of first floor offices (Class B1a) to form six flats (Class C3)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-05-16", "PermissionType": "other", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Britannia House", "SiteReference": "ESBC-BR24", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Conversion of existing building to 2 self contained flats and the erection of 3 self contained flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-14", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "146 and 146A Horninglow Street", "SiteReference": "ESBC-BR25", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Demolition of part of existing public house to facilitate the conversion to form 6 self contained flats and erection of a detached building to form 3 self contained flats to rear", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-14", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "The Appleby Burton", "SiteReference": "ESBC-BR26", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Conversion of the first, second and third floors to form seven self contained apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-01", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "126 New Street Burton", "SiteReference": "ESBC-BR27", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Conversion of the rear section of Old Sunday School to a 12 unit House in Multiple Occupation (HMO) (Class C4) and provision of cycle shelter and bin store", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-21", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Sunday School Burton", "SiteReference": "ESBC-BR28", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Conversion and alterations to the Plough Maltings to form 32 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-08", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 143 Horninglow Street", "SiteReference": "ESBC-BR29", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Under Construction but no residential completions on site yet", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 38-54 Bridge Street", "SiteReference": "ESBC-BR30", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Erection of four detached bungalows and one detached dwelling", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-03", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Wellington Inn", "SiteReference": "ESBC-BR31", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.45, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Erection of 49 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-25", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Uttoxeter Household Waste Site", "SiteReference": "ESBC-BR32", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Conversion of existing first floor retail space and existing second/third floor apartment to form five self contained apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-07", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Tutbury Mill Mews", "SiteReference": "ESBC-BR33", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.56, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Outline application for residential purposes (up to 86 dwellings)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-29", "PermissionType": "outline planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Howards Transport", "SiteReference": "ESBC-BR34", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Demolition of existing garages to facilitate the erection of 5 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-15", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Proposed Residential Development Phase 1 Rose Cottage Gardens", "SiteReference": "ESBC-BR35", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 3.42, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced - Reserved Matters application submitted May 2017. Outline application to develop land by the erection of up to 84 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-05-16", "PermissionType": "outline planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Model Dairy Farm", "SiteReference": "ESBC-BR36", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced. Erection of a detached building to form 24 sheltered accommodation apartments for the elderly with 1 apartment for warden accommodation", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-11-11", "PermissionType": "full planning permission", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent to Eastfield Uttoxeter", "SiteReference": "ESBC-BR37", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-09-29", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2017-09-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site included in the Housing Permissions  - Not yet commenced - Reserved Matters application approved 07/04/2017. Reserved matters for the erection of 16 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-07", "PermissionType": "reserved matters approval", "PlanningHistory": "http://www.eaststaffsbc.gov.uk/planning/applications-and-decisions/applications-and-appeals", "PlanningStatus": "permissioned", "SiteNameAddress": "Eyes Farm Bungalow", "SiteReference": "ESBC-BR38", "SiteplanURL": "http://www.eaststaffsbc.gov.uk/planning/planning-policy"}];
+    const bbox = [NaN, NaN, NaN, NaN];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

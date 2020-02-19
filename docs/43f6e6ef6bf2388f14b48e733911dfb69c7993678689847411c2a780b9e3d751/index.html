@@ -1,0 +1,2741 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">43f6e6ef...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.efdclocalplan.org/wp-content/uploads/2018/03/Brownfield-Register.xlsx">http://www.efdclocalplan.org/wp-content/uploads/2018/03/Brownfield-Register.xlsx</a>
+        </dd>
+    </dl>
+    <a href="http://www.efdclocalplan.org/brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:EPP">Epping Forest District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/43f6e6ef6bf2388f14b48e733911dfb69c7993678689847411c2a780b9e3d751/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/43f6e6ef6bf2388f14b48e733911dfb69c7993678689847411c2a780b9e3d751">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">91 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">67.10
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>91</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/43f6e6ef6bf2388f14b48e733911dfb69c7993678689847411c2a780b9e3d751.csv"
+        download="43f6e6ef6bf2388f14b48e733911dfb69c7993678689847411c2a780b9e3d751_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/43f6e6ef6bf2388f14b48e733911dfb69c7993678689847411c2a780b9e3d751"
+        download="43f6e6ef6bf2388f14b48e733911dfb69c7993678689847411c2a780b9e3d751_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR001</td>
+                    <td>0.046509</td>
+                    <td>51.630069</td>
+                    <td>0.84</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>St. Just 1 Powell Road Buckhurst Hill IG9 5RF</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR002</td>
+                    <td>0.047611</td>
+                    <td>51.624394</td>
+                    <td>0.43</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lower Car Park, Queens Road Buckhurst Hill IG9 5BZ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR003</td>
+                    <td>0.047735</td>
+                    <td>51.624895</td>
+                    <td>0.3</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>2-7 Lower Queens Road Buckhurst Hill IG9 6DL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR004</td>
+                    <td>0.106594</td>
+                    <td>51.620185</td>
+                    <td>0.62</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Grove Lane Chigwell IG7 6JF</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR005</td>
+                    <td>0.103543</td>
+                    <td>51.616696</td>
+                    <td>1.32</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Woodview Lambourne Road Chigwell IG7 6HX</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR006</td>
+                    <td>0.068519</td>
+                    <td>51.613632</td>
+                    <td>1.66</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>245 High Road Chigwell IG7 5BL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR007</td>
+                    <td>0.063068</td>
+                    <td>51.610329</td>
+                    <td>1.67</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>801-803 Chigwell Road Woodford Bridge IG8 8AU</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR008</td>
+                    <td>0.080392</td>
+                    <td>51.623422</td>
+                    <td>0.42</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Grange Court 72 High Road Chigwell IG7 6PT</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR009</td>
+                    <td>0.113498</td>
+                    <td>51.619854</td>
+                    <td>0.21</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Maypole 171 Lambourne Road Chigwell IG7 6EF</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR010</td>
+                    <td>0.087547</td>
+                    <td>51.60807</td>
+                    <td>22.59</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Limes Estate Chigwell IG7 5LP</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR011</td>
+                    <td>0.081644</td>
+                    <td>51.610369</td>
+                    <td>0.07</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>105 Manor Road Chigwell IG7 5PN</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR012</td>
+                    <td>0.081787</td>
+                    <td>51.611617</td>
+                    <td>0.17</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>146 Hainault Road Chigwell IG7 5DL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR013</td>
+                    <td>0.246665</td>
+                    <td>51.696418</td>
+                    <td>0.28</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Stag Pub Brentwood Road Ongar CM5 9DH</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR014</td>
+                    <td>0.135993</td>
+                    <td>51.705353</td>
+                    <td>0.16</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>28-91 Parklands Coopersale CM16 7RE</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR015</td>
+                    <td>0.113623</td>
+                    <td>51.69369</td>
+                    <td>1.6</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Epping Station Epping CM16 4HW</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR016</td>
+                    <td>0.112383</td>
+                    <td>51.697813</td>
+                    <td>1.49</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at St John Road Epping CM16 5DU</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR017</td>
+                    <td>0.109622</td>
+                    <td>51.696019</td>
+                    <td>0.43</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>25 Hemnall Street Epping CM16 4LU</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR018</td>
+                    <td>0.110897</td>
+                    <td>51.700412</td>
+                    <td>0.56</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Cottis Lane Epping CM16 4BL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR019</td>
+                    <td>0.109418</td>
+                    <td>51.700348</td>
+                    <td>0.42</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Park Bakers Lane Epping CM16 5</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR020</td>
+                    <td>0.114069</td>
+                    <td>51.701389</td>
+                    <td>0.66</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Civic Offices 323 High Street Epping CM16 4BX</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR021</td>
+                    <td>0.113708</td>
+                    <td>51.692708</td>
+                    <td>0.4</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>17 Bower Vale Epping CM16 7AS</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR022</td>
+                    <td>0.113031</td>
+                    <td>51.700868</td>
+                    <td>0.05</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>287-291 High Street Epping CM16 4DA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR023</td>
+                    <td>0.109721</td>
+                    <td>51.699084</td>
+                    <td>0.13</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Epping Library St Johns Road Epping CM16 5DN</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR024</td>
+                    <td>0.265976</td>
+                    <td>51.737953</td>
+                    <td>0.81</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Gypsy Mead Ongar Road Fyfield CM5 0RB</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR025</td>
+                    <td>0.054102</td>
+                    <td>51.641115</td>
+                    <td>1.62</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Loughton Station Car Park Station Road Loughton IG10 4NZ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR026</td>
+                    <td>0.083786</td>
+                    <td>51.64578</td>
+                    <td>1.66</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Debden Station Car Park Chigwell Lane Loughton IG10 3TG</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR027</td>
+                    <td>0.084291</td>
+                    <td>51.648604</td>
+                    <td>0.18</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Vere Road Loughton IG10 3S</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR028</td>
+                    <td>0.058857</td>
+                    <td>51.649089</td>
+                    <td>0.26</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Loughton Library Traps Hill Loughton IG10 1HD</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR029</td>
+                    <td>0.056127</td>
+                    <td>51.64946</td>
+                    <td>0.18</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Park, High Road, Loughton</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR030</td>
+                    <td>0.07544</td>
+                    <td>51.6485</td>
+                    <td>1.02</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Epping Forest College Borders Lane Loughton IG10 3SA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR031</td>
+                    <td>0.054541</td>
+                    <td>51.643463</td>
+                    <td>0.14</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>46-48 Station Road Loughton IG10 4NX</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR032</td>
+                    <td>0.057268</td>
+                    <td>51.641761</td>
+                    <td>0.19</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Electricity Substation Roding Road Loughton IG10 3ED</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR033</td>
+                    <td>0.072785</td>
+                    <td>51.653367</td>
+                    <td>0.26</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>63 Wellfields Loughton IG10 1PA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR034</td>
+                    <td>0.073795</td>
+                    <td>51.652998</td>
+                    <td>0.23</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>70 Wellfields Loughton IG10 1NY</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR035</td>
+                    <td>0.058355</td>
+                    <td>51.642794</td>
+                    <td>1.28</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>13 Alderton Hill Loughton IG10 3JD</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR036</td>
+                    <td>0.06634</td>
+                    <td>51.64866</td>
+                    <td>0.14</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>60 Traps Hill Loughton IG10 1TD</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR037</td>
+                    <td>0.088321</td>
+                    <td>51.658289</td>
+                    <td>0.5</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>St Thomas Moore Church 106 Willingale Road Loughton IG10 2DA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR038</td>
+                    <td>0.056962</td>
+                    <td>51.650336</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>268-278 High Road Loughton IG10 4BG</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR039</td>
+                    <td>0.052134</td>
+                    <td>51.646167</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>9-11 High Beech Road Loughton IG10 4BN</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR040</td>
+                    <td>0.133253</td>
+                    <td>51.752614</td>
+                    <td>0.38</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Avenue Home London Road, Latton Common, CM17 9NJ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR041</td>
+                    <td>0.32009</td>
+                    <td>51.710251</td>
+                    <td>1.95</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Norton Heath Riding Centre Fingrith Hall Lane High Ongar CM4 0JP</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR042</td>
+                    <td>0.782673</td>
+                    <td>51.728108</td>
+                    <td>0.86</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fencing Centre Pecks Hill Nazeing EN9 2NY</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR043</td>
+                    <td>0.041202</td>
+                    <td>51.765678</td>
+                    <td>1.36</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Kingsmead School Epping Road Roydon CM19 5HU</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR044</td>
+                    <td>0.113316</td>
+                    <td>51.693615</td>
+                    <td>0.3</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Theydon Bois London Underground Car Park Station Approach Theydon Bois CM16 7HR</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR045</td>
+                    <td>0.097243</td>
+                    <td>51.672401</td>
+                    <td>0.15</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Wain Coppice Row Theydon Bois CM16 7ER</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR046</td>
+                    <td>0.001592</td>
+                    <td>51.683711</td>
+                    <td>0.24</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fire Station Sewardstone Road Waltham Abbey EN9 1PA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR047</td>
+                    <td>0.001711</td>
+                    <td>51.689032</td>
+                    <td>0.51</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Waltham Abbey Community Centre Saxon Way Waltham Abbey EN9 1QD</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR048</td>
+                    <td>0.00733</td>
+                    <td>51.681284</td>
+                    <td>0.6</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Waltham Abbey Swimming Pool, Roundhills, Waltham Abbey, EN9 1UP</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR049</td>
+                    <td>0.007098</td>
+                    <td>51.673096</td>
+                    <td>0.65</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Pine Tree Nursery Avey Lane Waltham Abbey EN9 3QH</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR050</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.81</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Chase Farm Business Centre Vicarage Lane West North Weald CM16 6AL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR051</td>
+                    <td>0.072493</td>
+                    <td>51.642851</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land and Garages Chequers Road Site B, Loughton, Essex, IG10 3QF</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR052</td>
+                    <td>0.057881</td>
+                    <td>51.640949</td>
+                    <td>0.07</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Bridge House, Roding Road, Loughton, Essex, IG10 3ED</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR053</td>
+                    <td>0.012189</td>
+                    <td>51.732134</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Hillview St Leonards Road Nazeing Waltham Abbey Essex EN9 2HQ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR054</td>
+                    <td>0.244894</td>
+                    <td>51.706542</td>
+                    <td>0.3</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Central House, High Street, Ongar, Essex, CM5 9AA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR055</td>
+                    <td>0.007709</td>
+                    <td>51.67973</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Garages adj 92/94 Beechfield Walk Waltham Abbey Essex EN9 3AD</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR056</td>
+                    <td>0.081932</td>
+                    <td>51.645067</td>
+                    <td>0.15</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land and Garages Ladyfields Loughton Essex IG10 3RP</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR057</td>
+                    <td>0.012786</td>
+                    <td>51.735469</td>
+                    <td>0.077</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Total Service Station Nazeing Road Nazeing Essex EN9 2JL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR058</td>
+                    <td>0.030558</td>
+                    <td>51.737438</td>
+                    <td>0.45</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Burleigh Nursery Hoe Lane Nazeing Essex EN9 2RJ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR059</td>
+                    <td>-0.005253</td>
+                    <td>51.65863</td>
+                    <td>0.28</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rylston, Sewardstone Road, Waltham Abbey, Essex, E4 7RF</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR060</td>
+                    <td>0.074751</td>
+                    <td>51.653359</td>
+                    <td>0.02</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>94 Lawton Road, Loughton, Essex, IG10 2AA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR061</td>
+                    <td>0.054844</td>
+                    <td>51.646965</td>
+                    <td>0.06</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Mackays Stores Ltd, 213-215 High Road, Loughton, Essex, IG10 1BB</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR062</td>
+                    <td>0.073921</td>
+                    <td>51.65671</td>
+                    <td>0.214</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land r/o 33-37 Hillyfields Loughton Essex IG10 2PT</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR063</td>
+                    <td>0.088241</td>
+                    <td>51.673533</td>
+                    <td>0.15</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Sixteen String Jack Coppice Row Theydon Bois Epping Essex CM16 7DS</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR064</td>
+                    <td>0.021255</td>
+                    <td>51.681503</td>
+                    <td>0.46</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Cobmead Cobmead Honey Lane Waltham Abbey Essex EN9 3BA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR065</td>
+                    <td>0.104392</td>
+                    <td>51.620053</td>
+                    <td>0.62</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Paddock Grove Lane Chigwell Essex IG7 6JF</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR066</td>
+                    <td>0.048529</td>
+                    <td>51.641563</td>
+                    <td>0.098</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>89 High Road, Loughton, Essex, IG10 4JD</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR067</td>
+                    <td>0.054177</td>
+                    <td>51.646922</td>
+                    <td>0.091</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>188-194 High Road, Loughton, Essex, IG10 1DN</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR068</td>
+                    <td>0.05711</td>
+                    <td>51.650099</td>
+                    <td>0.13</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land to the rear of 268-278 High Road, Loughton, Essex, IG10 4BG</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR069</td>
+                    <td>0.167799</td>
+                    <td>51.71852</td>
+                    <td>0.31</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Garages behind 17 Queens Road, North Weald, Essex, CM16 6JE</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR070</td>
+                    <td>0.054177</td>
+                    <td>51.646922</td>
+                    <td>0.091</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>188-194 High Road, Loughton, Essex, IG10 1DN</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR071</td>
+                    <td>0.036523</td>
+                    <td>51.743189</td>
+                    <td>1.3</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Stoneshot Farm, Hoe Lane, Nazeing, Essex, EN9 2RW</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR072</td>
+                    <td>0.162024</td>
+                    <td>51.731001</td>
+                    <td>0.195</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>North Weald Golf Club, Rayley Lane, North Weald, Essex, CM16 6AR</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR073</td>
+                    <td>0.055471</td>
+                    <td>51.752148</td>
+                    <td>4.0</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Barnfield Epping Road Roydon Essex CM19 5DW</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR074</td>
+                    <td>-0.009593</td>
+                    <td>51.737055</td>
+                    <td>1.5</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Chimes Garden Centre, Old Nazeing Road, Nazeing, Waltham Abbey, Essex, EN10 6RJ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR075</td>
+                    <td>0.075981</td>
+                    <td>51.656548</td>
+                    <td>0.098</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Pyrles Lane Nursery, Pyrles Lane, Loughton, Essex, IG10 2NL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR076</td>
+                    <td>0.087359</td>
+                    <td>51.644889</td>
+                    <td>0.97</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Sterling House Langston Road Loughton Essex IG10 3TS</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR077</td>
+                    <td>0.050995</td>
+                    <td>51.649127</td>
+                    <td>0.14</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Royal Oak, Forest Road, Loughton, Essex, IG10 1EG</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR078</td>
+                    <td>0.041542</td>
+                    <td>51.626937</td>
+                    <td>0.083</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>32 Palmerston Road, Buckhurst Hill, Essex, IG9 5LW</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR079</td>
+                    <td>0.081986</td>
+                    <td>51.611218</td>
+                    <td>0.15</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>126 Manor Road, Chigwell, Essex, IG7 5PR</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR080</td>
+                    <td>0.086026</td>
+                    <td>51.612081</td>
+                    <td>0.099</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>160 Manor Road, Chigwell, Essex, IG7 5PX</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR081</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.048</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2 and 3 Sewardstone Road, Waltham Abbey, Essex, EN9 1NA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR082</td>
+                    <td>0.054109</td>
+                    <td>51.632634</td>
+                    <td>0.09</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Adj Garage Block, Pentlow Way, Buckhurst Hill, Essex, IG9 6BZ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR083</td>
+                    <td>0.050825</td>
+                    <td>51.645048</td>
+                    <td>0.074</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2 Connaught Avenue, Loughton, Essex, IG10 4DP</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR084</td>
+                    <td>0.070506</td>
+                    <td>51.614136</td>
+                    <td>0.264</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Woodlands, 152 High Road, Chigwell, Essex, IG7 5BQ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR085</td>
+                    <td>0.01943</td>
+                    <td>51.653164</td>
+                    <td>0.38</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Pine Lodge Riding Centre, Lippitts Hill, Loughton, Essex, IG10 4AL</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR086</td>
+                    <td>0.118106</td>
+                    <td>51.650849</td>
+                    <td>0.04</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Retreat, Market Place, Abridge, Essex, RM4 1AU</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR087</td>
+                    <td>0.127741</td>
+                    <td>51.734306</td>
+                    <td>0.297</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Herb Farm Granaries, London Road, Hastingwood, Essex, CM17 9LH</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR088</td>
+                    <td>0.000356</td>
+                    <td>51.685197</td>
+                    <td>0.12</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land and Garages, Woollard Street, Waltham Abbey, Essex, EN9 1HE</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR089</td>
+                    <td>0.029907</td>
+                    <td>51.73842</td>
+                    <td>0.413</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Burleigh Lodge, Hoe Lane, Nazeing, Essex, EN9 2RJ</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR090</td>
+                    <td>0.065337</td>
+                    <td>51.654586</td>
+                    <td>0.02</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>111 Church Hill Loughton IG10 4BE</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR091</td>
+                    <td>0.088517</td>
+                    <td>51.639581</td>
+                    <td>0.04</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/epping-forest</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>1 Spring Grove Loughton IG10 4QA</td>
+                    <td>http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.046509, "GeoY": 51.630069, "HazardousSubstances": null, "Hectares": 0.84, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "St. Just 1 Powell Road Buckhurst Hill IG9 5RF", "SiteReference": "BR001", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.047611, "GeoY": 51.624394, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lower Car Park, Queens Road Buckhurst Hill IG9 5BZ", "SiteReference": "BR002", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.047735, "GeoY": 51.624895, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "2-7 Lower Queens Road Buckhurst Hill IG9 6DL", "SiteReference": "BR003", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.106594, "GeoY": 51.620185, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Grove Lane Chigwell IG7 6JF", "SiteReference": "BR004", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.103543, "GeoY": 51.616696, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Woodview Lambourne Road Chigwell IG7 6HX", "SiteReference": "BR005", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.068519, "GeoY": 51.613632, "HazardousSubstances": null, "Hectares": 1.66, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "245 High Road Chigwell IG7 5BL", "SiteReference": "BR006", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.063068, "GeoY": 51.610329, "HazardousSubstances": null, "Hectares": 1.67, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "801-803 Chigwell Road Woodford Bridge IG8 8AU", "SiteReference": "BR007", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.080392, "GeoY": 51.623422, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Grange Court 72 High Road Chigwell IG7 6PT", "SiteReference": "BR008", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.113498, "GeoY": 51.619854, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Maypole 171 Lambourne Road Chigwell IG7 6EF", "SiteReference": "BR009", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.087547, "GeoY": 51.60807, "HazardousSubstances": null, "Hectares": 22.59, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Limes Estate Chigwell IG7 5LP", "SiteReference": "BR010", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.081644, "GeoY": 51.610369, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "105 Manor Road Chigwell IG7 5PN", "SiteReference": "BR011", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.081787, "GeoY": 51.611617, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "146 Hainault Road Chigwell IG7 5DL", "SiteReference": "BR012", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.246665, "GeoY": 51.696418, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Stag Pub Brentwood Road Ongar CM5 9DH", "SiteReference": "BR013", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.135993, "GeoY": 51.705353, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "28-91 Parklands Coopersale CM16 7RE", "SiteReference": "BR014", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.113623, "GeoY": 51.69369, "HazardousSubstances": null, "Hectares": 1.6, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Epping Station Epping CM16 4HW", "SiteReference": "BR015", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.112383, "GeoY": 51.697813, "HazardousSubstances": null, "Hectares": 1.49, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at St John Road Epping CM16 5DU", "SiteReference": "BR016", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.109622, "GeoY": 51.696019, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "25 Hemnall Street Epping CM16 4LU", "SiteReference": "BR017", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.110897, "GeoY": 51.700412, "HazardousSubstances": null, "Hectares": 0.56, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Cottis Lane Epping CM16 4BL", "SiteReference": "BR018", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.109418, "GeoY": 51.700348, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Park Bakers Lane Epping CM16 5", "SiteReference": "BR019", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.114069, "GeoY": 51.701389, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Civic Offices 323 High Street Epping CM16 4BX", "SiteReference": "BR020", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.113708, "GeoY": 51.692708, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "17 Bower Vale Epping CM16 7AS", "SiteReference": "BR021", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.113031, "GeoY": 51.700868, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "287-291 High Street Epping CM16 4DA", "SiteReference": "BR022", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.109721, "GeoY": 51.699084, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Epping Library St Johns Road Epping CM16 5DN", "SiteReference": "BR023", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.265976, "GeoY": 51.737953, "HazardousSubstances": null, "Hectares": 0.81, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Gypsy Mead Ongar Road Fyfield CM5 0RB", "SiteReference": "BR024", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.054102, "GeoY": 51.641115, "HazardousSubstances": null, "Hectares": 1.62, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Loughton Station Car Park Station Road Loughton IG10 4NZ", "SiteReference": "BR025", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.083786, "GeoY": 51.64578, "HazardousSubstances": null, "Hectares": 1.66, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Debden Station Car Park Chigwell Lane Loughton IG10 3TG", "SiteReference": "BR026", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.084291, "GeoY": 51.648604, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Vere Road Loughton IG10 3S", "SiteReference": "BR027", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.058857, "GeoY": 51.649089, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Loughton Library Traps Hill Loughton IG10 1HD", "SiteReference": "BR028", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.056127, "GeoY": 51.64946, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Park, High Road, Loughton", "SiteReference": "BR029", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.07544, "GeoY": 51.6485, "HazardousSubstances": null, "Hectares": 1.02, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Epping Forest College Borders Lane Loughton IG10 3SA", "SiteReference": "BR030", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.054541, "GeoY": 51.643463, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "46-48 Station Road Loughton IG10 4NX", "SiteReference": "BR031", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.057268, "GeoY": 51.641761, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Electricity Substation Roding Road Loughton IG10 3ED", "SiteReference": "BR032", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.072785, "GeoY": 51.653367, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "63 Wellfields Loughton IG10 1PA", "SiteReference": "BR033", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.073795, "GeoY": 51.652998, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "70 Wellfields Loughton IG10 1NY", "SiteReference": "BR034", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.058355, "GeoY": 51.642794, "HazardousSubstances": null, "Hectares": 1.28, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "13 Alderton Hill Loughton IG10 3JD", "SiteReference": "BR035", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.06634, "GeoY": 51.64866, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "60 Traps Hill Loughton IG10 1TD", "SiteReference": "BR036", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.088321, "GeoY": 51.658289, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "St Thomas Moore Church 106 Willingale Road Loughton IG10 2DA", "SiteReference": "BR037", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.056962, "GeoY": 51.650336, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "268-278 High Road Loughton IG10 4BG", "SiteReference": "BR038", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.052134, "GeoY": 51.646167, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "9-11 High Beech Road Loughton IG10 4BN", "SiteReference": "BR039", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.133253, "GeoY": 51.752614, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Avenue Home London Road, Latton Common, CM17 9NJ", "SiteReference": "BR040", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.32009, "GeoY": 51.710251, "HazardousSubstances": null, "Hectares": 1.95, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Norton Heath Riding Centre Fingrith Hall Lane High Ongar CM4 0JP", "SiteReference": "BR041", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.782673, "GeoY": 51.728108, "HazardousSubstances": null, "Hectares": 0.86, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fencing Centre Pecks Hill Nazeing EN9 2NY", "SiteReference": "BR042", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.041202, "GeoY": 51.765678, "HazardousSubstances": null, "Hectares": 1.36, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Kingsmead School Epping Road Roydon CM19 5HU", "SiteReference": "BR043", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.113316, "GeoY": 51.693615, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Theydon Bois London Underground Car Park Station Approach Theydon Bois CM16 7HR", "SiteReference": "BR044", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.097243, "GeoY": 51.672401, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Wain Coppice Row Theydon Bois CM16 7ER", "SiteReference": "BR045", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.001592, "GeoY": 51.683711, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fire Station Sewardstone Road Waltham Abbey EN9 1PA", "SiteReference": "BR046", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.001711, "GeoY": 51.689032, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Waltham Abbey Community Centre Saxon Way Waltham Abbey EN9 1QD", "SiteReference": "BR047", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.00733, "GeoY": 51.681284, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Waltham Abbey Swimming Pool, Roundhills, Waltham Abbey, EN9 1UP", "SiteReference": "BR048", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.007098, "GeoY": 51.673096, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Pine Tree Nursery Avey Lane Waltham Abbey EN9 3QH", "SiteReference": "BR049", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.81, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Chase Farm Business Centre Vicarage Lane West North Weald CM16 6AL", "SiteReference": "BR050", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.072493, "GeoY": 51.642851, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land and Garages Chequers Road Site B, Loughton, Essex, IG10 3QF", "SiteReference": "BR051", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.057881, "GeoY": 51.640949, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Bridge House, Roding Road, Loughton, Essex, IG10 3ED", "SiteReference": "BR052", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.012189, "GeoY": 51.732134, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Hillview St Leonards Road Nazeing Waltham Abbey Essex EN9 2HQ", "SiteReference": "BR053", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.244894, "GeoY": 51.706542, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Central House, High Street, Ongar, Essex, CM5 9AA", "SiteReference": "BR054", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.007709, "GeoY": 51.67973, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Garages adj 92/94 Beechfield Walk Waltham Abbey Essex EN9 3AD", "SiteReference": "BR055", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.081932, "GeoY": 51.645067, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land and Garages Ladyfields Loughton Essex IG10 3RP", "SiteReference": "BR056", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.012786, "GeoY": 51.735469, "HazardousSubstances": null, "Hectares": 0.077, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Total Service Station Nazeing Road Nazeing Essex EN9 2JL", "SiteReference": "BR057", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.030558, "GeoY": 51.737438, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Burleigh Nursery Hoe Lane Nazeing Essex EN9 2RJ", "SiteReference": "BR058", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.005253, "GeoY": 51.65863, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rylston, Sewardstone Road, Waltham Abbey, Essex, E4 7RF", "SiteReference": "BR059", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.074751, "GeoY": 51.653359, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "94 Lawton Road, Loughton, Essex, IG10 2AA", "SiteReference": "BR060", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.054844, "GeoY": 51.646965, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Mackays Stores Ltd, 213-215 High Road, Loughton, Essex, IG10 1BB", "SiteReference": "BR061", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.073921, "GeoY": 51.65671, "HazardousSubstances": null, "Hectares": 0.214, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land r/o 33-37 Hillyfields Loughton Essex IG10 2PT", "SiteReference": "BR062", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.088241, "GeoY": 51.673533, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Sixteen String Jack Coppice Row Theydon Bois Epping Essex CM16 7DS", "SiteReference": "BR063", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.021255, "GeoY": 51.681503, "HazardousSubstances": null, "Hectares": 0.46, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Cobmead Cobmead Honey Lane Waltham Abbey Essex EN9 3BA", "SiteReference": "BR064", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.104392, "GeoY": 51.620053, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Paddock Grove Lane Chigwell Essex IG7 6JF", "SiteReference": "BR065", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.048529, "GeoY": 51.641563, "HazardousSubstances": null, "Hectares": 0.098, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "89 High Road, Loughton, Essex, IG10 4JD", "SiteReference": "BR066", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.054177, "GeoY": 51.646922, "HazardousSubstances": null, "Hectares": 0.091, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "188-194 High Road, Loughton, Essex, IG10 1DN", "SiteReference": "BR067", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.05711, "GeoY": 51.650099, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land to the rear of 268-278 High Road, Loughton, Essex, IG10 4BG", "SiteReference": "BR068", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.167799, "GeoY": 51.71852, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Garages behind 17 Queens Road, North Weald, Essex, CM16 6JE", "SiteReference": "BR069", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.054177, "GeoY": 51.646922, "HazardousSubstances": null, "Hectares": 0.091, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "188-194 High Road, Loughton, Essex, IG10 1DN", "SiteReference": "BR070", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.036523, "GeoY": 51.743189, "HazardousSubstances": null, "Hectares": 1.3, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Stoneshot Farm, Hoe Lane, Nazeing, Essex, EN9 2RW", "SiteReference": "BR071", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.162024, "GeoY": 51.731001, "HazardousSubstances": null, "Hectares": 0.195, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "North Weald Golf Club, Rayley Lane, North Weald, Essex, CM16 6AR", "SiteReference": "BR072", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.055471, "GeoY": 51.752148, "HazardousSubstances": null, "Hectares": 4.0, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Barnfield Epping Road Roydon Essex CM19 5DW", "SiteReference": "BR073", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -0.009593, "GeoY": 51.737055, "HazardousSubstances": null, "Hectares": 1.5, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Chimes Garden Centre, Old Nazeing Road, Nazeing, Waltham Abbey, Essex, EN10 6RJ", "SiteReference": "BR074", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.075981, "GeoY": 51.656548, "HazardousSubstances": null, "Hectares": 0.098, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Pyrles Lane Nursery, Pyrles Lane, Loughton, Essex, IG10 2NL", "SiteReference": "BR075", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.087359, "GeoY": 51.644889, "HazardousSubstances": null, "Hectares": 0.97, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Sterling House Langston Road Loughton Essex IG10 3TS", "SiteReference": "BR076", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.050995, "GeoY": 51.649127, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Royal Oak, Forest Road, Loughton, Essex, IG10 1EG", "SiteReference": "BR077", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.041542, "GeoY": 51.626937, "HazardousSubstances": null, "Hectares": 0.083, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "32 Palmerston Road, Buckhurst Hill, Essex, IG9 5LW", "SiteReference": "BR078", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.081986, "GeoY": 51.611218, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "126 Manor Road, Chigwell, Essex, IG7 5PR", "SiteReference": "BR079", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.086026, "GeoY": 51.612081, "HazardousSubstances": null, "Hectares": 0.099, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "160 Manor Road, Chigwell, Essex, IG7 5PX", "SiteReference": "BR080", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.048, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2 and 3 Sewardstone Road, Waltham Abbey, Essex, EN9 1NA", "SiteReference": "BR081", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.054109, "GeoY": 51.632634, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Adj Garage Block, Pentlow Way, Buckhurst Hill, Essex, IG9 6BZ", "SiteReference": "BR082", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.050825, "GeoY": 51.645048, "HazardousSubstances": null, "Hectares": 0.074, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2 Connaught Avenue, Loughton, Essex, IG10 4DP", "SiteReference": "BR083", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.070506, "GeoY": 51.614136, "HazardousSubstances": null, "Hectares": 0.264, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Woodlands, 152 High Road, Chigwell, Essex, IG7 5BQ", "SiteReference": "BR084", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.01943, "GeoY": 51.653164, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Pine Lodge Riding Centre, Lippitts Hill, Loughton, Essex, IG10 4AL", "SiteReference": "BR085", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.118106, "GeoY": 51.650849, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Retreat, Market Place, Abridge, Essex, RM4 1AU", "SiteReference": "BR086", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.127741, "GeoY": 51.734306, "HazardousSubstances": null, "Hectares": 0.297, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Herb Farm Granaries, London Road, Hastingwood, Essex, CM17 9LH", "SiteReference": "BR087", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.000356, "GeoY": 51.685197, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land and Garages, Woollard Street, Waltham Abbey, Essex, EN9 1HE", "SiteReference": "BR088", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.029907, "GeoY": 51.73842, "HazardousSubstances": null, "Hectares": 0.413, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Burleigh Lodge, Hoe Lane, Nazeing, Essex, EN9 2RJ", "SiteReference": "BR089", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.065337, "GeoY": 51.654586, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "111 Church Hill Loughton IG10 4BE", "SiteReference": "BR090", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": 0.088517, "GeoY": 51.639581, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/epping-forest", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "1 Spring Grove Loughton IG10 4QA", "SiteReference": "BR091", "SiteplanURL": "http://efdc.maps.arcgis.com/apps/webappviewer/index.html?id=355f4a1a16db436a96e3b78f8d2e14cf"}];
+    const bbox = [-0.024057759596209413, 0.7971377595962094, 51.59908684341859, 51.77466115658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

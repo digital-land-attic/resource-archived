@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">6d411b3c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://open.barnet.gov.uk/download/brownfield-land-register/d449098a-44b8-47cb-96ab-45465b0a11e4/Brownfield%20Land%20Register%20-%20Barnet%202018.csv">https://open.barnet.gov.uk/download/brownfield-land-register/d449098a-44b8-47cb-96ab-45465b0a11e4/Brownfield%20Land%20Register%20-%20Barnet%202018.csv</a>
+        </dd>
+    </dl>
+    <a href="https://open.barnet.gov.uk/dataset/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BNE">London Borough of Barnet</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/6d411b3c1436ec3e10e4bf3a63bb96456e14e34790752fd72189885036108f45/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/6d411b3c1436ec3e10e4bf3a63bb96456e14e34790752fd72189885036108f45">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">83 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">242.20
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                18594</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                18594</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>83</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/6d411b3c1436ec3e10e4bf3a63bb96456e14e34790752fd72189885036108f45.csv"
+        download="6d411b3c1436ec3e10e4bf3a63bb96456e14e34790752fd72189885036108f45_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/6d411b3c1436ec3e10e4bf3a63bb96456e14e34790752fd72189885036108f45"
+        download="6d411b3c1436ec3e10e4bf3a63bb96456e14e34790752fd72189885036108f45_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>16/3377/FUL</td>
+                    <td>-0.15155</td>
+                    <td>51.629445</td>
+                    <td>0.09</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Garages off, Linden Road and Pine Road, Brunswick Park, N11 1ER</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/7101/FUL</td>
+                    <td>-0.137364</td>
+                    <td>51.634967</td>
+                    <td>2.01</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Sir Thomas Lipton Memorial Hospital, Osridge, 151, Chase Side, Brunswick Park, N14 5HE</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North London Business Park Planning Brief 2016</td>
+                    <td>-0.151803</td>
+                    <td>51.625913</td>
+                    <td>16.49</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>1000</td>
+                    <td>1000</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>North London Business Park</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/04442/FUL</td>
+                    <td>-0.260106</td>
+                    <td>51.595462</td>
+                    <td>0.41</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>81</td>
+                    <td>81</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Imperial House, The Hyde, Burnt Oak, NW9 5AL</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/05969/FUL</td>
+                    <td>-0.198711</td>
+                    <td>51.561228</td>
+                    <td>0.42</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Church Walk House, Church Walk, Childs Hill, NW2 2TJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/0601/FUL</td>
+                    <td>-0.209223</td>
+                    <td>51.559723</td>
+                    <td>0.64</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>122</td>
+                    <td>122</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>112-132, Cricklewood Lane, Childs Hill, NW2 2DP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/0233/FUL</td>
+                    <td>-0.215816</td>
+                    <td>51.557936</td>
+                    <td>0.86</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>97</td>
+                    <td>97</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>194-196, Cricklewood Broadway, Childs Hill, NW2 3EB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/2690/PNO</td>
+                    <td>-0.213045</td>
+                    <td>51.563097</td>
+                    <td>0.05</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>220, The Vale, Childs Hill, NW11 8SR</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/6222/FUL</td>
+                    <td>-0.253268</td>
+                    <td>51.589659</td>
+                    <td>1.64</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>34</td>
+                    <td>34</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Behind Sheaveshill Court, The Hyde, Colindale, NW9 6SJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/5534/PNO</td>
+                    <td>-0.245875</td>
+                    <td>51.583976</td>
+                    <td>1.01</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>220</td>
+                    <td>220</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Colindale Telephone Exchange, The Hyde, Colindale, NW9 6LB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Colindale AAP 2010</td>
+                    <td>-0.25501</td>
+                    <td>51.591038</td>
+                    <td>0.5</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>McDonalds Site, 157 Colindeep Lane</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Colindale AAP 2010</td>
+                    <td>-0.258575</td>
+                    <td>51.593726</td>
+                    <td>0.4</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Burger King/ Eyeland Site NW9 5EB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Colindale AAP 2010</td>
+                    <td>-0.228441</td>
+                    <td>51.589714</td>
+                    <td>2.66</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>190</td>
+                    <td>190</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Middlesex University Halls</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Colindale AAP 2010</td>
+                    <td>-0.258746</td>
+                    <td>51.59416</td>
+                    <td>1.0</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>180</td>
+                    <td>180</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Merit House, Edgware Road, NW9 5AB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Colindale AAP 2010</td>
+                    <td>-0.257853</td>
+                    <td>51.59296</td>
+                    <td>0.1</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>60</td>
+                    <td>60</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Kwik Fit, The Hyde</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/03551/14</td>
+                    <td>-0.242475</td>
+                    <td>51.603923</td>
+                    <td>5.46</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>396</td>
+                    <td>396</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Barnet And Southgate College, Grahame Park Way, Colindale, NW9 5RA</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/04753/14</td>
+                    <td>-0.243944</td>
+                    <td>51.593334</td>
+                    <td>20.36</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>2874</td>
+                    <td>2874</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Peel Centre, Peel Drive, Colindale, NW9 5JE</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/05828/14</td>
+                    <td>-0.245294</td>
+                    <td>51.584738</td>
+                    <td>2.45</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>387</td>
+                    <td>387</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Homebase, Rookery Way, Colindale, NW9 6SS</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/05833/14</td>
+                    <td>-0.251328</td>
+                    <td>51.593906</td>
+                    <td>0.26</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>35</td>
+                    <td>35</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>126, Colindale Avenue, Colindale, NW9 5HD</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>W00198AA/04</td>
+                    <td>-0.240273</td>
+                    <td>51.595597</td>
+                    <td>13.22</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>2800</td>
+                    <td>2800</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former RAF East Camp site, Aerodrome Road, Colindale, NW9</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>W01731JS/04</td>
+                    <td>-0.246305</td>
+                    <td>51.601484</td>
+                    <td>34.3</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>1663</td>
+                    <td>1663</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Grahame Park Estate, Lanacre Avenue, Colindale, NW9 5UP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/3262/FUL</td>
+                    <td>-0.158963</td>
+                    <td>51.652401</td>
+                    <td>0.23</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>106-128 and 27-37, Land Adjacent to, Mount Pleasant and Langford Road, East Barnet, EN4 9HG</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/02366/13</td>
+                    <td>-0.172409</td>
+                    <td>51.649323</td>
+                    <td>0.07</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>11-13, Approach Road, East Barnet, EN4 8FG</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/04834/14</td>
+                    <td>-0.17316</td>
+                    <td>51.652192</td>
+                    <td>2.52</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>305</td>
+                    <td>305</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Formerly Known As British Gas Works Albert Road, Albert Road, East Barnet, EN4 9SH</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>New Barnet Town Centre Framework 2010 - Site 3</td>
+                    <td>-0.171474</td>
+                    <td>51.64943</td>
+                    <td>1.02</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>65</td>
+                    <td>65</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Sainsburies, East Barnet Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/3252/FUL</td>
+                    <td>-0.175319</td>
+                    <td>51.589561</td>
+                    <td>0.17</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Elmshurst Crescent Garages, Adjacent to 90-100, Elmshurst Crescent, East Finchley, N2 0LR</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/1409/FUL</td>
+                    <td>-0.167178</td>
+                    <td>51.59221</td>
+                    <td>0.41</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>1-2, Land Adjacent to, Norfolk Close, East Finchley, N2 8ET</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/01294/PNO</td>
+                    <td>-0.277546</td>
+                    <td>51.611492</td>
+                    <td>0.02</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>42-46, Station Road, HA8 7ZZ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03137/FUL</td>
+                    <td>-0.274824</td>
+                    <td>51.629281</td>
+                    <td>3.12</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>112</td>
+                    <td>112</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land At Broadfields Primary School, Roseberry Drive, Edgware, HA8 8JP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/0112/FUL</td>
+                    <td>-0.276782</td>
+                    <td>51.612137</td>
+                    <td>0.63</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>122</td>
+                    <td>122</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>102-124 and Car park to Rear, Station Road, Edgware, HA8 7BJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/1065/FUL</td>
+                    <td>-0.269967</td>
+                    <td>51.621938</td>
+                    <td>0.17</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>80, The Grove, Edgware, HA8 9QB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Edgware Town Centre Framework 2013</td>
+                    <td>-0.278344</td>
+                    <td>51.61077</td>
+                    <td>1.0</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>240</td>
+                    <td>240</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Edgware Forumside</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/05563/14</td>
+                    <td>-0.279142</td>
+                    <td>51.621517</td>
+                    <td>0.08</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2, Ashcombe Gardens, Edgware, HA8 8HS</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/3250/FUL</td>
+                    <td>-0.189274</td>
+                    <td>51.593716</td>
+                    <td>0.28</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Between 98-108 and 182-192, Garages at Basing Way, Basing Way, Finchley Church End, N3 3BP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/3417/PNO</td>
+                    <td>-0.194833</td>
+                    <td>51.599393</td>
+                    <td>0.21</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>88</td>
+                    <td>88</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Dove House, Gadd House and Cooper House, Arcadia Avenue, N3 2JU</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/0047/PNO</td>
+                    <td>-0.195488</td>
+                    <td>51.599036</td>
+                    <td>0.71</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>130</td>
+                    <td>130</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>298-304, See DD for subdivision, Regents Park Road, N3 2SZ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>F/01413/13</td>
+                    <td>-0.196155</td>
+                    <td>51.57637</td>
+                    <td>0.04</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>R/O 698, Finchley Road, London, NW11 7NE</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>F/04857/14</td>
+                    <td>-0.170329</td>
+                    <td>51.577111</td>
+                    <td>1.67</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>38</td>
+                    <td>38</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Arden Court, 53, The Bishops Avenue, Garden Suburb, N2 0BJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>F/05720/14</td>
+                    <td>-0.170212</td>
+                    <td>51.579102</td>
+                    <td>0.49</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Dryades, The Bishops Avenue, Garden Suburb, N2 0BA</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/00720/RMA</td>
+                    <td>-0.221277</td>
+                    <td>51.567762</td>
+                    <td>0.86</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>-13</td>
+                    <td>-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Off Brent Terrace, The Brent Terrace Triangles, Golders Green, NW2 1DN</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/3806/FUL</td>
+                    <td>-0.209174</td>
+                    <td>51.58022</td>
+                    <td>0.42</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>60</td>
+                    <td>60</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>290-294, Golders Green Road, NW11 9PY</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/6662/RMA</td>
+                    <td>-0.221415</td>
+                    <td>51.571612</td>
+                    <td>0.77</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>160</td>
+                    <td>160</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Brent Cross, Cricklewood Regeneration Area, Golders Green, NW2</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>F/01932/11</td>
+                    <td>-0.223513</td>
+                    <td>51.565073</td>
+                    <td>1.7</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>230</td>
+                    <td>230</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Parcel Force Depot, Geron Way, Golders Green, NW2 6GJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03138/FUL</td>
+                    <td>-0.259067</td>
+                    <td>51.627299</td>
+                    <td>1.89</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>120</td>
+                    <td>120</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Adjacent Northway And Fairway Primary School, The Fairway, Hale, NW7 3HS</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/7594/FUL</td>
+                    <td>-0.261319</td>
+                    <td>51.614808</td>
+                    <td>0.29</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Vicarage, Deans Lane, Hale, HA8 9NT</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/04738/FUL</td>
+                    <td>-0.225234</td>
+                    <td>51.589586</td>
+                    <td>0.22</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>32</td>
+                    <td>32</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Ella & Ridley Jacobs House and Sam Beckman Centre, 19-25, Church Road, NW4 4EB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/2709/FUL</td>
+                    <td>-0.221827</td>
+                    <td>51.590612</td>
+                    <td>0.02</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Craymere Cottage and Fordfield Cottage, 9-11, Parson Street, Hendon, NW4 1QE</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/03301/14</td>
+                    <td>-0.220627</td>
+                    <td>51.586274</td>
+                    <td>0.06</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>73-77, Brent Street, Hendon, NW4 2EA</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03343/FUL</td>
+                    <td>-0.219241</td>
+                    <td>51.651469</td>
+                    <td>1.29</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>114</td>
+                    <td>114</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Elmbank, Barnet Road, High Barnet, EN5 3HD</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/06410/FUL</td>
+                    <td>-0.200538</td>
+                    <td>51.654151</td>
+                    <td>0.2</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at 1-7, Moxon Street, High Barnet, EN5 5TY</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/2466/FUL</td>
+                    <td>-0.200835</td>
+                    <td>51.655767</td>
+                    <td>0.48</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Brake Shear House, 164, High Street, High Barnet, EN5 5XP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/4545/FUL</td>
+                    <td>-0.21928</td>
+                    <td>51.618597</td>
+                    <td>19.07</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>462</td>
+                    <td>462</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>National Institute for Medical Research, The Ridgeway, Mill Hill, NW7 1AA</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/01721/11</td>
+                    <td>-0.241663</td>
+                    <td>51.609729</td>
+                    <td>0.27</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>551, Watford Way, Mill Hill, NW7 2PU</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/04017/09</td>
+                    <td>-0.20955</td>
+                    <td>51.6119</td>
+                    <td>30.96</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>2044</td>
+                    <td>2044</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Millbrook Park (Former Inglis Barracks), Bittacy Hill, Mill Hill, NW7 1PX</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/3106/FUL</td>
+                    <td>-0.173413</td>
+                    <td>51.630375</td>
+                    <td>0.06</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Development Site East of 23 Formerly Known as 25, Oakleigh Road North, Oakleigh, N20 9HE</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/7210/PNO</td>
+                    <td>-0.175427</td>
+                    <td>51.649372</td>
+                    <td>0.26</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>119</td>
+                    <td>119</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingmaker House, 15, Station Road, Oakleigh, EN5 1NZ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/01990/11</td>
+                    <td>-0.175923</td>
+                    <td>51.649367</td>
+                    <td>0.12</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>34</td>
+                    <td>34</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Groupama House, 17, Station Road, Oakleigh, EN5 1PG</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/06116/13</td>
+                    <td>-0.175276</td>
+                    <td>51.624677</td>
+                    <td>0.62</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>55</td>
+                    <td>55</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>1060A-1072, High Road, Oakleigh, N20 0QP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/5632/FUL</td>
+                    <td>-0.186751</td>
+                    <td>51.617311</td>
+                    <td>0.29</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>29</td>
+                    <td>29</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>St Barnabas Church, 42, Holden Road, Totteridge, N12 7DN</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/1313/PNO</td>
+                    <td>-0.175393</td>
+                    <td>51.629503</td>
+                    <td>0.62</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>254</td>
+                    <td>254</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Barnet House, 1255, High Road, Totteridge, N20 0EJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/7456/FUL</td>
+                    <td>-0.174935</td>
+                    <td>51.62423</td>
+                    <td>0.27</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Myddleton Tennis Club, 1060, High Road, Totteridge, N20 0QP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/04309/14</td>
+                    <td>-0.171781</td>
+                    <td>51.628516</td>
+                    <td>6.21</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>146</td>
+                    <td>146</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Between Sweets Way, Oakleigh Road North, Totteridge, N20 9EU</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03139/FUL</td>
+                    <td>-0.218402</td>
+                    <td>51.64591</td>
+                    <td>0.7</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>33</td>
+                    <td>33</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land Adjacent To Whitings Hill Primary School, Whitings Road, Underhill, EN5 2QY</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B/00354/13</td>
+                    <td>-0.198637</td>
+                    <td>51.645113</td>
+                    <td>10.74</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>191</td>
+                    <td>191</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Brook Valley Gardens (Frm Dollis Valley Estate), 131-135, Mays Lane, Underhill, EN5 2DY</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Chipping Barnet Town Centre Strategy 2013</td>
+                    <td>-0.204056</td>
+                    <td>51.652721</td>
+                    <td>1.0</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Marie Foster, Wood Street, EN5 4BS</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/02177/PNO</td>
+                    <td>-0.17626</td>
+                    <td>51.613308</td>
+                    <td>0.05</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Apex House, Upper Floors, Grand Arcade, N12 0EH</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/02178/PNO</td>
+                    <td>-0.17681</td>
+                    <td>51.613261</td>
+                    <td>0.03</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>354, Upper Floors, Ballards Lane, N12 0EH</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Finchley Church End Town Centre Strategy 2012 - Site 5</td>
+                    <td>-0.190755</td>
+                    <td>51.600442</td>
+                    <td>0.9</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>200</td>
+                    <td>200</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Finchley Central Station Car Park</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Finchley Church End Town Centre Strategy 2012 - Site 8</td>
+                    <td>-0.192257</td>
+                    <td>51.603343</td>
+                    <td>0.84</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>170</td>
+                    <td>170</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tesco, 21-67 Ballards Lane</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North Finchley SPD  Site 1</td>
+                    <td>-0.176152</td>
+                    <td>51.613174</td>
+                    <td>1.15</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>54</td>
+                    <td>54</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tally Ho Triangle & Artsdepot</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North Finchley SPD 2018 Site 2</td>
+                    <td>-0.17818</td>
+                    <td>51.613017</td>
+                    <td>0.43</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>307-319 Ballard's Lane North Finchley N12 8LY</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North Finchley SPD 2018 Site 3</td>
+                    <td>-0.176381</td>
+                    <td>51.612153</td>
+                    <td>0.28</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>34</td>
+                    <td>34</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Finchley House, High Rd & Kingsway North Finchley N12 0BT</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North Finchley SPD 2018 Site 6</td>
+                    <td>-0.177913</td>
+                    <td>51.616448</td>
+                    <td>0.81</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>40</td>
+                    <td>40</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>799-811 High Rd North Finchley & Lodge Lane Carpark, N12 8JT</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/00750/FUL</td>
+                    <td>-0.238405</td>
+                    <td>51.575734</td>
+                    <td>0.33</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>43</td>
+                    <td>43</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>117-125, West Hendon Broadway, West Hendon, NW9 7BP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/3265/PNO</td>
+                    <td>-0.236573</td>
+                    <td>51.575328</td>
+                    <td>0.28</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>110-124, West Hendon Broadway, West Hendon, NW9 7AA</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/2355/PNO</td>
+                    <td>-0.218671</td>
+                    <td>51.577461</td>
+                    <td>0.31</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>1, 3, 4 and 5 The Exchange, Brent Cross Gardens, West Hendon, NW4 3RJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/2963/RMA</td>
+                    <td>-0.224011</td>
+                    <td>51.575273</td>
+                    <td>37.39</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>52</td>
+                    <td>52</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Phase 1b North Brent Cross, Regeneration Area, West Hendon, NW4</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>H/01054/13</td>
+                    <td>-0.240922</td>
+                    <td>51.578002</td>
+                    <td>1.47</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>1858</td>
+                    <td>1858</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>West Hendon Estate, West Hendon, NW9 7BJ</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/0594/FUL</td>
+                    <td>-0.176138</td>
+                    <td>51.614822</td>
+                    <td>0.04</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Autumn House, 744, High Road, Woodhouse, N12 9QG</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/2581/PNO</td>
+                    <td>-0.1811</td>
+                    <td>51.609475</td>
+                    <td>0.11</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>242-246, Ballards Lane, Woodhouse, N12 0EP</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/6150/PNO</td>
+                    <td>-0.177194</td>
+                    <td>51.622788</td>
+                    <td>0.05</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Broomhills, Woodside Lane, Woodhouse, N12 8RB</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North Finchley SPD 2018 Site 4</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.56</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>East Wing Building, 672-708 High Rd North Finchley N12 9PT/9QL</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>North Finchley SPD 2018 Site 5</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.61</td>
+                    <td>2018-11-23</td>
+                    <td>2018-11-23</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/barnet</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>744-776 High Rd North Finchley N12 9QG/9QS</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.15155, "GeoY": 51.629445, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Garages off, Linden Road and Pine Road, Brunswick Park, N11 1ER", "SiteReference": "16/3377/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.137364, "GeoY": 51.634967, "HazardousSubstances": null, "Hectares": 2.01, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Sir Thomas Lipton Memorial Hospital, Osridge, 151, Chase Side, Brunswick Park, N14 5HE", "SiteReference": "16/7101/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.151803, "GeoY": 51.625913, "HazardousSubstances": null, "Hectares": 16.49, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 1000, "NetDwellingsRangeTo": 1000, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "North London Business Park", "SiteReference": "North London Business Park Planning Brief 2016", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.260106, "GeoY": 51.595462, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 81, "NetDwellingsRangeTo": 81, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Imperial House, The Hyde, Burnt Oak, NW9 5AL", "SiteReference": "15/04442/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.198711, "GeoY": 51.561228, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Church Walk House, Church Walk, Childs Hill, NW2 2TJ", "SiteReference": "15/05969/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.209223, "GeoY": 51.559723, "HazardousSubstances": null, "Hectares": 0.64, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 122, "NetDwellingsRangeTo": 122, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "112-132, Cricklewood Lane, Childs Hill, NW2 2DP", "SiteReference": "16/0601/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.215816, "GeoY": 51.557936, "HazardousSubstances": null, "Hectares": 0.86, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 97, "NetDwellingsRangeTo": 97, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "194-196, Cricklewood Broadway, Childs Hill, NW2 3EB", "SiteReference": "17/0233/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.213045, "GeoY": 51.563097, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "220, The Vale, Childs Hill, NW11 8SR", "SiteReference": "17/2690/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.253268, "GeoY": 51.589659, "HazardousSubstances": null, "Hectares": 1.64, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 34, "NetDwellingsRangeTo": 34, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Behind Sheaveshill Court, The Hyde, Colindale, NW9 6SJ", "SiteReference": "16/6222/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.245875, "GeoY": 51.583976, "HazardousSubstances": null, "Hectares": 1.01, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 220, "NetDwellingsRangeTo": 220, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Colindale Telephone Exchange, The Hyde, Colindale, NW9 6LB", "SiteReference": "17/5534/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.25501, "GeoY": 51.591038, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "McDonalds Site, 157 Colindeep Lane", "SiteReference": "Colindale AAP 2010", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.258575, "GeoY": 51.593726, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 150, "NetDwellingsRangeTo": 150, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Burger King/ Eyeland Site NW9 5EB", "SiteReference": "Colindale AAP 2010", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.228441, "GeoY": 51.589714, "HazardousSubstances": null, "Hectares": 2.66, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 190, "NetDwellingsRangeTo": 190, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Middlesex University Halls", "SiteReference": "Colindale AAP 2010", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.258746, "GeoY": 51.59416, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 180, "NetDwellingsRangeTo": 180, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Merit House, Edgware Road, NW9 5AB", "SiteReference": "Colindale AAP 2010", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.257853, "GeoY": 51.59296, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 60, "NetDwellingsRangeTo": 60, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Kwik Fit, The Hyde", "SiteReference": "Colindale AAP 2010", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.242475, "GeoY": 51.603923, "HazardousSubstances": null, "Hectares": 5.46, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 396, "NetDwellingsRangeTo": 396, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Barnet And Southgate College, Grahame Park Way, Colindale, NW9 5RA", "SiteReference": "H/03551/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.243944, "GeoY": 51.593334, "HazardousSubstances": null, "Hectares": 20.36, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 2874, "NetDwellingsRangeTo": 2874, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Peel Centre, Peel Drive, Colindale, NW9 5JE", "SiteReference": "H/04753/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.245294, "GeoY": 51.584738, "HazardousSubstances": null, "Hectares": 2.45, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 387, "NetDwellingsRangeTo": 387, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Homebase, Rookery Way, Colindale, NW9 6SS", "SiteReference": "H/05828/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.251328, "GeoY": 51.593906, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 35, "NetDwellingsRangeTo": 35, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "126, Colindale Avenue, Colindale, NW9 5HD", "SiteReference": "H/05833/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.240273, "GeoY": 51.595597, "HazardousSubstances": null, "Hectares": 13.22, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 2800, "NetDwellingsRangeTo": 2800, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former RAF East Camp site, Aerodrome Road, Colindale, NW9", "SiteReference": "W00198AA/04", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.246305, "GeoY": 51.601484, "HazardousSubstances": null, "Hectares": 34.3, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 1663, "NetDwellingsRangeTo": 1663, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Grahame Park Estate, Lanacre Avenue, Colindale, NW9 5UP", "SiteReference": "W01731JS/04", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.158963, "GeoY": 51.652401, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "106-128 and 27-37, Land Adjacent to, Mount Pleasant and Langford Road, East Barnet, EN4 9HG", "SiteReference": "16/3262/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.172409, "GeoY": 51.649323, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "11-13, Approach Road, East Barnet, EN4 8FG", "SiteReference": "B/02366/13", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.17316, "GeoY": 51.652192, "HazardousSubstances": null, "Hectares": 2.52, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 305, "NetDwellingsRangeTo": 305, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Formerly Known As British Gas Works Albert Road, Albert Road, East Barnet, EN4 9SH", "SiteReference": "B/04834/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.171474, "GeoY": 51.64943, "HazardousSubstances": null, "Hectares": 1.02, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 65, "NetDwellingsRangeTo": 65, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Sainsburies, East Barnet Road", "SiteReference": "New Barnet Town Centre Framework 2010 - Site 3", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.175319, "GeoY": 51.589561, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Elmshurst Crescent Garages, Adjacent to 90-100, Elmshurst Crescent, East Finchley, N2 0LR", "SiteReference": "16/3252/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.167178, "GeoY": 51.59221, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "1-2, Land Adjacent to, Norfolk Close, East Finchley, N2 8ET", "SiteReference": "17/1409/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.277546, "GeoY": 51.611492, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "42-46, Station Road, HA8 7ZZ", "SiteReference": "15/01294/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.274824, "GeoY": 51.629281, "HazardousSubstances": null, "Hectares": 3.12, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 112, "NetDwellingsRangeTo": 112, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land At Broadfields Primary School, Roseberry Drive, Edgware, HA8 8JP", "SiteReference": "15/03137/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.276782, "GeoY": 51.612137, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 122, "NetDwellingsRangeTo": 122, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "102-124 and Car park to Rear, Station Road, Edgware, HA8 7BJ", "SiteReference": "16/0112/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.269967, "GeoY": 51.621938, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "80, The Grove, Edgware, HA8 9QB", "SiteReference": "17/1065/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.278344, "GeoY": 51.61077, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 240, "NetDwellingsRangeTo": 240, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Edgware Forumside", "SiteReference": "Edgware Town Centre Framework 2013", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.279142, "GeoY": 51.621517, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2, Ashcombe Gardens, Edgware, HA8 8HS", "SiteReference": "H/05563/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.189274, "GeoY": 51.593716, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Between 98-108 and 182-192, Garages at Basing Way, Basing Way, Finchley Church End, N3 3BP", "SiteReference": "16/3250/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.194833, "GeoY": 51.599393, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 88, "NetDwellingsRangeTo": 88, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Dove House, Gadd House and Cooper House, Arcadia Avenue, N3 2JU", "SiteReference": "16/3417/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.195488, "GeoY": 51.599036, "HazardousSubstances": null, "Hectares": 0.71, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 130, "NetDwellingsRangeTo": 130, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "298-304, See DD for subdivision, Regents Park Road, N3 2SZ", "SiteReference": "17/0047/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.196155, "GeoY": 51.57637, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "R/O 698, Finchley Road, London, NW11 7NE", "SiteReference": "F/01413/13", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.170329, "GeoY": 51.577111, "HazardousSubstances": null, "Hectares": 1.67, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 38, "NetDwellingsRangeTo": 38, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Arden Court, 53, The Bishops Avenue, Garden Suburb, N2 0BJ", "SiteReference": "F/04857/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.170212, "GeoY": 51.579102, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Dryades, The Bishops Avenue, Garden Suburb, N2 0BA", "SiteReference": "F/05720/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.221277, "GeoY": 51.567762, "HazardousSubstances": null, "Hectares": 0.86, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": -13, "NetDwellingsRangeTo": -13, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Off Brent Terrace, The Brent Terrace Triangles, Golders Green, NW2 1DN", "SiteReference": "15/00720/RMA", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.209174, "GeoY": 51.58022, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 60, "NetDwellingsRangeTo": 60, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "290-294, Golders Green Road, NW11 9PY", "SiteReference": "16/3806/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.221415, "GeoY": 51.571612, "HazardousSubstances": null, "Hectares": 0.77, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 160, "NetDwellingsRangeTo": 160, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Brent Cross, Cricklewood Regeneration Area, Golders Green, NW2", "SiteReference": "17/6662/RMA", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.223513, "GeoY": 51.565073, "HazardousSubstances": null, "Hectares": 1.7, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 230, "NetDwellingsRangeTo": 230, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Parcel Force Depot, Geron Way, Golders Green, NW2 6GJ", "SiteReference": "F/01932/11", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.259067, "GeoY": 51.627299, "HazardousSubstances": null, "Hectares": 1.89, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 120, "NetDwellingsRangeTo": 120, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Adjacent Northway And Fairway Primary School, The Fairway, Hale, NW7 3HS", "SiteReference": "15/03138/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.261319, "GeoY": 51.614808, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Vicarage, Deans Lane, Hale, HA8 9NT", "SiteReference": "16/7594/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.225234, "GeoY": 51.589586, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 32, "NetDwellingsRangeTo": 32, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Ella \u0026 Ridley Jacobs House and Sam Beckman Centre, 19-25, Church Road, NW4 4EB", "SiteReference": "15/04738/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.221827, "GeoY": 51.590612, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Craymere Cottage and Fordfield Cottage, 9-11, Parson Street, Hendon, NW4 1QE", "SiteReference": "17/2709/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.220627, "GeoY": 51.586274, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "73-77, Brent Street, Hendon, NW4 2EA", "SiteReference": "H/03301/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.219241, "GeoY": 51.651469, "HazardousSubstances": null, "Hectares": 1.29, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 114, "NetDwellingsRangeTo": 114, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Elmbank, Barnet Road, High Barnet, EN5 3HD", "SiteReference": "15/03343/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.200538, "GeoY": 51.654151, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at 1-7, Moxon Street, High Barnet, EN5 5TY", "SiteReference": "15/06410/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.200835, "GeoY": 51.655767, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 36, "NetDwellingsRangeTo": 36, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Brake Shear House, 164, High Street, High Barnet, EN5 5XP", "SiteReference": "16/2466/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.21928, "GeoY": 51.618597, "HazardousSubstances": null, "Hectares": 19.07, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 462, "NetDwellingsRangeTo": 462, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "National Institute for Medical Research, The Ridgeway, Mill Hill, NW7 1AA", "SiteReference": "16/4545/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.241663, "GeoY": 51.609729, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "551, Watford Way, Mill Hill, NW7 2PU", "SiteReference": "H/01721/11", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.20955, "GeoY": 51.6119, "HazardousSubstances": null, "Hectares": 30.96, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 2044, "NetDwellingsRangeTo": 2044, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Millbrook Park (Former Inglis Barracks), Bittacy Hill, Mill Hill, NW7 1PX", "SiteReference": "H/04017/09", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.173413, "GeoY": 51.630375, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Development Site East of 23 Formerly Known as 25, Oakleigh Road North, Oakleigh, N20 9HE", "SiteReference": "17/3106/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.175427, "GeoY": 51.649372, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 119, "NetDwellingsRangeTo": 119, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingmaker House, 15, Station Road, Oakleigh, EN5 1NZ", "SiteReference": "17/7210/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.175923, "GeoY": 51.649367, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 34, "NetDwellingsRangeTo": 34, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Groupama House, 17, Station Road, Oakleigh, EN5 1PG", "SiteReference": "B/01990/11", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.175276, "GeoY": 51.624677, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 55, "NetDwellingsRangeTo": 55, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "1060A-1072, High Road, Oakleigh, N20 0QP", "SiteReference": "B/06116/13", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.186751, "GeoY": 51.617311, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 29, "NetDwellingsRangeTo": 29, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "St Barnabas Church, 42, Holden Road, Totteridge, N12 7DN", "SiteReference": "16/5632/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.175393, "GeoY": 51.629503, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 254, "NetDwellingsRangeTo": 254, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Barnet House, 1255, High Road, Totteridge, N20 0EJ", "SiteReference": "17/1313/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.174935, "GeoY": 51.62423, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Myddleton Tennis Club, 1060, High Road, Totteridge, N20 0QP", "SiteReference": "17/7456/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.171781, "GeoY": 51.628516, "HazardousSubstances": null, "Hectares": 6.21, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 146, "NetDwellingsRangeTo": 146, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Between Sweets Way, Oakleigh Road North, Totteridge, N20 9EU", "SiteReference": "B/04309/14", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.218402, "GeoY": 51.64591, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 33, "NetDwellingsRangeTo": 33, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land Adjacent To Whitings Hill Primary School, Whitings Road, Underhill, EN5 2QY", "SiteReference": "15/03139/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.198637, "GeoY": 51.645113, "HazardousSubstances": null, "Hectares": 10.74, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 191, "NetDwellingsRangeTo": 191, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Brook Valley Gardens (Frm Dollis Valley Estate), 131-135, Mays Lane, Underhill, EN5 2DY", "SiteReference": "B/00354/13", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.204056, "GeoY": 51.652721, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Marie Foster, Wood Street, EN5 4BS", "SiteReference": "Chipping Barnet Town Centre Strategy 2013", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.17626, "GeoY": 51.613308, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Apex House, Upper Floors, Grand Arcade, N12 0EH", "SiteReference": "15/02177/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.17681, "GeoY": 51.613261, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "354, Upper Floors, Ballards Lane, N12 0EH", "SiteReference": "15/02178/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.190755, "GeoY": 51.600442, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 200, "NetDwellingsRangeTo": 200, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Finchley Central Station Car Park", "SiteReference": "Finchley Church End Town Centre Strategy 2012 - Site 5", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.192257, "GeoY": 51.603343, "HazardousSubstances": null, "Hectares": 0.84, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 170, "NetDwellingsRangeTo": 170, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tesco, 21-67 Ballards Lane", "SiteReference": "Finchley Church End Town Centre Strategy 2012 - Site 8", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.176152, "GeoY": 51.613174, "HazardousSubstances": null, "Hectares": 1.15, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 54, "NetDwellingsRangeTo": 54, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tally Ho Triangle \u0026 Artsdepot", "SiteReference": "North Finchley SPD  Site 1", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.17818, "GeoY": 51.613017, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 22, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "307-319 Ballard\u0027s Lane North Finchley N12 8LY", "SiteReference": "North Finchley SPD 2018 Site 2", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.176381, "GeoY": 51.612153, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 34, "NetDwellingsRangeTo": 34, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Finchley House, High Rd \u0026 Kingsway North Finchley N12 0BT", "SiteReference": "North Finchley SPD 2018 Site 3", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.177913, "GeoY": 51.616448, "HazardousSubstances": null, "Hectares": 0.81, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 40, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "799-811 High Rd North Finchley \u0026 Lodge Lane Carpark, N12 8JT", "SiteReference": "North Finchley SPD 2018 Site 6", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.238405, "GeoY": 51.575734, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 43, "NetDwellingsRangeTo": 43, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "117-125, West Hendon Broadway, West Hendon, NW9 7BP", "SiteReference": "15/00750/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.236573, "GeoY": 51.575328, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 22, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "110-124, West Hendon Broadway, West Hendon, NW9 7AA", "SiteReference": "16/3265/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.218671, "GeoY": 51.577461, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 89, "NetDwellingsRangeTo": 89, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "1, 3, 4 and 5 The Exchange, Brent Cross Gardens, West Hendon, NW4 3RJ", "SiteReference": "17/2355/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.224011, "GeoY": 51.575273, "HazardousSubstances": null, "Hectares": 37.39, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 52, "NetDwellingsRangeTo": 52, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Phase 1b North Brent Cross, Regeneration Area, West Hendon, NW4", "SiteReference": "17/2963/RMA", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.240922, "GeoY": 51.578002, "HazardousSubstances": null, "Hectares": 1.47, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 1858, "NetDwellingsRangeTo": 1858, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "West Hendon Estate, West Hendon, NW9 7BJ", "SiteReference": "H/01054/13", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.176138, "GeoY": 51.614822, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Autumn House, 744, High Road, Woodhouse, N12 9QG", "SiteReference": "17/0594/FUL", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.1811, "GeoY": 51.609475, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "242-246, Ballards Lane, Woodhouse, N12 0EP", "SiteReference": "17/2581/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": -0.177194, "GeoY": 51.622788, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Broomhills, Woodside Lane, Woodhouse, N12 8RB", "SiteReference": "17/6150/PNO", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.56, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "East Wing Building, 672-708 High Rd North Finchley N12 9PT/9QL", "SiteReference": "North Finchley SPD 2018 Site 4", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-11-23", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.61, "LastUpdatedDate": "2018-11-23", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/barnet", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "744-776 High Rd North Finchley N12 9QG/9QS", "SiteReference": "North Finchley SPD 2018 Site 5", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register/"}];
+    const bbox = [-0.29359080932407233, -0.12291519067592767, 51.54895284341859, 51.664750156581405];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

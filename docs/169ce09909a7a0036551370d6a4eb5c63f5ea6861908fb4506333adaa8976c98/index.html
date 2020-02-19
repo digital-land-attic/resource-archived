@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">169ce099...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Documents/2019-Brownfield-Register.csv">https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Documents/2019-Brownfield-Register.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Planning/Blackpool-brownfield-register.aspx">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BPL">Blackpool Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/169ce09909a7a0036551370d6a4eb5c63f5ea6861908fb4506333adaa8976c98/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/169ce09909a7a0036551370d6a4eb5c63f5ea6861908fb4506333adaa8976c98">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">23 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">8 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">10.56
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                349</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                541</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>23</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/169ce09909a7a0036551370d6a4eb5c63f5ea6861908fb4506333adaa8976c98.csv"
+        download="169ce09909a7a0036551370d6a4eb5c63f5ea6861908fb4506333adaa8976c98_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/169ce09909a7a0036551370d6a4eb5c63f5ea6861908fb4506333adaa8976c98"
+        download="169ce09909a7a0036551370d6a4eb5c63f5ea6861908fb4506333adaa8976c98_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR001</td>
+                    <td>-3.047988</td>
+                    <td>53.809608</td>
+                    <td>0.11</td>
+                    <td>2017-12-15</td>
+                    <td>2019-11-20</td>
+                    <td>9</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_60116</td>
+                    <td>not permissioned</td>
+                    <td>76 and 76a Kent Road, Blackpool, FY1 5ET</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range 80 to 100 dph reflecting inner area location & assuming 100% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR002</td>
+                    <td>-3.048737</td>
+                    <td>53.817481</td>
+                    <td>0.043</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-24</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_60930</td>
+                    <td>permissioned</td>
+                    <td>7-11 Alfred Street, Blackpool, FY1 4LH</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR003</td>
+                    <td>-3.05166</td>
+                    <td>53.806643</td>
+                    <td>2.611</td>
+                    <td>2017-12-15</td>
+                    <td>2018-12-13</td>
+                    <td>100</td>
+                    <td>183</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tram Depot, Rigby Road, Blackpool, FY1 5DD</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Currently in use by Blackpool Transport. Assumed density range up to 100 dph reflecting inner area location & assuming 70% developable area due to size of site.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR004</td>
+                    <td>-3.054701</td>
+                    <td>53.821627</td>
+                    <td>0.116</td>
+                    <td>2017-12-15</td>
+                    <td>2019-11-20</td>
+                    <td>10</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Revills Hotel, 190-194 Promenade, Blackpool, FY1 1RJ</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Density maximum reflects withdrawn application 11/0056 for 15 flats. Density minimum equates to 80 dph reflecting inner area location & assuming 100% developable area due to site size. Site is in use as a car park.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR005</td>
+                    <td>-3.040363</td>
+                    <td>53.823605</td>
+                    <td>0.136</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>11</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Coleridge Road/George Street, Blackpool, FY1 3RP</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location & assuming 100% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR006</td>
+                    <td>-3.030404</td>
+                    <td>53.836554</td>
+                    <td>0.09</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-31</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61569</td>
+                    <td>permissioned</td>
+                    <td>50 Bispham Road, Blackpool, FY2 0SX</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR007</td>
+                    <td>-3.049057</td>
+                    <td>53.859272</td>
+                    <td>0.145</td>
+                    <td>2017-12-15</td>
+                    <td>2019-11-20</td>
+                    <td>6</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59443</td>
+                    <td>not permissioned</td>
+                    <td>Former filling Station, Norbreck Castle, Blackpool, FY2 9AB</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Density maximum reflects expired application 15/002 for 15 flats. Density minimum equates to 40 dph reflecting outer area location & assuming 100% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR008</td>
+                    <td>-3.049007</td>
+                    <td>53.856942</td>
+                    <td>0.198</td>
+                    <td>2017-12-15</td>
+                    <td>2019-11-20</td>
+                    <td>5</td>
+                    <td>35</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_56682</td>
+                    <td>not permissioned</td>
+                    <td>Former Mariners Public House, 8 Norbreck Road, Blackpool, FY5 1RP</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Density maximum reflects withdrawn application 11/0967 for for 35 flats. Density minimum equates to 40 dph reflecting outer area location & assuming 100% developable area due to site size. Site is vacant and has been cleared.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR009</td>
+                    <td>-3.050645</td>
+                    <td>53.795852</td>
+                    <td>0.134</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>10</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Station Road/Lytham Road, Blackpool, FY4 1EU</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR010</td>
+                    <td>-3.027995</td>
+                    <td>53.790548</td>
+                    <td>0.172</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-03-23</td>
+                    <td>reserved matters approval</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61200</td>
+                    <td>permissioned</td>
+                    <td>Land at former Hawes Side Clinic, Hawes Side Lane, Blackpool, FY4 5AJ</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR011</td>
+                    <td>-3.057271</td>
+                    <td>53.785987</td>
+                    <td>0.367</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-10</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61323</td>
+                    <td>permissioned</td>
+                    <td>585-593 Promenade & 1 Wimbourne Place, Blackpool, FY4 1NQ</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR012</td>
+                    <td>-3.021891</td>
+                    <td>53.833316</td>
+                    <td>0.361</td>
+                    <td>2017-12-15</td>
+                    <td>2018-12-13</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-12-13</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61720</td>
+                    <td>permissioned</td>
+                    <td>Hoyle House, Argosy Avenue, Blackpool, FY3 7NN</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Dwellings proposed are social rented housing.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR013</td>
+                    <td>-3.033303</td>
+                    <td>53.870625</td>
+                    <td>0.122</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-21</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59366</td>
+                    <td>permissioned</td>
+                    <td>Anchorsholme Methodist Church, North Drive, Blackpool, FY5 3PG</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR014</td>
+                    <td>-3.054228</td>
+                    <td>53.830924</td>
+                    <td>0.121</td>
+                    <td>2017-12-15</td>
+                    <td>2019-11-20</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-02</td>
+                    <td>reserved matters approval</td>
+                    <td>https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_62601</td>
+                    <td>permissioned</td>
+                    <td>Kings Christian Centre, Warley Road, Blackpool, FY1 2JU</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR015</td>
+                    <td>-3.03154</td>
+                    <td>53.833259</td>
+                    <td>0.244</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>10</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land off Hoo Hill Lane, Blackpool, FY3 7HJ</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range 40 - 50 dph reflecting outer area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR016</td>
+                    <td>-3.013472</td>
+                    <td>53.829389</td>
+                    <td>0.218</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>9</td>
+                    <td>18</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Dinmore Public House, Dinmore Avenue, Blackpool, FY3 7QW</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range 40 - 80 dph. Potential for a mixed housing/apartment scheme reflecting adjacent property.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR017</td>
+                    <td>-3.042273</td>
+                    <td>53.824513</td>
+                    <td>0.29</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>25</td>
+                    <td>29</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_62614</td>
+                    <td>pending decision</td>
+                    <td>Land at the Junction of Coleridge Road and Talbot Road, Blackpool, FY1 3NR</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range up to 100 dph reflecting inner area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-11-20</td>
+                </tr>
+                
+                <tr>
+                    <td>BR018</td>
+                    <td>-3.047566</td>
+                    <td>53.815992</td>
+                    <td>0.592</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>42</td>
+                    <td>52</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Blackpool Council Offices, South King Street, Blackpool, FY1 4PW</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range 80 to 100 dph reflecting inner area location & assuming 80% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR019</td>
+                    <td>-3.049083</td>
+                    <td>53.81118</td>
+                    <td>0.127</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>10</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Park, Bethesda Road, Blackpool, FY1 5DT</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range 80 - 100 dph reflecting inner area location & assuming 100% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR020</td>
+                    <td>-3.031248</td>
+                    <td>53.807175</td>
+                    <td>0.308</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>12</td>
+                    <td>16</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Whitegate Manor, Whitegate Drive, Blackpool, FY3 9JL</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Assumed density range 40 - 50 dph reflecting outer area location & assuming 100% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR021</td>
+                    <td>-2.994193</td>
+                    <td>53.803166</td>
+                    <td>3.312</td>
+                    <td>2018-12-13</td>
+                    <td>2019-11-20</td>
+                    <td>90</td>
+                    <td>115</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at former National Savings and Investment Site, Preston Road, Blackpool, FY3 9YP</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Minimum density based upon capacity suggested by developer up to a maximum of 50 dph reflecting outer area location & assuming 70% developable area due to site size.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR022</td>
+                    <td>-3.032811</td>
+                    <td>53.802257</td>
+                    <td>0.178</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-06</td>
+                    <td>outline planning permission</td>
+                    <td>https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_61703</td>
+                    <td>permissioned</td>
+                    <td>Blackpool Trim Shops, Brun Grove, Blackpool, FY1 6PG</td>
+                    <td>https://maps.blackpool.gov.uk/brownfield/</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR023</td>
+                    <td>-3.012526</td>
+                    <td>53.78734</td>
+                    <td>0.567</td>
+                    <td>2019-11-20</td>
+                    <td>2019-11-20</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-04-02</td>
+                    <td>full planning permission</td>
+                    <td>https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_62653</td>
+                    <td>permissioned</td>
+                    <td>Former Baguleys Site, Midgeland Road, Blackpool, FY4 5HE</td>
+                    <td>http://maps.blackpool.gov.uk/brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.047988, "GeoY": 53.809608, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 11, "Notes": "Assumed density range 80 to 100 dph reflecting inner area location \u0026 assuming 100% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_60116", "PlanningStatus": "not permissioned", "SiteNameAddress": "76 and 76a Kent Road, Blackpool, FY1 5ET", "SiteReference": "BR001", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.048737, "GeoY": 53.817481, "HazardousSubstances": null, "Hectares": 0.043, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-24", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_60930", "PlanningStatus": "permissioned", "SiteNameAddress": "7-11 Alfred Street, Blackpool, FY1 4LH", "SiteReference": "BR002", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": "2019-11-20", "FirstAddedDate": "2017-12-15", "GeoX": -3.05166, "GeoY": 53.806643, "HazardousSubstances": null, "Hectares": 2.611, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 183, "Notes": "Site is in 2014 SHLAA. Currently in use by Blackpool Transport. Assumed density range up to 100 dph reflecting inner area location \u0026 assuming 70% developable area due to size of site.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tram Depot, Rigby Road, Blackpool, FY1 5DD", "SiteReference": "BR003", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.054701, "GeoY": 53.821627, "HazardousSubstances": null, "Hectares": 0.116, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 15, "Notes": "Site is in 2014 SHLAA. Density maximum reflects withdrawn application 11/0056 for 15 flats. Density minimum equates to 80 dph reflecting inner area location \u0026 assuming 100% developable area due to site size. Site is in use as a car park.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Revills Hotel, 190-194 Promenade, Blackpool, FY1 1RJ", "SiteReference": "BR004", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.040363, "GeoY": 53.823605, "HazardousSubstances": null, "Hectares": 0.136, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 14, "Notes": "Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location \u0026 assuming 100% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Coleridge Road/George Street, Blackpool, FY1 3RP", "SiteReference": "BR005", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.030404, "GeoY": 53.836554, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-31", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61569", "PlanningStatus": "permissioned", "SiteNameAddress": "50 Bispham Road, Blackpool, FY2 0SX", "SiteReference": "BR006", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.049057, "GeoY": 53.859272, "HazardousSubstances": null, "Hectares": 0.145, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 15, "Notes": "Site is in 2014 SHLAA. Density maximum reflects expired application 15/002 for 15 flats. Density minimum equates to 40 dph reflecting outer area location \u0026 assuming 100% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59443", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former filling Station, Norbreck Castle, Blackpool, FY2 9AB", "SiteReference": "BR007", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.049007, "GeoY": 53.856942, "HazardousSubstances": null, "Hectares": 0.198, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 35, "Notes": "Site is in 2014 SHLAA. Density maximum reflects withdrawn application 11/0967 for for 35 flats. Density minimum equates to 40 dph reflecting outer area location \u0026 assuming 100% developable area due to site size. Site is vacant and has been cleared.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_56682", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Mariners Public House, 8 Norbreck Road, Blackpool, FY5 1RP", "SiteReference": "BR008", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": "2019-11-20", "FirstAddedDate": "2017-12-15", "GeoX": -3.050645, "GeoY": 53.795852, "HazardousSubstances": null, "Hectares": 0.134, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 13, "Notes": "Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Station Road/Lytham Road, Blackpool, FY4 1EU", "SiteReference": "BR009", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": "2019-11-20", "FirstAddedDate": "2017-12-15", "GeoX": -3.027995, "GeoY": 53.790548, "HazardousSubstances": null, "Hectares": 0.172, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-03-23", "PermissionType": "reserved matters approval", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61200", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at former Hawes Side Clinic, Hawes Side Lane, Blackpool, FY4 5AJ", "SiteReference": "BR010", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.057271, "GeoY": 53.785987, "HazardousSubstances": null, "Hectares": 0.367, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-10", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61323", "PlanningStatus": "permissioned", "SiteNameAddress": "585-593 Promenade \u0026 1 Wimbourne Place, Blackpool, FY4 1NQ", "SiteReference": "BR011", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": "2019-11-20", "FirstAddedDate": "2017-12-15", "GeoX": -3.021891, "GeoY": 53.833316, "HazardousSubstances": null, "Hectares": 0.361, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": "Dwellings proposed are social rented housing.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-12-13", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61720", "PlanningStatus": "permissioned", "SiteNameAddress": "Hoyle House, Argosy Avenue, Blackpool, FY3 7NN", "SiteReference": "BR012", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": "2019-11-20", "FirstAddedDate": "2017-12-15", "GeoX": -3.033303, "GeoY": 53.870625, "HazardousSubstances": null, "Hectares": 0.122, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-21", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59366", "PlanningStatus": "permissioned", "SiteNameAddress": "Anchorsholme Methodist Church, North Drive, Blackpool, FY5 3PG", "SiteReference": "BR013", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.054228, "GeoY": 53.830924, "HazardousSubstances": null, "Hectares": 0.121, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-02", "PermissionType": "reserved matters approval", "PlanningHistory": "https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_62601", "PlanningStatus": "permissioned", "SiteNameAddress": "Kings Christian Centre, Warley Road, Blackpool, FY1 2JU", "SiteReference": "BR014", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": "2019-11-20", "FirstAddedDate": "2018-12-13", "GeoX": -3.03154, "GeoY": 53.833259, "HazardousSubstances": null, "Hectares": 0.244, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 12, "Notes": "Assumed density range 40 - 50 dph reflecting outer area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Hoo Hill Lane, Blackpool, FY3 7HJ", "SiteReference": "BR015", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": "2019-11-20", "FirstAddedDate": "2018-12-13", "GeoX": -3.013472, "GeoY": 53.829389, "HazardousSubstances": null, "Hectares": 0.218, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 18, "Notes": "Assumed density range 40 - 80 dph. Potential for a mixed housing/apartment scheme reflecting adjacent property.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Dinmore Public House, Dinmore Avenue, Blackpool, FY3 7QW", "SiteReference": "BR016", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": "2019-11-20", "FirstAddedDate": "2018-12-13", "GeoX": -3.042273, "GeoY": 53.824513, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 25, "NetDwellingsRangeTo": 29, "Notes": "Assumed density range up to 100 dph reflecting inner area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_62614", "PlanningStatus": "pending decision", "SiteNameAddress": "Land at the Junction of Coleridge Road and Talbot Road, Blackpool, FY1 3NR", "SiteReference": "BR017", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -3.047566, "GeoY": 53.815992, "HazardousSubstances": null, "Hectares": 0.592, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 42, "NetDwellingsRangeTo": 52, "Notes": "Assumed density range 80 to 100 dph reflecting inner area location \u0026 assuming 80% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Blackpool Council Offices, South King Street, Blackpool, FY1 4PW", "SiteReference": "BR018", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -3.049083, "GeoY": 53.81118, "HazardousSubstances": null, "Hectares": 0.127, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 13, "Notes": "Assumed density range 80 - 100 dph reflecting inner area location \u0026 assuming 100% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Park, Bethesda Road, Blackpool, FY1 5DT", "SiteReference": "BR019", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -3.031248, "GeoY": 53.807175, "HazardousSubstances": null, "Hectares": 0.308, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 16, "Notes": "Assumed density range 40 - 50 dph reflecting outer area location \u0026 assuming 100% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Whitegate Manor, Whitegate Drive, Blackpool, FY3 9JL", "SiteReference": "BR020", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -2.994193, "GeoY": 53.803166, "HazardousSubstances": null, "Hectares": 3.312, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 90, "NetDwellingsRangeTo": 115, "Notes": "Minimum density based upon capacity suggested by developer up to a maximum of 50 dph reflecting outer area location \u0026 assuming 70% developable area due to site size.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at former National Savings and Investment Site, Preston Road, Blackpool, FY3 9YP", "SiteReference": "BR021", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -3.032811, "GeoY": 53.802257, "HazardousSubstances": null, "Hectares": 0.178, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-06", "PermissionType": "outline planning permission", "PlanningHistory": "https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_61703", "PlanningStatus": "permissioned", "SiteNameAddress": "Blackpool Trim Shops, Brun Grove, Blackpool, FY1 6PG", "SiteReference": "BR022", "SiteplanURL": "https://maps.blackpool.gov.uk/brownfield/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-11-20", "GeoX": -3.012526, "GeoY": 53.78734, "HazardousSubstances": null, "Hectares": 0.567, "LastUpdatedDate": "2019-11-20", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-04-02", "PermissionType": "full planning permission", "PlanningHistory": "https://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_62653", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Baguleys Site, Midgeland Road, Blackpool, FY4 5HE", "SiteReference": "BR023", "SiteplanURL": "http://maps.blackpool.gov.uk/brownfield"}];
+    const bbox = [-3.0724759945912474, -2.9789880054087527, 53.77700384341859, 53.879608156581405];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

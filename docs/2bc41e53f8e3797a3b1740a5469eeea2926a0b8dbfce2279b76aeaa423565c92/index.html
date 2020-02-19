@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">2bc41e53...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://data.bassetlaw.gov.uk/media/5183/brownfieldlandregister2017.csv">https://data.bassetlaw.gov.uk/media/5183/brownfieldlandregister2017.csv</a>
+        </dd>
+    </dl>
+    <a href="https://data.bassetlaw.gov.uk/brownfield-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 19 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BAE">Bassetlaw District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/2bc41e53f8e3797a3b1740a5469eeea2926a0b8dbfce2279b76aeaa423565c92/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/2bc41e53f8e3797a3b1740a5469eeea2926a0b8dbfce2279b76aeaa423565c92">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">108.01
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>22</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/2bc41e53f8e3797a3b1740a5469eeea2926a0b8dbfce2279b76aeaa423565c92.csv"
+        download="2bc41e53f8e3797a3b1740a5469eeea2926a0b8dbfce2279b76aeaa423565c92_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/2bc41e53f8e3797a3b1740a5469eeea2926a0b8dbfce2279b76aeaa423565c92"
+        download="2bc41e53f8e3797a3b1740a5469eeea2926a0b8dbfce2279b76aeaa423565c92_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BFR03</td>
+                    <td>-1.108027</td>
+                    <td>53.300232</td>
+                    <td>0.38</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Foresters Arms Shrewsbury Road Worksop</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b72</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Previous permission 13/00976/RENU  decision date 12/11/2013"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR04</td>
+                    <td>-1.100549</td>
+                    <td>53.296202</td>
+                    <td>3.7</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Manton School Kingston Road Worksop</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b73</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR05</td>
+                    <td>-1.134458</td>
+                    <td>53.319213</td>
+                    <td>1.6</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land off Claylands Avenue Worksop</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b74</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "14/00393/OUT  change of use from employment to residential  indicative number of dwellings only"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR06</td>
+                    <td>-1.116473</td>
+                    <td>53.300321</td>
+                    <td>0.85</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Bassetlaw Learning Centre 112 Newgate Street Worksop</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b75</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR07</td>
+                    <td>-1.148102</td>
+                    <td>53.315509</td>
+                    <td>3.6</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Dormer Tools Shireoaks Road Worksop</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b76</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "16/00725/FUL  change of use from B2 to C3  5x 1-bed houses  39x 2-bed houses  28x 3-bed houses  8x 4-bed houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR08</td>
+                    <td>-0.95447</td>
+                    <td>53.328217</td>
+                    <td>2.74</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Elizabethan High School Lower Site North Road Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b77</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "13/01355/FUL  Permission comprising 63 apartments and 30 bungalows"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR09</td>
+                    <td>-0.945154</td>
+                    <td>53.324818</td>
+                    <td>0.78</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Tenterflat Walk Bridgegate Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b78</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Previously permissioned on appeal (01/11/00344  decision date 25/07/2014)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR10</td>
+                    <td>-0.935201</td>
+                    <td>53.319346</td>
+                    <td>1.47</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Former Retford Oaks School Pennington Walk Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b79</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "16/00363/OUT  change of use from D1 to C3"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR11</td>
+                    <td>-0.929579</td>
+                    <td>53.322019</td>
+                    <td>0.62</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Blackstope Lane Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b80</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 13/00441/OUT  change of use from B2 to C3  3x 3-bed houses  7x 4-bed houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR12</td>
+                    <td>-0.930711</td>
+                    <td>53.321184</td>
+                    <td>0.63</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>pending decision</td>
+                    <td>Co-op Dairy Grove Lane Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b81</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "16/00207/OUT  change of use from B8 to C3  15x 3-bed houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR13</td>
+                    <td>-0.944004</td>
+                    <td>53.30692</td>
+                    <td>0.45</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Land at Farm View Ordsall Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b82</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Previously permissioned (01/10/00193  decision date 24/11/2010)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR14</td>
+                    <td>-0.930333</td>
+                    <td>53.306304</td>
+                    <td>1.1</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Fairy Grove Nurseries Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b83</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "01/11/00284  modified s106 agreement  under construction"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR16</td>
+                    <td>-1.154038</td>
+                    <td>53.234641</td>
+                    <td>0.28</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Depot west of Budby Road Cuckney</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b85</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Part of a larger site allocated for 15 dwellings in the Cuckney & Norton  Holbeck & Welbeck Neighbourhood Plan" http://www.bassetlaw.gov.uk/everything-else/planning-building/neighbourhood-plans/made-neighbourhood-plans/cnhw-neighbourhood-plan.aspx</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR18</td>
+                    <td>-0.895644</td>
+                    <td>53.247774</td>
+                    <td>1.5</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Former Poultry Factory Mark Lane East Markham</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b86</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "16/00854/RES  change of use from B2 to C3  5x 2-bed  15x 3-bed  21x 4-bed houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR20</td>
+                    <td>-1.063178</td>
+                    <td>53.413922</td>
+                    <td>65.14</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Harworth Colliery Scrooby Road Harworth</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b87</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "61/09/00052  15 year permission  erection of up to 996 residential units"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR21</td>
+                    <td>-0.903378</td>
+                    <td>53.347337</td>
+                    <td>1.23</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Corner Farm Main Street Hayton</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b88</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "14/01327/OUT  change of use from A2/B2 to C3"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR22</td>
+                    <td>-1.126414</td>
+                    <td>53.233013</td>
+                    <td>17.3</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Welbeck Colliery Meden Vale</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b89</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "15/01037/FUL  Residential Development (Use Class C3)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR24</td>
+                    <td>-0.831576</td>
+                    <td>53.436727</td>
+                    <td>2.38</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>North of Fox Covert Lane Misterton</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b90</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Previous permission 33/11/00005  decision date 26/01/2012"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR25</td>
+                    <td>-0.950521</td>
+                    <td>53.316578</td>
+                    <td>0.33</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land opposite 87 West Carr Road Ordsall Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b91</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "16/00364/OUT  Outline Planning Application with Some Matters Reserved for an Indicative 12 Dwellings and Construction of New Access"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR26</td>
+                    <td>-0.894201</td>
+                    <td>53.253729</td>
+                    <td>0.37</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land off Askham Road East Markham</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b92</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "17/00917/OUT  6x 2-bed  3x 3-bed houses"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR27</td>
+                    <td>-0.936855</td>
+                    <td>53.329509</td>
+                    <td>1.05</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>NCC Depot Bolham Lane Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b93</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR28</td>
+                    <td>-0.93666</td>
+                    <td>53.322235</td>
+                    <td>0.51</td>
+                    <td>2017-11-07</td>
+                    <td>2017-11-07</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/bassetlaw</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.bassetlaw.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Kettlewells Coach Yard Grove Street And Raglan Road Retford</td>
+                    <td>http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b94</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Previously permissioned (01/07/00236  decision date 23/06/2008) but renewal refused and appeal dismissed due to Conservation Area boundary change and proposed loss of positive building in the CA; principle of development acceptable with retention of this building"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.108027, "GeoY": 53.300232, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Previous permission 13/00976/RENU  decision date 12/11/2013\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Foresters Arms Shrewsbury Road Worksop", "SiteReference": "BFR03", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b72"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.100549, "GeoY": 53.296202, "HazardousSubstances": null, "Hectares": 3.7, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Manton School Kingston Road Worksop", "SiteReference": "BFR04", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b73"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.134458, "GeoY": 53.319213, "HazardousSubstances": null, "Hectares": 1.6, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"14/00393/OUT  change of use from employment to residential  indicative number of dwellings only\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land off Claylands Avenue Worksop", "SiteReference": "BFR05", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b74"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.116473, "GeoY": 53.300321, "HazardousSubstances": null, "Hectares": 0.85, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Bassetlaw Learning Centre 112 Newgate Street Worksop", "SiteReference": "BFR06", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b75"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.148102, "GeoY": 53.315509, "HazardousSubstances": null, "Hectares": 3.6, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"16/00725/FUL  change of use from B2 to C3  5x 1-bed houses  39x 2-bed houses  28x 3-bed houses  8x 4-bed houses\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Dormer Tools Shireoaks Road Worksop", "SiteReference": "BFR07", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b76"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.95447, "GeoY": 53.328217, "HazardousSubstances": null, "Hectares": 2.74, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"13/01355/FUL  Permission comprising 63 apartments and 30 bungalows\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Elizabethan High School Lower Site North Road Retford", "SiteReference": "BFR08", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b77"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.945154, "GeoY": 53.324818, "HazardousSubstances": null, "Hectares": 0.78, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Previously permissioned on appeal (01/11/00344  decision date 25/07/2014)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Tenterflat Walk Bridgegate Retford", "SiteReference": "BFR09", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b78"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.935201, "GeoY": 53.319346, "HazardousSubstances": null, "Hectares": 1.47, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"16/00363/OUT  change of use from D1 to C3\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Former Retford Oaks School Pennington Walk Retford", "SiteReference": "BFR10", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b79"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.929579, "GeoY": 53.322019, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 13/00441/OUT  change of use from B2 to C3  3x 3-bed houses  7x 4-bed houses\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Blackstope Lane Retford", "SiteReference": "BFR11", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b80"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.930711, "GeoY": 53.321184, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"16/00207/OUT  change of use from B8 to C3  15x 3-bed houses\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "pending decision", "SiteNameAddress": "Co-op Dairy Grove Lane Retford", "SiteReference": "BFR12", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b81"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.944004, "GeoY": 53.30692, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Previously permissioned (01/10/00193  decision date 24/11/2010)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Farm View Ordsall Retford", "SiteReference": "BFR13", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b82"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.930333, "GeoY": 53.306304, "HazardousSubstances": null, "Hectares": 1.1, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"01/11/00284  modified s106 agreement  under construction\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Fairy Grove Nurseries Retford", "SiteReference": "BFR14", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b83"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.154038, "GeoY": 53.234641, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Part of a larger site allocated for 15 dwellings in the Cuckney \u0026 Norton  Holbeck \u0026 Welbeck Neighbourhood Plan\" http://www.bassetlaw.gov.uk/everything-else/planning-building/neighbourhood-plans/made-neighbourhood-plans/cnhw-neighbourhood-plan.aspx", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Depot west of Budby Road Cuckney", "SiteReference": "BFR16", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b85"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.895644, "GeoY": 53.247774, "HazardousSubstances": null, "Hectares": 1.5, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"16/00854/RES  change of use from B2 to C3  5x 2-bed  15x 3-bed  21x 4-bed houses\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Poultry Factory Mark Lane East Markham", "SiteReference": "BFR18", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b86"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.063178, "GeoY": 53.413922, "HazardousSubstances": null, "Hectares": 65.14, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"61/09/00052  15 year permission  erection of up to 996 residential units\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Harworth Colliery Scrooby Road Harworth", "SiteReference": "BFR20", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b87"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.903378, "GeoY": 53.347337, "HazardousSubstances": null, "Hectares": 1.23, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"14/01327/OUT  change of use from A2/B2 to C3\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Corner Farm Main Street Hayton", "SiteReference": "BFR21", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b88"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -1.126414, "GeoY": 53.233013, "HazardousSubstances": null, "Hectares": 17.3, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"15/01037/FUL  Residential Development (Use Class C3)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Welbeck Colliery Meden Vale", "SiteReference": "BFR22", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b89"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.831576, "GeoY": 53.436727, "HazardousSubstances": null, "Hectares": 2.38, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Previous permission 33/11/00005  decision date 26/01/2012\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "North of Fox Covert Lane Misterton", "SiteReference": "BFR24", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b90"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.950521, "GeoY": 53.316578, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"16/00364/OUT  Outline Planning Application with Some Matters Reserved for an Indicative 12 Dwellings and Construction of New Access\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land opposite 87 West Carr Road Ordsall Retford", "SiteReference": "BFR25", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b91"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.894201, "GeoY": 53.253729, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"17/00917/OUT  6x 2-bed  3x 3-bed houses\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land off Askham Road East Markham", "SiteReference": "BFR26", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b92"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.936855, "GeoY": 53.329509, "HazardousSubstances": null, "Hectares": 1.05, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "NCC Depot Bolham Lane Retford", "SiteReference": "BFR27", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b93"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-07", "GeoX": -0.93666, "GeoY": 53.322235, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-11-07", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Previously permissioned (01/07/00236  decision date 23/06/2008) but renewal refused and appeal dismissed due to Conservation Area boundary change and proposed loss of positive building in the CA; principle of development acceptable with retention of this building\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/bassetlaw", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.bassetlaw.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Kettlewells Coach Yard Grove Street And Raglan Road Retford", "SiteReference": "BFR28", "SiteplanURL": "http://bassetlaw.maps.arcgis.com/apps/View/index.html?appid=b0f3bead364d4a09bfa9b906bd4b0b94"}];
+    const bbox = [-1.1690458933200365, -0.8165681066799635, 53.22402984341859, 53.44571015658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">539170bd...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.stockton.gov.uk/media/876534/stockton_brownfieldregister_2017-12-31_1.csv">https://www.stockton.gov.uk/media/876534/stockton_brownfieldregister_2017-12-31_1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.stockton.gov.uk/economic-regeneration-and-transport/planning-policy/self-build-and-custom-housebuilding-and-brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:STT">Stockton-on-Tees Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/539170bd1ec826cc4f3d144667b25c65dfacc66cb197252087f393dc6698769a/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/539170bd1ec826cc4f3d144667b25c65dfacc66cb197252087f393dc6698769a">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">14 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">773.98
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>14</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/539170bd1ec826cc4f3d144667b25c65dfacc66cb197252087f393dc6698769a.csv"
+        download="539170bd1ec826cc4f3d144667b25c65dfacc66cb197252087f393dc6698769a_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/539170bd1ec826cc4f3d144667b25c65dfacc66cb197252087f393dc6698769a"
+        download="539170bd1ec826cc4f3d144667b25c65dfacc66cb197252087f393dc6698769a_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>452</td>
+                    <td>-1.315471</td>
+                    <td>54.54524</td>
+                    <td>65.45</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Bowesfield Riverside Phase 1</td>
+                    <td>https://www.stockton.gov.uk/media/876517/brownfield_register_452.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>13/1667/RNW (10/0244/OUT). Residential development and shop (250 square metres)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>506</td>
+                    <td>-1.315912</td>
+                    <td>54.542941</td>
+                    <td>13.63</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-08-16</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingfisher Way, Bowesfield Park</td>
+                    <td>https://www.stockton.gov.uk/media/876520/brownfield_register_506.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>11/2450/OUT. Residential development of up to 37 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>630</td>
+                    <td>-1.295577</td>
+                    <td>54.59725</td>
+                    <td>1.74</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-06-15</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>77 Station Road, Billingham</td>
+                    <td>https://www.stockton.gov.uk/media/876528/brownfield_register_630.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/0604/OUT. Demolition of existing building and construction of residential development</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>EPY15</td>
+                    <td>-1.317983</td>
+                    <td>54.542018</td>
+                    <td>5.39</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>20.0</td>
+                    <td>30.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>South of Kingfisher Way, Bowesfield</td>
+                    <td>https://www.stockton.gov.uk/media/876514/brownfield_register_epy15.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>268</td>
+                    <td>-1.340055</td>
+                    <td>54.588954</td>
+                    <td>2.03</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-12</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Roseworth Public House</td>
+                    <td>https://www.stockton.gov.uk/media/876523/brownfield_register_268.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/2835/FUL. 12 dwelling houses and 2no. apartments with associated off street parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>698</td>
+                    <td>-1.301559</td>
+                    <td>54.539768</td>
+                    <td>0.91</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-30</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Day Nursery, Martinet Road</td>
+                    <td>https://www.stockton.gov.uk/media/876525/brownfield_register_698.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/2898/OUT. Three storey 14 unit block of flats (demolition of existing building).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>S1</td>
+                    <td>-1.311529</td>
+                    <td>54.556307</td>
+                    <td>71.71</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>250.0</td>
+                    <td>500.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Boathouse Lane</td>
+                    <td>https://www.stockton.gov.uk/media/876526/brownfield_register_s1.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>203</td>
+                    <td>-1.315391</td>
+                    <td>54.568515</td>
+                    <td>1.92</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-19</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Car Lot, Parkin Street</td>
+                    <td>https://www.stockton.gov.uk/media/876519/brownfield_register_203.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/1026/OUT. Residential development of 43 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>S23</td>
+                    <td>-1.315272</td>
+                    <td>54.569153</td>
+                    <td>6.18</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>30.0</td>
+                    <td>40.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Alma House, Alma Street</td>
+                    <td>https://www.stockton.gov.uk/media/876527/brownfield_register_s23.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>T1</td>
+                    <td>-1.288144</td>
+                    <td>54.561043</td>
+                    <td>344.86</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>900.0</td>
+                    <td>1300.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tees Marshalling Yard</td>
+                    <td>https://www.stockton.gov.uk/media/876521/brownfield_register_t1.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>S7</td>
+                    <td>-1.324424</td>
+                    <td>54.565681</td>
+                    <td>171.55</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>500.0</td>
+                    <td>800.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land off Grangefield Road (Millfield)</td>
+                    <td>https://www.stockton.gov.uk/media/876516/brownfield_register_s7.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>T13</td>
+                    <td>-1.298296</td>
+                    <td>54.539012</td>
+                    <td>6.03</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>20.0</td>
+                    <td>35.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Magister Road</td>
+                    <td>https://www.stockton.gov.uk/media/876522/brownfield_register_t13.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>674</td>
+                    <td>-1.291806</td>
+                    <td>54.563015</td>
+                    <td>39.25</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>96.0</td>
+                    <td>150.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-10-20</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Navigation Way</td>
+                    <td>https://www.stockton.gov.uk/media/876518/brownfield_register_674.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/1603/OUT</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>S31</td>
+                    <td>-1.31402</td>
+                    <td>54.574601</td>
+                    <td>43.33</td>
+                    <td>2017-12-21</td>
+                    <td>2017-12-21</td>
+                    <td>120.0</td>
+                    <td>200.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/stockton-on-tees</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Railway Street</td>
+                    <td>https://www.stockton.gov.uk/media/876515/brownfield_register_s31.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>07/1265/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.315471, "GeoY": 54.54524, "HazardousSubstances": null, "Hectares": 65.45, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "13/1667/RNW (10/0244/OUT). Residential development and shop (250 square metres)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Bowesfield Riverside Phase 1", "SiteReference": "452", "SiteplanURL": "https://www.stockton.gov.uk/media/876517/brownfield_register_452.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.315912, "GeoY": 54.542941, "HazardousSubstances": null, "Hectares": 13.63, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "11/2450/OUT. Residential development of up to 37 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-08-16", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingfisher Way, Bowesfield Park", "SiteReference": "506", "SiteplanURL": "https://www.stockton.gov.uk/media/876520/brownfield_register_506.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.295577, "GeoY": 54.59725, "HazardousSubstances": null, "Hectares": 1.74, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "15/0604/OUT. Demolition of existing building and construction of residential development", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-06-15", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "77 Station Road, Billingham", "SiteReference": "630", "SiteplanURL": "https://www.stockton.gov.uk/media/876528/brownfield_register_630.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.317983, "GeoY": 54.542018, "HazardousSubstances": null, "Hectares": 5.39, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 20.0, "NetDwellingsRangeTo": 30.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "South of Kingfisher Way, Bowesfield", "SiteReference": "EPY15", "SiteplanURL": "https://www.stockton.gov.uk/media/876514/brownfield_register_epy15.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.340055, "GeoY": 54.588954, "HazardousSubstances": null, "Hectares": 2.03, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "16/2835/FUL. 12 dwelling houses and 2no. apartments with associated off street parking", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-12", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Roseworth Public House", "SiteReference": "268", "SiteplanURL": "https://www.stockton.gov.uk/media/876523/brownfield_register_268.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.301559, "GeoY": 54.539768, "HazardousSubstances": null, "Hectares": 0.91, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "16/2898/OUT. Three storey 14 unit block of flats (demolition of existing building).", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-30", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Day Nursery, Martinet Road", "SiteReference": "698", "SiteplanURL": "https://www.stockton.gov.uk/media/876525/brownfield_register_698.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.311529, "GeoY": 54.556307, "HazardousSubstances": null, "Hectares": 71.71, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 250.0, "NetDwellingsRangeTo": 500.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Boathouse Lane", "SiteReference": "S1", "SiteplanURL": "https://www.stockton.gov.uk/media/876526/brownfield_register_s1.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.315391, "GeoY": 54.568515, "HazardousSubstances": null, "Hectares": 1.92, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "16/1026/OUT. Residential development of 43 flats", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-19", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Car Lot, Parkin Street", "SiteReference": "203", "SiteplanURL": "https://www.stockton.gov.uk/media/876519/brownfield_register_203.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.315272, "GeoY": 54.569153, "HazardousSubstances": null, "Hectares": 6.18, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 30.0, "NetDwellingsRangeTo": 40.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Alma House, Alma Street", "SiteReference": "S23", "SiteplanURL": "https://www.stockton.gov.uk/media/876527/brownfield_register_s23.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.288144, "GeoY": 54.561043, "HazardousSubstances": null, "Hectares": 344.86, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 900.0, "NetDwellingsRangeTo": 1300.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tees Marshalling Yard", "SiteReference": "T1", "SiteplanURL": "https://www.stockton.gov.uk/media/876521/brownfield_register_t1.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.324424, "GeoY": 54.565681, "HazardousSubstances": null, "Hectares": 171.55, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 500.0, "NetDwellingsRangeTo": 800.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Grangefield Road (Millfield)", "SiteReference": "S7", "SiteplanURL": "https://www.stockton.gov.uk/media/876516/brownfield_register_s7.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.298296, "GeoY": 54.539012, "HazardousSubstances": null, "Hectares": 6.03, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 20.0, "NetDwellingsRangeTo": 35.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Magister Road", "SiteReference": "T13", "SiteplanURL": "https://www.stockton.gov.uk/media/876522/brownfield_register_t13.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.291806, "GeoY": 54.563015, "HazardousSubstances": null, "Hectares": 39.25, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 96.0, "NetDwellingsRangeTo": 150.0, "Notes": "16/1603/OUT", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-10-20", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Navigation Way", "SiteReference": "674", "SiteplanURL": "https://www.stockton.gov.uk/media/876518/brownfield_register_674.pdf"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-21", "GeoX": -1.31402, "GeoY": 54.574601, "HazardousSubstances": null, "Hectares": 43.33, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": 120.0, "NetDwellingsRangeTo": 200.0, "Notes": "07/1265/FUL", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/stockton-on-tees", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Railway Street", "SiteReference": "S31", "SiteplanURL": "https://www.stockton.gov.uk/media/876515/brownfield_register_s31.pdf"}];
+    const bbox = [-1.355539236509784, -1.272659763490216, 54.53002884341859, 54.60623315658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

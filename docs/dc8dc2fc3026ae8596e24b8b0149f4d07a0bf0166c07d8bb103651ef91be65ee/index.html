@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">dc8dc2fc...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.fdean.gov.uk/media/5640/dclg-brownfield-land-register.xlsm">https://www.fdean.gov.uk/media/5640/dclg-brownfield-land-register.xlsm</a>
+        </dd>
+    </dl>
+    <a href="https://www.fdean.gov.uk/residents/planning-building/planning-policy/local-plan-new/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 14 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:FOE">Forest of Dean District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/dc8dc2fc3026ae8596e24b8b0149f4d07a0bf0166c07d8bb103651ef91be65ee/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/dc8dc2fc3026ae8596e24b8b0149f4d07a0bf0166c07d8bb103651ef91be65ee">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">49 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">48.75
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                893</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                1267</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>49</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/dc8dc2fc3026ae8596e24b8b0149f4d07a0bf0166c07d8bb103651ef91be65ee.csv"
+        download="dc8dc2fc3026ae8596e24b8b0149f4d07a0bf0166c07d8bb103651ef91be65ee_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/dc8dc2fc3026ae8596e24b8b0149f4d07a0bf0166c07d8bb103651ef91be65ee"
+        download="dc8dc2fc3026ae8596e24b8b0149f4d07a0bf0166c07d8bb103651ef91be65ee_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>49</td>
+                    <td>-2.55571</td>
+                    <td>51.713382</td>
+                    <td>0.125</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>High Street Aylburton</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora41&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Redevelopment of business premises in a village centre with scope for small residential scheme.  Alternative business premises nearby.  The site is within the Conservation Area and close to two Listed Buildings.  The Cross which is on the boundary is an ancient monument. new building or conversion of existing business premises</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>52</td>
+                    <td>-2.573421</td>
+                    <td>51.752527</td>
+                    <td>0.117</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-05-14</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MHHO98HI00T00</td>
+                    <td>permissioned</td>
+                    <td>The Keys High Street Bream</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora47&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>conversion to five dwellings. permission for conversion to 5 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>42</td>
+                    <td>-2.571779</td>
+                    <td>51.750959</td>
+                    <td>0.188</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lansdown Walk Bream</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora35&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>alternative use of site currently occupied by business premises. new build to replace existing employment use</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2</td>
+                    <td>-2.577917</td>
+                    <td>51.74896</td>
+                    <td>0.929</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>14</td>
+                    <td>25</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-06</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=N81H8LHIGC900</td>
+                    <td>permissioned</td>
+                    <td>High Street RFC Club Bream</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora1&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>permission has been given for the redevelopment of rugby club and hard standing to provide for its relocation and additionally 14 dwellings.  Remainder of site is suitable for redevelopment and possibly some element of conversion.. Most of site covered by outline permission for demolition of existing clubhouse, associated changing rooms and outbuilding.  Redevelopment of the site to provide new dwellings (14 no) and new clubhouse and associated parking facilities.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>4</td>
+                    <td>-2.506386</td>
+                    <td>51.823711</td>
+                    <td>0.085</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>8</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-13</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O5MH6GHI0AF00</td>
+                    <td>permissioned</td>
+                    <td>Railway Tavern Station Street Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora4&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>current permission for conversion of former pub to 10 flats.  Associated with larger Station Street site and allocated in AP. permission for change of use of public house to 10 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>0</td>
+                    <td>-2.518022</td>
+                    <td>53.185294</td>
+                    <td>0.191</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OTQY0JHIMW800</td>
+                    <td>pending decision</td>
+                    <td>St Whites former school Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora42&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>former school now subject to application for conversion close to school site referred to above but not contiguous with it. current application for conversion of former school</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>14</td>
+                    <td>-2.501174</td>
+                    <td>51.813252</td>
+                    <td>0.409</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OSVRT1HIMRF00</td>
+                    <td>pending decision</td>
+                    <td>St Whites Old School West Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora9&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>former school now subject of planning application. current application for redevelopment of site for new dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>46</td>
+                    <td>-2.51211</td>
+                    <td>51.838122</td>
+                    <td>0.43</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>12</td>
+                    <td>17</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Newtown Road Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora3&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part of site which is previously developed, owned by HCA and suitable for new housing.  Identified in AAP.  Some units deliverable within five years.. previously developed part of a site allocated for housing under AAP</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>7</td>
+                    <td>-2.508947</td>
+                    <td>51.822264</td>
+                    <td>0.528</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>15</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Valley Road Junction Cinderford Valley Road</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora7&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>A further parcel of land adjoins the former foundry site (listed elsewhere) and can be developed on its own or preferably in conjunction with it.  Not cleared but occupied by open storage and a single dwelling, could deliver some dwellings within five years. new housing on site used for employment related  use and residential</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>10</td>
+                    <td>-2.508023</td>
+                    <td>51.825968</td>
+                    <td>0.711</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>17</td>
+                    <td>21</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Foxes Bridge Rd Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora49&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>former training/ employment use but vacant and suitable for redevelopment. new housing on former employment/ training site now vacant</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15</td>
+                    <td>-2.508726</td>
+                    <td>51.800046</td>
+                    <td>0.865</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>20</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tramway Road Ruspidge</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora10&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part former pithead baths and part under used employment site, all considered suitable for redevelopment for a variety of accommodation. new build on site of former employment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>6</td>
+                    <td>-2.508067</td>
+                    <td>51.822616</td>
+                    <td>0.965</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>30</td>
+                    <td>40</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Valley Road Former Foundry Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora6&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Adjoins land above and could be developed in conjunction with it or separately in a manner that would relate to its eventual development.  Site cleared. Able to be commenced and with some delivery possible within five years. new housing on former employment site now cleared</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9</td>
+                    <td>-2.50817</td>
+                    <td>51.827446</td>
+                    <td>1.369</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>35</td>
+                    <td>45</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Valley Road Former Employment Centre Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora7&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>former business / training use able to be redeveloped for housing and allocated for the purpose in the AP Now largely derelict. new housing on former employment site now largely derelict</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>5</td>
+                    <td>-2.506564</td>
+                    <td>51.822998</td>
+                    <td>2.909</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>90</td>
+                    <td>120</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Station Street Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora4&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>largest element of site allocated in AP has had previous permissions but no longer current.  Suitable for a variety of housing and may be developed in conjunction with adjoining land to which it must relate. new housing on former employment site largely vacant and derelict</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>40</td>
+                    <td>-2.515198</td>
+                    <td>51.837888</td>
+                    <td>6.8</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>150</td>
+                    <td>195</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td>2014-11-14</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=N4FS82HI01000</td>
+                    <td>permissioned</td>
+                    <td>Steam Mills Rd Northern Quarter Cinderford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora2&scale=2048</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>site owned by FoDDC- allocated in AAP and suitable for housing with a current outline approval for up to 195 dwellings part of hybrid scheme.  Some delivery possible within five years. Outline permission for up to 195 dwellings as part of an hybrid permission.  Site formerly part of</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17</td>
+                    <td>-2.618456</td>
+                    <td>51.792905</td>
+                    <td>0.02</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-22</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Newland Street Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora12&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>permission for new apartments. permission for construction of eight, two bedroom apartments.  (Revised Scheme, originally 6)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18</td>
+                    <td>-2.61609</td>
+                    <td>51.794108</td>
+                    <td>0.038</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>8</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Kings Head Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora13&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>conversion and new build on former pub currently used in the interim for a shop but upper floors vacant. conversion of former pub and associated new build</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>53</td>
+                    <td>-2.61891</td>
+                    <td>51.793159</td>
+                    <td>0.115</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>6</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>10-14 Newland Street Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora43&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Listed frontage building and located in Conservation Area suitable for new development to rear and conversion of upper floors of frontage building site includes former tramroad which will need to be retained as an open feature. conversion of listed building and new build to retain ground floor commercial or retail unit</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>19</td>
+                    <td>-2.617694</td>
+                    <td>51.792163</td>
+                    <td>0.203</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>7</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Lawnstone House Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora14&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>vacant site allocated in AP for mixed development to include apartments.  Likely to be developed by/ for Council as owners. new build to deliver retail/ commercial units and housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>54</td>
+                    <td>-2.619054</td>
+                    <td>51.793632</td>
+                    <td>0.234</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>12</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Boxbush Rd Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora44&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>suitable for conversion and new build within site.  Close to Conservation Area and also listed Church. conversion and new build</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16</td>
+                    <td>-2.612685</td>
+                    <td>51.810016</td>
+                    <td>0.244</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-16</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ORWL3NHIMMB00</td>
+                    <td>permissioned</td>
+                    <td>Lakers Road Berry Hill Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora11&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>permitted scheme for the redevelopment of a former bus depot. Erection of 7 dwellings with associated works.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>55</td>
+                    <td>-2.610761</td>
+                    <td>51.785736</td>
+                    <td>0.829</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>15</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-14</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Tufthorn Avenue Coleford</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora45&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part of a larger site which has a resolution to grant permission for up to 65 dwellings and B1 units.  Previously developed element is approximately 50% of the total.. outline permission for up to 65 dwellings and B1 units on a larger site has been resolved to be granted.  The PDL element of the permission is capable of supporting about  20 dwellings and B1 units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>20</td>
+                    <td>-2.607103</td>
+                    <td>51.810552</td>
+                    <td>0.98</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>40</td>
+                    <td>80</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Five Acres campus Berry Hill surplus land</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora15&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>land to become available following the relocation of the present further education college as part of a mixed scheme.  Identified in Allocations Plan as an opportunity for mixed development.  May be developed on site of former college or part thereof.  Site area of total brownfield element is approximately 2.6ha though not all may be available for redevelopment-  available area between 0.98 ha and 2.6ha. new build on site suitable for redevelopment of some elements on site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>21</td>
+                    <td>-2.517405</td>
+                    <td>51.850007</td>
+                    <td>0.79</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>7</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-15</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Drybrook Road Drybrook</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora16&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>parts of site have permission although there may be some limited additional potential, likely to be developed for 7 dwellings. current permission for seven dwellings on parts of site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>44</td>
+                    <td>-2.483172</td>
+                    <td>51.819754</td>
+                    <td>0.666</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>16</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Court Farm Littledean</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora37&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Current use as garage but could be redeveloped for housing.  Almost all within Conservation Area.. new housing on former employment site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>22</td>
+                    <td>-2.4535</td>
+                    <td>51.867999</td>
+                    <td>0.15</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Adj Northumberland House Longhope</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora17&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>small haulage depot in area of residential/ mixed development has potential for redevelopment- within Conservation Area. new housing on former employment site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>23</td>
+                    <td>-2.455541</td>
+                    <td>51.869121</td>
+                    <td>0.662</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>6</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Longhope Industrial Estate Longhope</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora18&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>mixed employment site allocated in plan to include a residential element. housing as part of a mixed redevelopment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>47</td>
+                    <td>-2.57894</td>
+                    <td>51.843885</td>
+                    <td>0.388</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>10</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Forge Hill Lydbrook Joys Green</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora39&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>sawmill and related land for redevelopment. new housing on employment site (sawmill)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>26</td>
+                    <td>-2.597909</td>
+                    <td>51.853917</td>
+                    <td>0.984</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Temco Lydbrook</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora21&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part of larger area separated by road and suitable for part development for housing which could be carried out independently of remainder of allocation. housing as an element of mixed development</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>24</td>
+                    <td>-2.586174</td>
+                    <td>51.844294</td>
+                    <td>1.555</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>30</td>
+                    <td>45</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Rothdean Main Road Lydbrook</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora19&scale=2048</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>includes site granted permission but lapsed for new dwellings on former employment site.  Adjoining land of same ownership/ character included in register. new housing on former employment site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>25</td>
+                    <td>-2.600596</td>
+                    <td>51.85448</td>
+                    <td>7.746</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>25</td>
+                    <td>45</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Stowfield Works Lydbrook</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora20&scale=2048</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>element of much larger site which is identified for mixed development degree of housing is flexible within terms of the policy. housing as an element of mixed development</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>45</td>
+                    <td>-2.529795</td>
+                    <td>51.724701</td>
+                    <td>0.19</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Swan Rd Lydney</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora38&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>small area undeveloped (former gasholder and adjoining premises which could be redeveloped) majority in public ownership. redevelopment of former utility and employment sites</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>43</td>
+                    <td>-2.536787</td>
+                    <td>51.724644</td>
+                    <td>0.293</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>10</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>pending decision</td>
+                    <td>Rear of High Street Lydney</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora36&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>current application for majority of site but this area which is slightly larger includes garage court adjoining.. new housing as redevelopment of town centre site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>31</td>
+                    <td>-2.491199</td>
+                    <td>51.86511</td>
+                    <td>0.427</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>St Michaels Close Coach depot Mitcheldean</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora25&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>former coach depot now allocated in plan for about 12 dwellings adjoins conservation area and close to Grade 1 listed church. redevelopment for housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>29</td>
+                    <td>-2.530996</td>
+                    <td>51.71506</td>
+                    <td>1.039</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Railway Station Lydney</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora24&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>within an area identified for redevelopment including the station itself there is potential for an element of new housing supported by the plan policy. housing component of mixed development scheme</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>27</td>
+                    <td>-2.515909</td>
+                    <td>51.733831</td>
+                    <td>1.078</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>6</td>
+                    <td>21</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Highfield Hill Lydney</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora22&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>garage premises formerly covered by permission for housing redevelopment which could be developed accordingly. employment site (garage) to be redeveloped in whole or part for housing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>30</td>
+                    <td>-2.513979</td>
+                    <td>51.710268</td>
+                    <td>4.823</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>20</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Pine End Works Harbour Road Lydney</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora23&scale=2048</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part of large mixed allocation, which can include an element of housing as part of the mix.  Likely to support up to 30 units but this is neither a fixed requirement nor an absolute limit.  Currently vacant but subject to pre application consultation.. housing component of mixed development scheme</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>32</td>
+                    <td>-2.488906</td>
+                    <td>51.864514</td>
+                    <td>0.312</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>15</td>
+                    <td>31</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-20</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NFBWB2HIH4U00</td>
+                    <td>permissioned</td>
+                    <td>Stars Pitch Former George Hotel Mitcheldean</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora26&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>site with permission for 31 new units (flats) but could be dveloped for smaller number of houses.  Former pub and associated outbuildings. development of housing on former pub</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>33</td>
+                    <td>-2.487893</td>
+                    <td>51.868032</td>
+                    <td>1.738</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>40</td>
+                    <td>50</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Bradley Court Rd Mitcheldean</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora27&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>allocated site presently within large employment area but suitable for housing served from a separate access. redevelopment of land and building within employment area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>34</td>
+                    <td>-2.406607</td>
+                    <td>51.93011</td>
+                    <td>0.159</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-11-28</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=KJOMV8HI01R00</td>
+                    <td>permissioned</td>
+                    <td>9 Culver St Newent</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora28&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>flats within built up area. Erection of 9 dwellings and associated works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>35</td>
+                    <td>-2.416945</td>
+                    <td>53.246763</td>
+                    <td>0.261</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>North of Church St Newent</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora29&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>identified in plan for range of redevelopment and conversion, this area is within the town centre and is presently a mixture of uses including garages outbuildings and retail/ residential.  Site and plan policy identified in order to realise potential to provide additional mixed uses. mixed development opportunity within town centre</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>56</td>
+                    <td>-2.408926</td>
+                    <td>51.934231</td>
+                    <td>0.516</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>20</td>
+                    <td>40</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Station Rd Newent</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora48&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part of mixed use allocation totalling 30-40 dwellings. new housing as part of a mixed use allocation</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>36</td>
+                    <td>-2.45121</td>
+                    <td>51.802067</td>
+                    <td>0.353</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Victoria Hotel Newnham</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora30&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Listed former hotel and land associated with it.  Capable of being converted and redeveloped (the non listed element) to provide a variety of accommodation.. part new build part conversion of former hotel and adjoining buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>37</td>
+                    <td>-2.545366</td>
+                    <td>51.752331</td>
+                    <td>0.33</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-15</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NNXJ1CHI01000</td>
+                    <td>permissioned</td>
+                    <td>Corner Rd Pillowell</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora31&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>permission for housing on former pithead site. new housing on former pithead</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>38</td>
+                    <td>-2.666713</td>
+                    <td>51.647496</td>
+                    <td>0.094</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-02</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Beachley Rd Adj High Cliffe Tutshill Sedbury</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora32&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>permission for new building to accommodate flats. redevelopment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>57</td>
+                    <td>-2.65736</td>
+                    <td>51.639128</td>
+                    <td>0.131</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-02</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Beachley Rd Sedbury</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora46&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>outline permission for new building. outline permission for 10 flats on former garage site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>48</td>
+                    <td>-2.658251</td>
+                    <td>51.642499</td>
+                    <td>0.837</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>24</td>
+                    <td>28</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Grahamstown Rd Sedbury</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora40&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>redevelopment opportunity within area of mixed but now increasingly similar uses. new housing on former employment site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>41</td>
+                    <td>-2.604983</td>
+                    <td>51.770688</td>
+                    <td>0.476</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>12</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Adj The Laurels Sling</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora34&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>former builders yard and premises suitable for redevelopment. new housing on former employment site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>39</td>
+                    <td>-2.551018</td>
+                    <td>51.752182</td>
+                    <td>3.466</td>
+                    <td>2017-10-31</td>
+                    <td>2017-10-31</td>
+                    <td>30</td>
+                    <td>35</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/forest-of-dean</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lydney Rd Whitecroft</td>
+                    <td>https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24&nocache=1347652503&resize=always&inspect_query=Brownfield_Land_Registery&inspect_value=Aurora33&scale=2048</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>part of mixed use allocation to include about 30 dwellings remainder of site for employment.  Current use for employment and partially vacant and in need of refurbishment.. new housing on former employment site as part of mixed use allocation</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.55571, "GeoY": 51.713382, "HazardousSubstances": null, "Hectares": 0.125, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Redevelopment of business premises in a village centre with scope for small residential scheme.  Alternative business premises nearby.  The site is within the Conservation Area and close to two Listed Buildings.  The Cross which is on the boundary is an ancient monument. new building or conversion of existing business premises", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "High Street Aylburton", "SiteReference": 49, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora41\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.573421, "GeoY": 51.752527, "HazardousSubstances": null, "Hectares": 0.117, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "conversion to five dwellings. permission for conversion to 5 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-05-14", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MHHO98HI00T00", "PlanningStatus": "permissioned", "SiteNameAddress": "The Keys High Street Bream", "SiteReference": 52, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora47\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.571779, "GeoY": 51.750959, "HazardousSubstances": null, "Hectares": 0.188, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 7, "Notes": "alternative use of site currently occupied by business premises. new build to replace existing employment use", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lansdown Walk Bream", "SiteReference": 42, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora35\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.577917, "GeoY": 51.74896, "HazardousSubstances": null, "Hectares": 0.929, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 25, "Notes": "permission has been given for the redevelopment of rugby club and hard standing to provide for its relocation and additionally 14 dwellings.  Remainder of site is suitable for redevelopment and possibly some element of conversion.. Most of site covered by outline permission for demolition of existing clubhouse, associated changing rooms and outbuilding.  Redevelopment of the site to provide new dwellings (14 no) and new clubhouse and associated parking facilities.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-06", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=N81H8LHIGC900", "PlanningStatus": "permissioned", "SiteNameAddress": "High Street RFC Club Bream", "SiteReference": 2, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora1\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.506386, "GeoY": 51.823711, "HazardousSubstances": null, "Hectares": 0.085, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 10, "Notes": "current permission for conversion of former pub to 10 flats.  Associated with larger Station Street site and allocated in AP. permission for change of use of public house to 10 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-13", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O5MH6GHI0AF00", "PlanningStatus": "permissioned", "SiteNameAddress": "Railway Tavern Station Street Cinderford", "SiteReference": 4, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora4\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.518022, "GeoY": 53.185294, "HazardousSubstances": null, "Hectares": 0.191, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "former school now subject to application for conversion close to school site referred to above but not contiguous with it. current application for conversion of former school", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OTQY0JHIMW800", "PlanningStatus": "pending decision", "SiteNameAddress": "St Whites former school Cinderford", "SiteReference": 0, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora42\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.501174, "GeoY": 51.813252, "HazardousSubstances": null, "Hectares": 0.409, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 8, "Notes": "former school now subject of planning application. current application for redevelopment of site for new dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OSVRT1HIMRF00", "PlanningStatus": "pending decision", "SiteNameAddress": "St Whites Old School West Cinderford", "SiteReference": 14, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora9\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.51211, "GeoY": 51.838122, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 17, "Notes": "part of site which is previously developed, owned by HCA and suitable for new housing.  Identified in AAP.  Some units deliverable within five years.. previously developed part of a site allocated for housing under AAP", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Newtown Road Cinderford", "SiteReference": 46, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora3\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.508947, "GeoY": 51.822264, "HazardousSubstances": null, "Hectares": 0.528, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 20, "Notes": "A further parcel of land adjoins the former foundry site (listed elsewhere) and can be developed on its own or preferably in conjunction with it.  Not cleared but occupied by open storage and a single dwelling, could deliver some dwellings within five years. new housing on site used for employment related  use and residential", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Valley Road Junction Cinderford Valley Road", "SiteReference": 7, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora7\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.508023, "GeoY": 51.825968, "HazardousSubstances": null, "Hectares": 0.711, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 17, "NetDwellingsRangeTo": 21, "Notes": "former training/ employment use but vacant and suitable for redevelopment. new housing on former employment/ training site now vacant", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Foxes Bridge Rd Cinderford", "SiteReference": 10, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora49\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.508726, "GeoY": 51.800046, "HazardousSubstances": null, "Hectares": 0.865, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 30, "Notes": "part former pithead baths and part under used employment site, all considered suitable for redevelopment for a variety of accommodation. new build on site of former employment", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tramway Road Ruspidge", "SiteReference": 15, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora10\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.508067, "GeoY": 51.822616, "HazardousSubstances": null, "Hectares": 0.965, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 40, "Notes": "Adjoins land above and could be developed in conjunction with it or separately in a manner that would relate to its eventual development.  Site cleared. Able to be commenced and with some delivery possible within five years. new housing on former employment site now cleared", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Valley Road Former Foundry Cinderford", "SiteReference": 6, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora6\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.50817, "GeoY": 51.827446, "HazardousSubstances": null, "Hectares": 1.369, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 35, "NetDwellingsRangeTo": 45, "Notes": "former business / training use able to be redeveloped for housing and allocated for the purpose in the AP Now largely derelict. new housing on former employment site now largely derelict", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Valley Road Former Employment Centre Cinderford", "SiteReference": 9, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora7\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.506564, "GeoY": 51.822998, "HazardousSubstances": null, "Hectares": 2.909, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 90, "NetDwellingsRangeTo": 120, "Notes": "largest element of site allocated in AP has had previous permissions but no longer current.  Suitable for a variety of housing and may be developed in conjunction with adjoining land to which it must relate. new housing on former employment site largely vacant and derelict", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Station Street Cinderford", "SiteReference": 5, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora4\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.515198, "GeoY": 51.837888, "HazardousSubstances": null, "Hectares": 6.8, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 150, "NetDwellingsRangeTo": 195, "Notes": "site owned by FoDDC- allocated in AAP and suitable for housing with a current outline approval for up to 195 dwellings part of hybrid scheme.  Some delivery possible within five years. Outline permission for up to 195 dwellings as part of an hybrid permission.  Site formerly part of", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2014-11-14", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=N4FS82HI01000", "PlanningStatus": "permissioned", "SiteNameAddress": "Steam Mills Rd Northern Quarter Cinderford", "SiteReference": 40, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora2\u0026scale=2048"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.618456, "GeoY": 51.792905, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "permission for new apartments. permission for construction of eight, two bedroom apartments.  (Revised Scheme, originally 6)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-22", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Newland Street Coleford", "SiteReference": 17, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora12\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.61609, "GeoY": 51.794108, "HazardousSubstances": null, "Hectares": 0.038, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 12, "Notes": "conversion and new build on former pub currently used in the interim for a shop but upper floors vacant. conversion of former pub and associated new build", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Kings Head Coleford", "SiteReference": 18, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora13\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.61891, "GeoY": 51.793159, "HazardousSubstances": null, "Hectares": 0.115, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 10, "Notes": "Listed frontage building and located in Conservation Area suitable for new development to rear and conversion of upper floors of frontage building site includes former tramroad which will need to be retained as an open feature. conversion of listed building and new build to retain ground floor commercial or retail unit", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "10-14 Newland Street Coleford", "SiteReference": 53, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora43\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.617694, "GeoY": 51.792163, "HazardousSubstances": null, "Hectares": 0.203, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 12, "Notes": "vacant site allocated in AP for mixed development to include apartments.  Likely to be developed by/ for Council as owners. new build to deliver retail/ commercial units and housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Lawnstone House Coleford", "SiteReference": 19, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora14\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.619054, "GeoY": 51.793632, "HazardousSubstances": null, "Hectares": 0.234, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 20, "Notes": "suitable for conversion and new build within site.  Close to Conservation Area and also listed Church. conversion and new build", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Boxbush Rd Coleford", "SiteReference": 54, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora44\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.612685, "GeoY": 51.810016, "HazardousSubstances": null, "Hectares": 0.244, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "permitted scheme for the redevelopment of a former bus depot. Erection of 7 dwellings with associated works.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-16", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ORWL3NHIMMB00", "PlanningStatus": "permissioned", "SiteNameAddress": "Lakers Road Berry Hill Coleford", "SiteReference": 16, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora11\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.610761, "GeoY": 51.785736, "HazardousSubstances": null, "Hectares": 0.829, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 20, "Notes": "part of a larger site which has a resolution to grant permission for up to 65 dwellings and B1 units.  Previously developed element is approximately 50% of the total.. outline permission for up to 65 dwellings and B1 units on a larger site has been resolved to be granted.  The PDL element of the permission is capable of supporting about  20 dwellings and B1 units.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-14", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Tufthorn Avenue Coleford", "SiteReference": 55, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora45\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.607103, "GeoY": 51.810552, "HazardousSubstances": null, "Hectares": 0.98, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 80, "Notes": "land to become available following the relocation of the present further education college as part of a mixed scheme.  Identified in Allocations Plan as an opportunity for mixed development.  May be developed on site of former college or part thereof.  Site area of total brownfield element is approximately 2.6ha though not all may be available for redevelopment-  available area between 0.98 ha and 2.6ha. new build on site suitable for redevelopment of some elements on site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Five Acres campus Berry Hill surplus land", "SiteReference": 20, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora15\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.517405, "GeoY": 51.850007, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 12, "Notes": "parts of site have permission although there may be some limited additional potential, likely to be developed for 7 dwellings. current permission for seven dwellings on parts of site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-15", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Drybrook Road Drybrook", "SiteReference": 21, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora16\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.483172, "GeoY": 51.819754, "HazardousSubstances": null, "Hectares": 0.666, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 16, "NetDwellingsRangeTo": 20, "Notes": "Current use as garage but could be redeveloped for housing.  Almost all within Conservation Area.. new housing on former employment site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Court Farm Littledean", "SiteReference": 44, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora37\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.4535, "GeoY": 51.867999, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "small haulage depot in area of residential/ mixed development has potential for redevelopment- within Conservation Area. new housing on former employment site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Adj Northumberland House Longhope", "SiteReference": 22, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora17\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.455541, "GeoY": 51.869121, "HazardousSubstances": null, "Hectares": 0.662, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 10, "Notes": "mixed employment site allocated in plan to include a residential element. housing as part of a mixed redevelopment", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Longhope Industrial Estate Longhope", "SiteReference": 23, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora18\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.57894, "GeoY": 51.843885, "HazardousSubstances": null, "Hectares": 0.388, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 12, "Notes": "sawmill and related land for redevelopment. new housing on employment site (sawmill)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Forge Hill Lydbrook Joys Green", "SiteReference": 47, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora39\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.597909, "GeoY": 51.853917, "HazardousSubstances": null, "Hectares": 0.984, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "part of larger area separated by road and suitable for part development for housing which could be carried out independently of remainder of allocation. housing as an element of mixed development", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Temco Lydbrook", "SiteReference": 26, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora21\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.586174, "GeoY": 51.844294, "HazardousSubstances": null, "Hectares": 1.555, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 45, "Notes": "includes site granted permission but lapsed for new dwellings on former employment site.  Adjoining land of same ownership/ character included in register. new housing on former employment site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Rothdean Main Road Lydbrook", "SiteReference": 24, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora19\u0026scale=2048"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.600596, "GeoY": 51.85448, "HazardousSubstances": null, "Hectares": 7.746, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 25, "NetDwellingsRangeTo": 45, "Notes": "element of much larger site which is identified for mixed development degree of housing is flexible within terms of the policy. housing as an element of mixed development", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Stowfield Works Lydbrook", "SiteReference": 25, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora20\u0026scale=2048"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.529795, "GeoY": 51.724701, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 8, "Notes": "small area undeveloped (former gasholder and adjoining premises which could be redeveloped) majority in public ownership. redevelopment of former utility and employment sites", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Swan Rd Lydney", "SiteReference": 45, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora38\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.536787, "GeoY": 51.724644, "HazardousSubstances": null, "Hectares": 0.293, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 15, "Notes": "current application for majority of site but this area which is slightly larger includes garage court adjoining.. new housing as redevelopment of town centre site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "pending decision", "SiteNameAddress": "Rear of High Street Lydney", "SiteReference": 43, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora36\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.491199, "GeoY": 51.86511, "HazardousSubstances": null, "Hectares": 0.427, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "former coach depot now allocated in plan for about 12 dwellings adjoins conservation area and close to Grade 1 listed church. redevelopment for housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "St Michaels Close Coach depot Mitcheldean", "SiteReference": 31, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora25\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.530996, "GeoY": 51.71506, "HazardousSubstances": null, "Hectares": 1.039, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 20, "Notes": "within an area identified for redevelopment including the station itself there is potential for an element of new housing supported by the plan policy. housing component of mixed development scheme", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Railway Station Lydney", "SiteReference": 29, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora24\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.515909, "GeoY": 51.733831, "HazardousSubstances": null, "Hectares": 1.078, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 21, "Notes": "garage premises formerly covered by permission for housing redevelopment which could be developed accordingly. employment site (garage) to be redeveloped in whole or part for housing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Highfield Hill Lydney", "SiteReference": 27, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora22\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.513979, "GeoY": 51.710268, "HazardousSubstances": null, "Hectares": 4.823, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 30, "Notes": "part of large mixed allocation, which can include an element of housing as part of the mix.  Likely to support up to 30 units but this is neither a fixed requirement nor an absolute limit.  Currently vacant but subject to pre application consultation.. housing component of mixed development scheme", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Pine End Works Harbour Road Lydney", "SiteReference": 30, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora23\u0026scale=2048"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.488906, "GeoY": 51.864514, "HazardousSubstances": null, "Hectares": 0.312, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 31, "Notes": "site with permission for 31 new units (flats) but could be dveloped for smaller number of houses.  Former pub and associated outbuildings. development of housing on former pub", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-20", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NFBWB2HIH4U00", "PlanningStatus": "permissioned", "SiteNameAddress": "Stars Pitch Former George Hotel Mitcheldean", "SiteReference": 32, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora26\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.487893, "GeoY": 51.868032, "HazardousSubstances": null, "Hectares": 1.738, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 50, "Notes": "allocated site presently within large employment area but suitable for housing served from a separate access. redevelopment of land and building within employment area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Bradley Court Rd Mitcheldean", "SiteReference": 33, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora27\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.406607, "GeoY": 51.93011, "HazardousSubstances": null, "Hectares": 0.159, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "flats within built up area. Erection of 9 dwellings and associated works", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-11-28", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=KJOMV8HI01R00", "PlanningStatus": "permissioned", "SiteNameAddress": "9 Culver St Newent", "SiteReference": 34, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora28\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.416945, "GeoY": 53.246763, "HazardousSubstances": null, "Hectares": 0.261, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 25, "Notes": "identified in plan for range of redevelopment and conversion, this area is within the town centre and is presently a mixture of uses including garages outbuildings and retail/ residential.  Site and plan policy identified in order to realise potential to provide additional mixed uses. mixed development opportunity within town centre", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "North of Church St Newent", "SiteReference": 35, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora29\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.408926, "GeoY": 51.934231, "HazardousSubstances": null, "Hectares": 0.516, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 40, "Notes": "part of mixed use allocation totalling 30-40 dwellings. new housing as part of a mixed use allocation", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Station Rd Newent", "SiteReference": 56, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora48\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.45121, "GeoY": 51.802067, "HazardousSubstances": null, "Hectares": 0.353, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 25, "Notes": "Listed former hotel and land associated with it.  Capable of being converted and redeveloped (the non listed element) to provide a variety of accommodation.. part new build part conversion of former hotel and adjoining buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Victoria Hotel Newnham", "SiteReference": 36, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora30\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.545366, "GeoY": 51.752331, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "permission for housing on former pithead site. new housing on former pithead", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-15", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NNXJ1CHI01000", "PlanningStatus": "permissioned", "SiteNameAddress": "Corner Rd Pillowell", "SiteReference": 37, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora31\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.666713, "GeoY": 51.647496, "HazardousSubstances": null, "Hectares": 0.094, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "permission for new building to accommodate flats. redevelopment", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-02", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Beachley Rd Adj High Cliffe Tutshill Sedbury", "SiteReference": 38, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora32\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.65736, "GeoY": 51.639128, "HazardousSubstances": null, "Hectares": 0.131, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 10, "Notes": "outline permission for new building. outline permission for 10 flats on former garage site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-02", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.fdean.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Beachley Rd Sedbury", "SiteReference": 57, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora46\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.658251, "GeoY": 51.642499, "HazardousSubstances": null, "Hectares": 0.837, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 28, "Notes": "redevelopment opportunity within area of mixed but now increasingly similar uses. new housing on former employment site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Grahamstown Rd Sedbury", "SiteReference": 48, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora40\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.604983, "GeoY": 51.770688, "HazardousSubstances": null, "Hectares": 0.476, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 15, "Notes": "former builders yard and premises suitable for redevelopment. new housing on former employment site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Adj The Laurels Sling", "SiteReference": 41, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora34\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-10-31", "GeoX": -2.551018, "GeoY": 51.752182, "HazardousSubstances": null, "Hectares": 3.466, "LastUpdatedDate": "2017-10-31", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 35, "Notes": "part of mixed use allocation to include about 30 dwellings remainder of site for employment.  Current use for employment and partially vacant and in need of refurbishment.. new housing on former employment site as part of mixed use allocation", "OrganisationURI": "http://opendatacommunities.org/id/district-council/forest-of-dean", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lydney Rd Whitecroft", "SiteReference": 39, "SiteplanURL": "https://maps.glosdistricts.org/map/Aurora.svc/run?script=%5cAurora%5cFoDDC+-+SHLAA.AuroraScript%24\u0026nocache=1347652503\u0026resize=always\u0026inspect_query=Brownfield_Land_Registery\u0026inspect_value=Aurora33\u0026scale=2048"}];
+    const bbox = [-2.6811876640271417, -2.3921323359728586, 51.63014484341859, 53.25574615658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

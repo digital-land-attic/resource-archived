@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">fcf7f7f4...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.teignbridge.gov.uk/media/6172/brownfieldlandregisterteignbridge2017.csv">https://www.teignbridge.gov.uk/media/6172/brownfieldlandregisterteignbridge2017.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:TEI">Teignbridge District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/fcf7f7f421c61724aefa0dabdd3285e2d314d3046d0d95ff58709166f4f77289/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/fcf7f7f421c61724aefa0dabdd3285e2d314d3046d0d95ff58709166f4f77289">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">33 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">62.79
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                793</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                877</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>33</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/fcf7f7f421c61724aefa0dabdd3285e2d314d3046d0d95ff58709166f4f77289.csv"
+        download="fcf7f7f421c61724aefa0dabdd3285e2d314d3046d0d95ff58709166f4f77289_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/fcf7f7f421c61724aefa0dabdd3285e2d314d3046d0d95ff58709166f4f77289"
+        download="fcf7f7f421c61724aefa0dabdd3285e2d314d3046d0d95ff58709166f4f77289_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BFR001</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.26</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2001-10-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Glendaragh, Barn Park Road, Teignmouth TQ14 8PN</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=01%2f03478%2fCOU</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of this site was started in 2002. Change of use and conversion of Nursing Home to form 15 new and two existing sheltered apartments with nursing care facilities</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR002</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.12</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-03-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rosemary Avenue, Newton Abbot TQ12 1SB</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=05%2f04278%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Groundworks commenced keeping this live. six dwellings (three pairs of semi-detached)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR003</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.47</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2008-07-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Platway House, Torquay Road, Shaldon TQ14 0AU</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f03261%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Original dwelling demolished. Approval of details for demolition of existing house and outbuildings and the erection of 10 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR004</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-07-31</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Shapters Yard, Strand Hill, Dawlish EX7 9PS</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=12%2f01811%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. 9 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR005</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.14</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>13</td>
+                    <td>79</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-01-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Wolborough Hospital, Old Totnes Road, Newton Abbot TQ12 6AA</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=13%2f01497%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Demolition of existing buildings and construction of 13 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR006</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.73</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Holcombe Hall, Holcombe Drive, Dawlish EX7 0JW</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=13%2f02517%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started - 2 completed. Conversion to 3 units & 4 new dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR007</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>14 Barton Villas, Dawlish EX7 9QJ</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=13%2f03658%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Conversion and extension of three flats to form eight flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR008</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.18</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>22-26 Wolborough Street, Newton Abbot TQ12 1JJ</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=14%2f01015%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. 27 flats above retail area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR009</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.08</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Clay Lane, Teignmouth TQ14 8FW</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=14%2f01918%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>2 phase scheme part 1 completed in 2009. Erection of 20 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR010</td>
+                    <td></td>
+                    <td></td>
+                    <td>26.45</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>23</td>
+                    <td>23</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>land at Ilford Park, Stover, Newton Abbot TQ12 6PW</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=14%2f02580%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application for mixed use development including residential (and demolition of existing res)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR011</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.03</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>5 George Street, Teignmouth TQ14 8AH</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=14%2f03008%2fCOU</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Change of use and conversion of commercial building into 8 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR012</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>17 Bank Street, Newton Abbot TQ12 2JL</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=14%2f03632%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. redevelopment of existing residential accommodation to create 13 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR013</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.14</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Littlehayes, 9 East Cliff Road, Dawlish EX7 0BP</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=15%2f00726%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Demolition of existing building and construction of 9 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR014</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.51</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>RMS Motors, Pottery Road, Bovey Tracey TQ13 9DS</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=15%2f00776%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. 14 dwellings & industrial unit (B1a)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR015</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.8</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>34</td>
+                    <td>34</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Shell Cove House, 19 Old Teignmouth Road, Dawlish EX7 0NJ</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=15%2f02590%2fFUL/https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f00300%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started 2 applications. Demolition of existing buildings and redevelopment to form six cottages for later living & 11 cottages and 17 flats for later living</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR016</td>
+                    <td></td>
+                    <td></td>
+                    <td>11.11</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>26</td>
+                    <td>34</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-13</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Langdon Hospital, Dawlish EX7 0NS</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=15%2f02700%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>only approx 1.04 ha brownfield. 200 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR017</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.73</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-18</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Bishop Dunstan School, 16 South Road, Newton Abbot TQ12 1HH</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=15%2f02732%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline for 1 custom build, conversion school to 4 & coach house to 1 dwellings & 21 new dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR018</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.25</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Conitor House, Denbury Road, Ogwell, Newton Abbot TQ12 6AD</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=15%2f02943%2fNPA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. change of use from offices to 11 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR019</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.47</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Peppermint Club, Warren Road, Dawlish Warren, Dawlish EX7 0PQ</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f00037%2fMAJ/https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f00041%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>pending S106. Demolition of existing disused clubhouse and three flats and erection of 16 dwellings  & erection of five dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR020</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.15</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>2 Old Town Street, Dawlish EX7 9AL</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f00464%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Conversion of existing church buildings to 9 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR021</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.98</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingsteignton Community Resource Centre, Greenhill Road, Kingsteignton TQ12 3BD</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f00477%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. 34 dwellings & 2 self build plots</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR022</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.14</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land At Former Treston House, Dawlish EX7 0BL</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f00528%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Variation of condition 1 of 06/07840 & 11/01247 to allow 27 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR023</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.32</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Blenheim, Brimley Road, Bovey Tracey TQ13 9DH</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f02013%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion to 5 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR024</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.06</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Prospect Chapel, 5 Torquay Road, Newton Abbot TQ12 2LJ</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f02132%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. demolition of existing building and construction of 3 houses and 6 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR025</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.02</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Old Brewery, 45 High Street, Dawlish EX7 9HF</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f02723%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>started. Change of use from ground floor retail & upper floor office to 6 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR026</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.23</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-14</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Charterhouse Residential Care Home, Second Drive, Teignmouth TQ14 8TL</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f02794%2fFUL</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Extension and alterations to existing residential care home and outbuilding to form 10 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR027</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.1</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>former Queens Hotel, 142-148 Queen Street, Newton Abbot TQ12 2EZ</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=16%2f02929%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Alteration, extension and conversion of existing building into 21 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR028</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.42</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Tracey Vale Retirement Home, Brimley Vale, Bovey Tracey TQ13 9EA</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application&Refval=17%2f00452%2fMAJ</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing building and erection of ten dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR029</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.66</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>34</td>
+                    <td>44</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>other</td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>KS3 Land at Abbrook, Kingsteignton</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/teignbridge-local-plan-interactive-map/?uprn=010032958126&x=286574&y=74478</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>only approx 1.38ha brownfield. Allocation for 140</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR030</td>
+                    <td></td>
+                    <td></td>
+                    <td>5.6</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>170</td>
+                    <td>170</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>other</td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Bradley Lane, Newton Abbot</td>
+                    <td>https://www.teignbridge.gov.uk/media/1814/local-plan-heart-of-teignbridge.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Allocation for 170</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR031</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.7</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>other</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>NA3A Beverley Way, Newton Abbot</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/teignbridge-local-plan-interactive-map/?uprn=100040315214&x=285188&y=70592</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>application for 5 dwellings only. Allocation for 20</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR032</td>
+                    <td></td>
+                    <td></td>
+                    <td>4.5</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>120</td>
+                    <td>120</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>other</td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Town Centre, Newton Abbot</td>
+                    <td>https://www.teignbridge.gov.uk/media/1814/local-plan-heart-of-teignbridge.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Allocation for 120</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR033</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.32</td>
+                    <td>2017-11-01</td>
+                    <td>2017-12-13</td>
+                    <td>40</td>
+                    <td>40</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/teignbridge</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-04-12</td>
+                    <td>planning permission granted under an order</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>TE4 Brunswick Street, Teignmouth</td>
+                    <td>https://www.teignbridge.gov.uk/planning/forms/teignbridge-local-plan-interactive-map/?uprn=100040339923&x=294025&y=72686</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Allocation for 40</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": "Part of this site was started in 2002. Change of use and conversion of Nursing Home to form 15 new and two existing sheltered apartments with nursing care facilities", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2001-10-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Glendaragh, Barn Park Road, Teignmouth TQ14 8PN", "SiteReference": "BFR001", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=01%2f03478%2fCOU"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Groundworks commenced keeping this live. six dwellings (three pairs of semi-detached)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-03-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rosemary Avenue, Newton Abbot TQ12 1SB", "SiteReference": "BFR002", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=05%2f04278%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Original dwelling demolished. Approval of details for demolition of existing house and outbuildings and the erection of 10 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2008-07-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Platway House, Torquay Road, Shaldon TQ14 0AU", "SiteReference": "BFR003", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f03261%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "started. 9 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-07-31", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Shapters Yard, Strand Hill, Dawlish EX7 9PS", "SiteReference": "BFR004", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=12%2f01811%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.14, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 79, "Notes": "started. Demolition of existing buildings and construction of 13 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-01-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Wolborough Hospital, Old Totnes Road, Newton Abbot TQ12 6AA", "SiteReference": "BFR005", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=13%2f01497%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.73, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "started - 2 completed. Conversion to 3 units \u0026 4 new dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Holcombe Hall, Holcombe Drive, Dawlish EX7 0JW", "SiteReference": "BFR006", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=13%2f02517%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "started. Conversion and extension of three flats to form eight flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "14 Barton Villas, Dawlish EX7 9QJ", "SiteReference": "BFR007", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=13%2f03658%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 27, "Notes": "started. 27 flats above retail area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "22-26 Wolborough Street, Newton Abbot TQ12 1JJ", "SiteReference": "BFR008", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=14%2f01015%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 21, "Notes": "2 phase scheme part 1 completed in 2009. Erection of 20 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Clay Lane, Teignmouth TQ14 8FW", "SiteReference": "BFR009", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=14%2f01918%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 26.45, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 23, "NetDwellingsRangeTo": 23, "Notes": ". Outline application for mixed use development including residential (and demolition of existing res)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "land at Ilford Park, Stover, Newton Abbot TQ12 6PW", "SiteReference": "BFR010", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=14%2f02580%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "started. Change of use and conversion of commercial building into 8 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "5 George Street, Teignmouth TQ14 8AH", "SiteReference": "BFR011", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=14%2f03008%2fCOU"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": "started. redevelopment of existing residential accommodation to create 13 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "17 Bank Street, Newton Abbot TQ12 2JL", "SiteReference": "BFR012", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=14%2f03632%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "started. Demolition of existing building and construction of 9 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Littlehayes, 9 East Cliff Road, Dawlish EX7 0BP", "SiteReference": "BFR013", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=15%2f00726%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "started. 14 dwellings \u0026 industrial unit (B1a)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "RMS Motors, Pottery Road, Bovey Tracey TQ13 9DS", "SiteReference": "BFR014", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=15%2f00776%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.8, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 34, "NetDwellingsRangeTo": 34, "Notes": "started 2 applications. Demolition of existing buildings and redevelopment to form six cottages for later living \u0026 11 cottages and 17 flats for later living", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Shell Cove House, 19 Old Teignmouth Road, Dawlish EX7 0NJ", "SiteReference": "BFR015", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=15%2f02590%2fFUL/https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f00300%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 11.11, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 26, "NetDwellingsRangeTo": 34, "Notes": "only approx 1.04 ha brownfield. 200 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-13", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Langdon Hospital, Dawlish EX7 0NS", "SiteReference": "BFR016", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=15%2f02700%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.73, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 27, "Notes": ". Outline for 1 custom build, conversion school to 4 \u0026 coach house to 1 dwellings \u0026 21 new dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-18", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Bishop Dunstan School, 16 South Road, Newton Abbot TQ12 1HH", "SiteReference": "BFR017", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=15%2f02732%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": ". change of use from offices to 11 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Conitor House, Denbury Road, Ogwell, Newton Abbot TQ12 6AD", "SiteReference": "BFR018", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=15%2f02943%2fNPA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 21, "Notes": "pending S106. Demolition of existing disused clubhouse and three flats and erection of 16 dwellings  \u0026 erection of five dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Peppermint Club, Warren Road, Dawlish Warren, Dawlish EX7 0PQ", "SiteReference": "BFR019", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f00037%2fMAJ/https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f00041%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "started. Conversion of existing church buildings to 9 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "2 Old Town Street, Dawlish EX7 9AL", "SiteReference": "BFR020", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f00464%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.98, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 36, "NetDwellingsRangeTo": 36, "Notes": "started. 34 dwellings \u0026 2 self build plots", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingsteignton Community Resource Centre, Greenhill Road, Kingsteignton TQ12 3BD", "SiteReference": "BFR021", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f00477%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.14, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 27, "Notes": "started. Variation of condition 1 of 06/07840 \u0026 11/01247 to allow 27 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land At Former Treston House, Dawlish EX7 0BL", "SiteReference": "BFR022", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f00528%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": ". Conversion to 5 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Blenheim, Brimley Road, Bovey Tracey TQ13 9DH", "SiteReference": "BFR023", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f02013%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "started. demolition of existing building and construction of 3 houses and 6 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Prospect Chapel, 5 Torquay Road, Newton Abbot TQ12 2LJ", "SiteReference": "BFR024", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f02132%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "started. Change of use from ground floor retail \u0026 upper floor office to 6 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Brewery, 45 High Street, Dawlish EX7 9HF", "SiteReference": "BFR025", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f02723%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": ". Extension and alterations to existing residential care home and outbuilding to form 10 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-14", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Charterhouse Residential Care Home, Second Drive, Teignmouth TQ14 8TL", "SiteReference": "BFR026", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f02794%2fFUL"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 21, "Notes": ". Alteration, extension and conversion of existing building into 21 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "former Queens Hotel, 142-148 Queen Street, Newton Abbot TQ12 2EZ", "SiteReference": "BFR027", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=16%2f02929%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": ". Demolition of existing building and erection of ten dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Tracey Vale Retirement Home, Brimley Vale, Bovey Tracey TQ13 9EA", "SiteReference": "BFR028", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/planning-application-details/?Type=Application\u0026Refval=17%2f00452%2fMAJ"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 34, "NetDwellingsRangeTo": 44, "Notes": "only approx 1.38ha brownfield. Allocation for 140", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "KS3 Land at Abbrook, Kingsteignton", "SiteReference": "BFR029", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/teignbridge-local-plan-interactive-map/?uprn=010032958126\u0026x=286574\u0026y=74478"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 5.6, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 170, "NetDwellingsRangeTo": 170, "Notes": ". Allocation for 170", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Bradley Lane, Newton Abbot", "SiteReference": "BFR030", "SiteplanURL": "https://www.teignbridge.gov.uk/media/1814/local-plan-heart-of-teignbridge.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "application for 5 dwellings only. Allocation for 20", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "NA3A Beverley Way, Newton Abbot", "SiteReference": "BFR031", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/teignbridge-local-plan-interactive-map/?uprn=100040315214\u0026x=285188\u0026y=70592"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 4.5, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 120, "NetDwellingsRangeTo": 120, "Notes": ". Allocation for 120", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Town Centre, Newton Abbot", "SiteReference": "BFR032", "SiteplanURL": "https://www.teignbridge.gov.uk/media/1814/local-plan-heart-of-teignbridge.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-01", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2017-12-13", "NetDwellingsRangeFrom": 40, "NetDwellingsRangeTo": 40, "Notes": ". Allocation for 40", "OrganisationURI": "http://opendatacommunities.org/id/district-council/teignbridge", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-04-12", "PermissionType": "planning permission granted under an order", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "TE4 Brunswick Street, Teignmouth", "SiteReference": "BFR033", "SiteplanURL": "https://www.teignbridge.gov.uk/planning/forms/teignbridge-local-plan-interactive-map/?uprn=100040339923\u0026x=294025\u0026y=72686"}];
+    const bbox = [NaN, NaN, NaN, NaN];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

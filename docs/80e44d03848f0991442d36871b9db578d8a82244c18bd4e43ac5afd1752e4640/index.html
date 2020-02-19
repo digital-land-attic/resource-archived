@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">80e44d03...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.highpeak.gov.uk/media/2795/Brownfield-Register-CSV/Excel/High_Peak_Brownfield_Land_CSV_3.csv">https://www.highpeak.gov.uk/media/2795/Brownfield-Register-CSV/Excel/High_Peak_Brownfield_Land_CSV_3.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:HIG">High Peak Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/80e44d03848f0991442d36871b9db578d8a82244c18bd4e43ac5afd1752e4640/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/80e44d03848f0991442d36871b9db578d8a82244c18bd4e43ac5afd1752e4640">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">61.92
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                1075</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                1075</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>22</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/80e44d03848f0991442d36871b9db578d8a82244c18bd4e43ac5afd1752e4640.csv"
+        download="80e44d03848f0991442d36871b9db578d8a82244c18bd4e43ac5afd1752e4640_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/80e44d03848f0991442d36871b9db578d8a82244c18bd4e43ac5afd1752e4640"
+        download="80e44d03848f0991442d36871b9db578d8a82244c18bd4e43ac5afd1752e4640_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>G32</td>
+                    <td>-1.97238</td>
+                    <td>53.443918</td>
+                    <td>3.84</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>48</td>
+                    <td>48</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Adderley Place</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BV002</td>
+                    <td>-2.436789</td>
+                    <td>52.0386</td>
+                    <td>4.4</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Birch Vale Industrial Estate</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>TI001</td>
+                    <td>-1.972198</td>
+                    <td>53.469005</td>
+                    <td>3.84</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Bridge Mills</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BW004</td>
+                    <td>-1.975947</td>
+                    <td>53.337548</td>
+                    <td>1.4</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Britannia Mills, Buxworth</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GL043</td>
+                    <td>-1.94987</td>
+                    <td>53.433197</td>
+                    <td>3.39</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>other</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Charlestown Works, Glossop</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CI001</td>
+                    <td>-1.934561</td>
+                    <td>53.335987</td>
+                    <td>7.44</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>182</td>
+                    <td>182</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>FORGE WORKS</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BX055</td>
+                    <td>-1.900778</td>
+                    <td>53.235712</td>
+                    <td>4.65</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>105</td>
+                    <td>105</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Campus</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GL070</td>
+                    <td>-1.969877</td>
+                    <td>53.448655</td>
+                    <td>3.9</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former railway muesum</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WB009</td>
+                    <td>-1.983881</td>
+                    <td>53.326467</td>
+                    <td>0.36</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Gisbourne Yard, Whaley Bridge</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BX057</td>
+                    <td>-1.912798</td>
+                    <td>53.256063</td>
+                    <td>0.47</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>HARDWICK SQUARE SOUTH</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GL056</td>
+                    <td>-1.936131</td>
+                    <td>53.451509</td>
+                    <td>0.8</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>18</td>
+                    <td>18</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Hawkeshead Mill, Hope Street</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B3</td>
+                    <td>-1.909243</td>
+                    <td>53.264474</td>
+                    <td>13.7</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>68</td>
+                    <td>68</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Hogshaw</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CS001</td>
+                    <td>-2.002625</td>
+                    <td>53.427113</td>
+                    <td>1.7</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Holehouse Mill MARPLE ROAD</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BX115</td>
+                    <td>-1.936457</td>
+                    <td>53.252069</td>
+                    <td>0.79</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>LEEK ROAD</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BX051</td>
+                    <td>-2.00229</td>
+                    <td>53.367456</td>
+                    <td>0.8</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Market Street Depot</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>NM041</td>
+                    <td>-2.005791</td>
+                    <td>53.359267</td>
+                    <td>2.99</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Newtown Industrial Area, New Mills</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GA001</td>
+                    <td>-1.982211</td>
+                    <td>53.444154</td>
+                    <td>4.42</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>93</td>
+                    <td>93</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>OLD RAIL SIDINGS GLOSSOP ROAD GLOSSOP GAMESLEY (sanas romeo)</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HD012</td>
+                    <td>-1.971554</td>
+                    <td>53.462893</td>
+                    <td>1.24</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>28</td>
+                    <td>28</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Paradise Street, Hadfield</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CH012</td>
+                    <td>-1.916834</td>
+                    <td>53.323769</td>
+                    <td>0.3</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Roebuck Place</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>NM001</td>
+                    <td>-1.997977</td>
+                    <td>53.369973</td>
+                    <td>0.27</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Salem Mill, New Mills</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>B31</td>
+                    <td>-2.005115</td>
+                    <td>53.361146</td>
+                    <td>0.62</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Station Road</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>NM034</td>
+                    <td>-2.004874</td>
+                    <td>53.361119</td>
+                    <td>0.6</td>
+                    <td>2017-11-30</td>
+                    <td>2017-11-30</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/high-peak</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Woodside Street, New Mills</td>
+                    <td>https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.97238, "GeoY": 53.443918, "HazardousSubstances": null, "Hectares": 3.84, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 48, "NetDwellingsRangeTo": 48, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Adderley Place", "SiteReference": "G32", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -2.436789, "GeoY": 52.0386, "HazardousSubstances": null, "Hectares": 4.4, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Birch Vale Industrial Estate", "SiteReference": "BV002", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.972198, "GeoY": 53.469005, "HazardousSubstances": null, "Hectares": 3.84, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 0, "NetDwellingsRangeTo": 0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Bridge Mills", "SiteReference": "TI001", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.975947, "GeoY": 53.337548, "HazardousSubstances": null, "Hectares": 1.4, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 50, "NetDwellingsRangeTo": 50, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Britannia Mills, Buxworth", "SiteReference": "BW004", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.94987, "GeoY": 53.433197, "HazardousSubstances": null, "Hectares": 3.39, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Charlestown Works, Glossop", "SiteReference": "GL043", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.934561, "GeoY": 53.335987, "HazardousSubstances": null, "Hectares": 7.44, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 182, "NetDwellingsRangeTo": 182, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "FORGE WORKS", "SiteReference": "CI001", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.900778, "GeoY": 53.235712, "HazardousSubstances": null, "Hectares": 4.65, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 105, "NetDwellingsRangeTo": 105, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Campus", "SiteReference": "BX055", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.969877, "GeoY": 53.448655, "HazardousSubstances": null, "Hectares": 3.9, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 89, "NetDwellingsRangeTo": 89, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former railway muesum", "SiteReference": "GL070", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.983881, "GeoY": 53.326467, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Gisbourne Yard, Whaley Bridge", "SiteReference": "WB009", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.912798, "GeoY": 53.256063, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "HARDWICK SQUARE SOUTH", "SiteReference": "BX057", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.936131, "GeoY": 53.451509, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 18, "NetDwellingsRangeTo": 18, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Hawkeshead Mill, Hope Street", "SiteReference": "GL056", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.909243, "GeoY": 53.264474, "HazardousSubstances": null, "Hectares": 13.7, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 68, "NetDwellingsRangeTo": 68, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Hogshaw", "SiteReference": "B3", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -2.002625, "GeoY": 53.427113, "HazardousSubstances": null, "Hectares": 1.7, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 22, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Holehouse Mill MARPLE ROAD", "SiteReference": "CS001", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.936457, "GeoY": 53.252069, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "LEEK ROAD", "SiteReference": "BX115", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -2.00229, "GeoY": 53.367456, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Market Street Depot", "SiteReference": "BX051", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -2.005791, "GeoY": 53.359267, "HazardousSubstances": null, "Hectares": 2.99, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Newtown Industrial Area, New Mills", "SiteReference": "NM041", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.982211, "GeoY": 53.444154, "HazardousSubstances": null, "Hectares": 4.42, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 93, "NetDwellingsRangeTo": 93, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "OLD RAIL SIDINGS GLOSSOP ROAD GLOSSOP GAMESLEY (sanas romeo)", "SiteReference": "GA001", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.971554, "GeoY": 53.462893, "HazardousSubstances": null, "Hectares": 1.24, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 28, "NetDwellingsRangeTo": 28, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Paradise Street, Hadfield", "SiteReference": "HD012", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.916834, "GeoY": 53.323769, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Roebuck Place", "SiteReference": "CH012", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -1.997977, "GeoY": 53.369973, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Salem Mill, New Mills", "SiteReference": "NM001", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -2.005115, "GeoY": 53.361146, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Station Road", "SiteReference": "B31", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-30", "GeoX": -2.004874, "GeoY": 53.361119, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2017-11-30", "NetDwellingsRangeFrom": 25, "NetDwellingsRangeTo": 25, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/high-peak", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Woodside Street, New Mills", "SiteReference": "NM034", "SiteplanURL": "https://www.highpeak.gov.uk/article/1392/Strategic-Housing-Land-Availability-Assessment-SHLAA"}];
+    const bbox = [-2.4513926609095664, -1.8861743390904333, 52.029616843418594, 53.47798815658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

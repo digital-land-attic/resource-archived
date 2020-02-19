@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">0e998c88...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.winchester.gov.uk/assets/attach/13774/Brownfield%20Land%20Register%202017.csv">https://www.winchester.gov.uk/assets/attach/13774/Brownfield%20Land%20Register%202017.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.winchester.gov.uk/planning-policy/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WIN">Winchester City Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/0e998c88ba58035c5a638240ecaec77aa5498b4a177cb40f79d5dc84ef85f612/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/0e998c88ba58035c5a638240ecaec77aa5498b4a177cb40f79d5dc84ef85f612">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">32 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">13.33
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>32</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/0e998c88ba58035c5a638240ecaec77aa5498b4a177cb40f79d5dc84ef85f612.csv"
+        download="0e998c88ba58035c5a638240ecaec77aa5498b4a177cb40f79d5dc84ef85f612_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/0e998c88ba58035c5a638240ecaec77aa5498b4a177cb40f79d5dc84ef85f612"
+        download="0e998c88ba58035c5a638240ecaec77aa5498b4a177cb40f79d5dc84ef85f612_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BLR17/01</td>
+                    <td>-1.336096</td>
+                    <td>51.153152</td>
+                    <td>0.9</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-21</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Old Station Yard Oxford Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 27No. Dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/02</td>
+                    <td>-1.322528</td>
+                    <td>51.073925</td>
+                    <td>0.29</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-23</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>63 Andover Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing dwelling and erection of 10No. dwellings (6No. 2 Bed Flats and 4No. 3 Bed Houses)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/03</td>
+                    <td>-1.318422</td>
+                    <td>51.062876</td>
+                    <td>0.06</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-29</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Trafalgar House Trafalgar Street</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change Of Use from B1 to 26 1 Bed Flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/04</td>
+                    <td>-1.306279</td>
+                    <td>51.060898</td>
+                    <td>0.05</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-09</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>12-13 Capitol House Bridge Street</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. (Prior Approval) Change Of Use for First Floor Ofices (B1 Use) to 5 No. Residential Units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/05</td>
+                    <td>-1.306279</td>
+                    <td>51.060898</td>
+                    <td>0.05</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-09</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>12-13 Capitol House Bridge Street</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. (Prior Approval) Change Of Use of the basement, second and third floors and roof spaces from Offices (B1 Use) to 11 Dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/06</td>
+                    <td>-1.297766</td>
+                    <td>51.072762</td>
+                    <td>0.11</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-10-30</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Co-Operative Group Ember House Moorside Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. (Prior Approval) Change Of Use from B1(A) Office to 12 x Studio Flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/07</td>
+                    <td>-1.20219</td>
+                    <td>50.939035</td>
+                    <td>0.33</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-27</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>The Brook Clewers Hill</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of Exisitng Dwelling and Erection of 10 x Dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/08</td>
+                    <td>-1.059192</td>
+                    <td>50.903286</td>
+                    <td>0.16</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-06-08</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>51 Denmead Baptist Church Anmore Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 10 x dwellings following demolition of the existing Denmead Baptist Church.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/09</td>
+                    <td>-1.338881</td>
+                    <td>51.063182</td>
+                    <td>0.5</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-09</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>15 Chilbolton Avenue</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of exisitng buildings and erection of 6 x Houses.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/10</td>
+                    <td>-1.337655</td>
+                    <td>51.056126</td>
+                    <td>0.06</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-05-09</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Garage Court Bailey Close</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 5 x 1 Bed affordable housing units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/11</td>
+                    <td>-1.319071</td>
+                    <td>51.059472</td>
+                    <td>0.09</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-21</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Winchester Snooker Centre, Radley House 8 St Cross Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of exisitng Snooker Centre and erection of 5No. 3 Bed, 1No. 2 Bed Dwellings AND A COMMERCIAL BLDG.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/12</td>
+                    <td>-1.317455</td>
+                    <td>51.062664</td>
+                    <td>0.03</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-23</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Regency House 2-4 Southgate Street Winchester Hampshire SO23 9EF</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Retention of lower ground & ground Floor Offices & Change Of Use of First & Second Floor from B1 (Office) to 4x1 Bed & 4 x 2 Bed Flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/13</td>
+                    <td>-1.315472</td>
+                    <td>51.06553</td>
+                    <td>0.04</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-10-27</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Canister House 2 Exchange Square</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of Use from B1(A) Offices to 9No. Residential Dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/14</td>
+                    <td>-1.311803</td>
+                    <td>51.061731</td>
+                    <td>0.08</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-21</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>9-11 High Street</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelop Exisitng Facades on High St & Market St. Change Of Use of 2 Floors from A1 & erection of a 3rd floor to create 7 x Duplex flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/15</td>
+                    <td>-1.221714</td>
+                    <td>50.956261</td>
+                    <td>0.18</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-22</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Cunningham House, Claylands Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Alterations to provide new hipped roof to existing building and formation of 5xFlats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/16</td>
+                    <td>-1.173236</td>
+                    <td>51.084519</td>
+                    <td>0.35</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-03-03</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>11-16 Garage Block Mitford Road</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 6 x1 Bed and 2 x 2 Bed Affordable Flats Following Demolition of Exisitng Garages.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/17</td>
+                    <td>-1.16345</td>
+                    <td>51.08882</td>
+                    <td>0.12</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-12</td>
+                    <td>full planning permission</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Laurel House, Station Approach</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of Building to 7No. Dwellings (Previously Approved on 15/01674/PNCOU)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/18</td>
+                    <td>-1.069951</td>
+                    <td>50.895773</td>
+                    <td>0.5</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-01</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Brymor House & Ocean House Parklands Business Park, Forest Rd</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of existing B1(a) offices (within 2x separate blocks) to provide a total of 24. No Class C3 Dwellings together with on-site car parking.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/19</td>
+                    <td>-1.070238</td>
+                    <td>50.89493</td>
+                    <td>0.23</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-06</td>
+                    <td>other</td>
+                    <td>https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple&searchType=Application</td>
+                    <td>permissioned</td>
+                    <td>Acer House Parklands Business Park Forest Road Denmead</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of existing office building (Use Class B1(a)) to 8 no. apartments (Use Class C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/20</td>
+                    <td>-5.865299</td>
+                    <td>50.995253</td>
+                    <td>0.21</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>16 Edgar Road, Winchester, SO23 9TW</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/21</td>
+                    <td>-1.311787</td>
+                    <td>51.065742</td>
+                    <td>0.43</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>St Peter's, Hyde Abbey Road Car Park, Winchester</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/22</td>
+                    <td>-1.29947</td>
+                    <td>51.089444</td>
+                    <td>0.53</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Kings Worthy Court, Kings Worthy, SO23 7QA</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/23</td>
+                    <td>-1.326717</td>
+                    <td>51.064588</td>
+                    <td>0.25</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Land At the end of West End Close, Winchester</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/24</td>
+                    <td>-1.300914</td>
+                    <td>51.063717</td>
+                    <td>0.24</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Land off Firmstone Road, Winchester</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/25</td>
+                    <td>-1.315466</td>
+                    <td>50.997188</td>
+                    <td>2.05</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Clayfield Park Homes Ltd, Main Road, Colden Common</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/26</td>
+                    <td>-6.018776</td>
+                    <td>50.887321</td>
+                    <td>0.36</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Malt Lane, Bishops Waltham</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/27</td>
+                    <td>-1.328069</td>
+                    <td>51.06188</td>
+                    <td>0.53</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Royal Hampshire County Hospital B, Winchester</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/28</td>
+                    <td>-1.329382</td>
+                    <td>51.061825</td>
+                    <td>0.75</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Royal Hampshire County Hospital E, Winchester</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/29</td>
+                    <td>-1.33654</td>
+                    <td>51.077242</td>
+                    <td>0.2</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Behind Trussell Crescent, Winchester</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/30</td>
+                    <td>-1.162332</td>
+                    <td>51.089819</td>
+                    <td>0.25</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Telephone Exchange, Station Road, New Alresford, SO32 2LX</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/31</td>
+                    <td>-1.30113</td>
+                    <td>51.091055</td>
+                    <td>1.27</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>Cornerways Church Lane Kingsworthy</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17/32</td>
+                    <td>-1.166592</td>
+                    <td>51.091127</td>
+                    <td>2.13</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/winchester</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment</td>
+                    <td>not permissioned</td>
+                    <td>The Dean Housing Allocation</td>
+                    <td>http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.336096, "GeoY": 51.153152, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 27No. Dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-21", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Old Station Yard Oxford Road", "SiteReference": "BLR17/01", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.322528, "GeoY": 51.073925, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing dwelling and erection of 10No. dwellings (6No. 2 Bed Flats and 4No. 3 Bed Houses)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-23", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "63 Andover Road", "SiteReference": "BLR17/02", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.318422, "GeoY": 51.062876, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change Of Use from B1 to 26 1 Bed Flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-29", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Trafalgar House Trafalgar Street", "SiteReference": "BLR17/03", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.306279, "GeoY": 51.060898, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". (Prior Approval) Change Of Use for First Floor Ofices (B1 Use) to 5 No. Residential Units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-09", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "12-13 Capitol House Bridge Street", "SiteReference": "BLR17/04", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.306279, "GeoY": 51.060898, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". (Prior Approval) Change Of Use of the basement, second and third floors and roof spaces from Offices (B1 Use) to 11 Dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-09", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "12-13 Capitol House Bridge Street", "SiteReference": "BLR17/05", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.297766, "GeoY": 51.072762, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". (Prior Approval) Change Of Use from B1(A) Office to 12 x Studio Flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-10-30", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Co-Operative Group Ember House Moorside Road", "SiteReference": "BLR17/06", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.20219, "GeoY": 50.939035, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of Exisitng Dwelling and Erection of 10 x Dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-27", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "The Brook Clewers Hill", "SiteReference": "BLR17/07", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.059192, "GeoY": 50.903286, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 10 x dwellings following demolition of the existing Denmead Baptist Church.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-06-08", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "51 Denmead Baptist Church Anmore Road", "SiteReference": "BLR17/08", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.338881, "GeoY": 51.063182, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of exisitng buildings and erection of 6 x Houses.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-09", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "15 Chilbolton Avenue", "SiteReference": "BLR17/09", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.337655, "GeoY": 51.056126, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 5 x 1 Bed affordable housing units.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-05-09", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Garage Court Bailey Close", "SiteReference": "BLR17/10", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.319071, "GeoY": 51.059472, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of exisitng Snooker Centre and erection of 5No. 3 Bed, 1No. 2 Bed Dwellings AND A COMMERCIAL BLDG.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-21", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Winchester Snooker Centre, Radley House 8 St Cross Road", "SiteReference": "BLR17/11", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.317455, "GeoY": 51.062664, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Retention of lower ground \u0026 ground Floor Offices \u0026 Change Of Use of First \u0026 Second Floor from B1 (Office) to 4x1 Bed \u0026 4 x 2 Bed Flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-23", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Regency House 2-4 Southgate Street Winchester Hampshire SO23 9EF", "SiteReference": "BLR17/12", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.315472, "GeoY": 51.06553, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of Use from B1(A) Offices to 9No. Residential Dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-10-27", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Canister House 2 Exchange Square", "SiteReference": "BLR17/13", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.311803, "GeoY": 51.061731, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelop Exisitng Facades on High St \u0026 Market St. Change Of Use of 2 Floors from A1 \u0026 erection of a 3rd floor to create 7 x Duplex flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-21", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "9-11 High Street", "SiteReference": "BLR17/14", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.221714, "GeoY": 50.956261, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Alterations to provide new hipped roof to existing building and formation of 5xFlats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-22", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Cunningham House, Claylands Road", "SiteReference": "BLR17/15", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.173236, "GeoY": 51.084519, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 6 x1 Bed and 2 x 2 Bed Affordable Flats Following Demolition of Exisitng Garages.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-03-03", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "11-16 Garage Block Mitford Road", "SiteReference": "BLR17/16", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.16345, "GeoY": 51.08882, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of Building to 7No. Dwellings (Previously Approved on 15/01674/PNCOU)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-12", "PermissionType": "full planning permission", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Laurel House, Station Approach", "SiteReference": "BLR17/17", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.069951, "GeoY": 50.895773, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of existing B1(a) offices (within 2x separate blocks) to provide a total of 24. No Class C3 Dwellings together with on-site car parking.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-01", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Brymor House \u0026 Ocean House Parklands Business Park, Forest Rd", "SiteReference": "BLR17/18", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.070238, "GeoY": 50.89493, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of existing office building (Use Class B1(a)) to 8 no. apartments (Use Class C3)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-06", "PermissionType": "other", "PlanningHistory": "https://planningapps.winchester.gov.uk/online-applications/search.do?action=simple\u0026searchType=Application", "PlanningStatus": "permissioned", "SiteNameAddress": "Acer House Parklands Business Park Forest Road Denmead", "SiteReference": "BLR17/19", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -5.865299, "GeoY": 50.995253, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "16 Edgar Road, Winchester, SO23 9TW", "SiteReference": "BLR17/20", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.311787, "GeoY": 51.065742, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "St Peter\u0027s, Hyde Abbey Road Car Park, Winchester", "SiteReference": "BLR17/21", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.29947, "GeoY": 51.089444, "HazardousSubstances": null, "Hectares": 0.53, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Kings Worthy Court, Kings Worthy, SO23 7QA", "SiteReference": "BLR17/22", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.326717, "GeoY": 51.064588, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land At the end of West End Close, Winchester", "SiteReference": "BLR17/23", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.300914, "GeoY": 51.063717, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Firmstone Road, Winchester", "SiteReference": "BLR17/24", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.315466, "GeoY": 50.997188, "HazardousSubstances": null, "Hectares": 2.05, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Clayfield Park Homes Ltd, Main Road, Colden Common", "SiteReference": "BLR17/25", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -6.018776, "GeoY": 50.887321, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Malt Lane, Bishops Waltham", "SiteReference": "BLR17/26", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.328069, "GeoY": 51.06188, "HazardousSubstances": null, "Hectares": 0.53, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Royal Hampshire County Hospital B, Winchester", "SiteReference": "BLR17/27", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.329382, "GeoY": 51.061825, "HazardousSubstances": null, "Hectares": 0.75, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Royal Hampshire County Hospital E, Winchester", "SiteReference": "BLR17/28", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.33654, "GeoY": 51.077242, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Behind Trussell Crescent, Winchester", "SiteReference": "BLR17/29", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.162332, "GeoY": 51.089819, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Telephone Exchange, Station Road, New Alresford, SO32 2LX", "SiteReference": "BLR17/30", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.30113, "GeoY": 51.091055, "HazardousSubstances": null, "Hectares": 1.27, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "Cornerways Church Lane Kingsworthy", "SiteReference": "BLR17/31", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.166592, "GeoY": 51.091127, "HazardousSubstances": null, "Hectares": 2.13, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/winchester", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.winchester.gov.uk/planning-policy/evidence-base/housing/shlaa-strategic-housing-land-availability-assessment", "PlanningStatus": "not permissioned", "SiteNameAddress": "The Dean Housing Allocation", "SiteReference": "BLR17/32", "SiteplanURL": "http://winch.maps.arcgis.com/apps/webappviewer/index.html?id=4c4379c8d2c14f8c81033b4ffd1d4a3b"}];
+    const bbox = [-6.033015822217556, -1.044952177782444, 50.87833784341859, 51.16213515658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>
