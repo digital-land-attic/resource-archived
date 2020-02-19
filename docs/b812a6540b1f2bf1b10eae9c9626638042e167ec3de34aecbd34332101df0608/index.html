@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b812a654...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.whitehorsedc.gov.uk/sites/default/files/2017_12_06%20Brownfield%20Register.csv">http://www.whitehorsedc.gov.uk/sites/default/files/2017_12_06%20Brownfield%20Register.csv</a>
+        </dd>
+    </dl>
+    <a href="http://www.whitehorsedc.gov.uk/services-and-advice/planning-and-building/planning-policy/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:VAL">Vale of White Horse District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b812a6540b1f2bf1b10eae9c9626638042e167ec3de34aecbd34332101df0608/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b812a6540b1f2bf1b10eae9c9626638042e167ec3de34aecbd34332101df0608">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">29 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">69.04
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>29</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b812a6540b1f2bf1b10eae9c9626638042e167ec3de34aecbd34332101df0608.csv"
+        download="b812a6540b1f2bf1b10eae9c9626638042e167ec3de34aecbd34332101df0608_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b812a6540b1f2bf1b10eae9c9626638042e167ec3de34aecbd34332101df0608"
+        download="b812a6540b1f2bf1b10eae9c9626638042e167ec3de34aecbd34332101df0608_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>ABIG07</td>
+                    <td>-1.304997</td>
+                    <td>51.668297</td>
+                    <td>0.87</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td>35.0</td>
+                    <td>35.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Oxford Abingdon Hotel, Abingdon-on-Thames</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/ABIG07.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WANT11</td>
+                    <td>-1.424508</td>
+                    <td>51.589334</td>
+                    <td>0.13</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land to the rear of Waitrose Car Park, Wantage</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/WANT11.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P11/V1960/EX</td>
+                    <td>-1.451501</td>
+                    <td>51.598868</td>
+                    <td>0.63</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-12-13</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P11/V1960/EX</td>
+                    <td>permissioned</td>
+                    <td>Challow Country Club, Woodhill Ln</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P11V1960EX.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings and erection of 14 dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P11/V1960/EX</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P12/V0204</td>
+                    <td>-1.296006</td>
+                    <td>51.669988</td>
+                    <td>0.15</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-03-01</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P12/V0204</td>
+                    <td>permissioned</td>
+                    <td>Radcliffe Publishing Co Ltd, 18 Marcham Road, Abingdon, OX14 1AA</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P12V0204.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Re-submission for conversion of existing office building into residential apartments and erection of 5 mews houses.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P12/V0204</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P12/V0308</td>
+                    <td>-1.427893</td>
+                    <td>51.588748</td>
+                    <td>0.04</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-10-26</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P12/V0308</td>
+                    <td>permissioned</td>
+                    <td>29-30 Market Place, Wantage, Oxfordshire</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P12V0308.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed 8 flats comprising, 6x1 and 2x2 bed flats at first and second floor levels.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P12/V0308</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P13/V0033/FUL</td>
+                    <td>-1.583274</td>
+                    <td>51.655596</td>
+                    <td>0.18</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-04-09</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0033/FUL</td>
+                    <td>permissioned</td>
+                    <td>Faringdon Tennis Club, Southampton St</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P13V0033FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is under construction (Nov 2017). Change of use from tennis courts to residential, including demolition of existing changing rooms and erection of 11no new dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0033/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P13/V0446/O</td>
+                    <td>-1.332777</td>
+                    <td>51.718279</td>
+                    <td>1.54</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-07</td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0446/O</td>
+                    <td>permissioned</td>
+                    <td>Land West of Faringdon Road Cumnor OX2 9RE</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P13V0446O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of up to 22 dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0446/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P13/V0679/FUL</td>
+                    <td>-1.29644</td>
+                    <td>51.669991</td>
+                    <td>0.17</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-01-16</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0679/FUL</td>
+                    <td>permissioned</td>
+                    <td>Berkeley House, 20 Marcham Rd, Abingdon</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P13V0679FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Refurbishment of the existing building into 8no. 1 bedroom apartments and the erection of 6no. mews terrace houses. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0679/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P13/V0821/FUL</td>
+                    <td>-1.281145</td>
+                    <td>51.671552</td>
+                    <td>0.12</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-09</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0821/FUL</td>
+                    <td>permissioned</td>
+                    <td>57-59 Stert Street, Abingdon</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P13V0821FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 55-59 Stert Street & Abbey Court and the erection of a new three storey building fronting Stert Street, comprising 9 flats, and erection of three storey terrace building comprising 4 dwelling houses and 1 maisonette. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V0821/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P13/V2301/O</td>
+                    <td>-1.589744</td>
+                    <td>51.657768</td>
+                    <td>0.36</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-08-27</td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V2301/O</td>
+                    <td>permissioned</td>
+                    <td>5B Lechlade Road, Faringdon</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P13V2301O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is under construction (Nov 2017). Erection of 14 dwellings with associated access. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P13/V2301/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P14/V2061/RM</td>
+                    <td>-1.262655</td>
+                    <td>51.6445</td>
+                    <td>6.43</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-10</td>
+                    <td>reserved matters approval</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P14/V2061/RM</td>
+                    <td>permissioned</td>
+                    <td>Land south of Appleford Road, Sutton Courtenay (Major Ameys Site)</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P14V2061RM.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. residential development comprising 195 dwellings and access (amended plans including revised layout, house types and landscaping). http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P14/V2061/RM</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P14/V2318/FUL</td>
+                    <td>-1.426606</td>
+                    <td>51.586673</td>
+                    <td>0.14</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-17</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P14/V2318/FUL</td>
+                    <td>permissioned</td>
+                    <td>Motorlux 32 Newbury Street Wantage OX12 8DA</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P14V2318FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is under construction (Nov 2017). http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P14/V2318/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P14/V2877/FUL</td>
+                    <td>-1.650699</td>
+                    <td>51.613467</td>
+                    <td>0.91</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-01</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P14/V2877/FUL</td>
+                    <td>permissioned</td>
+                    <td>Land at Cowans Camp Depot High Street Watchfield SN6 8TE</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P14V2877FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is under construction (Nov 2017). http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P14/V2877/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V0011/FUL</td>
+                    <td>-1.378385</td>
+                    <td>51.593936</td>
+                    <td>0.51</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-03</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V0011/FUL</td>
+                    <td>permissioned</td>
+                    <td>The Old Works Yard, Ardington</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V0011FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of former works buildings to form six residential units. Demolition of existing storage building and erection of three new dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V0011/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V0729/FUL</td>
+                    <td>-1.427446</td>
+                    <td>51.587568</td>
+                    <td>0.29</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-28</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V0729/FUL</td>
+                    <td>permissioned</td>
+                    <td>Police Station and Magistrates' Court Church Street Wantage, OX12 8BW</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V0729FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing magistrates court and police station.  Erection of 32 retirement apartment.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V0729/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V1304/O</td>
+                    <td>-1.265906</td>
+                    <td>51.619434</td>
+                    <td>46.85</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V1304/O</td>
+                    <td>pending decision</td>
+                    <td>Land at former Didcot A Power Station Purchas Road Didcot</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V1304O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Cross boundary application between Vale of White Horse and South Oxfordshire.. Up to 400 dwellings (C3). http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V1304/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V1380/FUL</td>
+                    <td>-1.426142</td>
+                    <td>51.589099</td>
+                    <td>0.12</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-27</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V1380/FUL</td>
+                    <td>permissioned</td>
+                    <td>42 Market Place Wantage OX12 8AW</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V1380FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of part 2 storey part 3 storey extension to the rear to accommodate 6 residential units comprising five flats and one town house. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V1380/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V2041/FUL</td>
+                    <td>-1.427789</td>
+                    <td>51.587866</td>
+                    <td>0.09</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-14</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2041/FUL</td>
+                    <td>permissioned</td>
+                    <td>The Woolpack Inn Church Street Wantage OX12 8BL</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V2041FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of existing listed offices into 10 residential units. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2041/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V2117/FUL</td>
+                    <td>-1.295332</td>
+                    <td>51.752569</td>
+                    <td>0.1</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-28</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2117/FUL</td>
+                    <td>permissioned</td>
+                    <td>47 West Way Oxford OX2 0JF</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V2117FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing commercial building. New development of 11 apartments in two 3-storey buildings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2117/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V2490/FUL</td>
+                    <td>-1.426114</td>
+                    <td>51.591329</td>
+                    <td>0.15</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-27</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2490/FUL</td>
+                    <td>permissioned</td>
+                    <td>Former H & L Site Limborough Road Wantage OX12 9AJ</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V2490FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed demolition of existing commercial building and erection of 14no. Dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2490/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V2952/O</td>
+                    <td>-1.415427</td>
+                    <td>51.588363</td>
+                    <td>2.17</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-05</td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2952/O</td>
+                    <td>permissioned</td>
+                    <td>King Alfred School East Springfield Road Wantage OX12 8ET</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V2952O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development for up to 150 dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V2952/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V3042/O</td>
+                    <td>-1.343608</td>
+                    <td>51.668034</td>
+                    <td>0.23</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-10</td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V3042/O</td>
+                    <td>permissioned</td>
+                    <td>Marcham Village Institute and Anson Field Marcham Abingdon OX13 6NG</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V3042O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of the Anson Institute building to 3x apartments and erection of 5x new dwelling houses , and for the erection of 5x new dwellings on Anson Field.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V3042/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P15/V3062/FUL</td>
+                    <td>-1.288642</td>
+                    <td>51.663784</td>
+                    <td>0.06</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-23</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V3062/FUL</td>
+                    <td>permissioned</td>
+                    <td>The Saxton Arms Saxton Road Abingdon, OX14, 5HF</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P15V3062FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use to form 4 x one bed and 1 x two bed apartments.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P15/V3062/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P16/V0290/RM</td>
+                    <td>-1.321069</td>
+                    <td>51.709418</td>
+                    <td>2.01</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-09</td>
+                    <td>reserved matters approval</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V0290/RM</td>
+                    <td>permissioned</td>
+                    <td>Land at Besselsleigh Road Wootton OX13 6DX</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P16V0290RM.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Reserved matters application for demolition of existing building and erection of 64 dwellings following grant of outline planning permission under reference P13/V0385/O. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V0290/RM</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P16/V0527/O</td>
+                    <td>-1.427141</td>
+                    <td>51.612958</td>
+                    <td>0.13</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-10</td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V0527/O</td>
+                    <td>permissioned</td>
+                    <td>The Bungalow Townsend Grove Wantage OX12 0AZ</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P16V0527O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing bungalow and industrial workshops/storage sheds. Erection of 14no flats.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V0527/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P16/V1409/FUL</td>
+                    <td>-1.424384</td>
+                    <td>51.588865</td>
+                    <td>0.16</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-27</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V1409/FUL</td>
+                    <td>permissioned</td>
+                    <td>23 Wallingford Street WANTAGE OX12 8AU</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P16V1409FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 1no. 2 bedroom flat as extension to P14/V2829 for erection of  7 one bedroom flats and 17 two bedroom flats.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V1409/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P16/V1714/O</td>
+                    <td>-1.447016</td>
+                    <td>51.590188</td>
+                    <td>1.99</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-30</td>
+                    <td>outline planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V1714/O</td>
+                    <td>permissioned</td>
+                    <td>Land at Challow Park (including Former Council Depot) Challow Road (A417) East Challow Wantage OX12 9RH</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P16V1714O.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Development of up to 38 Dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V1714/O</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P16/V3061/FUL</td>
+                    <td>-1.301947</td>
+                    <td>51.569364</td>
+                    <td>0.31</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-22</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V3061/FUL</td>
+                    <td>permissioned</td>
+                    <td>Land at Upper Farm Road, Chilton, OX11 0PJ</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P16V3061FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of three detached dwellings and two semi-detached dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V3061/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>P16/V0246/FUL</td>
+                    <td>-1.29764</td>
+                    <td>51.751297</td>
+                    <td>2.2</td>
+                    <td>2017-12-08</td>
+                    <td>2017-12-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/vale-of-white-horse</td>
+                    <td>mixed ownership</td>
+                    <td>2016-07-16</td>
+                    <td>full planning permission</td>
+                    <td>http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V0246/FUL</td>
+                    <td>permissioned</td>
+                    <td>Botley Centre, West Way, Botley</td>
+                    <td>http://www.whitehorsedc.gov.uk/sites/default/files/P16V0246FUL.png</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition and redevelopment of existing shopping centre and adjacent buildings  (excluding Elms Parade) for 140 residential units (C3).. http://maps.whitehorsedc.gov.uk/gis/?cat=PA&ref=P16/V0246/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.304997, "GeoY": 51.668297, "HazardousSubstances": null, "Hectares": 0.87, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": 35.0, "NetDwellingsRangeTo": 35.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Oxford Abingdon Hotel, Abingdon-on-Thames", "SiteReference": "ABIG07", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/ABIG07.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.424508, "GeoY": 51.589334, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land to the rear of Waitrose Car Park, Wantage", "SiteReference": "WANT11", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/WANT11.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.451501, "GeoY": 51.598868, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings and erection of 14 dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P11/V1960/EX", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-12-13", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P11/V1960/EX", "PlanningStatus": "permissioned", "SiteNameAddress": "Challow Country Club, Woodhill Ln", "SiteReference": "P11/V1960/EX", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P11V1960EX.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.296006, "GeoY": 51.669988, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Re-submission for conversion of existing office building into residential apartments and erection of 5 mews houses.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P12/V0204", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-03-01", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P12/V0204", "PlanningStatus": "permissioned", "SiteNameAddress": "Radcliffe Publishing Co Ltd, 18 Marcham Road, Abingdon, OX14 1AA", "SiteReference": "P12/V0204", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P12V0204.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.427893, "GeoY": 51.588748, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed 8 flats comprising, 6x1 and 2x2 bed flats at first and second floor levels.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P12/V0308", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-10-26", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P12/V0308", "PlanningStatus": "permissioned", "SiteNameAddress": "29-30 Market Place, Wantage, Oxfordshire", "SiteReference": "P12/V0308", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P12V0308.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.583274, "GeoY": 51.655596, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site is under construction (Nov 2017). Change of use from tennis courts to residential, including demolition of existing changing rooms and erection of 11no new dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0033/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-04-09", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0033/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Faringdon Tennis Club, Southampton St", "SiteReference": "P13/V0033/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P13V0033FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.332777, "GeoY": 51.718279, "HazardousSubstances": null, "Hectares": 1.54, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of up to 22 dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0446/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-07", "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0446/O", "PlanningStatus": "permissioned", "SiteNameAddress": "Land West of Faringdon Road Cumnor OX2 9RE", "SiteReference": "P13/V0446/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P13V0446O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.29644, "GeoY": 51.669991, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Refurbishment of the existing building into 8no. 1 bedroom apartments and the erection of 6no. mews terrace houses. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0679/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-01-16", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0679/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Berkeley House, 20 Marcham Rd, Abingdon", "SiteReference": "P13/V0679/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P13V0679FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.281145, "GeoY": 51.671552, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 55-59 Stert Street \u0026 Abbey Court and the erection of a new three storey building fronting Stert Street, comprising 9 flats, and erection of three storey terrace building comprising 4 dwelling houses and 1 maisonette. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0821/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-09", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V0821/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "57-59 Stert Street, Abingdon", "SiteReference": "P13/V0821/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P13V0821FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.589744, "GeoY": 51.657768, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site is under construction (Nov 2017). Erection of 14 dwellings with associated access. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V2301/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-08-27", "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P13/V2301/O", "PlanningStatus": "permissioned", "SiteNameAddress": "5B Lechlade Road, Faringdon", "SiteReference": "P13/V2301/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P13V2301O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.262655, "GeoY": 51.6445, "HazardousSubstances": null, "Hectares": 6.43, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". residential development comprising 195 dwellings and access (amended plans including revised layout, house types and landscaping). http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P14/V2061/RM", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-10", "PermissionType": "reserved matters approval", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P14/V2061/RM", "PlanningStatus": "permissioned", "SiteNameAddress": "Land south of Appleford Road, Sutton Courtenay (Major Ameys Site)", "SiteReference": "P14/V2061/RM", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P14V2061RM.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.426606, "GeoY": 51.586673, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is under construction (Nov 2017). http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P14/V2318/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-17", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P14/V2318/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Motorlux 32 Newbury Street Wantage OX12 8DA", "SiteReference": "P14/V2318/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P14V2318FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.650699, "GeoY": 51.613467, "HazardousSubstances": null, "Hectares": 0.91, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is under construction (Nov 2017). http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P14/V2877/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-01", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P14/V2877/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Cowans Camp Depot High Street Watchfield SN6 8TE", "SiteReference": "P14/V2877/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P14V2877FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.378385, "GeoY": 51.593936, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of former works buildings to form six residential units. Demolition of existing storage building and erection of three new dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V0011/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-03", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V0011/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Works Yard, Ardington", "SiteReference": "P15/V0011/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V0011FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.427446, "GeoY": 51.587568, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing magistrates court and police station.  Erection of 32 retirement apartment.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V0729/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-28", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V0729/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Police Station and Magistrates\u0027 Court Church Street Wantage, OX12 8BW", "SiteReference": "P15/V0729/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V0729FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.265906, "GeoY": 51.619434, "HazardousSubstances": "yes", "Hectares": 46.85, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Cross boundary application between Vale of White Horse and South Oxfordshire.. Up to 400 dwellings (C3). http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V1304/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V1304/O", "PlanningStatus": "pending decision", "SiteNameAddress": "Land at former Didcot A Power Station Purchas Road Didcot", "SiteReference": "P15/V1304/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V1304O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.426142, "GeoY": 51.589099, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of part 2 storey part 3 storey extension to the rear to accommodate 6 residential units comprising five flats and one town house. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V1380/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-27", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V1380/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "42 Market Place Wantage OX12 8AW", "SiteReference": "P15/V1380/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V1380FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.427789, "GeoY": 51.587866, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of existing listed offices into 10 residential units. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2041/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-14", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2041/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Woolpack Inn Church Street Wantage OX12 8BL", "SiteReference": "P15/V2041/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V2041FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.295332, "GeoY": 51.752569, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing commercial building. New development of 11 apartments in two 3-storey buildings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2117/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-28", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2117/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "47 West Way Oxford OX2 0JF", "SiteReference": "P15/V2117/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V2117FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.426114, "GeoY": 51.591329, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed demolition of existing commercial building and erection of 14no. Dwellings. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2490/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-27", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2490/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Former H \u0026 L Site Limborough Road Wantage OX12 9AJ", "SiteReference": "P15/V2490/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V2490FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.415427, "GeoY": 51.588363, "HazardousSubstances": null, "Hectares": 2.17, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development for up to 150 dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2952/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-05", "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V2952/O", "PlanningStatus": "permissioned", "SiteNameAddress": "King Alfred School East Springfield Road Wantage OX12 8ET", "SiteReference": "P15/V2952/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V2952O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.343608, "GeoY": 51.668034, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of the Anson Institute building to 3x apartments and erection of 5x new dwelling houses , and for the erection of 5x new dwellings on Anson Field.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V3042/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-10", "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V3042/O", "PlanningStatus": "permissioned", "SiteNameAddress": "Marcham Village Institute and Anson Field Marcham Abingdon OX13 6NG", "SiteReference": "P15/V3042/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V3042O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.288642, "GeoY": 51.663784, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use to form 4 x one bed and 1 x two bed apartments.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V3062/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-23", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P15/V3062/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "The Saxton Arms Saxton Road Abingdon, OX14, 5HF", "SiteReference": "P15/V3062/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P15V3062FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.321069, "GeoY": 51.709418, "HazardousSubstances": null, "Hectares": 2.01, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Reserved matters application for demolition of existing building and erection of 64 dwellings following grant of outline planning permission under reference P13/V0385/O. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V0290/RM", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-09", "PermissionType": "reserved matters approval", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V0290/RM", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Besselsleigh Road Wootton OX13 6DX", "SiteReference": "P16/V0290/RM", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P16V0290RM.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.427141, "GeoY": 51.612958, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing bungalow and industrial workshops/storage sheds. Erection of 14no flats.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V0527/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-10", "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V0527/O", "PlanningStatus": "permissioned", "SiteNameAddress": "The Bungalow Townsend Grove Wantage OX12 0AZ", "SiteReference": "P16/V0527/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P16V0527O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.424384, "GeoY": 51.588865, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 1no. 2 bedroom flat as extension to P14/V2829 for erection of  7 one bedroom flats and 17 two bedroom flats.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V1409/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-27", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V1409/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "23 Wallingford Street WANTAGE OX12 8AU", "SiteReference": "P16/V1409/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P16V1409FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.447016, "GeoY": 51.590188, "HazardousSubstances": null, "Hectares": 1.99, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Development of up to 38 Dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V1714/O", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-30", "PermissionType": "outline planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V1714/O", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Challow Park (including Former Council Depot) Challow Road (A417) East Challow Wantage OX12 9RH", "SiteReference": "P16/V1714/O", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P16V1714O.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.301947, "GeoY": 51.569364, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of three detached dwellings and two semi-detached dwellings.. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V3061/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-22", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V3061/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Upper Farm Road, Chilton, OX11 0PJ", "SiteReference": "P16/V3061/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P16V3061FUL.png"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-08", "GeoX": -1.29764, "GeoY": 51.751297, "HazardousSubstances": null, "Hectares": 2.2, "LastUpdatedDate": "2017-12-08", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition and redevelopment of existing shopping centre and adjacent buildings  (excluding Elms Parade) for 140 residential units (C3).. http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V0246/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/vale-of-white-horse", "OwnershipStatus": "mixed ownership", "PermissionDate": "2016-07-16", "PermissionType": "full planning permission", "PlanningHistory": "http://maps.whitehorsedc.gov.uk/gis/?cat=PA\u0026ref=P16/V0246/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Botley Centre, West Way, Botley", "SiteReference": "P16/V0246/FUL", "SiteplanURL": "http://www.whitehorsedc.gov.uk/sites/default/files/P16V0246FUL.png"}];
+    const bbox = [-1.6651514411045911, -1.2482025588954089, 51.56038084341859, 51.76155215658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

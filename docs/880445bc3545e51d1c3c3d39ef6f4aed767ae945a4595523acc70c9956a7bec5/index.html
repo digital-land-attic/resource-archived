@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">880445bc...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.lancaster.gov.uk/assets/attach/3838/lancastercitycouncil_brownfieldlandregister_2018-06-21_rev1.csv">https://www.lancaster.gov.uk/assets/attach/3838/lancastercitycouncil_brownfieldlandregister_2018-06-21_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.lancaster.gov.uk/planning/planning-policy/brownfield-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:LAC">Lancaster City Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/880445bc3545e51d1c3c3d39ef6f4aed767ae945a4595523acc70c9956a7bec5/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/880445bc3545e51d1c3c3d39ef6f4aed767ae945a4595523acc70c9956a7bec5">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">54 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">133.64
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>54</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/880445bc3545e51d1c3c3d39ef6f4aed767ae945a4595523acc70c9956a7bec5.csv"
+        download="880445bc3545e51d1c3c3d39ef6f4aed767ae945a4595523acc70c9956a7bec5_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/880445bc3545e51d1c3c3d39ef6f4aed767ae945a4595523acc70c9956a7bec5"
+        download="880445bc3545e51d1c3c3d39ef6f4aed767ae945a4595523acc70c9956a7bec5_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>61</td>
+                    <td>-2.769003</td>
+                    <td>54.123327</td>
+                    <td>13.44</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Lundsfield Quarry, Kellet Road, Carnforth, LA5 9AD</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>75</td>
+                    <td>-2.76844</td>
+                    <td>54.135051</td>
+                    <td>2.43</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Keer Bridge, Warton Road, Carnforth</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>76</td>
+                    <td>-2.766918</td>
+                    <td>54.129749</td>
+                    <td>0.31</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Norjac Service Station, Scotland Road, Carnforth, LA5 9JZ</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>83</td>
+                    <td>-2.766751</td>
+                    <td>54.120681</td>
+                    <td>0.19</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Windermere Road Garages, Carnforth</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>89</td>
+                    <td>-2.725239</td>
+                    <td>54.076692</td>
+                    <td>0.76</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land West Of Mill Lane, Caton, LA2 9HX</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>97</td>
+                    <td>-2.711941</td>
+                    <td>54.077536</td>
+                    <td>1.94</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>TNT Garage, Hornby Road, Caton, LA2 9JA</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>119</td>
+                    <td>-2.560379</td>
+                    <td>54.183573</td>
+                    <td>0.58</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Burr Tree Meadow, A65, Cowan Bridge, LA6 2HS</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>153</td>
+                    <td>-2.850593</td>
+                    <td>53.998036</td>
+                    <td>0.18</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Land East Of Village Hall, Bodie Hill, Glasson</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>179</td>
+                    <td>-2.892667</td>
+                    <td>54.047946</td>
+                    <td>0.06</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-04-11</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Former Police Station, Heysham Road, Heysham, Heysham</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 11/01089/FUL - Erection of 14 no apartments. construction of 3000sq ft retail unit with a further 1000sq ft storage area, parking for 10 vehicles and tra. 14/00291/VCN - Erection of 14 no apartments. construction of 3000sq ft retail unit with a further 1000sq ft storage area, parking for 10 vehicles and traffic calming to Knowlys Road (pursuant to the variation of conditions 2, 5, 8 and 9 which relate to t</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>202</td>
+                    <td>-2.890718</td>
+                    <td>54.059636</td>
+                    <td>0.17</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Garage, Grosvenor Road, Heysham</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>203</td>
+                    <td>-2.881416</td>
+                    <td>54.059722</td>
+                    <td>0.24</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td>2016-08-08</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Sunacre Court, Maple Avenue, Heysham</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/00323/FUL - Erection of a 2-storey block of four flats and a pair of 2-storey semi-detached dwellings with associated access and parking. 16/00861/FUL - Erection of a 2-storey block of four flats and a pair of 2-storey semi-detached dwellings with associated access and parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>236</td>
+                    <td>-2.633755</td>
+                    <td>54.106033</td>
+                    <td>0.5</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Barn north east of Ingleborough View, Hornby</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/01030/FUL - Under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>259</td>
+                    <td>-2.788853</td>
+                    <td>54.053508</td>
+                    <td>0.16</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-03-08</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Ridge Hotel, 10 Patterdale Road, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>07/01721/OUT - Outline application for demolition of existing public house; erection of 6no semi detached, three bedroom dwellings with associated access, parking and gardens and provision of altered access to Firbank Road. 17/01572/FUL - Erection of two 2-storey buildings comprising of 16 one-bed affordable flats (C3) with associated parking and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>260</td>
+                    <td>-2.823076</td>
+                    <td>54.051508</td>
+                    <td>0.37</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-22</td>
+                    <td>outline planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>New Quay, New Quay Road, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 16/00581/OUT - Outline application for the erection of up to 12 dwellings including associated cycle/pedestrian access</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>286</td>
+                    <td>-2.810634</td>
+                    <td>54.053399</td>
+                    <td>6.66</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-11-25</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Luneside East, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 13/01200/FUL - Erection of 149 dwellings with associated landscaping and car parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>287</td>
+                    <td>-2.780811</td>
+                    <td>54.049857</td>
+                    <td>5.69</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Nightingale Hall, Lancaster, LA1 3ES</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>289</td>
+                    <td>-2.786153</td>
+                    <td>54.062594</td>
+                    <td>0.71</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Private Car Park, Dolphinlee Bridge, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>290</td>
+                    <td>-2.818518</td>
+                    <td>54.055835</td>
+                    <td>0.85</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Derwent Court, Salt Ayre Lane, Lancaster, LA1 5JB</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>313</td>
+                    <td>-2.76965</td>
+                    <td>54.050082</td>
+                    <td>15.88</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Lancaster Moor Hospital, Quernmore Road, Lancaster, LA1 3QZ</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>316</td>
+                    <td>-2.801038</td>
+                    <td>54.050093</td>
+                    <td>0.07</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Damside Street Car Park, North Of 50-62 Church Street, Lancaster, LA1 1LH</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>323</td>
+                    <td>-2.820542</td>
+                    <td>54.050824</td>
+                    <td>10.75</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Luneside West, Lancaster, LA1 5FT</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>324</td>
+                    <td>-2.813842</td>
+                    <td>54.045611</td>
+                    <td>0.44</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>The Knoll, Westbourne Road, Lancaster, LA1 5EF</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>331</td>
+                    <td>-2.77917</td>
+                    <td>54.041302</td>
+                    <td>1.68</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>The Abattoir, Wyresdale Road, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>343</td>
+                    <td>-2.795687</td>
+                    <td>54.049822</td>
+                    <td>4.78</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Canal Corridor North Development Site, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. Expectation for student housing.. 08/00866/OUT - Comprehensive redevelopment comprising a retail led mixed used scheme to include demolition of existing buildings and associated structures, the demolition of all residential dwellings, the closure and alteration of highways, engineering w</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>359</td>
+                    <td>-2.78165</td>
+                    <td>54.041655</td>
+                    <td>3.21</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Farmers Auction Mart, Wyresdale Road, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>366</td>
+                    <td>-2.821446</td>
+                    <td>54.051734</td>
+                    <td>1.96</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land North of New Quay Road, Lancaster, LA1 5UZ</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>369</td>
+                    <td>-2.775494</td>
+                    <td>54.053028</td>
+                    <td>3.66</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Ridge Lea Hospital, Stone Row Head, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>372</td>
+                    <td>-2.78717</td>
+                    <td>54.039614</td>
+                    <td>1.54</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>University Of Cumbria, Coulston Road, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>375</td>
+                    <td>-2.796784</td>
+                    <td>54.018546</td>
+                    <td>0.73</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Former Filter House, Scotforth Road, Lancaster, LA1 4XW</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>383</td>
+                    <td>-2.776227</td>
+                    <td>54.051379</td>
+                    <td>0.88</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Stone Row Head, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>389</td>
+                    <td>-2.770955</td>
+                    <td>54.047961</td>
+                    <td>2.49</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Moor Park, Quernmore Road, Lancaster, LA1 3QZ</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>408</td>
+                    <td>-2.89757</td>
+                    <td>54.016784</td>
+                    <td>23.11</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2005-10-25</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Former Pontins Holiday Camp, Carr Lane, Middleton</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 05/00740/REM - Reserved Matters application for erection of a retirement village comprising dwellings, other residential accommodation, retail, leisure, recreation and ancillary administration,creation of a new access and circulation road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>451</td>
+                    <td>-2.856555</td>
+                    <td>54.076611</td>
+                    <td>0.29</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Church Lane Car Park, Morecambe</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>470</td>
+                    <td>-2.858155</td>
+                    <td>54.075646</td>
+                    <td>0.58</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Morecambe Town Hall Car Park, Morecambe, LA4 5AF</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>481</td>
+                    <td>-2.868093</td>
+                    <td>54.072133</td>
+                    <td>0.1</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Club, Victoria Street, Morecambe</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>495</td>
+                    <td>-2.850221</td>
+                    <td>54.060567</td>
+                    <td>0.5</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Nursery On White Lund Road, White Lund, Morecambe, LA3 3DT</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>497</td>
+                    <td>-2.869809</td>
+                    <td>54.057731</td>
+                    <td>0.1</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land Adjacent to the Bungalow, Westcliffe, Morecambe, Morecambe, LA3 3NP</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>500</td>
+                    <td>-2.854692</td>
+                    <td>54.056581</td>
+                    <td>0.23</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-16</td>
+                    <td>outline planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Land West Of 113 White Lund Road, Oxcliffe Road, Morecambe</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 16/01464/OUT - Outline application for demolition of exisitng dwelling and outbuilding and the erection of 10 dwellings and creation of a new vehicular access</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>522</td>
+                    <td>-2.869389</td>
+                    <td>54.072025</td>
+                    <td>0.34</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Westview Road Car Park, Morecambe</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>523</td>
+                    <td>-2.848929</td>
+                    <td>54.076638</td>
+                    <td>0.28</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-14</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Broadway Hotel, Marine Road East, Morecambe</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 07/01236/FUL, 10/00519/RENU, 13/00499/RENU, 13/01271/FUL, 16/01056/FUL. 17/00311/VCN - Erection of 50 residential apartments with associated access, car parking and landscaping (pursuant to the variation of condition 5 to omit the surface water discharge rate and condition 14 to amend the habitat mitigation; removal of condi</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>529</td>
+                    <td>-2.876281</td>
+                    <td>54.067651</td>
+                    <td>0.15</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td>2015-06-29</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Grove Street Depot, Morecambe</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 05/00774/OUT, 15/00248/FUL. 15/00248/FUL - Demolition of existing depot and erection of two three-storey residential buildings comprising a total of 21 self-contained one-bedroom supported living apartments with associated open space and car parking.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>578</td>
+                    <td>-2.826745</td>
+                    <td>54.163075</td>
+                    <td>1.91</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Kays Garden Centre, Lindeth Road, Silverdale, LA5 0TX</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>692</td>
+                    <td>-2.886107</td>
+                    <td>54.064775</td>
+                    <td>0.13</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-05-22</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Battery Hotel, Sandylands Promenade, Heysham</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 14/00106/CU - Change of use and conversion of former public house (A4) to five 1-bed, eight 2-bed and four 3-bed apartments (C3), construction of dormers to front and rear, creation of associated car parking and landscaping and the demolition of existing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>693</td>
+                    <td>-2.799371</td>
+                    <td>54.047569</td>
+                    <td>0.04</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-10</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>5-11 Brock Street, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 14/00961/CU - Change of use of upper floors from retail and storage to student accommodation comprising 35 studio apartments, creation of a fourth floor with alterations to the roof including new dormer windows to the front and rear, alterations to fenes</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>696</td>
+                    <td>-2.797672</td>
+                    <td>54.049773</td>
+                    <td>0.03</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tramway Hotel, 127 St Leonards Gate, Lancaster, LA1 1NL</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>697</td>
+                    <td>-2.815363</td>
+                    <td>54.044514</td>
+                    <td>0.54</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Westbourne House, Westbourne Road, Lancaster, LA1 5EF</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>698</td>
+                    <td>-2.798474</td>
+                    <td>54.050155</td>
+                    <td>0.11</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-04-08</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>47-51 North Road, Lancaster</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 13/01274/FUL - Erection of two mixed use buildings and change of use of warehouse (B8)  to create student accommodation for 78 students in the form of 15 Studio flats, 12 cluster flats (C4), a shop (A1), an office (A2) and a laundrette (sui generis)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>713</td>
+                    <td>-2.755491</td>
+                    <td>54.076146</td>
+                    <td>6.19</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-02-03</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Halton Mill, Mill Lane, Halton, Lancaster, Lancashire, LA2 6ND, Halton</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 05/01432/OUT - Renewal of application 00/00920/OUT for proposed redevelopment including demolition of existing mill, erect houses, industrial units, construct new access and provision of associated open space and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>780</td>
+                    <td>-2.768977</td>
+                    <td>54.131866</td>
+                    <td>6.42</td>
+                    <td>2018-02-15</td>
+                    <td>2018-02-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>not permissioned</td>
+                    <td>Former TDG Site, Warton Road, Carnforth</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>782</td>
+                    <td>-2.786778</td>
+                    <td>53.995388</td>
+                    <td>0.33</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Galgate Mill, Chapel Lane, Galgate, LA2 0PR</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>785</td>
+                    <td>-2.824338</td>
+                    <td>54.04812</td>
+                    <td>8.72</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lune Industrial Estate, New Quay Road, Lancaster, LA1 5FT</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>826</td>
+                    <td>-2.770202</td>
+                    <td>54.128586</td>
+                    <td>0.03</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>2-4 New Street, Carnforth, LA1 1EG</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/00172/CU</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>828</td>
+                    <td>-2.856594</td>
+                    <td>54.07182</td>
+                    <td>0.03</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://planning.lancaster.gov.uk/online-applications/</td>
+                    <td>permissioned</td>
+                    <td>Alice Street Works, Morecambe, LA4 5HN</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>829</td>
+                    <td>-2.879725</td>
+                    <td>54.022381</td>
+                    <td>0.17</td>
+                    <td>2017-03-21</td>
+                    <td>2017-03-21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/lancaster</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Roof Tree Inn, Middleton, LA3 3JT</td>
+                    <td>http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>11/00702/FUL</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.769003, "GeoY": 54.123327, "HazardousSubstances": null, "Hectares": 13.44, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Lundsfield Quarry, Kellet Road, Carnforth, LA5 9AD", "SiteReference": 61, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.76844, "GeoY": 54.135051, "HazardousSubstances": null, "Hectares": 2.43, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Keer Bridge, Warton Road, Carnforth", "SiteReference": 75, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.766918, "GeoY": 54.129749, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Norjac Service Station, Scotland Road, Carnforth, LA5 9JZ", "SiteReference": 76, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.766751, "GeoY": 54.120681, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Windermere Road Garages, Carnforth", "SiteReference": 83, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.725239, "GeoY": 54.076692, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land West Of Mill Lane, Caton, LA2 9HX", "SiteReference": 89, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.711941, "GeoY": 54.077536, "HazardousSubstances": null, "Hectares": 1.94, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "TNT Garage, Hornby Road, Caton, LA2 9JA", "SiteReference": 97, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.560379, "GeoY": 54.183573, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Burr Tree Meadow, A65, Cowan Bridge, LA6 2HS", "SiteReference": 119, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.850593, "GeoY": 53.998036, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land East Of Village Hall, Bodie Hill, Glasson", "SiteReference": 153, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.892667, "GeoY": 54.047946, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 11/01089/FUL - Erection of 14 no apartments. construction of 3000sq ft retail unit with a further 1000sq ft storage area, parking for 10 vehicles and tra. 14/00291/VCN - Erection of 14 no apartments. construction of 3000sq ft retail unit with a further 1000sq ft storage area, parking for 10 vehicles and traffic calming to Knowlys Road (pursuant to the variation of conditions 2, 5, 8 and 9 which relate to t", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-04-11", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Police Station, Heysham Road, Heysham, Heysham", "SiteReference": 179, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.890718, "GeoY": 54.059636, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Garage, Grosvenor Road, Heysham", "SiteReference": 202, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.881416, "GeoY": 54.059722, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "15/00323/FUL - Erection of a 2-storey block of four flats and a pair of 2-storey semi-detached dwellings with associated access and parking. 16/00861/FUL - Erection of a 2-storey block of four flats and a pair of 2-storey semi-detached dwellings with associated access and parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": "2016-08-08", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Sunacre Court, Maple Avenue, Heysham", "SiteReference": 203, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.633755, "GeoY": 54.106033, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "14/01030/FUL - Under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Barn north east of Ingleborough View, Hornby", "SiteReference": 236, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.788853, "GeoY": 54.053508, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "07/01721/OUT - Outline application for demolition of existing public house; erection of 6no semi detached, three bedroom dwellings with associated access, parking and gardens and provision of altered access to Firbank Road. 17/01572/FUL - Erection of two 2-storey buildings comprising of 16 one-bed affordable flats (C3) with associated parking and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-03-08", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Ridge Hotel, 10 Patterdale Road, Lancaster", "SiteReference": 259, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.823076, "GeoY": 54.051508, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 16/00581/OUT - Outline application for the erection of up to 12 dwellings including associated cycle/pedestrian access", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-22", "PermissionType": "outline planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "New Quay, New Quay Road, Lancaster", "SiteReference": 260, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.810634, "GeoY": 54.053399, "HazardousSubstances": null, "Hectares": 6.66, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 13/01200/FUL - Erection of 149 dwellings with associated landscaping and car parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-11-25", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Luneside East, Lancaster", "SiteReference": 286, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.780811, "GeoY": 54.049857, "HazardousSubstances": null, "Hectares": 5.69, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Nightingale Hall, Lancaster, LA1 3ES", "SiteReference": 287, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.786153, "GeoY": 54.062594, "HazardousSubstances": null, "Hectares": 0.71, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Private Car Park, Dolphinlee Bridge, Lancaster", "SiteReference": 289, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.818518, "GeoY": 54.055835, "HazardousSubstances": null, "Hectares": 0.85, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Derwent Court, Salt Ayre Lane, Lancaster, LA1 5JB", "SiteReference": 290, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.76965, "GeoY": 54.050082, "HazardousSubstances": null, "Hectares": 15.88, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Lancaster Moor Hospital, Quernmore Road, Lancaster, LA1 3QZ", "SiteReference": 313, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.801038, "GeoY": 54.050093, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Damside Street Car Park, North Of 50-62 Church Street, Lancaster, LA1 1LH", "SiteReference": 316, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.820542, "GeoY": 54.050824, "HazardousSubstances": null, "Hectares": 10.75, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Luneside West, Lancaster, LA1 5FT", "SiteReference": 323, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.813842, "GeoY": 54.045611, "HazardousSubstances": null, "Hectares": 0.44, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "The Knoll, Westbourne Road, Lancaster, LA1 5EF", "SiteReference": 324, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.77917, "GeoY": 54.041302, "HazardousSubstances": null, "Hectares": 1.68, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "The Abattoir, Wyresdale Road, Lancaster", "SiteReference": 331, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.795687, "GeoY": 54.049822, "HazardousSubstances": null, "Hectares": 4.78, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. Expectation for student housing.. 08/00866/OUT - Comprehensive redevelopment comprising a retail led mixed used scheme to include demolition of existing buildings and associated structures, the demolition of all residential dwellings, the closure and alteration of highways, engineering w", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Canal Corridor North Development Site, Lancaster", "SiteReference": 343, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.78165, "GeoY": 54.041655, "HazardousSubstances": null, "Hectares": 3.21, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Farmers Auction Mart, Wyresdale Road, Lancaster", "SiteReference": 359, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.821446, "GeoY": 54.051734, "HazardousSubstances": null, "Hectares": 1.96, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land North of New Quay Road, Lancaster, LA1 5UZ", "SiteReference": 366, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.775494, "GeoY": 54.053028, "HazardousSubstances": null, "Hectares": 3.66, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Ridge Lea Hospital, Stone Row Head, Lancaster", "SiteReference": 369, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.78717, "GeoY": 54.039614, "HazardousSubstances": null, "Hectares": 1.54, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "University Of Cumbria, Coulston Road, Lancaster", "SiteReference": 372, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.796784, "GeoY": 54.018546, "HazardousSubstances": null, "Hectares": 0.73, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Filter House, Scotforth Road, Lancaster, LA1 4XW", "SiteReference": 375, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.776227, "GeoY": 54.051379, "HazardousSubstances": null, "Hectares": 0.88, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Stone Row Head, Lancaster", "SiteReference": 383, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.770955, "GeoY": 54.047961, "HazardousSubstances": null, "Hectares": 2.49, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Moor Park, Quernmore Road, Lancaster, LA1 3QZ", "SiteReference": 389, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.89757, "GeoY": 54.016784, "HazardousSubstances": null, "Hectares": 23.11, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 05/00740/REM - Reserved Matters application for erection of a retirement village comprising dwellings, other residential accommodation, retail, leisure, recreation and ancillary administration,creation of a new access and circulation road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2005-10-25", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Pontins Holiday Camp, Carr Lane, Middleton", "SiteReference": 408, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.856555, "GeoY": 54.076611, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Church Lane Car Park, Morecambe", "SiteReference": 451, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.858155, "GeoY": 54.075646, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Morecambe Town Hall Car Park, Morecambe, LA4 5AF", "SiteReference": 470, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.868093, "GeoY": 54.072133, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Club, Victoria Street, Morecambe", "SiteReference": 481, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.850221, "GeoY": 54.060567, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Nursery On White Lund Road, White Lund, Morecambe, LA3 3DT", "SiteReference": 495, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.869809, "GeoY": 54.057731, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land Adjacent to the Bungalow, Westcliffe, Morecambe, Morecambe, LA3 3NP", "SiteReference": 497, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.854692, "GeoY": 54.056581, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 16/01464/OUT - Outline application for demolition of exisitng dwelling and outbuilding and the erection of 10 dwellings and creation of a new vehicular access", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-16", "PermissionType": "outline planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Land West Of 113 White Lund Road, Oxcliffe Road, Morecambe", "SiteReference": 500, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.869389, "GeoY": 54.072025, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Westview Road Car Park, Morecambe", "SiteReference": 522, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.848929, "GeoY": 54.076638, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 07/01236/FUL, 10/00519/RENU, 13/00499/RENU, 13/01271/FUL, 16/01056/FUL. 17/00311/VCN - Erection of 50 residential apartments with associated access, car parking and landscaping (pursuant to the variation of condition 5 to omit the surface water discharge rate and condition 14 to amend the habitat mitigation; removal of condi", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-14", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Broadway Hotel, Marine Road East, Morecambe", "SiteReference": 523, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.876281, "GeoY": 54.067651, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 05/00774/OUT, 15/00248/FUL. 15/00248/FUL - Demolition of existing depot and erection of two three-storey residential buildings comprising a total of 21 self-contained one-bedroom supported living apartments with associated open space and car parking.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": "2015-06-29", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Grove Street Depot, Morecambe", "SiteReference": 529, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.826745, "GeoY": 54.163075, "HazardousSubstances": null, "Hectares": 1.91, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Kays Garden Centre, Lindeth Road, Silverdale, LA5 0TX", "SiteReference": 578, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.886107, "GeoY": 54.064775, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 14/00106/CU - Change of use and conversion of former public house (A4) to five 1-bed, eight 2-bed and four 3-bed apartments (C3), construction of dormers to front and rear, creation of associated car parking and landscaping and the demolition of existing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-05-22", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Battery Hotel, Sandylands Promenade, Heysham", "SiteReference": 692, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.799371, "GeoY": 54.047569, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 14/00961/CU - Change of use of upper floors from retail and storage to student accommodation comprising 35 studio apartments, creation of a fourth floor with alterations to the roof including new dormer windows to the front and rear, alterations to fenes", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-10", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "5-11 Brock Street, Lancaster", "SiteReference": 693, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.797672, "GeoY": 54.049773, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tramway Hotel, 127 St Leonards Gate, Lancaster, LA1 1NL", "SiteReference": 696, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.815363, "GeoY": 54.044514, "HazardousSubstances": null, "Hectares": 0.54, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Westbourne House, Westbourne Road, Lancaster, LA1 5EF", "SiteReference": 697, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.798474, "GeoY": 54.050155, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 13/01274/FUL - Erection of two mixed use buildings and change of use of warehouse (B8)  to create student accommodation for 78 students in the form of 15 Studio flats, 12 cluster flats (C4), a shop (A1), an office (A2) and a laundrette (sui generis)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-04-08", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "47-51 North Road, Lancaster", "SiteReference": 698, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.755491, "GeoY": 54.076146, "HazardousSubstances": null, "Hectares": 6.19, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version. 05/01432/OUT - Renewal of application 00/00920/OUT for proposed redevelopment including demolition of existing mill, erect houses, industrial units, construct new access and provision of associated open space and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-02-03", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Halton Mill, Mill Lane, Halton, Lancaster, Lancashire, LA2 6ND, Halton", "SiteReference": 713, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-02-15", "GeoX": -2.768977, "GeoY": 54.131866, "HazardousSubstances": null, "Hectares": 6.42, "LastUpdatedDate": "2018-02-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has a draft allocation in the Strategic Policies and Land Allocations DPD, Publication Version", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former TDG Site, Warton Road, Carnforth", "SiteReference": 780, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.786778, "GeoY": 53.995388, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Galgate Mill, Chapel Lane, Galgate, LA2 0PR", "SiteReference": 782, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.824338, "GeoY": 54.04812, "HazardousSubstances": null, "Hectares": 8.72, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lune Industrial Estate, New Quay Road, Lancaster, LA1 5FT", "SiteReference": 785, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.770202, "GeoY": 54.128586, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "16/00172/CU", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "2-4 New Street, Carnforth, LA1 1EG", "SiteReference": 826, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.856594, "GeoY": 54.07182, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planning.lancaster.gov.uk/online-applications/", "PlanningStatus": "permissioned", "SiteNameAddress": "Alice Street Works, Morecambe, LA4 5HN", "SiteReference": 828, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-03-21", "GeoX": -2.879725, "GeoY": 54.022381, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-03-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "11/00702/FUL", "OrganisationURI": "http://opendatacommunities.org/id/district-council/lancaster", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Roof Tree Inn, Middleton, LA3 3JT", "SiteReference": 829, "SiteplanURL": "http://www.lancaster.gov.uk/planning/planning-policy/brownfield-register"}];
+    const bbox = [-2.9128513658223096, -2.5450976341776905, 53.98640484341859, 54.192556156581404];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

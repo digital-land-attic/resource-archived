@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">e897f9b6...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2608&p=0">https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2608&p=0</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:GRY">Great Yarmouth Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/e897f9b6fb2a6d2de1282a6a1376cf5bd2fc15a3a08dda1ed805ffb647480b74/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/e897f9b6fb2a6d2de1282a6a1376cf5bd2fc15a3a08dda1ed805ffb647480b74">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">35 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">51.91
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>35</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/e897f9b6fb2a6d2de1282a6a1376cf5bd2fc15a3a08dda1ed805ffb647480b74.csv"
+        download="e897f9b6fb2a6d2de1282a6a1376cf5bd2fc15a3a08dda1ed805ffb647480b74_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/e897f9b6fb2a6d2de1282a6a1376cf5bd2fc15a3a08dda1ed805ffb647480b74"
+        download="e897f9b6fb2a6d2de1282a6a1376cf5bd2fc15a3a08dda1ed805ffb647480b74_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BFR1</td>
+                    <td>1.729122</td>
+                    <td>52.604397</td>
+                    <td>0.04</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2004-10-12</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>137-139 King Street, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2568&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/04/0783/F. Conversion to 6 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR2</td>
+                    <td>1.72094</td>
+                    <td>52.615404</td>
+                    <td>1.19</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2009-04-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land adjacent Runham Road / North River Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2569&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/05/0866/F. Erection of up to 24 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR3</td>
+                    <td>1.733659</td>
+                    <td>52.599037</td>
+                    <td>0.04</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2010-04-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Gainsborough Court, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2570&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/12/0647/F & 06/14/0551/F. Redevelopment (demolition) of former holiday accommodation for up to 12 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR4</td>
+                    <td>1.735344</td>
+                    <td>52.601305</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2010-10-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rear of 5 Marine Parade, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2571&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/10/0448/F. Redevelopment (demolition) of lean to extension and replacement with 6 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR5</td>
+                    <td>1.725011</td>
+                    <td>52.585926</td>
+                    <td>0.26</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Former Ivy House & The Hollies, Burnt Lane / Addison Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2572&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0189/F. Redevelopment (demolition) of 2 existing buildings and replacement with 18 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR6</td>
+                    <td>1.71416</td>
+                    <td>52.584387</td>
+                    <td>5.08</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Former Claydon High School, Beccles Road, Gorleston, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2573&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0737/F. Redevelopment of site to provide up to 113 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR7</td>
+                    <td>1.725705</td>
+                    <td>52.606097</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-08-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>31/31A Hall Plain, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2574&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/13/0391/F. Formation of 6 residential flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR8</td>
+                    <td>1.720639</td>
+                    <td>52.606112</td>
+                    <td>0.04</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>137 Mill Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2575&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/14/0592/F. Demolition of existing building and replacement with 10 self-contained apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR9</td>
+                    <td>1.734188</td>
+                    <td>52.599533</td>
+                    <td>0.12</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-06-02</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Te-aroha, Albert Square, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2576&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/14/0096/O. Demolition of existing bungalow and replacement with 8 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR10</td>
+                    <td>1.733408</td>
+                    <td>52.600079</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>5-6 Nelson Road South, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2577&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0647/F. Change of use from hostel to 6 residential flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR11</td>
+                    <td>1.729079</td>
+                    <td>52.605811</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-05-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>5 Deneside, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2578&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/13/0083/F. Redevelopment of former builders yard to four apartments and one house</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR12</td>
+                    <td>1.728988</td>
+                    <td>52.605957</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Deneside House, Deneside, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2579&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0558/F. Conversion of existing building to 6 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR13</td>
+                    <td>1.720927</td>
+                    <td>52.613857</td>
+                    <td>0.12</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-10</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Peters Car Sales, Acle New Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2580&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0584/O. 14 Apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR14</td>
+                    <td>1.721118</td>
+                    <td>52.6135</td>
+                    <td>0.12</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-10</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Abbeville Lodge, Acle New Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2581&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0587/O. Erection of 2 apartment blocks comprising 16 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR15</td>
+                    <td>1.725035</td>
+                    <td>52.608637</td>
+                    <td>0.05</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-15</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Watsons Bakery, 6 Howard Street North, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2582&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0634/O. Demolition of part of bakery and erection of starter homes</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR16</td>
+                    <td>1.728938</td>
+                    <td>52.584174</td>
+                    <td>0.06</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-09</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Shepherd Engineering Premises, Riverside Road, Gorleston, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2583&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0736/O. Demolition of workshop and erection of 5 houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR17</td>
+                    <td>1.711515</td>
+                    <td>52.559743</td>
+                    <td>0.02</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>1 Woodfarm Lane, Gorleston, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2584&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0781/F. Demolition of existing building and erection of 7 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR18</td>
+                    <td>1.723837</td>
+                    <td>52.598537</td>
+                    <td>0.5</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-29</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Horatio House, Southtown Road, Gorleston, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2585&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0348/O. Demolition of existing buildings and erection of 24 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR19</td>
+                    <td>1.713682</td>
+                    <td>52.571755</td>
+                    <td>0.81</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Magdalen House, Magdalen Square, Gorleston, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2586&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/14/0773/F. Demolition of former care home and erection of 46 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR20</td>
+                    <td>1.712097</td>
+                    <td>52.57257</td>
+                    <td>0.18</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-08-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>North of Hertford Way, Gorleston, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2587&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0387/SU. Demolition of existing offices and erection of 6 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR21</td>
+                    <td>1.727633</td>
+                    <td>52.60618</td>
+                    <td>0.03</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>165 King Street, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2588&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0278/F. Conversion of office space to 8 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR22</td>
+                    <td>1.728441</td>
+                    <td>52.596224</td>
+                    <td>0.07</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>26 Southgates Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2589&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0193/F. Change of use of upper floor shop to 6 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR23</td>
+                    <td>1.733744</td>
+                    <td>52.600734</td>
+                    <td>0.01</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>14 Camperdown, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2590&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0126/F. Change of use from HMO to 5 self-contained flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR24</td>
+                    <td>1.725787</td>
+                    <td>52.604799</td>
+                    <td>0.03</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>11/12 South Quay, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2591&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0661/F. Change of use from offices to 7 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR25</td>
+                    <td>1.734229</td>
+                    <td>52.619437</td>
+                    <td>0.03</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>84 North Denes Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2592&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0523/F. Sub-division of property to 7 self-contained flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR26</td>
+                    <td>1.714324</td>
+                    <td>52.60865</td>
+                    <td>0.17</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Former trailer storage yard, Mill Road, Cobholm, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2593&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0431/F. Redevelopment of site and construction of 11 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR27</td>
+                    <td>1.722944</td>
+                    <td>52.599501</td>
+                    <td>0.12</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>132 Gordon Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2594&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0188/F. Demolition of existing storgae buildings and erection of 22 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR28</td>
+                    <td>1.730013</td>
+                    <td>52.618005</td>
+                    <td>2.18</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Northgate Hospital, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2595&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"06/13/0472/O, potential for contaminated land associated with hospital, a Site Investigation Report has been considered with the application". Erection of up to 79 residential units on former hospital site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR29</td>
+                    <td>1.735939</td>
+                    <td>52.604479</td>
+                    <td>0.22</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Atlantis Complex, Marine Parade, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2596&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/15/0769/F. Conversion of upper floors to residential uses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR30</td>
+                    <td>1.685183</td>
+                    <td>52.674142</td>
+                    <td>0.11</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Clere House, Pippin Close, Ormesby St Margaret, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2597&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0140/F. Demolition of care home and construction of 7 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR31</td>
+                    <td>1.72098</td>
+                    <td>52.610482</td>
+                    <td>40.0</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Great Yarmouth Waterfront</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2598&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Site Allocation - Policy CS17, contains comtaminated land associated with previous industrial uses and requires signficant flood infrastructure to protect site and surrounding land.". "Mixture of types and tenures, 300 units delivered within plan period"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR32</td>
+                    <td>1.723143</td>
+                    <td>52.599926</td>
+                    <td>0.18</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-04</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>73 Southtown Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2599&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0695/O. Demolition of existing buildings and erection of 14 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR33</td>
+                    <td>1.726875</td>
+                    <td>52.602993</td>
+                    <td>0.01</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-23</td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>35-36 South Quay, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2600&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0593/F. Change of use from doctors surgery to residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR34</td>
+                    <td>1.733347</td>
+                    <td>52.61602</td>
+                    <td>0.01</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former garage, Estcourt Road, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2601&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/17/0455/F. Conversion of existing building to 6 terraced houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR35</td>
+                    <td>1.736315</td>
+                    <td>52.608362</td>
+                    <td>0.01</td>
+                    <td>2017-12-20</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/great-yarmouth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>33 Marine Parade, Great Yarmouth</td>
+                    <td>https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2602&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>06/16/0784/F. Change of use of first floor from nightclub to form 16 residential flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.729122, "GeoY": 52.604397, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/04/0783/F. Conversion to 6 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2004-10-12", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "137-139 King Street, Great Yarmouth", "SiteReference": "BFR1", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2568\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.72094, "GeoY": 52.615404, "HazardousSubstances": null, "Hectares": 1.19, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/05/0866/F. Erection of up to 24 units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2009-04-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent Runham Road / North River Road, Great Yarmouth", "SiteReference": "BFR2", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2569\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.733659, "GeoY": 52.599037, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/12/0647/F \u0026 06/14/0551/F. Redevelopment (demolition) of former holiday accommodation for up to 12 units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2010-04-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Gainsborough Court, Great Yarmouth", "SiteReference": "BFR3", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2570\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.735344, "GeoY": 52.601305, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/10/0448/F. Redevelopment (demolition) of lean to extension and replacement with 6 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2010-10-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 5 Marine Parade, Great Yarmouth", "SiteReference": "BFR4", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2571\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.725011, "GeoY": 52.585926, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0189/F. Redevelopment (demolition) of 2 existing buildings and replacement with 18 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Former Ivy House \u0026 The Hollies, Burnt Lane / Addison Road, Great Yarmouth", "SiteReference": "BFR5", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2572\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.71416, "GeoY": 52.584387, "HazardousSubstances": null, "Hectares": 5.08, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0737/F. Redevelopment of site to provide up to 113 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Former Claydon High School, Beccles Road, Gorleston, Great Yarmouth", "SiteReference": "BFR6", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2573\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.725705, "GeoY": 52.606097, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/13/0391/F. Formation of 6 residential flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-08-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "31/31A Hall Plain, Great Yarmouth", "SiteReference": "BFR7", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2574\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.720639, "GeoY": 52.606112, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/14/0592/F. Demolition of existing building and replacement with 10 self-contained apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "137 Mill Road, Great Yarmouth", "SiteReference": "BFR8", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2575\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.734188, "GeoY": 52.599533, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/14/0096/O. Demolition of existing bungalow and replacement with 8 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-06-02", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Te-aroha, Albert Square, Great Yarmouth", "SiteReference": "BFR9", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2576\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.733408, "GeoY": 52.600079, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0647/F. Change of use from hostel to 6 residential flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "5-6 Nelson Road South, Great Yarmouth", "SiteReference": "BFR10", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2577\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.729079, "GeoY": 52.605811, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/13/0083/F. Redevelopment of former builders yard to four apartments and one house", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-05-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "5 Deneside, Great Yarmouth", "SiteReference": "BFR11", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2578\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.728988, "GeoY": 52.605957, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0558/F. Conversion of existing building to 6 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Deneside House, Deneside, Great Yarmouth", "SiteReference": "BFR12", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2579\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.720927, "GeoY": 52.613857, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0584/O. 14 Apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-10", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Peters Car Sales, Acle New Road, Great Yarmouth", "SiteReference": "BFR13", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2580\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.721118, "GeoY": 52.6135, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0587/O. Erection of 2 apartment blocks comprising 16 units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-10", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Abbeville Lodge, Acle New Road, Great Yarmouth", "SiteReference": "BFR14", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2581\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.725035, "GeoY": 52.608637, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0634/O. Demolition of part of bakery and erection of starter homes", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-15", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Watsons Bakery, 6 Howard Street North, Great Yarmouth", "SiteReference": "BFR15", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2582\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.728938, "GeoY": 52.584174, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0736/O. Demolition of workshop and erection of 5 houses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-09", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Shepherd Engineering Premises, Riverside Road, Gorleston, Great Yarmouth", "SiteReference": "BFR16", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2583\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.711515, "GeoY": 52.559743, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0781/F. Demolition of existing building and erection of 7 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "1 Woodfarm Lane, Gorleston, Great Yarmouth", "SiteReference": "BFR17", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2584\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.723837, "GeoY": 52.598537, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0348/O. Demolition of existing buildings and erection of 24 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-29", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Horatio House, Southtown Road, Gorleston, Great Yarmouth", "SiteReference": "BFR18", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2585\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.713682, "GeoY": 52.571755, "HazardousSubstances": null, "Hectares": 0.81, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/14/0773/F. Demolition of former care home and erection of 46 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Magdalen House, Magdalen Square, Gorleston, Great Yarmouth", "SiteReference": "BFR19", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2586\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.712097, "GeoY": 52.57257, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0387/SU. Demolition of existing offices and erection of 6 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-08-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "North of Hertford Way, Gorleston, Great Yarmouth", "SiteReference": "BFR20", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2587\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.727633, "GeoY": 52.60618, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0278/F. Conversion of office space to 8 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "165 King Street, Great Yarmouth", "SiteReference": "BFR21", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2588\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.728441, "GeoY": 52.596224, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0193/F. Change of use of upper floor shop to 6 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "26 Southgates Road, Great Yarmouth", "SiteReference": "BFR22", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2589\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.733744, "GeoY": 52.600734, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0126/F. Change of use from HMO to 5 self-contained flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "14 Camperdown, Great Yarmouth", "SiteReference": "BFR23", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2590\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.725787, "GeoY": 52.604799, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0661/F. Change of use from offices to 7 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "11/12 South Quay, Great Yarmouth", "SiteReference": "BFR24", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2591\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.734229, "GeoY": 52.619437, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0523/F. Sub-division of property to 7 self-contained flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "84 North Denes Road, Great Yarmouth", "SiteReference": "BFR25", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2592\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.714324, "GeoY": 52.60865, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0431/F. Redevelopment of site and construction of 11 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Former trailer storage yard, Mill Road, Cobholm, Great Yarmouth", "SiteReference": "BFR26", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2593\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.722944, "GeoY": 52.599501, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0188/F. Demolition of existing storgae buildings and erection of 22 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "132 Gordon Road, Great Yarmouth", "SiteReference": "BFR27", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2594\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.730013, "GeoY": 52.618005, "HazardousSubstances": null, "Hectares": 2.18, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"06/13/0472/O, potential for contaminated land associated with hospital, a Site Investigation Report has been considered with the application\". Erection of up to 79 residential units on former hospital site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Northgate Hospital, Great Yarmouth", "SiteReference": "BFR28", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2595\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.735939, "GeoY": 52.604479, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/15/0769/F. Conversion of upper floors to residential uses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Atlantis Complex, Marine Parade, Great Yarmouth", "SiteReference": "BFR29", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2596\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.685183, "GeoY": 52.674142, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0140/F. Demolition of care home and construction of 7 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Clere House, Pippin Close, Ormesby St Margaret, Great Yarmouth", "SiteReference": "BFR30", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2597\u0026p=0"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.72098, "GeoY": 52.610482, "HazardousSubstances": null, "Hectares": 40.0, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Site Allocation - Policy CS17, contains comtaminated land associated with previous industrial uses and requires signficant flood infrastructure to protect site and surrounding land.\". \"Mixture of types and tenures, 300 units delivered within plan period\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Great Yarmouth Waterfront", "SiteReference": "BFR31", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2598\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.723143, "GeoY": 52.599926, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0695/O. Demolition of existing buildings and erection of 14 residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-04", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "73 Southtown Road, Great Yarmouth", "SiteReference": "BFR32", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2599\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.726875, "GeoY": 52.602993, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0593/F. Change of use from doctors surgery to residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-23", "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "35-36 South Quay, Great Yarmouth", "SiteReference": "BFR33", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2600\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.733347, "GeoY": 52.61602, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/17/0455/F. Conversion of existing building to 6 terraced houses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former garage, Estcourt Road, Great Yarmouth", "SiteReference": "BFR34", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2601\u0026p=0"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-20", "GeoX": 1.736315, "GeoY": 52.608362, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "06/16/0784/F. Change of use of first floor from nightclub to form 16 residential flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/great-yarmouth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "33 Marine Parade, Great Yarmouth", "SiteReference": "BFR35", "SiteplanURL": "https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=2602\u0026p=0"}];
+    const bbox = [1.670406463956631, 1.7510915360433692, 52.5507598434186, 52.68312515658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

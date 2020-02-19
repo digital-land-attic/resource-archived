@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">bb950dd2...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.sstaffs.gov.uk/planning-files/brownfield-register/brownfield-register.csv">https://www.sstaffs.gov.uk/planning-files/brownfield-register/brownfield-register.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 24 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SST">South Staffordshire Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/bb950dd278c885e7437f1643f7dbcd67e72e29e872062afa264e880f67eedf5b/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/bb950dd278c885e7437f1643f7dbcd67e72e29e872062afa264e880f67eedf5b">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">8 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">13.11
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>8</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/bb950dd278c885e7437f1643f7dbcd67e72e29e872062afa264e880f67eedf5b.csv"
+        download="bb950dd278c885e7437f1643f7dbcd67e72e29e872062afa264e880f67eedf5b_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/bb950dd278c885e7437f1643f7dbcd67e72e29e872062afa264e880f67eedf5b"
+        download="bb950dd278c885e7437f1643f7dbcd67e72e29e872062afa264e880f67eedf5b_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BI/41</td>
+                    <td>-2.186268</td>
+                    <td>52.624327</td>
+                    <td>0.4</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-11</td>
+                    <td>full planning permission</td>
+                    <td>16/00407/FUL</td>
+                    <td>permissioned</td>
+                    <td>Birches Bridge Garage, Wolverhampton Road, Bilbrook</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The proposed demolition and development of 39 Retirement Living apartments including communal facilities, landscaping and car parking. (Major development)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CD/191</td>
+                    <td>-2.208978</td>
+                    <td>52.62224</td>
+                    <td>0.79</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-31</td>
+                    <td>full planning permission</td>
+                    <td>15/00215/FUL</td>
+                    <td>permissioned</td>
+                    <td>Terrace Nurseries (Hommers), Oaken Drive, Codsall</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing single- and two-storey buildings and development of 12 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>GW/165</td>
+                    <td>-2.002175</td>
+                    <td>52.65841</td>
+                    <td>2.74</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-03</td>
+                    <td>reserved matters approval</td>
+                    <td>16/01023/REM</td>
+                    <td>permissioned</td>
+                    <td>Hazelbrook Industrial Estate, Hazel Lane, Great Wyrley</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The scale and appearance of the dwellings and landscaping of the site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PK/165</td>
+                    <td>-2.116295</td>
+                    <td>52.715203</td>
+                    <td>5.52</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-19</td>
+                    <td>reserved matters approval</td>
+                    <td>15/01091/REM</td>
+                    <td>permissioned</td>
+                    <td>Lyne Hill (Phase 3), Boscomoor Lane, Penkridge</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Revision of application for the approval of reserved matters to outline permission 12/00497/OUT. The application is for 154 units (increased from 144) comprising phase 3 of the site with outline planning permission. The outline planning permission was NOT an EIA application.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WM/234</td>
+                    <td>-2.201601</td>
+                    <td>52.534224</td>
+                    <td>1.06</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-15</td>
+                    <td>outline planning permission</td>
+                    <td>14/00428/OUT</td>
+                    <td>permissioned</td>
+                    <td>Land off Giggetty Lane, Wombourne</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 3 no. redundant industrial buildings/warehouses, re-configuartion of an existing accessway and the principle of the erection of 19 no. dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AC/82</td>
+                    <td>-2.050716</td>
+                    <td>52.751819</td>
+                    <td>0.7</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-18</td>
+                    <td>full planning permission</td>
+                    <td>15/00562/FUL</td>
+                    <td>permissioned</td>
+                    <td>Springslade Works, Cannock Road, Bednall</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of the existing buildings in general industrial (Class B2) use by way of the erection of 6 no. dwellinghouses with associated works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA Site 141</td>
+                    <td>-2.012511</td>
+                    <td>52.665143</td>
+                    <td>1.2</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>154a Walsall Road, Great Wyrley</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is suitable, available now and achievable for residential development and will be delivered in accordance with the relevant SAD polices and other relevant Development Management policies in the adopted Core Strategy.
+
+Any proposal must meet the following requirements:
+� To deliver a minimum of 25 dwellings.
+� To provide 30% Affordable Housing in accordance with Core Strategy Policy H2.
+� To provide an appropriate housing mix to reflect the needs of the village and evidenced by the latest housing mix evidence; to be agreed through discussions with the Council. 
+� To satisfactorily address the potential for contaminated land on site.
+� To provide a vehicular access off Walsall Road.
+� To provide a pedestrian access to connect to the existing pavement network. 
+� To provide a sustainable drainage scheme as part of masterplanning.
+� In accordance with Policies SAD7 and SAD9 to provide an appropriate off-site open space contribution.
+� To provide connectivity to existing open space/Green Infrastructure.
+� To provide an Education contribution agreed through dialogue with the School Organisation Team at Staffordshire County Council. 
+� To meet any other applicable Key Development Requirements set out in Policy SAD9.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA Site 228</td>
+                    <td>-2.194534</td>
+                    <td>52.626319</td>
+                    <td>0.7</td>
+                    <td>2017-11-21</td>
+                    <td>2017-11-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-staffordshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Adult training centre off Histons Hill</td>
+                    <td>https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is suitable, available now and achievable for residential development and will be delivered in accordance with the relevant SAD polices and other relevant Development Management policies in the adopted Core Strategy.
+
+Any proposal must meet the following requirements:
+
+� To deliver a minimum of 20 dwellings.
+� To provide 30% Affordable Housing in accordance with Core Strategy Policy H2.
+� To provide an appropriate housing mix to reflect the needs of the village and evidenced by the latest housing mix evidence; to be agreed through discussions with the Council. 
+� To satisfactorily address the potential for contaminated land on site.
+� To provide a vehicular access off Histons Hill.
+� To provide transports assessments to accompany planning applications that include consideration of the Histons Hill junction; the double mini-roundabout junction at Wolverhampton Road/Duck Lane/Birches Road/Keepers Lane; and Pendeford traffic signals at the Wodbaston Road/Overstrand Road contributing towards improvements where necessary.
+� To provide a pedestrian access to connect to the existing pavement network. 
+� In accordance with Policies SAD7 and SAD9 to provide an appropriate off-site open space contribution.
+� To provide a sustainable drainage scheme as part of masterplanning.
+� To provide connectivity to existing open space/Green Infrastructure networks 
+� To provide an Education contribution agreed through dialogue with the School Organisation Team at Staffordshire County Council. 
+� To meet any other applicable Key Development Requirements set out in Policy SAD9.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.186268, "GeoY": 52.624327, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The proposed demolition and development of 39 Retirement Living apartments including communal facilities, landscaping and car parking. (Major development)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-11", "PermissionType": "full planning permission", "PlanningHistory": "16/00407/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Birches Bridge Garage, Wolverhampton Road, Bilbrook", "SiteReference": "BI/41", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.208978, "GeoY": 52.62224, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing single- and two-storey buildings and development of 12 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-31", "PermissionType": "full planning permission", "PlanningHistory": "15/00215/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Terrace Nurseries (Hommers), Oaken Drive, Codsall", "SiteReference": "CD/191", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.002175, "GeoY": 52.65841, "HazardousSubstances": null, "Hectares": 2.74, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The scale and appearance of the dwellings and landscaping of the site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-03", "PermissionType": "reserved matters approval", "PlanningHistory": "16/01023/REM", "PlanningStatus": "permissioned", "SiteNameAddress": "Hazelbrook Industrial Estate, Hazel Lane, Great Wyrley", "SiteReference": "GW/165", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.116295, "GeoY": 52.715203, "HazardousSubstances": null, "Hectares": 5.52, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Revision of application for the approval of reserved matters to outline permission 12/00497/OUT. The application is for 154 units (increased from 144) comprising phase 3 of the site with outline planning permission. The outline planning permission was NOT an EIA application.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-19", "PermissionType": "reserved matters approval", "PlanningHistory": "15/01091/REM", "PlanningStatus": "permissioned", "SiteNameAddress": "Lyne Hill (Phase 3), Boscomoor Lane, Penkridge", "SiteReference": "PK/165", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.201601, "GeoY": 52.534224, "HazardousSubstances": null, "Hectares": 1.06, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 3 no. redundant industrial buildings/warehouses, re-configuartion of an existing accessway and the principle of the erection of 19 no. dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-15", "PermissionType": "outline planning permission", "PlanningHistory": "14/00428/OUT", "PlanningStatus": "permissioned", "SiteNameAddress": "Land off Giggetty Lane, Wombourne", "SiteReference": "WM/234", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.050716, "GeoY": 52.751819, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of the existing buildings in general industrial (Class B2) use by way of the erection of 6 no. dwellinghouses with associated works", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-18", "PermissionType": "full planning permission", "PlanningHistory": "15/00562/FUL", "PlanningStatus": "permissioned", "SiteNameAddress": "Springslade Works, Cannock Road, Bednall", "SiteReference": "AC/82", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.012511, "GeoY": 52.665143, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site is suitable, available now and achievable for residential development and will be delivered in accordance with the relevant SAD polices and other relevant Development Management policies in the adopted Core Strategy.\r\n\r\nAny proposal must meet the following requirements:\r\n\ufffd To deliver a minimum of 25 dwellings.\r\n\ufffd To provide 30% Affordable Housing in accordance with Core Strategy Policy H2.\r\n\ufffd To provide an appropriate housing mix to reflect the needs of the village and evidenced by the latest housing mix evidence; to be agreed through discussions with the Council. \r\n\ufffd To satisfactorily address the potential for contaminated land on site.\r\n\ufffd To provide a vehicular access off Walsall Road.\r\n\ufffd To provide a pedestrian access to connect to the existing pavement network. \r\n\ufffd To provide a sustainable drainage scheme as part of masterplanning.\r\n\ufffd In accordance with Policies SAD7 and SAD9 to provide an appropriate off-site open space contribution.\r\n\ufffd To provide connectivity to existing open space/Green Infrastructure.\r\n\ufffd To provide an Education contribution agreed through dialogue with the School Organisation Team at Staffordshire County Council. \r\n\ufffd To meet any other applicable Key Development Requirements set out in Policy SAD9.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "154a Walsall Road, Great Wyrley", "SiteReference": "SHLAA Site 141", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-21", "GeoX": -2.194534, "GeoY": 52.626319, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2017-11-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site is suitable, available now and achievable for residential development and will be delivered in accordance with the relevant SAD polices and other relevant Development Management policies in the adopted Core Strategy.\r\n\r\nAny proposal must meet the following requirements:\r\n\r\n\ufffd To deliver a minimum of 20 dwellings.\r\n\ufffd To provide 30% Affordable Housing in accordance with Core Strategy Policy H2.\r\n\ufffd To provide an appropriate housing mix to reflect the needs of the village and evidenced by the latest housing mix evidence; to be agreed through discussions with the Council. \r\n\ufffd To satisfactorily address the potential for contaminated land on site.\r\n\ufffd To provide a vehicular access off Histons Hill.\r\n\ufffd To provide transports assessments to accompany planning applications that include consideration of the Histons Hill junction; the double mini-roundabout junction at Wolverhampton Road/Duck Lane/Birches Road/Keepers Lane; and Pendeford traffic signals at the Wodbaston Road/Overstrand Road contributing towards improvements where necessary.\r\n\ufffd To provide a pedestrian access to connect to the existing pavement network. \r\n\ufffd In accordance with Policies SAD7 and SAD9 to provide an appropriate off-site open space contribution.\r\n\ufffd To provide a sustainable drainage scheme as part of masterplanning.\r\n\ufffd To provide connectivity to existing open space/Green Infrastructure networks \r\n\ufffd To provide an Education contribution agreed through dialogue with the School Organisation Team at Staffordshire County Council. \r\n\ufffd To meet any other applicable Key Development Requirements set out in Policy SAD9.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-staffordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Adult training centre off Histons Hill", "SiteReference": "SHLAA Site 228", "SiteplanURL": "https://www.sstaffs.gov.uk/planning/brownfield-land-register.cfm"}];
+    const bbox = [-2.2237459470058707, -1.987407052994129, 52.525240843418594, 52.760802156581406];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

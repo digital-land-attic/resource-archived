@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">850e4aa4...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.cheltenham.gov.uk/download/downloads/id/6228/cheltenham_brownfieldregister_2017-12-31_rev1csv.csv">https://www.cheltenham.gov.uk/download/downloads/id/6228/cheltenham_brownfieldregister_2017-12-31_rev1csv.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 19 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:CHT">Cheltenham Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/850e4aa49507b8efa53b6926d7a788721cdd20c5e1a4633541c366c63c7522c7/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/850e4aa49507b8efa53b6926d7a788721cdd20c5e1a4633541c366c63c7522c7">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">36 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">14.69
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>36</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/850e4aa49507b8efa53b6926d7a788721cdd20c5e1a4633541c366c63c7522c7.csv"
+        download="850e4aa49507b8efa53b6926d7a788721cdd20c5e1a4633541c366c63c7522c7_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/850e4aa49507b8efa53b6926d7a788721cdd20c5e1a4633541c366c63c7522c7"
+        download="850e4aa49507b8efa53b6926d7a788721cdd20c5e1a4633541c366c63c7522c7_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BFR001</td>
+                    <td>-2.077494</td>
+                    <td>51.90162</td>
+                    <td>0.15</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Chester Walk Car Park</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=001&scale=512</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR002</td>
+                    <td>-2.046236</td>
+                    <td>51.906644</td>
+                    <td>2.17</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OPZI30EL08300|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=8500116PC</td>
+                    <td>permissioned</td>
+                    <td>Premiere Products, Bouncers Lane</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=002&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Only part of site permissioned remaining site Allocated in Pre-Submission Cheltenham Plan. Outline application for up to 58 residential dwellings including access with all other matters reserved for future consideration</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR003</td>
+                    <td>-2.096806</td>
+                    <td>51.893388</td>
+                    <td>1.0</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td></td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OLGHJAELGZK00</td>
+                    <td>permissioned</td>
+                    <td>Land at Lansdown Road (Gloucestershire Constabulary Headquarters)</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=003&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Pre-Submission Cheltenham Plan. Demolition of all existing buildings on site and erection of 68no. new homes, access, landscaping and other associated works at the former Police Headquarters, Lansdown Road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR004</td>
+                    <td>-2.061821</td>
+                    <td>51.908516</td>
+                    <td>0.8</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OSEEP6ELI9V00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=J1M5RMEL59000</td>
+                    <td>permissioned</td>
+                    <td>102, 106 Prestbury Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=004&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Pre-Submission Cheltenham Plan. Construction of 35 new dwellings with associated infrastructure and parking following the demolition of existing commercial buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR005</td>
+                    <td>-2.062226</td>
+                    <td>51.907653</td>
+                    <td>0.49</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>96, 100, 104 Prestbury Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=005&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR006</td>
+                    <td>-2.062442</td>
+                    <td>51.906106</td>
+                    <td>0.23</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Prestbury Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=006&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR007</td>
+                    <td>-2.11706</td>
+                    <td>51.914201</td>
+                    <td>0.51</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-22</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OIMMTWELGIZ00</td>
+                    <td>permissioned</td>
+                    <td>Springbank Shopping Centre</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=007&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Pre-Submission Cheltenham Plan. Construction of 34 new dwellings with associated infrastructure and parking following the demolition and clearance of existing redundant shopping centre</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR008</td>
+                    <td>-2.114354</td>
+                    <td>51.902318</td>
+                    <td>1.48</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land and buildings at Coronation Square</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=008&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Pre-Submission Cheltenham Plan</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR009</td>
+                    <td>-2.071389</td>
+                    <td>51.901759</td>
+                    <td>0.07</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-10</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OPZN68EL08300</td>
+                    <td>permissioned</td>
+                    <td>Axiom, 57 Winchcombe Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=009&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The is a flat, vacant/derelict, town centre site, previously in use as a Community Arts and Music venue.  The site is within the Central Conservation Area and Core Commercial Area and is surrounded by a mix of retail, restaurant, employment and residential uses.. Partial demolition and mixed-use conversion to 11 apartment and commercial/ retail units of 57-59 Winchcombe Street</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR010</td>
+                    <td>-2.071491</td>
+                    <td>51.901597</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-12-19</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=O55YYLEL08300|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=M463GMEL0B100</td>
+                    <td>permissioned</td>
+                    <td>Tebbit House, 51 Winchcombe Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=010&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Notification of a proposed Change of Use to Dwellings. Change of use of 1st, 2nd and 3rd floors of Tebbit House from Offices (B1) to residential (C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR011</td>
+                    <td>-2.130527</td>
+                    <td>51.890928</td>
+                    <td>0.48</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-08</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NPZGHEELJUU00</td>
+                    <td>permissioned</td>
+                    <td>Land rear of Nuffield Hospital, Hatherley Lane</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=011&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Residential development of up to 27 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR012</td>
+                    <td>-2.084436</td>
+                    <td>51.899215</td>
+                    <td>0.41</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-07</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OSNNZ3ELIC800</td>
+                    <td>permissioned</td>
+                    <td>Rivershill House, St Georges Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=012&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Flat site with vacant office building in a central urban location, predominantly surrounded by residential. The site is within the Core Commercial Area and Central Conservation Area.. Erection of apartment building to comprise 45 dwellings and associated semi-basement car parking, access and landscaping following demolition and clearance of the existing building 'Rivershill House'</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR013</td>
+                    <td>-2.061556</td>
+                    <td>51.906125</td>
+                    <td>1.2</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Whaddon Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=013&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is a flat, car park site associated wioth Cheltenham Town Football Club.  developed, site within the urban area containing pre-fabricated bungalows. The surrounding area is predominantly residential with commercial / employment uses to the west and Cheltenham Town Football Club east.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR014</td>
+                    <td>-2.065895</td>
+                    <td>51.911436</td>
+                    <td>0.28</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-03-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=MV9IJLELD5000</td>
+                    <td>permissioned</td>
+                    <td>Ellerslie Care Home, Albert Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=014&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This is a flat, developed, site is within a predominantly residential area and adjacent to Pittville Park and within the Central Conservation area.. Alterations to facilitate conversion of existing building and associated stable block to 14no. residential units (2no. one bedroom apartments, 9no. two bedroom apartments, 2no. three bedroom apartments and 1no. three bedroom dwelling)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR015</td>
+                    <td>-2.100055</td>
+                    <td>51.903482</td>
+                    <td>0.37</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-18</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NYOHVEELL4700</td>
+                    <td>permissioned</td>
+                    <td>Rowanfield Exchange, Devon Avenue</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=015&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site includes a neighbourhood centre, residential and associated garages.  Only part of site permissioned. Erection of 3no. dwellings and associated hard and soft landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR016</td>
+                    <td>-2.081408</td>
+                    <td>51.904378</td>
+                    <td>0.02</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-15</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OCTOH2ELFMC00</td>
+                    <td>permissioned</td>
+                    <td>83 Hewlett Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=016&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Alterations and extensions to the building and conversion to provide 7 additional flats and ground floor retail unit</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR017</td>
+                    <td>-2.072711</td>
+                    <td>51.901075</td>
+                    <td>0.1</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-30</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NW5V1VEL08300</td>
+                    <td>permissioned</td>
+                    <td>33-35 Albion Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=017&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Change of use of former nightclub to fourteen residential units involving demolition of part of existing buiding/structures and associated external works.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR018</td>
+                    <td>-2.06528</td>
+                    <td>51.898112</td>
+                    <td>0.11</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-09-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=JAKIRDEL59000</td>
+                    <td>permissioned</td>
+                    <td>Former Post Office Vehicle Depot, Carlton Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=018&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Erection of 6no dwellings and 2no offices (following demolition of existing building on site) (application in effect to renew Planning Permissions ref 06/01919/FUL approved 02.03.2007 and 10/00748/TIME approved 06.07.2010)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR019</td>
+                    <td>-2.060423</td>
+                    <td>51.896505</td>
+                    <td>0.09</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-14</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NYZLW9ELL5X00</td>
+                    <td>permissioned</td>
+                    <td>Upper Floors and Part Lower Ground Floor, Heyford House Care Home, 64 Hales Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=019&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Change of Use of Upper Floors and Part of Lower Ground Floor from Care Home (C2) Use Class to Residential (C3) Use Class to form 8No. new residential Units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR020</td>
+                    <td>-2.063719</td>
+                    <td>51.893941</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-09</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OSAPERELI9900|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OKDW04EL08300</td>
+                    <td>permissioned</td>
+                    <td>Russell Arms, 1 Hales Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=020&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Refurbishment and alterations to existing public house, removal of existing roof, construction of new attic storey, raising of parapet wall and addition of new stairwell to create 3 no. self contained flats (including demolition of existing outbuildings).  Erection of two storey extension to 3 Hales Road, removal of existing roof, construction of new attic story and raising of parapet walls and addition of new stairwell to create 5 no. self contained flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR021</td>
+                    <td>-2.111899</td>
+                    <td>51.902941</td>
+                    <td>0.06</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-21</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=O7VIPDELMJI00</td>
+                    <td>permissioned</td>
+                    <td>Land at Newton Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=021&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Construction of 2no. two bedroom flats and 4no. one bedroom flats and provision of 8no. parking spaces with associated hard and soft landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR022</td>
+                    <td>-2.076591</td>
+                    <td>51.900542</td>
+                    <td>0.23</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-13</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=O1LO1BELLIY00</td>
+                    <td>permissioned</td>
+                    <td>First to Third Floors 22 Clarence Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=022&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Change of use of the upper floors at 22/24 Clarence Street from Class B1(a) (offices) to Class C3 (residential) to provide 5no. Flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR023</td>
+                    <td>-2.080676</td>
+                    <td>51.901042</td>
+                    <td>0.13</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-17</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NP3L7HELJPZ00</td>
+                    <td>permissioned</td>
+                    <td>Victoria House, St James Square</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=023&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Change of use and conversion of grade II listed building into 8 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR024</td>
+                    <td>-2.083989</td>
+                    <td>51.900932</td>
+                    <td>0.34</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-07-21</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OBFO1REL08301</td>
+                    <td>permissioned</td>
+                    <td>Land On South Side Of Jessop Avenue</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=024&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Pre-Submission Cheltenham Plan. Mixed use development comprising office, retail, residential and ancillary use</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR025</td>
+                    <td>-2.080605</td>
+                    <td>51.902355</td>
+                    <td>0.06</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-12-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OYBRFYELJCA00</td>
+                    <td>permissioned</td>
+                    <td>Former Upd House Knapp Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=025&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Change of use from Class D1 to 5no. one bedroom apartments, with associated external alterations</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR026</td>
+                    <td>-2.080668</td>
+                    <td>51.888707</td>
+                    <td>0.02</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-10-22</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NRA15TEL08300|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=L34JNMEL0E100|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=ITAB9KEL51000</td>
+                    <td>permissioned</td>
+                    <td>13/14 Suffolk Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=026&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Application to extend time limit for implementation of planning permission 10/00869/OUT (erection of 5 apartments following demolition of existing building)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR027</td>
+                    <td>-2.069196</td>
+                    <td>51.9023</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-02-21</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=JEY1TDEL59000</td>
+                    <td>permissioned</td>
+                    <td>24-28 Sherborne Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=027&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Erection of 2no. ground floor office units with 6 no. residential apartments above ( resubmission of previously approved application ref 07/00378/OUT). Demolition of existing building on site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR028</td>
+                    <td>-2.072206</td>
+                    <td>51.903619</td>
+                    <td>0.67</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td></td>
+                    <td>2013-02-21</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=MC4UZOEL0B100</td>
+                    <td>permissioned</td>
+                    <td>Car Park, Portland Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=028&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Pre-Submission Cheltenham Plan. Erection of a mixed use development comprising; 5,792sqm (gross external floor space) of class A1 food store, 739sqm (gross) of class A1 shops and 19sqm (gross) of class A2 within atrium space and 336sqm (gross) of class A3 (customer restaurant); multi-storey car park providing 634 spaces over 5 floors (300 spaces for public use and 334 spaces for food store customers); 143 no. residential units within a mix of 1, 2, 3, and 4 bedroom houses and flats, (57 units to be affordable) with associated 143 car parking spaces at ground and basement level; creation of new public open spaces; provision of new parking bays for buses and erection of a passenger information kiosk and waiting room; associated other operations to facilitate the mixed use development including alterations to and from the existing highway for vehicular, pedestrian and cycle access. All following the demolition of existing buildings and other built structures on the site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR029</td>
+                    <td>-2.081685</td>
+                    <td>51.904458</td>
+                    <td>0.08</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-19</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=N9XU1HELHGW00</td>
+                    <td>permissioned</td>
+                    <td>391 High Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=029&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Demolition of existing building and the construction of a four storey building for residential use together with three town houses and associated parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR030</td>
+                    <td>-2.081408</td>
+                    <td>51.904378</td>
+                    <td>0.06</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-12</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OENYMVELFX200|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=LJMZ42EL0A300</td>
+                    <td>permissioned</td>
+                    <td>379-383 High Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=030&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Demolition of existing building and construction of a new mixed use building to provide a ground floor retail unit and 12 no. residential units (comprising 5no. one bed and 7no. two bed apartments)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR031</td>
+                    <td>-2.081655</td>
+                    <td>51.904296</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-08-23</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OOYPUBELHKV00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=M1UMRXEL0E100</td>
+                    <td>permissioned</td>
+                    <td>385-387 High Street</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=031&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Erection of a building comprising shop unit and 2 bed flat at ground floor level, 2no x 2bed apartments on first and second floors, 2no x1 bed apartments on third floor. Provision of car parking facilities and a single storey building for storage of waste and bicycles</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR032</td>
+                    <td>-2.07711</td>
+                    <td>51.906592</td>
+                    <td>0.01</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-06-19</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=ONOF86ELHE100|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=MV3YIVELD5000</td>
+                    <td>permissioned</td>
+                    <td>St Pauls Church Centre, St Pauls Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=032&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Part conversion and erection of a three storey rear extension to provide 5 no. flats, offices and meeting rooms (associated with the existing D1 use)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR033</td>
+                    <td>-2.073833</td>
+                    <td>51.902773</td>
+                    <td>0.31</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-03</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=NT417TELKB700|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=N6JEJTEL08300</td>
+                    <td>permissioned</td>
+                    <td>Pate Court, St Margarets Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=033&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Notification of proposed change of use from B1A (Offices) to C3 (Dwellings) to provide 40 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR034</td>
+                    <td>-2.093681</td>
+                    <td>51.899954</td>
+                    <td>2.46</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-06-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=MH6C90EL0E300</td>
+                    <td>permissioned</td>
+                    <td>Travis Perkins, Gloucester Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=034&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Erection of 107 dwellings (class C3) including access and servicing arrangements, car parking, landscaping and associated works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR035</td>
+                    <td>-2.088396</td>
+                    <td>51.910091</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-31</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OKDRLYEL0G100|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=OA1AJWELMUZ00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=O5CRXGELM4T00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=K32GYNEL0C500|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=JR1K8IEL0BC00</td>
+                    <td>permissioned</td>
+                    <td>Best Mate Inn, 258 Swindon Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=035&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Construction of a building to accommodate 8 number, two bedroom apartments and associated works (revised scheme to that approved ref. 16/00637/FUL)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR036</td>
+                    <td>-2.109258</td>
+                    <td>51.886409</td>
+                    <td>0.13</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cheltenham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-07-19</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=ON5LHEELH9R00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=JQRUVTEL08300</td>
+                    <td>permissioned</td>
+                    <td>One Stop Shop, 62 Alma Road</td>
+                    <td>https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24&nocache=416161679&resize=always&inspect_query=CBCBrownfield&inspect_value=036&scale=1024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site has planning permission, construction not started April 2017. Application to extend the time limit for implementation of planning permission ref. 07/01502/FUL for residential development consisting of 4 houses and 4 flats, demolition of existing shop and lock up garages</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.077494, "GeoY": 51.90162, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Chester Walk Car Park", "SiteReference": "BFR001", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=001\u0026scale=512"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.046236, "GeoY": 51.906644, "HazardousSubstances": null, "Hectares": 2.17, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Only part of site permissioned remaining site Allocated in Pre-Submission Cheltenham Plan. Outline application for up to 58 residential dwellings including access with all other matters reserved for future consideration", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OPZI30EL08300|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=8500116PC", "PlanningStatus": "permissioned", "SiteNameAddress": "Premiere Products, Bouncers Lane", "SiteReference": "BFR002", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=002\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.096806, "GeoY": 51.893388, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Allocated in Pre-Submission Cheltenham Plan. Demolition of all existing buildings on site and erection of 68no. new homes, access, landscaping and other associated works at the former Police Headquarters, Lansdown Road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OLGHJAELGZK00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Lansdown Road (Gloucestershire Constabulary Headquarters)", "SiteReference": "BFR003", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=003\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.061821, "GeoY": 51.908516, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Allocated in Pre-Submission Cheltenham Plan. Construction of 35 new dwellings with associated infrastructure and parking following the demolition of existing commercial buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OSEEP6ELI9V00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=J1M5RMEL59000", "PlanningStatus": "permissioned", "SiteNameAddress": "102, 106 Prestbury Road", "SiteReference": "BFR004", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=004\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.062226, "GeoY": 51.907653, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "96, 100, 104 Prestbury Road", "SiteReference": "BFR005", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=005\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.062442, "GeoY": 51.906106, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Prestbury Road", "SiteReference": "BFR006", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=006\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.11706, "GeoY": 51.914201, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Allocated in Pre-Submission Cheltenham Plan. Construction of 34 new dwellings with associated infrastructure and parking following the demolition and clearance of existing redundant shopping centre", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-22", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OIMMTWELGIZ00", "PlanningStatus": "permissioned", "SiteNameAddress": "Springbank Shopping Centre", "SiteReference": "BFR007", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=007\u0026scale=1024"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.114354, "GeoY": 51.902318, "HazardousSubstances": null, "Hectares": 1.48, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Allocated in Pre-Submission Cheltenham Plan", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land and buildings at Coronation Square", "SiteReference": "BFR008", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=008\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.071389, "GeoY": 51.901759, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The is a flat, vacant/derelict, town centre site, previously in use as a Community Arts and Music venue.  The site is within the Central Conservation Area and Core Commercial Area and is surrounded by a mix of retail, restaurant, employment and residential uses.. Partial demolition and mixed-use conversion to 11 apartment and commercial/ retail units of 57-59 Winchcombe Street", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-10", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OPZN68EL08300", "PlanningStatus": "permissioned", "SiteNameAddress": "Axiom, 57 Winchcombe Street", "SiteReference": "BFR009", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=009\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.071491, "GeoY": 51.901597, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Notification of a proposed Change of Use to Dwellings. Change of use of 1st, 2nd and 3rd floors of Tebbit House from Offices (B1) to residential (C3)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-12-19", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=O55YYLEL08300|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=M463GMEL0B100", "PlanningStatus": "permissioned", "SiteNameAddress": "Tebbit House, 51 Winchcombe Street", "SiteReference": "BFR010", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=010\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.130527, "GeoY": 51.890928, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Residential development of up to 27 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-08", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NPZGHEELJUU00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land rear of Nuffield Hospital, Hatherley Lane", "SiteReference": "BFR011", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=011\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.084436, "GeoY": 51.899215, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Flat site with vacant office building in a central urban location, predominantly surrounded by residential. The site is within the Core Commercial Area and Central Conservation Area.. Erection of apartment building to comprise 45 dwellings and associated semi-basement car parking, access and landscaping following demolition and clearance of the existing building \u0027Rivershill House\u0027", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-07", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OSNNZ3ELIC800", "PlanningStatus": "permissioned", "SiteNameAddress": "Rivershill House, St Georges Road", "SiteReference": "BFR012", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=012\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.061556, "GeoY": 51.906125, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is a flat, car park site associated wioth Cheltenham Town Football Club.  developed, site within the urban area containing pre-fabricated bungalows. The surrounding area is predominantly residential with commercial / employment uses to the west and Cheltenham Town Football Club east.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Whaddon Road", "SiteReference": "BFR013", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=013\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.065895, "GeoY": 51.911436, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "This is a flat, developed, site is within a predominantly residential area and adjacent to Pittville Park and within the Central Conservation area.. Alterations to facilitate conversion of existing building and associated stable block to 14no. residential units (2no. one bedroom apartments, 9no. two bedroom apartments, 2no. three bedroom apartments and 1no. three bedroom dwelling)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-03-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=MV9IJLELD5000", "PlanningStatus": "permissioned", "SiteNameAddress": "Ellerslie Care Home, Albert Road", "SiteReference": "BFR014", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=014\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.100055, "GeoY": 51.903482, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "This site includes a neighbourhood centre, residential and associated garages.  Only part of site permissioned. Erection of 3no. dwellings and associated hard and soft landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-18", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NYOHVEELL4700", "PlanningStatus": "permissioned", "SiteNameAddress": "Rowanfield Exchange, Devon Avenue", "SiteReference": "BFR015", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=015\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.081408, "GeoY": 51.904378, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Alterations and extensions to the building and conversion to provide 7 additional flats and ground floor retail unit", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-15", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OCTOH2ELFMC00", "PlanningStatus": "permissioned", "SiteNameAddress": "83 Hewlett Road", "SiteReference": "BFR016", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=016\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.072711, "GeoY": 51.901075, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Change of use of former nightclub to fourteen residential units involving demolition of part of existing buiding/structures and associated external works.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-30", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NW5V1VEL08300", "PlanningStatus": "permissioned", "SiteNameAddress": "33-35 Albion Street", "SiteReference": "BFR017", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=017\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.06528, "GeoY": 51.898112, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Erection of 6no dwellings and 2no offices (following demolition of existing building on site) (application in effect to renew Planning Permissions ref 06/01919/FUL approved 02.03.2007 and 10/00748/TIME approved 06.07.2010)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-09-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=JAKIRDEL59000", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Post Office Vehicle Depot, Carlton Street", "SiteReference": "BFR018", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=018\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.060423, "GeoY": 51.896505, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Change of Use of Upper Floors and Part of Lower Ground Floor from Care Home (C2) Use Class to Residential (C3) Use Class to form 8No. new residential Units.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-14", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NYZLW9ELL5X00", "PlanningStatus": "permissioned", "SiteNameAddress": "Upper Floors and Part Lower Ground Floor, Heyford House Care Home, 64 Hales Road", "SiteReference": "BFR019", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=019\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.063719, "GeoY": 51.893941, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Refurbishment and alterations to existing public house, removal of existing roof, construction of new attic storey, raising of parapet wall and addition of new stairwell to create 3 no. self contained flats (including demolition of existing outbuildings).  Erection of two storey extension to 3 Hales Road, removal of existing roof, construction of new attic story and raising of parapet walls and addition of new stairwell to create 5 no. self contained flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-09", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OSAPERELI9900|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OKDW04EL08300", "PlanningStatus": "permissioned", "SiteNameAddress": "Russell Arms, 1 Hales Road", "SiteReference": "BFR020", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=020\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.111899, "GeoY": 51.902941, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Construction of 2no. two bedroom flats and 4no. one bedroom flats and provision of 8no. parking spaces with associated hard and soft landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-21", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=O7VIPDELMJI00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Newton Road", "SiteReference": "BFR021", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=021\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.076591, "GeoY": 51.900542, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Change of use of the upper floors at 22/24 Clarence Street from Class B1(a) (offices) to Class C3 (residential) to provide 5no. Flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-13", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=O1LO1BELLIY00", "PlanningStatus": "permissioned", "SiteNameAddress": "First to Third Floors 22 Clarence Street", "SiteReference": "BFR022", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=022\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.080676, "GeoY": 51.901042, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Change of use and conversion of grade II listed building into 8 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-17", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NP3L7HELJPZ00", "PlanningStatus": "permissioned", "SiteNameAddress": "Victoria House, St James Square", "SiteReference": "BFR023", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=023\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.083989, "GeoY": 51.900932, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Allocated in Pre-Submission Cheltenham Plan. Mixed use development comprising office, retail, residential and ancillary use", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-07-21", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OBFO1REL08301", "PlanningStatus": "permissioned", "SiteNameAddress": "Land On South Side Of Jessop Avenue", "SiteReference": "BFR024", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=024\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.080605, "GeoY": 51.902355, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Change of use from Class D1 to 5no. one bedroom apartments, with associated external alterations", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-12-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OYBRFYELJCA00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Upd House Knapp Road", "SiteReference": "BFR025", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=025\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.080668, "GeoY": 51.888707, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Application to extend time limit for implementation of planning permission 10/00869/OUT (erection of 5 apartments following demolition of existing building)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-10-22", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NRA15TEL08300|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=L34JNMEL0E100|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=ITAB9KEL51000", "PlanningStatus": "permissioned", "SiteNameAddress": "13/14 Suffolk Street", "SiteReference": "BFR026", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=026\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.069196, "GeoY": 51.9023, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Erection of 2no. ground floor office units with 6 no. residential apartments above ( resubmission of previously approved application ref 07/00378/OUT). Demolition of existing building on site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-02-21", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=JEY1TDEL59000", "PlanningStatus": "permissioned", "SiteNameAddress": "24-28 Sherborne Street", "SiteReference": "BFR027", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=027\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.072206, "GeoY": 51.903619, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Allocated in Pre-Submission Cheltenham Plan. Erection of a mixed use development comprising; 5,792sqm (gross external floor space) of class A1 food store, 739sqm (gross) of class A1 shops and 19sqm (gross) of class A2 within atrium space and 336sqm (gross) of class A3 (customer restaurant); multi-storey car park providing 634 spaces over 5 floors (300 spaces for public use and 334 spaces for food store customers); 143 no. residential units within a mix of 1, 2, 3, and 4 bedroom houses and flats, (57 units to be affordable) with associated 143 car parking spaces at ground and basement level; creation of new public open spaces; provision of new parking bays for buses and erection of a passenger information kiosk and waiting room; associated other operations to facilitate the mixed use development including alterations to and from the existing highway for vehicular, pedestrian and cycle access. All following the demolition of existing buildings and other built structures on the site.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": null, "PermissionDate": "2013-02-21", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=MC4UZOEL0B100", "PlanningStatus": "permissioned", "SiteNameAddress": "Car Park, Portland Street", "SiteReference": "BFR028", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=028\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.081685, "GeoY": 51.904458, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Demolition of existing building and the construction of a four storey building for residential use together with three town houses and associated parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-19", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=N9XU1HELHGW00", "PlanningStatus": "permissioned", "SiteNameAddress": "391 High Street", "SiteReference": "BFR029", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=029\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.081408, "GeoY": 51.904378, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Demolition of existing building and construction of a new mixed use building to provide a ground floor retail unit and 12 no. residential units (comprising 5no. one bed and 7no. two bed apartments)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-12", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OENYMVELFX200|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=LJMZ42EL0A300", "PlanningStatus": "permissioned", "SiteNameAddress": "379-383 High Street", "SiteReference": "BFR030", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=030\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.081655, "GeoY": 51.904296, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Erection of a building comprising shop unit and 2 bed flat at ground floor level, 2no x 2bed apartments on first and second floors, 2no x1 bed apartments on third floor. Provision of car parking facilities and a single storey building for storage of waste and bicycles", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-08-23", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OOYPUBELHKV00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=M1UMRXEL0E100", "PlanningStatus": "permissioned", "SiteNameAddress": "385-387 High Street", "SiteReference": "BFR031", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=031\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.07711, "GeoY": 51.906592, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Part conversion and erection of a three storey rear extension to provide 5 no. flats, offices and meeting rooms (associated with the existing D1 use)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-06-19", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=ONOF86ELHE100|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=MV3YIVELD5000", "PlanningStatus": "permissioned", "SiteNameAddress": "St Pauls Church Centre, St Pauls Road", "SiteReference": "BFR032", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=032\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.073833, "GeoY": 51.902773, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Notification of proposed change of use from B1A (Offices) to C3 (Dwellings) to provide 40 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-03", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=NT417TELKB700|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=N6JEJTEL08300", "PlanningStatus": "permissioned", "SiteNameAddress": "Pate Court, St Margarets Road", "SiteReference": "BFR033", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=033\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.093681, "GeoY": 51.899954, "HazardousSubstances": null, "Hectares": 2.46, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Erection of 107 dwellings (class C3) including access and servicing arrangements, car parking, landscaping and associated works", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-06-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=MH6C90EL0E300", "PlanningStatus": "permissioned", "SiteNameAddress": "Travis Perkins, Gloucester Road", "SiteReference": "BFR034", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=034\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.088396, "GeoY": 51.910091, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Construction of a building to accommodate 8 number, two bedroom apartments and associated works (revised scheme to that approved ref. 16/00637/FUL)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-31", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OKDRLYEL0G100|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=OA1AJWELMUZ00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=O5CRXGELM4T00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=K32GYNEL0C500|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=JR1K8IEL0BC00", "PlanningStatus": "permissioned", "SiteNameAddress": "Best Mate Inn, 258 Swindon Road", "SiteReference": "BFR035", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=035\u0026scale=1024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.109258, "GeoY": 51.886409, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site has planning permission, construction not started April 2017. Application to extend the time limit for implementation of planning permission ref. 07/01502/FUL for residential development consisting of 4 houses and 4 flats, demolition of existing shop and lock up garages", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cheltenham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-07-19", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=ON5LHEELH9R00|https://publicaccess.cheltenham.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=JQRUVTEL08300", "PlanningStatus": "permissioned", "SiteNameAddress": "One Stop Shop, 62 Alma Road", "SiteReference": "BFR036", "SiteplanURL": "https://maps.cheltenham.gov.uk/map/Aurora.svc/run?script=%5cAurora%5cCBC+Brownfield+register.AuroraScript%24\u0026nocache=416161679\u0026resize=always\u0026inspect_query=CBCBrownfield\u0026inspect_value=036\u0026scale=1024"}];
+    const bbox = [-2.145081161943388, -2.031681838056612, 51.87742584341859, 51.92318415658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

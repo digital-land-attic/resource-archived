@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">1a93f47c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22263&p=0">http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22263&p=0</a>
+        </dd>
+    </dl>
+    <a href="http://www.southkesteven.gov.uk/index.aspx?articleid=13215">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SKE">South Kesteven District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/1a93f47c44a4e68037e88f645b09ba99201d81f7a263c27b8e7dcfac3d8bbf4b/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/1a93f47c44a4e68037e88f645b09ba99201d81f7a263c27b8e7dcfac3d8bbf4b">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">12 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22.04
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                440</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                440</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>12</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/1a93f47c44a4e68037e88f645b09ba99201d81f7a263c27b8e7dcfac3d8bbf4b.csv"
+        download="1a93f47c44a4e68037e88f645b09ba99201d81f7a263c27b8e7dcfac3d8bbf4b_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/1a93f47c44a4e68037e88f645b09ba99201d81f7a263c27b8e7dcfac3d8bbf4b"
+        download="1a93f47c44a4e68037e88f645b09ba99201d81f7a263c27b8e7dcfac3d8bbf4b_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>SKBFR-2</td>
+                    <td>-0.533053</td>
+                    <td>52.749915</td>
+                    <td>6.9</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>124</td>
+                    <td>124</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-30</td>
+                    <td>outline planning permission</td>
+                    <td>Outline Planning application - S14/3097</td>
+                    <td>permissioned</td>
+                    <td>The Old Quarry, Station Road</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22388&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site was promoted through CFS.. Residential. Site is a former Quarry,  is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-3</td>
+                    <td>-0.342367</td>
+                    <td>52.892299</td>
+                    <td>1.1</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>26</td>
+                    <td>26</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-10-08</td>
+                    <td>outline planning permission</td>
+                    <td>Outline Planning application -  S14/0927</td>
+                    <td>permissioned</td>
+                    <td>Former Grimers Transport site, Station Road ( Part1 )</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22389&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site was promoted through CFS.. Residential. Former industrial land. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-4</td>
+                    <td>-0.341904</td>
+                    <td>52.893736</td>
+                    <td>0.8</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>Pending consideration under application -S16/1197</td>
+                    <td>pending decision</td>
+                    <td>Former Grimers Transport site, Station Road ( Part2)</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22390&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site was promoted through CFS.. Former industrial land. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-8</td>
+                    <td>-0.34644</td>
+                    <td>52.890326</td>
+                    <td>1.6</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>38</td>
+                    <td>38</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-14</td>
+                    <td>outline planning permission</td>
+                    <td>Outline Planning application -  S14/1316</td>
+                    <td>permissioned</td>
+                    <td>Former Aveland High School</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22391&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site was promoted through CFS.. Residential. Former School site which has now been demolished. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-10</td>
+                    <td>-0.457419</td>
+                    <td>52.655325</td>
+                    <td>0.45</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>Pending consideration under application -  S17/1758</td>
+                    <td>pending decision</td>
+                    <td>former Peugeot Garage, Uffington Road</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22387&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted  through the CFS.. Former Peugeot Car dealership garage + car park . Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-22</td>
+                    <td>-0.462418</td>
+                    <td>52.657351</td>
+                    <td>4.9</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>88</td>
+                    <td>88</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>Pending consideration under application - S17/0613</td>
+                    <td>pending decision</td>
+                    <td>Land at Uffington Road, Stamford</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22392&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted  through the CFS  . Site is preferred allocation for the LP.. Previous industrial use land that is now vacant. Site is brownfield.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-26</td>
+                    <td>-0.612689</td>
+                    <td>52.92278</td>
+                    <td>1.3</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>31</td>
+                    <td>31</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-24</td>
+                    <td>outline planning permission</td>
+                    <td>Outline Planning application -   S14/2837</td>
+                    <td>permissioned</td>
+                    <td>Former site of st Wulframs school, Queensway Grantham</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22393&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted through the SHLAA 2014.. Residential. Demolished School Site . Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-36</td>
+                    <td>-0.460321</td>
+                    <td>52.656785</td>
+                    <td>4.1</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>73</td>
+                    <td>73</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>Pending consideration under application-    S16/1548</td>
+                    <td>pending decision</td>
+                    <td>land north of Uffington Road, Stamford known as Stamford Near East</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22394&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted  through the CFS  . Site is preferred allocation for the LP.. Site mixture of  industrial buildings. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-52</td>
+                    <td>-0.48276</td>
+                    <td>52.652803</td>
+                    <td>0.14</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>Site had permission under S11/0903 now expired.</td>
+                    <td>not permissioned</td>
+                    <td>Blenheim Court, Scotgate, Stamford</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22395&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted through the SHLAA 2014 .. Site is a hard standing area behind a current shops. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-57</td>
+                    <td>-0.651723</td>
+                    <td>52.90544</td>
+                    <td>0.4</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Site had permission under S06/0965  now expired.</td>
+                    <td>not permissioned</td>
+                    <td>Old Tannery, Earlsfield Lane</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22396&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted through the SHLAA 2014 .. Site was former Tanners . Now demolished hard standing area. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-69</td>
+                    <td>-0.477161</td>
+                    <td>52.660995</td>
+                    <td>0.1</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garage Court, Kesteven Road</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22397&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site taken off NULD data. Site is hard standing garages. Site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SKBFR-119</td>
+                    <td>-0.619909</td>
+                    <td>52.801532</td>
+                    <td>0.25</td>
+                    <td>2017-12-22</td>
+                    <td>2018-01-12</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-kesteven</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at 8 Stamford Street, Colsterworth</td>
+                    <td>http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22398&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>New site submitted.. Site a former Timber yard. Now used for storage, part of site is brownfield</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.533053, "GeoY": 52.749915, "HazardousSubstances": null, "Hectares": 6.9, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 124, "NetDwellingsRangeTo": 124, "Notes": "Site was promoted through CFS.. Residential. Site is a former Quarry,  is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-30", "PermissionType": "outline planning permission", "PlanningHistory": "Outline Planning application - S14/3097", "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Quarry, Station Road", "SiteReference": "SKBFR-2", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22388\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.342367, "GeoY": 52.892299, "HazardousSubstances": null, "Hectares": 1.1, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 26, "NetDwellingsRangeTo": 26, "Notes": "Site was promoted through CFS.. Residential. Former industrial land. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-10-08", "PermissionType": "outline planning permission", "PlanningHistory": "Outline Planning application -  S14/0927", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Grimers Transport site, Station Road ( Part1 )", "SiteReference": "SKBFR-3", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22389\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.341904, "GeoY": 52.893736, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 22, "NetDwellingsRangeTo": 22, "Notes": "Site was promoted through CFS.. Former industrial land. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "Pending consideration under application -S16/1197", "PlanningStatus": "pending decision", "SiteNameAddress": "Former Grimers Transport site, Station Road ( Part2)", "SiteReference": "SKBFR-4", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22390\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.34644, "GeoY": 52.890326, "HazardousSubstances": null, "Hectares": 1.6, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 38, "NetDwellingsRangeTo": 38, "Notes": "Site was promoted through CFS.. Residential. Former School site which has now been demolished. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-14", "PermissionType": "outline planning permission", "PlanningHistory": "Outline Planning application -  S14/1316", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Aveland High School", "SiteReference": "SKBFR-8", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22391\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.457419, "GeoY": 52.655325, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 12, "NetDwellingsRangeTo": 12, "Notes": "Site promoted  through the CFS.. Former Peugeot Car dealership garage + car park . Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "Pending consideration under application -  S17/1758", "PlanningStatus": "pending decision", "SiteNameAddress": "former Peugeot Garage, Uffington Road", "SiteReference": "SKBFR-10", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22387\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.462418, "GeoY": 52.657351, "HazardousSubstances": null, "Hectares": 4.9, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 88, "NetDwellingsRangeTo": 88, "Notes": "Site promoted  through the CFS  . Site is preferred allocation for the LP.. Previous industrial use land that is now vacant. Site is brownfield.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "Pending consideration under application - S17/0613", "PlanningStatus": "pending decision", "SiteNameAddress": "Land at Uffington Road, Stamford", "SiteReference": "SKBFR-22", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22392\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.612689, "GeoY": 52.92278, "HazardousSubstances": null, "Hectares": 1.3, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 31, "NetDwellingsRangeTo": 31, "Notes": "Site promoted through the SHLAA 2014.. Residential. Demolished School Site . Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-24", "PermissionType": "outline planning permission", "PlanningHistory": "Outline Planning application -   S14/2837", "PlanningStatus": "permissioned", "SiteNameAddress": "Former site of st Wulframs school, Queensway Grantham", "SiteReference": "SKBFR-26", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22393\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.460321, "GeoY": 52.656785, "HazardousSubstances": null, "Hectares": 4.1, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 73, "NetDwellingsRangeTo": 73, "Notes": "Site promoted  through the CFS  . Site is preferred allocation for the LP.. Site mixture of  industrial buildings. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "Pending consideration under application-    S16/1548", "PlanningStatus": "pending decision", "SiteNameAddress": "land north of Uffington Road, Stamford known as Stamford Near East", "SiteReference": "SKBFR-36", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22394\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.48276, "GeoY": 52.652803, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Site promoted through the SHLAA 2014 .. Site is a hard standing area behind a current shops. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "Site had permission under S11/0903 now expired.", "PlanningStatus": "not permissioned", "SiteNameAddress": "Blenheim Court, Scotgate, Stamford", "SiteReference": "SKBFR-52", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22395\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.651723, "GeoY": 52.90544, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 11, "NetDwellingsRangeTo": 11, "Notes": "Site promoted through the SHLAA 2014 .. Site was former Tanners . Now demolished hard standing area. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "Site had permission under S06/0965  now expired.", "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Tannery, Earlsfield Lane", "SiteReference": "SKBFR-57", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22396\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.477161, "GeoY": 52.660995, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Site taken off NULD data. Site is hard standing garages. Site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garage Court, Kesteven Road", "SiteReference": "SKBFR-69", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22397\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.619909, "GeoY": 52.801532, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2018-01-12", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "New site submitted.. Site a former Timber yard. Now used for storage, part of site is brownfield", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at 8 Stamford Street, Colsterworth", "SiteReference": "SKBFR-119", "SiteplanURL": "http://www.southkesteven.gov.uk/CHttpHandler.ashx?id=22398\u0026p=0"}];
+    const bbox = [-0.6665309673954275, -0.3270960326045724, 52.6438198434186, 52.93176315658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

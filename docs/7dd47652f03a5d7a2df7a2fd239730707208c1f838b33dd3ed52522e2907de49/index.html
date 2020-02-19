@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">7dd47652...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.eastcambs.gov.uk/sites/default/files/East_Cambridgeshire_District_Council_brownfieldregister_2017-12-12_rev1.csv">https://www.eastcambs.gov.uk/sites/default/files/East_Cambridgeshire_District_Council_brownfieldregister_2017-12-12_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.eastcambs.gov.uk/local-development-framework/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:ECA">East Cambridgeshire District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/7dd47652f03a5d7a2df7a2fd239730707208c1f838b33dd3ed52522e2907de49/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/7dd47652f03a5d7a2df7a2fd239730707208c1f838b33dd3ed52522e2907de49">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">40.41
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>22</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/7dd47652f03a5d7a2df7a2fd239730707208c1f838b33dd3ed52522e2907de49.csv"
+        download="7dd47652f03a5d7a2df7a2fd239730707208c1f838b33dd3ed52522e2907de49_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/7dd47652f03a5d7a2df7a2fd239730707208c1f838b33dd3ed52522e2907de49"
+        download="7dd47652f03a5d7a2df7a2fd239730707208c1f838b33dd3ed52522e2907de49_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Site/02/08</td>
+                    <td>0.256845</td>
+                    <td>52.222905</td>
+                    <td>0.11</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-03-09</td>
+                    <td>full planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OFM1FRGGKPB00</td>
+                    <td>permissioned</td>
+                    <td>Police Station, 12, Bell Road, Bottisham, CAMBRIDGE, CB25 9DF</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_02_08.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of former police  station  Construction of 9No. Flats with offstreet parking and new access road off Bell  Road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/05/06</td>
+                    <td></td>
+                    <td></td>
+                    <td>3.06</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-10</td>
+                    <td>reserved matters approval</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NWOI9ZGGFM100&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Former D S Smith Site Reach Road Burwell Burwell CB25 0AH</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_05_06.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Approval of details for all reserved matters for the housing element ( plots 1-70) of planning application 14/00046/OUM</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/06/05</td>
+                    <td>0.462439</td>
+                    <td>52.21174</td>
+                    <td>0.51</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-14</td>
+                    <td>outline planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O1JVLLGGIUA00</td>
+                    <td>permissioned</td>
+                    <td>1, Oak Lane, Cheveley, NEWMARKET, CB8 9RA</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_06_05.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development of site formerly Everitt & Gough 2 Oak Lane Cheveley Newmarket Suffolk</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/11</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.61</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Grange, Nutholt Lane, Ely CB7 4EE</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_11.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is allocated by the Local Plan for mixed-use development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/12</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.0</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Paradise Leisure Centre, Newnham St, Ely CB7 4PQ</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_12.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is allocated by the Local Plan for mixed-use development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/19</td>
+                    <td></td>
+                    <td></td>
+                    <td>11.41</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Station Gateway, Angel Drove, Ely</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_19.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site is allocated by the Local Plan for mixed-use development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/28</td>
+                    <td></td>
+                    <td></td>
+                    <td>4.03</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Princess of Wales Hospital, Lynn Road, Ely CB6 1DN</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_28.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The Proposed Submission Local Plan identifies the site for mixed-use development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/31</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.19</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-12-28</td>
+                    <td>reserved matters approval</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NXYI08GGGGP00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land At Barton Road Car Park Barton Road Ely Cambridgeshire</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_31.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development for 11 dwellings, with minor alterations to the existing vehicular and pedestrian access.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/32</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.71</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-28</td>
+                    <td>reserved matters approval</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NOEB8WGGHQ200&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Lisle Lane, Ely, Cambridgeshire, CB7 4FA</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_32.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings and erection of assisted living accomodation for the elderly including provision of communal facilities, car parking and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/10/33</td>
+                    <td>0.266795</td>
+                    <td>52.398304</td>
+                    <td>0.1</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-10</td>
+                    <td>full planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O289UXGGJBL00</td>
+                    <td>permissioned</td>
+                    <td>Pound Store, 10, Forehill, ELY, Cambridgeshire CB7 4AF</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_10_33.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Refurbishment and partial demolition of existing building to provide six residential townhouses and one residential flat over retained commercial unit.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/11/09</td>
+                    <td></td>
+                    <td></td>
+                    <td>8.66</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OQGBMOGG0CI00</td>
+                    <td>pending decision</td>
+                    <td>Scotsdale Garden Centre, Market Street, Fordham, CB7 5LQ</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_11_09.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site forms an area of brownfield land within a larger site,  with an outline planning application pending determination, for 150 residential dwellings, a 75-bed care home, a local shop and an ancillary medical consultation facility.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/11/28</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.26</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-03</td>
+                    <td>outline planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OGBSK1GG06800</td>
+                    <td>permissioned</td>
+                    <td>Fordham Technology Centre, 5 Station Road, Fordham, Ely, Cambridgeshire CB7 5LW</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_11_28.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site boundary includes an area of brownfield land which forms part of a larger site with planning permission for residential development for up to 27 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/18/01</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.75</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MZCLJJGG07G00</td>
+                    <td>pending decision</td>
+                    <td>Station Road, Littleport, Ely CB6 1JL</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_18_01.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development incorporating a new access, strategic landscaping & public open space.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/18/26</td>
+                    <td>0.304843</td>
+                    <td>52.455757</td>
+                    <td>0.16</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-29</td>
+                    <td>full planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NP0504GG06800</td>
+                    <td>permissioned</td>
+                    <td>The Bingo Hall, Hempfield Road, Littleport, ELY, CB6 1NW</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_18_26.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development of nine dwellings comprising 1no one bed flat, 4no two bed houses, 4no three bed houses, parking, access drive and associated site works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/23/33</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.53</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-01-18</td>
+                    <td>outline planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MC59KNGG07G00</td>
+                    <td>permissioned</td>
+                    <td>Land To Rear Of 7 & 7A Townsend, Soham, Cambridgeshire, CB7 5DB</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_23_33.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential Development: Comprising of dwellings, garaging, access roads and associated site works including demolition of 7a Townsend, garage, HGV garage and various outbuildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/23/35</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.18</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-23</td>
+                    <td>full planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NQHZCRGGJ3200&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>90 Paddock Street, Soham, Ely Cambridgeshire CB7 5JA</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_23_35.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 10 dwellings following the demolition of 90 Paddock Street. Creation of new vehicular access. Alterations and extensions to front boundary wall.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/23/37</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.27</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-07-07</td>
+                    <td>full planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=O48T8HGGKSY00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Soham Health Centre, Pratt St, Soham, Ely CB7 5BH</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_23_37.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construction of 10 two storey residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/23/38</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.34</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OSCSVVGG0CS00</td>
+                    <td>not permissioned</td>
+                    <td>Eastern Gateway, East Fen Common, Soham, Ely CB7 5JJ</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_23_38.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The site forms part of a larger strategic site, allocated by the Local Plan for mixed-use development. The site boundary includes only the area considered to be brownfield land.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/23/40</td>
+                    <td></td>
+                    <td></td>
+                    <td>4.12</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OIMRVDGGMUF00</td>
+                    <td>pending decision</td>
+                    <td>Station Rd, Soham, Ely CB7 5DZ</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_23_40.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings and redevelopment of 31 new dwellings with associated and ancillary development including access, servicing, amenity space, landscaping and the establishment of ecological mitigation land.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/27/06</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.52</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OSVGX6GGMEY00</td>
+                    <td>pending decision</td>
+                    <td>Hillside Mill, Quarry Ln, Swaffham Bulbeck, Cambridge CB25 0LU</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_27_06.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construction of 19 dwellings with associated parking and amenity space and retention of existing offices on site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/31/11</td>
+                    <td>0.300915</td>
+                    <td>52.314436</td>
+                    <td>0.48</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-12</td>
+                    <td>full planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O0UFRZGG06800</td>
+                    <td>permissioned</td>
+                    <td>36, Chapel Lane, Wicken, ELY, CB7 5XZ</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_31_11.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing outbuildings and construction of 5 No detached and 2 No semi-detached houses with associated access road.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Site/33/01</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.41</td>
+                    <td>2017-12-12</td>
+                    <td>2017-12-12</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-cambridgeshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-10</td>
+                    <td>outline planning permission</td>
+                    <td>http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MSAMDPGG55000</td>
+                    <td>permissioned</td>
+                    <td>Kings of Witcham, The Slade, Ely, CB6 2LA</td>
+                    <td>https://www.eastcambs.gov.uk/sites/default/files/Site_33_01.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construction of 7 dwellings plus 3 flexible dwellings with potential for employment use</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": 0.256845, "GeoY": 52.222905, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of former police  station  Construction of 9No. Flats with offstreet parking and new access road off Bell  Road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-03-09", "PermissionType": "full planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OFM1FRGGKPB00", "PlanningStatus": "permissioned", "SiteNameAddress": "Police Station, 12, Bell Road, Bottisham, CAMBRIDGE, CB25 9DF", "SiteReference": "Site/02/08", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_02_08.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 3.06, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Approval of details for all reserved matters for the housing element ( plots 1-70) of planning application 14/00046/OUM", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-10", "PermissionType": "reserved matters approval", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NWOI9ZGGFM100\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Former D S Smith Site Reach Road Burwell Burwell CB25 0AH", "SiteReference": "Site/05/06", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_05_06.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": 0.462439, "GeoY": 52.21174, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development of site formerly Everitt \u0026 Gough 2 Oak Lane Cheveley Newmarket Suffolk", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-14", "PermissionType": "outline planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O1JVLLGGIUA00", "PlanningStatus": "permissioned", "SiteNameAddress": "1, Oak Lane, Cheveley, NEWMARKET, CB8 9RA", "SiteReference": "Site/06/05", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_06_05.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.61, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site is allocated by the Local Plan for mixed-use development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Grange, Nutholt Lane, Ely CB7 4EE", "SiteReference": "Site/10/11", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_11.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site is allocated by the Local Plan for mixed-use development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Paradise Leisure Centre, Newnham St, Ely CB7 4PQ", "SiteReference": "Site/10/12", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_12.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 11.41, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site is allocated by the Local Plan for mixed-use development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Station Gateway, Angel Drove, Ely", "SiteReference": "Site/10/19", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_19.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 4.03, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The Proposed Submission Local Plan identifies the site for mixed-use development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Princess of Wales Hospital, Lynn Road, Ely CB6 1DN", "SiteReference": "Site/10/28", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_28.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development for 11 dwellings, with minor alterations to the existing vehicular and pedestrian access.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-12-28", "PermissionType": "reserved matters approval", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NXYI08GGGGP00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land At Barton Road Car Park Barton Road Ely Cambridgeshire", "SiteReference": "Site/10/31", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_31.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.71, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings and erection of assisted living accomodation for the elderly including provision of communal facilities, car parking and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-28", "PermissionType": "reserved matters approval", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NOEB8WGGHQ200\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Lisle Lane, Ely, Cambridgeshire, CB7 4FA", "SiteReference": "Site/10/32", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_32.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": 0.266795, "GeoY": 52.398304, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Refurbishment and partial demolition of existing building to provide six residential townhouses and one residential flat over retained commercial unit.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-10", "PermissionType": "full planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O289UXGGJBL00", "PlanningStatus": "permissioned", "SiteNameAddress": "Pound Store, 10, Forehill, ELY, Cambridgeshire CB7 4AF", "SiteReference": "Site/10/33", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_10_33.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 8.66, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site forms an area of brownfield land within a larger site,  with an outline planning application pending determination, for 150 residential dwellings, a 75-bed care home, a local shop and an ancillary medical consultation facility.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OQGBMOGG0CI00", "PlanningStatus": "pending decision", "SiteNameAddress": "Scotsdale Garden Centre, Market Street, Fordham, CB7 5LQ", "SiteReference": "Site/11/09", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_11_09.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site boundary includes an area of brownfield land which forms part of a larger site with planning permission for residential development for up to 27 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-03", "PermissionType": "outline planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OGBSK1GG06800", "PlanningStatus": "permissioned", "SiteNameAddress": "Fordham Technology Centre, 5 Station Road, Fordham, Ely, Cambridgeshire CB7 5LW", "SiteReference": "Site/11/28", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_11_28.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.75, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development incorporating a new access, strategic landscaping \u0026 public open space.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MZCLJJGG07G00", "PlanningStatus": "pending decision", "SiteNameAddress": "Station Road, Littleport, Ely CB6 1JL", "SiteReference": "Site/18/01", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_18_01.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": 0.304843, "GeoY": 52.455757, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential development of nine dwellings comprising 1no one bed flat, 4no two bed houses, 4no three bed houses, parking, access drive and associated site works", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-29", "PermissionType": "full planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NP0504GG06800", "PlanningStatus": "permissioned", "SiteNameAddress": "The Bingo Hall, Hempfield Road, Littleport, ELY, CB6 1NW", "SiteReference": "Site/18/26", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_18_26.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.53, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential Development: Comprising of dwellings, garaging, access roads and associated site works including demolition of 7a Townsend, garage, HGV garage and various outbuildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-01-18", "PermissionType": "outline planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MC59KNGG07G00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land To Rear Of 7 \u0026 7A Townsend, Soham, Cambridgeshire, CB7 5DB", "SiteReference": "Site/23/33", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_23_33.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 10 dwellings following the demolition of 90 Paddock Street. Creation of new vehicular access. Alterations and extensions to front boundary wall.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-23", "PermissionType": "full planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=NQHZCRGGJ3200\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "90 Paddock Street, Soham, Ely Cambridgeshire CB7 5JA", "SiteReference": "Site/23/35", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_23_35.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construction of 10 two storey residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-07-07", "PermissionType": "full planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?keyVal=O48T8HGGKSY00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Soham Health Centre, Pratt St, Soham, Ely CB7 5BH", "SiteReference": "Site/23/37", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_23_37.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.34, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The site forms part of a larger strategic site, allocated by the Local Plan for mixed-use development. The site boundary includes only the area considered to be brownfield land.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OSCSVVGG0CS00", "PlanningStatus": "not permissioned", "SiteNameAddress": "Eastern Gateway, East Fen Common, Soham, Ely CB7 5JJ", "SiteReference": "Site/23/38", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_23_38.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 4.12, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings and redevelopment of 31 new dwellings with associated and ancillary development including access, servicing, amenity space, landscaping and the establishment of ecological mitigation land.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OIMRVDGGMUF00", "PlanningStatus": "pending decision", "SiteNameAddress": "Station Rd, Soham, Ely CB7 5DZ", "SiteReference": "Site/23/40", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_23_40.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construction of 19 dwellings with associated parking and amenity space and retention of existing offices on site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OSVGX6GGMEY00", "PlanningStatus": "pending decision", "SiteNameAddress": "Hillside Mill, Quarry Ln, Swaffham Bulbeck, Cambridge CB25 0LU", "SiteReference": "Site/27/06", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_27_06.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": 0.300915, "GeoY": 52.314436, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing outbuildings and construction of 5 No detached and 2 No semi-detached houses with associated access road.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-12", "PermissionType": "full planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O0UFRZGG06800", "PlanningStatus": "permissioned", "SiteNameAddress": "36, Chapel Lane, Wicken, ELY, CB7 5XZ", "SiteReference": "Site/31/11", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_31_11.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-12", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2017-12-12", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construction of 7 dwellings plus 3 flexible dwellings with potential for employment use", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-cambridgeshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-10", "PermissionType": "outline planning permission", "PlanningHistory": "http://pa.eastcambs.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MSAMDPGG55000", "PlanningStatus": "permissioned", "SiteNameAddress": "Kings of Witcham, The Slade, Ely, CB6 2LA", "SiteReference": "Site/33/01", "SiteplanURL": "https://www.eastcambs.gov.uk/sites/default/files/Site_33_01.pdf"}];
+    const bbox = [0.2421844893845816, 0.47709951061541844, 52.20275684341859, 52.464740156581406];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">f94ed2c0...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.fenland.gov.uk/media/14426/FDC-Brownfield-Land-Register-2017---CSV-format/csv/FenlandDistrictCouncil_brownfieldregister_2017-12-19_rev1.csv">https://www.fenland.gov.uk/media/14426/FDC-Brownfield-Land-Register-2017---CSV-format/csv/FenlandDistrictCouncil_brownfieldregister_2017-12-19_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.fenland.gov.uk/brownfieldland">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:FEN">Fenland District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/f94ed2c00a04ce1cfa77f92a5cbe1ffac5ec2fc1fcea3c449df33c55e02bdbeb/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/f94ed2c00a04ce1cfa77f92a5cbe1ffac5ec2fc1fcea3c449df33c55e02bdbeb">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">18 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">55.01
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>18</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/f94ed2c00a04ce1cfa77f92a5cbe1ffac5ec2fc1fcea3c449df33c55e02bdbeb.csv"
+        download="f94ed2c00a04ce1cfa77f92a5cbe1ffac5ec2fc1fcea3c449df33c55e02bdbeb_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/f94ed2c00a04ce1cfa77f92a5cbe1ffac5ec2fc1fcea3c449df33c55e02bdbeb"
+        download="f94ed2c00a04ce1cfa77f92a5cbe1ffac5ec2fc1fcea3c449df33c55e02bdbeb_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BLR0001</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2007-09-12</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=JEJ0UJHEO1000</td>
+                    <td>permissioned</td>
+                    <td>Land at, 35 North End, Wisbech, PE13</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14404&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 2 x 2-bed houses and 9 flats with balconies comprising of 1 x 3-bed, 3 x 2-bed and 5 x 1-bed with parking under, involving demolition of existing building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0002</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.32</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2010-07-05</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=L07EF9HE01U00</td>
+                    <td>permissioned</td>
+                    <td>PILGRIMS OF MARCH, DARTFORD ROAD, MARCH, PE15 8BD</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14405&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 17 dwellings comprising; 3 x 1-bed and 3 x 2-bed flats, 6 x 3-bed semi-detached houses, 2 x 4-bed semi-detached houses with integral single garage, 1 x 3-bed detached house and 2 x 4-bed detached houses with integral single garages involving demolition of existing buildings (renewal of planning permission F/YR06/0706/F)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0003</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.66</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-18</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=N5VNDCHE06P00</td>
+                    <td>permissioned</td>
+                    <td>Davern Workwear Ltd, Elliott Road, MARCH, PE15 8QU</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14403&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 18 dwellings comprising 2 x 3-bed; 8 x 4-bed and 8 x 5-bed dwellings with associated parking involving the demolition of the existing building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0004</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.48</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-19</td>
+                    <td>reserved matters approval</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=N1IC4EHE08000</td>
+                    <td>permissioned</td>
+                    <td>Land East of Davern Workwear Ltd, Elliott Road, MARCH, PE15 8QU</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14406&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 14 x 3-storey dwellings comprising; 3 x 5-bed with attached single garages; 4 x 5-bed with associated parking (plot 1 with detached double garage); 3 x 4-bed and 4 x 3-bed all with associated parking, involving part demolition of existing warehouse</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0005</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.17</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-05-08</td>
+                    <td>outline planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=MNAPFYHE06P00</td>
+                    <td>permissioned</td>
+                    <td>18, Westfield Road, Manea, MARCH, PE15 0LN</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14407&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 6 dwellings involving demolition of existing dwelling and replacement fence to No.16 (renewal of planning permission F/YR10/0254/O)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0006</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.49</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-29</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=NQ1HMYHE08000</td>
+                    <td>permissioned</td>
+                    <td>100, Mill Road, Whittlesey, Cambridgeshire, PE7 1SW</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14408&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 12 dwellings with garages comprising; 6 x 3-bed single-storey, 4 x 3-bed 2-storey and 2 x 4-bed 2-storey, involving demolition of existing dwelling and outbuilding</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0007</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.04</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-05</td>
+                    <td>other</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=OAIBI1HE08000</td>
+                    <td>permissioned</td>
+                    <td>4-6, Stermyn Street, WISBECH, PE13 1EQ</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14409&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission type: prior approval. Change of use from Offices to 9 x flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0008</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.21</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-08-28</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=LQ64KOHE01U00</td>
+                    <td>permissioned</td>
+                    <td>AWARE HOUSE LEARNING DEVELOPMENT AIDS LIMITED, DUKE STREET, WISBECH, CAMBRIDGESHIRE, PE13 2AE</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14410&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 10 houses comprising; 4 x 2-bed semi-detached, 4 x 3-bed semi-detached and 2 x 3/4-bed semi-detached with integral car port, associated parking and landscaping including 1.8 metre high walls and close boarded fencing involving demolition of existing warehouse (renewal of planning permission F/YR08/1070/F)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0009</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.49</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-21</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=MSYJ73HE01U00</td>
+                    <td>permissioned</td>
+                    <td>64, Whitmore Street, 17 and 11 Windmill Street, WHITTLESEY, PE7 1HP</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14411&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 30no dwellings comprising of 15 x 2-storey 2-bed, 10 x 2-storey 3-bed, 1 x 2-storey 4-bed, 3 x 3-storey 3-bed and 1 x 2-bed flat with garage block below and associated parking involving demolition of existing dwelling and buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0010</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.94</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-12-19</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=MTF4I5HE0B200</td>
+                    <td>permissioned</td>
+                    <td>Site Of Former Kingswood Park Residential Home Kingswood Road March Cambridgeshire, PE15 9RT</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14412&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 22 dwellings: 2 x 2-storey block of flats comprising of 10 x 1-bed dwellings, and erection of 1 x single-storey 2-bed, 11 x 2-storey 2-bed dwellings, including sheds, refuse store and cycle store involving demolition of existing care home (retrospective) and works to western footpath of Kingswood Road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0011</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.39</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2010-04-06</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=KS8EA5HE08000</td>
+                    <td>permissioned</td>
+                    <td>The Bell 35, KIRKGATE STREET, WISBECH</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14413&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection 14 houses comprising; 2 x 4-bed detached, 4 x 3/4-bed semi-detached, 4 x 3-bed semi-detached, 2 x 3-bed semi-detached 2 and a half-storey and 2 x 2/3-bed semi-detached with associated garages, parking, bin store and landscaping, alterations to existing accesses and demolition of existing building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0012</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.16</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-15</td>
+                    <td>reserved matters approval</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=NE3PAKHE08000</td>
+                    <td>permissioned</td>
+                    <td>Land South West Of Queen Street Close March Cambridgeshire, PE15 8NB</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14414&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 6 x 3-storey, 3-bed dwellings with balcony to front and integral garage and 4 x 3-storey, 2-bed dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0013</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.11</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-02</td>
+                    <td>outline planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=map&keyVal=MXP7EGHE01K00</td>
+                    <td>permissioned</td>
+                    <td>Service Master, 54, Bridge Street, CHATTERIS, PE16 6RN</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14415&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 5 dwellings involving demolition of existing buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0014</td>
+                    <td></td>
+                    <td></td>
+                    <td>40.03</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Nene Waterfront and Port, Wisbech</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14416&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Local Plan (Policy LP8) identifies site as a broad location for growth. Local Plan allocation for mixed-use regeneration located east of the River Nene and north of the town centre to provide housing, leisure, retail and employment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0015</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.31</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-14</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=OMT4W0HE01U00</td>
+                    <td>permissioned</td>
+                    <td>Bricklayers Arms, 9 Station Road, Whittlesey, Peterborough, Cambridgeshire, PE7 1UA</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14417&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a block of flats (maximum 3-storey) comprising of 14 x 1-bed and 19 x 2-bed and refuse store involving the demolition of existing building within a Conservation Area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0016</td>
+                    <td></td>
+                    <td></td>
+                    <td>5.84</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>North and south of Eastrea Road, WHITTLESEY, PE7 2AF</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14418&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Local Plan (Policy LP11) allocates the site. Part of a Local Plan strategic allocation. The allocation as a whole is expected to provide in the region of 500 dwellings. This southern parcel will be subject to detailed masterplanning, and could accommodate a mix of uses including residential.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0017</td>
+                    <td>-0.153947</td>
+                    <td>52.560769</td>
+                    <td>2.66</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-19</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=N16TDGHE01U00</td>
+                    <td>permissioned</td>
+                    <td>Former Westhaven Nursery, Peterborough Road, WHITTLESEY, PE7 1PD</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14419&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 68no dwellings (max)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR0018</td>
+                    <td>0.176408</td>
+                    <td>52.671352</td>
+                    <td>1.67</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fenland</td>
+                    <td>not owned by a public authority</td>
+                    <td>2009-01-20</td>
+                    <td>full planning permission</td>
+                    <td>https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=JFV3LFHEK1000</td>
+                    <td>permissioned</td>
+                    <td>Fenland Park, Lerowe Road, WISBECH, PE13 3QL</td>
+                    <td>http://www.fenland.gov.uk/CHttpHandler.ashx?id=14420&p=0</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 83 houses comprising; 19 x 4-bed houses, 35 x 3-bed houses 18 x 2-bed houses, 6 x 2-bed apartments and 5 x 1-bed apartments including Public Open Space involving demolition of existing football stands and buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 2 x 2-bed houses and 9 flats with balconies comprising of 1 x 3-bed, 3 x 2-bed and 5 x 1-bed with parking under, involving demolition of existing building", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2007-09-12", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=JEJ0UJHEO1000", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at, 35 North End, Wisbech, PE13", "SiteReference": "BLR0001", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14404\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 17 dwellings comprising; 3 x 1-bed and 3 x 2-bed flats, 6 x 3-bed semi-detached houses, 2 x 4-bed semi-detached houses with integral single garage, 1 x 3-bed detached house and 2 x 4-bed detached houses with integral single garages involving demolition of existing buildings (renewal of planning permission F/YR06/0706/F)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2010-07-05", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=L07EF9HE01U00", "PlanningStatus": "permissioned", "SiteNameAddress": "PILGRIMS OF MARCH, DARTFORD ROAD, MARCH, PE15 8BD", "SiteReference": "BLR0002", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14405\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 18 dwellings comprising 2 x 3-bed; 8 x 4-bed and 8 x 5-bed dwellings with associated parking involving the demolition of the existing building", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-18", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=N5VNDCHE06P00", "PlanningStatus": "permissioned", "SiteNameAddress": "Davern Workwear Ltd, Elliott Road, MARCH, PE15 8QU", "SiteReference": "BLR0003", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14403\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 14 x 3-storey dwellings comprising; 3 x 5-bed with attached single garages; 4 x 5-bed with associated parking (plot 1 with detached double garage); 3 x 4-bed and 4 x 3-bed all with associated parking, involving part demolition of existing warehouse", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-19", "PermissionType": "reserved matters approval", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=N1IC4EHE08000", "PlanningStatus": "permissioned", "SiteNameAddress": "Land East of Davern Workwear Ltd, Elliott Road, MARCH, PE15 8QU", "SiteReference": "BLR0004", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14406\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 6 dwellings involving demolition of existing dwelling and replacement fence to No.16 (renewal of planning permission F/YR10/0254/O)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-05-08", "PermissionType": "outline planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=MNAPFYHE06P00", "PlanningStatus": "permissioned", "SiteNameAddress": "18, Westfield Road, Manea, MARCH, PE15 0LN", "SiteReference": "BLR0005", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14407\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 12 dwellings with garages comprising; 6 x 3-bed single-storey, 4 x 3-bed 2-storey and 2 x 4-bed 2-storey, involving demolition of existing dwelling and outbuilding", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-29", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=NQ1HMYHE08000", "PlanningStatus": "permissioned", "SiteNameAddress": "100, Mill Road, Whittlesey, Cambridgeshire, PE7 1SW", "SiteReference": "BLR0006", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14408\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Permission type: prior approval. Change of use from Offices to 9 x flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-05", "PermissionType": "other", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=OAIBI1HE08000", "PlanningStatus": "permissioned", "SiteNameAddress": "4-6, Stermyn Street, WISBECH, PE13 1EQ", "SiteReference": "BLR0007", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14409\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 10 houses comprising; 4 x 2-bed semi-detached, 4 x 3-bed semi-detached and 2 x 3/4-bed semi-detached with integral car port, associated parking and landscaping including 1.8 metre high walls and close boarded fencing involving demolition of existing warehouse (renewal of planning permission F/YR08/1070/F)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-08-28", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=LQ64KOHE01U00", "PlanningStatus": "permissioned", "SiteNameAddress": "AWARE HOUSE LEARNING DEVELOPMENT AIDS LIMITED, DUKE STREET, WISBECH, CAMBRIDGESHIRE, PE13 2AE", "SiteReference": "BLR0008", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14410\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 30no dwellings comprising of 15 x 2-storey 2-bed, 10 x 2-storey 3-bed, 1 x 2-storey 4-bed, 3 x 3-storey 3-bed and 1 x 2-bed flat with garage block below and associated parking involving demolition of existing dwelling and buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-21", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=MSYJ73HE01U00", "PlanningStatus": "permissioned", "SiteNameAddress": "64, Whitmore Street, 17 and 11 Windmill Street, WHITTLESEY, PE7 1HP", "SiteReference": "BLR0009", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14411\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.94, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 22 dwellings: 2 x 2-storey block of flats comprising of 10 x 1-bed dwellings, and erection of 1 x single-storey 2-bed, 11 x 2-storey 2-bed dwellings, including sheds, refuse store and cycle store involving demolition of existing care home (retrospective) and works to western footpath of Kingswood Road", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-12-19", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=MTF4I5HE0B200", "PlanningStatus": "permissioned", "SiteNameAddress": "Site Of Former Kingswood Park Residential Home Kingswood Road March Cambridgeshire, PE15 9RT", "SiteReference": "BLR0010", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14412\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection 14 houses comprising; 2 x 4-bed detached, 4 x 3/4-bed semi-detached, 4 x 3-bed semi-detached, 2 x 3-bed semi-detached 2 and a half-storey and 2 x 2/3-bed semi-detached with associated garages, parking, bin store and landscaping, alterations to existing accesses and demolition of existing building", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2010-04-06", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=KS8EA5HE08000", "PlanningStatus": "permissioned", "SiteNameAddress": "The Bell 35, KIRKGATE STREET, WISBECH", "SiteReference": "BLR0011", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14413\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 6 x 3-storey, 3-bed dwellings with balcony to front and integral garage and 4 x 3-storey, 2-bed dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-15", "PermissionType": "reserved matters approval", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=NE3PAKHE08000", "PlanningStatus": "permissioned", "SiteNameAddress": "Land South West Of Queen Street Close March Cambridgeshire, PE15 8NB", "SiteReference": "BLR0012", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14414\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 5 dwellings involving demolition of existing buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-02", "PermissionType": "outline planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=map\u0026keyVal=MXP7EGHE01K00", "PlanningStatus": "permissioned", "SiteNameAddress": "Service Master, 54, Bridge Street, CHATTERIS, PE16 6RN", "SiteReference": "BLR0013", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14415\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 40.03, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Local Plan (Policy LP8) identifies site as a broad location for growth. Local Plan allocation for mixed-use regeneration located east of the River Nene and north of the town centre to provide housing, leisure, retail and employment", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Nene Waterfront and Port, Wisbech", "SiteReference": "BLR0014", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14416\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a block of flats (maximum 3-storey) comprising of 14 x 1-bed and 19 x 2-bed and refuse store involving the demolition of existing building within a Conservation Area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-14", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=OMT4W0HE01U00", "PlanningStatus": "permissioned", "SiteNameAddress": "Bricklayers Arms, 9 Station Road, Whittlesey, Peterborough, Cambridgeshire, PE7 1UA", "SiteReference": "BLR0015", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14417\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 5.84, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Local Plan (Policy LP11) allocates the site. Part of a Local Plan strategic allocation. The allocation as a whole is expected to provide in the region of 500 dwellings. This southern parcel will be subject to detailed masterplanning, and could accommodate a mix of uses including residential.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "North and south of Eastrea Road, WHITTLESEY, PE7 2AF", "SiteReference": "BLR0016", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14418\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.153947, "GeoY": 52.560769, "HazardousSubstances": null, "Hectares": 2.66, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 68no dwellings (max)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-19", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=N16TDGHE01U00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Westhaven Nursery, Peterborough Road, WHITTLESEY, PE7 1PD", "SiteReference": "BLR0017", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14419\u0026p=0"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": 0.176408, "GeoY": 52.671352, "HazardousSubstances": null, "Hectares": 1.67, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 83 houses comprising; 19 x 4-bed houses, 35 x 3-bed houses 18 x 2-bed houses, 6 x 2-bed apartments and 5 x 1-bed apartments including Public Open Space involving demolition of existing football stands and buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fenland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2009-01-20", "PermissionType": "full planning permission", "PlanningHistory": "https://www.fenland.gov.uk/publicaccess/applicationDetails.do?activeTab=summary\u0026keyVal=JFV3LFHEK1000", "PlanningStatus": "permissioned", "SiteNameAddress": "Fenland Park, Lerowe Road, WISBECH, PE13 3QL", "SiteReference": "BLR0018", "SiteplanURL": "http://www.fenland.gov.uk/CHttpHandler.ashx?id=14420\u0026p=0"}];
+    const bbox = [-0.16872388163874838, 0.19118488163874836, 52.551785843418585, 52.68033515658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b7eaf905...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.southderbyshire.gov.uk/assets/attach/5256/Brownfield%20register%202018.csv">https://www.southderbyshire.gov.uk/assets/attach/5256/Brownfield%20register%202018.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.southderbyshire.gov.uk/our-services/planning-and-building-control/planning/planning-policy/monitoring">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 01 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SDE">South Derbyshire District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b7eaf905d9a2ccaa9ec53bb8f15f2a9c52c06f679ea72a68f53fd552f6035248/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b7eaf905d9a2ccaa9ec53bb8f15f2a9c52c06f679ea72a68f53fd552f6035248">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">19 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">71.27
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>19</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b7eaf905d9a2ccaa9ec53bb8f15f2a9c52c06f679ea72a68f53fd552f6035248.csv"
+        download="b7eaf905d9a2ccaa9ec53bb8f15f2a9c52c06f679ea72a68f53fd552f6035248_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b7eaf905d9a2ccaa9ec53bb8f15f2a9c52c06f679ea72a68f53fd552f6035248"
+        download="b7eaf905d9a2ccaa9ec53bb8f15f2a9c52c06f679ea72a68f53fd552f6035248_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>9/2014/0300</td>
+                    <td>-1.560008</td>
+                    <td>52.770936</td>
+                    <td>0.19</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>47-51 ALEXANDRA ROAD, SWADLINCOTE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429784.96412936&StartNorthing=319352.67195786&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "THE RESIDENTIAL DEVELOPMENT TO FORM 12 HOUSES INCLUDING PROVISION OF PARKING AND GARDENS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2014/0300</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2015/0396</td>
+                    <td>-1.580193</td>
+                    <td>52.780484</td>
+                    <td>0.27</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>145 OVERSETTS ROAD, NEWHALL, SWADLINCOTE, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=428416.55416639&StartNorthing=320405.77613859&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "THE ERECTION OF 6 3-BED DWELLINGS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0396</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2016/0322</td>
+                    <td>-1.53913</td>
+                    <td>52.768969</td>
+                    <td>0.45</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>FORMER BRETBY POTTERY SITE, SWADLINCOTE ROAD, WOODVILLE, SWADLINCOTE, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=431193.54670677&StartNorthing=319141.94149361&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "RESIDENTIAL DEVELOPMENT OF 27 AFFORDABLE HOUSING UNITS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2016/0322</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2015/0730</td>
+                    <td>-1.51815</td>
+                    <td>52.867564</td>
+                    <td>0.11</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-10-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>STENSON HOUSE BARN, STENSON ROAD, STENSON, DERBY, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=432568.95147353&StartNorthing=330140.28546269&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "CHANGE OF USE OF EXISTING WORKSHOP BUILDING TO A LIVE WORK UNIT WITH ASSOCIATED EXTERNAL WORKS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0730</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2013/0342</td>
+                    <td>-1.713289</td>
+                    <td>52.867179</td>
+                    <td>2.96</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-08-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>MILL GREEN HOUSE, SCROPTON, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=419620.89815178&StartNorthing=329967.38866484&StartZoom=1500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "THE ERECTION OF SIX DWELLINGS WITH IMPROVEMENTS TO SITE ACCESS AND TO BROOK LANE/ LEATHERSLEY LANE JUNCTION". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2013/0342</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY 7</td>
+                    <td>-1.626202</td>
+                    <td>52.864564</td>
+                    <td>16.91</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-11</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>LAND AT THE MEASE, HILTON, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=425260.77725715&StartNorthing=329736.89034843&StartZoom=1500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "OUTLINE APPLICATION WITH ALL MATTERS EXCEPT ACCESS RESERVED FOR FUTURE APPROVAL FOR A MIXED USED DEVELOPMENT COMPRISING UP TO 485 DWELLINGS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2013/1044</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2011/0329</td>
+                    <td>-1.558191</td>
+                    <td>52.77769</td>
+                    <td>0.2</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-08-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>FORMER KATHGLOW PREMISES, DOMINION ROAD, SWADLINCOTE, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429903.06697713&StartNorthing=320104.21860854&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "THE RESIDENTIAL DEVELOPMENT OF 12 DWELLINGS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2011/0329</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2009/1026</td>
+                    <td>-1.554944</td>
+                    <td>52.767492</td>
+                    <td>0.08</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-03-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>BARLEY MOW, PARK ROAD, CHURCH GRESLEY, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=430128.33606964&StartNorthing=318971.06956367&StartZoom=400&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "THE CHANGE OF USE AND CONVERSION OF THE PUBLIC HOUSE INTO FOUR APARTMENTS, THE REBUILDING OF A SINGLE UNIT AT THE REAR AND THE ERECTION OF THREE DWELLINGS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2009/1026</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY 23K</td>
+                    <td>-1.555774</td>
+                    <td>52.776287</td>
+                    <td>1.48</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>H K WENTWORTH FACTORY & ARRIVA BUS DEPOT, MIDLAND ROAD, SWADLINCOTE, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=430065.91887752&StartNorthing=319948.87470792&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "THE ERECTION OF 57 TWO, THREE & FOUR BEDROOM DWELLINGS AND ASSOCIATED HIGHWAYS AND PARKING". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0498</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2013/0675</td>
+                    <td>-1.568641</td>
+                    <td>52.759812</td>
+                    <td>0.13</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>HILLTOP NURSING HOME, COLLIERY ROAD, CHURCH GRESLEY, SWADLINCOTE, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429207.98804633&StartNorthing=318110.47420512&StartZoom=400&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "CONVERSION OF EXISTING RESIDENTIAL NURSING HOME AND ASSOCIATED ACCOMMODATION INTO RESIDENTIAL APARTMENTS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2013/0675</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2010/0125</td>
+                    <td>-1.564427</td>
+                    <td>52.849413</td>
+                    <td>2.47</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2010-08-25</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>FORMER CALDER ALUMINIUM PREMISES, REPTON ROAD, WILLINGTON, DERBYSHIRE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429429.9650355&StartNorthing=328084.14691362&StartZoom=1500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "APPROVAL OF RESERVED MATTERS APPLICATION 9/2006/0885 FOR RESIDENTIAL DEVELOPMENT". https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2018/0008</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY 6</td>
+                    <td>-1.642574</td>
+                    <td>52.777425</td>
+                    <td>37.57</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-03-01</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>DRAKELOW PARK, DRAKELOW</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=424308.97344023&StartNorthing=320127.54422804&StartZoom=4500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>ALTHOUGH THE LOCAL PLAN AND PLANNING CONSENT PROVIDE FOR 2239 DWELLINGS, IT IS ESTIMATED THAT ONLY 1500 DWELLINGS WILL BE CONSTRUCTED ON  THE BROWNFIELD PART OF THE SITE.. "A HYBRID PLANNING APPLICATION WITH ALL MATTERS RESERVED FOR UP TO 2,239 DWELLINGS". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2009/0341</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY 11</td>
+                    <td>-1.678345</td>
+                    <td>52.873994</td>
+                    <td>0.75</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>LAND NORTH EAST OF HATTON (SALT BOX CAFÉ)</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=421750.52505688&StartNorthing=330776.61886177&StartZoom=1500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"THE SITE REPRESENTS THE BROWNFIELD ELEMENT OF A LARGER AREA ALLOCATED IN LOCAL PLAN PART 1 POLICY H7 FOR THE DEVELOPMENT OF 400 DWELLINGS.  THE GREENFIELD PART OF THE ALLOCATION HAS PLANNING CONSENT FOR 385 DWELLINGS (9/2015/1108) , LEAVING A BALANCE OF AROUND 15 DWELLINGS TO BE ACCOMMODATED ON THE BROWNFIELD PART OF THE SITE, WHICH DOES NOT YET HAVE PLANNING CONSENT.". "FORMS A SMALL PART OF LAND ALLOCATED FOR RESIDENTIAL DEVELOPMENT UNDER LOCAL PLAN PART 1 HOUSING POLICY 7.". http://www.south-derbys.gov.uk/our-services/planning-and-building-control/planning/planning-policy/local-plan/adopted-local-plan</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY 3</td>
+                    <td>-1.563924</td>
+                    <td>52.761772</td>
+                    <td>0.87</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>LAND AT FOOTBALL CLUB SITE, CHURCH GRESLEY</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429530.24627579&StartNorthing=318330.10806944&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"THE SITE REPRESENTS A BROWNFIELD ELEMENT OF A LARGER AREA ALLOCATED IN LOCAL PLAN PART 1 POLICY H3 FOR THE DEVELOPMENT OF AROUND 350 DWELLINGS.  THE GREENFIELD PART OF THE ALLOCATION HAS PLANNING CONSENT FOR 306 DWELLINGS, LEAVING A BALANCE OF AROUND 44 DWEELINGS TO BE ACCOMMODATED ON THE FOOTBALL CLUB SITE.". "FORMS A SMALL PART OF LAND ALLOCATED FOR RESIDENTIAL DEVELOPMENT UNDER LOCAL PLAN PART 1 HOUSING POLICY 3.". http://www.south-derbys.gov.uk/our-services/planning-and-building-control/planning/planning-policy/local-plan/adopted-local-plan</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY 23M</td>
+                    <td>-1.531998</td>
+                    <td>52.763646</td>
+                    <td>5.02</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>LAND AT MONTRACON, SWADLINCOTE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=431685.45046678&StartNorthing=318553.19954637&StartZoom=1000&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "ALLOCATED FOR RESIDENTIAL DEVELOPMENT UNDER LOCAL PLAN PART 2 HOUSING POLICY 23M". http://www.south-derbys.gov.uk/our-services/planning-and-building-control/planning/planning-policy/local-plan/adopted-local-plan</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LP HOUSING POLICY H8</td>
+                    <td>-1.555774</td>
+                    <td>52.776287</td>
+                    <td>1.48</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-06</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-09-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>FORMER ASTON HALL HOSPITAL, ASTON-ON-TRENT</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=441233.48914275&StartNorthing=328880.8945464&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"THE 74 DWELLINGS CONSENTED UNDER PLANNING APPLICATION 9/2014/0232 WHICH INCLUDED PROVISION FOR 74 DWELLINGS HAS BEEN SUPERCEDED BY PLANNING APPLICATION 9/2016/0898 WHICH REDUCES THE NUMBER OF DWELLINGS TO 38.. "DEMOLITION OF EXISTING BUILDINGS AND ERECTION OF A CONTINUING CARE RETIREMENT COMMUNITY (CLASS C2)  TOGETHER WITH 74 DWELLINGHOUSES (CLASS C3)". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2016/0898</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2016/1318</td>
+                    <td>-1.562039</td>
+                    <td>52.764993</td>
+                    <td>0.07</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>FORMER CHURCH GRESLEY COUNTY INFANT AND NURSERY SCHOOL YORK ROAD CHURCH GRESLEY SWADLINCOTE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429649.48914275&StartNorthing=318689.8945464&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. THE ERECTION OF 13 DWELLINGS AND ANCILLARY WORKS. https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2016/1318</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2017/0125</td>
+                    <td>-1.552513</td>
+                    <td>52.771924</td>
+                    <td>0.2</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-01-17</td>
+                    <td>full planning permission</td>
+                    <td>Previous applications to the site , 9/2005/0645 & 9/2010/0932</td>
+                    <td>permissioned</td>
+                    <td>FORMER DILKES GARAGE SITE HILL STREET SWADLINCOTE</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=430287.48914275&StartNorthing=319464.8945464&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. THE ERECTION OF 15 AFFORDABLE DWELLINGS INCLUDING ASSOCIATED ACCESS AND PARKING REQUIREMENTS. https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2017/0125</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9/2015/0468</td>
+                    <td>-1.562962</td>
+                    <td>52.853444</td>
+                    <td>0.06</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/south-derbyshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-26</td>
+                    <td>reserved matters approval</td>
+                    <td>Outline Permission is 9/2012/0075</td>
+                    <td>permissioned</td>
+                    <td>4 TWYFORD ROAD WILLINGTON DERBY</td>
+                    <td>http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps&StartEasting=429527.48914275&StartNorthing=328528.8945464&StartZoom=500&o=1&Layers=Brownfield_Land_Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 4 TWYFORD ROAD WILLINGTON DERBY. https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0468</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.560008, "GeoY": 52.770936, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"THE RESIDENTIAL DEVELOPMENT TO FORM 12 HOUSES INCLUDING PROVISION OF PARKING AND GARDENS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2014/0300", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "47-51 ALEXANDRA ROAD, SWADLINCOTE", "SiteReference": "9/2014/0300", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429784.96412936\u0026StartNorthing=319352.67195786\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.580193, "GeoY": 52.780484, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"THE ERECTION OF 6 3-BED DWELLINGS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0396", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "145 OVERSETTS ROAD, NEWHALL, SWADLINCOTE, DERBYSHIRE", "SiteReference": "9/2015/0396", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=428416.55416639\u0026StartNorthing=320405.77613859\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.53913, "GeoY": 52.768969, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"RESIDENTIAL DEVELOPMENT OF 27 AFFORDABLE HOUSING UNITS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2016/0322", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "FORMER BRETBY POTTERY SITE, SWADLINCOTE ROAD, WOODVILLE, SWADLINCOTE, DERBYSHIRE", "SiteReference": "9/2016/0322", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=431193.54670677\u0026StartNorthing=319141.94149361\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.51815, "GeoY": 52.867564, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"CHANGE OF USE OF EXISTING WORKSHOP BUILDING TO A LIVE WORK UNIT WITH ASSOCIATED EXTERNAL WORKS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0730", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-10-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "STENSON HOUSE BARN, STENSON ROAD, STENSON, DERBY, DERBYSHIRE", "SiteReference": "9/2015/0730", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=432568.95147353\u0026StartNorthing=330140.28546269\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.713289, "GeoY": 52.867179, "HazardousSubstances": null, "Hectares": 2.96, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"THE ERECTION OF SIX DWELLINGS WITH IMPROVEMENTS TO SITE ACCESS AND TO BROOK LANE/ LEATHERSLEY LANE JUNCTION\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2013/0342", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-08-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "MILL GREEN HOUSE, SCROPTON, DERBYSHIRE", "SiteReference": "9/2013/0342", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=419620.89815178\u0026StartNorthing=329967.38866484\u0026StartZoom=1500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.626202, "GeoY": 52.864564, "HazardousSubstances": null, "Hectares": 16.91, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"OUTLINE APPLICATION WITH ALL MATTERS EXCEPT ACCESS RESERVED FOR FUTURE APPROVAL FOR A MIXED USED DEVELOPMENT COMPRISING UP TO 485 DWELLINGS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2013/1044", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-11", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "LAND AT THE MEASE, HILTON, DERBYSHIRE", "SiteReference": "LP HOUSING POLICY 7", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=425260.77725715\u0026StartNorthing=329736.89034843\u0026StartZoom=1500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.558191, "GeoY": 52.77769, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"THE RESIDENTIAL DEVELOPMENT OF 12 DWELLINGS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2011/0329", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-08-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "FORMER KATHGLOW PREMISES, DOMINION ROAD, SWADLINCOTE, DERBYSHIRE", "SiteReference": "9/2011/0329", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429903.06697713\u0026StartNorthing=320104.21860854\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.554944, "GeoY": 52.767492, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"THE CHANGE OF USE AND CONVERSION OF THE PUBLIC HOUSE INTO FOUR APARTMENTS, THE REBUILDING OF A SINGLE UNIT AT THE REAR AND THE ERECTION OF THREE DWELLINGS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2009/1026", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-03-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "BARLEY MOW, PARK ROAD, CHURCH GRESLEY, DERBYSHIRE", "SiteReference": "9/2009/1026", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=430128.33606964\u0026StartNorthing=318971.06956367\u0026StartZoom=400\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.555774, "GeoY": 52.776287, "HazardousSubstances": null, "Hectares": 1.48, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"THE ERECTION OF 57 TWO, THREE \u0026 FOUR BEDROOM DWELLINGS AND ASSOCIATED HIGHWAYS AND PARKING\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0498", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "H K WENTWORTH FACTORY \u0026 ARRIVA BUS DEPOT, MIDLAND ROAD, SWADLINCOTE, DERBYSHIRE", "SiteReference": "LP HOUSING POLICY 23K", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=430065.91887752\u0026StartNorthing=319948.87470792\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.568641, "GeoY": 52.759812, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"CONVERSION OF EXISTING RESIDENTIAL NURSING HOME AND ASSOCIATED ACCOMMODATION INTO RESIDENTIAL APARTMENTS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2013/0675", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "HILLTOP NURSING HOME, COLLIERY ROAD, CHURCH GRESLEY, SWADLINCOTE, DERBYSHIRE", "SiteReference": "9/2013/0675", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429207.98804633\u0026StartNorthing=318110.47420512\u0026StartZoom=400\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.564427, "GeoY": 52.849413, "HazardousSubstances": null, "Hectares": 2.47, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"APPROVAL OF RESERVED MATTERS APPLICATION 9/2006/0885 FOR RESIDENTIAL DEVELOPMENT\". https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2018/0008", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2010-08-25", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "FORMER CALDER ALUMINIUM PREMISES, REPTON ROAD, WILLINGTON, DERBYSHIRE", "SiteReference": "9/2010/0125", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429429.9650355\u0026StartNorthing=328084.14691362\u0026StartZoom=1500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.642574, "GeoY": 52.777425, "HazardousSubstances": null, "Hectares": 37.57, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "ALTHOUGH THE LOCAL PLAN AND PLANNING CONSENT PROVIDE FOR 2239 DWELLINGS, IT IS ESTIMATED THAT ONLY 1500 DWELLINGS WILL BE CONSTRUCTED ON  THE BROWNFIELD PART OF THE SITE.. \"A HYBRID PLANNING APPLICATION WITH ALL MATTERS RESERVED FOR UP TO 2,239 DWELLINGS\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2009/0341", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-03-01", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "DRAKELOW PARK, DRAKELOW", "SiteReference": "LP HOUSING POLICY 6", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=424308.97344023\u0026StartNorthing=320127.54422804\u0026StartZoom=4500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.678345, "GeoY": 52.873994, "HazardousSubstances": null, "Hectares": 0.75, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"THE SITE REPRESENTS THE BROWNFIELD ELEMENT OF A LARGER AREA ALLOCATED IN LOCAL PLAN PART 1 POLICY H7 FOR THE DEVELOPMENT OF 400 DWELLINGS.  THE GREENFIELD PART OF THE ALLOCATION HAS PLANNING CONSENT FOR 385 DWELLINGS (9/2015/1108) , LEAVING A BALANCE OF AROUND 15 DWELLINGS TO BE ACCOMMODATED ON THE BROWNFIELD PART OF THE SITE, WHICH DOES NOT YET HAVE PLANNING CONSENT.\". \"FORMS A SMALL PART OF LAND ALLOCATED FOR RESIDENTIAL DEVELOPMENT UNDER LOCAL PLAN PART 1 HOUSING POLICY 7.\". http://www.south-derbys.gov.uk/our-services/planning-and-building-control/planning/planning-policy/local-plan/adopted-local-plan", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "LAND NORTH EAST OF HATTON (SALT BOX CAF\u00c9)", "SiteReference": "LP HOUSING POLICY 11", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=421750.52505688\u0026StartNorthing=330776.61886177\u0026StartZoom=1500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.563924, "GeoY": 52.761772, "HazardousSubstances": null, "Hectares": 0.87, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"THE SITE REPRESENTS A BROWNFIELD ELEMENT OF A LARGER AREA ALLOCATED IN LOCAL PLAN PART 1 POLICY H3 FOR THE DEVELOPMENT OF AROUND 350 DWELLINGS.  THE GREENFIELD PART OF THE ALLOCATION HAS PLANNING CONSENT FOR 306 DWELLINGS, LEAVING A BALANCE OF AROUND 44 DWEELINGS TO BE ACCOMMODATED ON THE FOOTBALL CLUB SITE.\". \"FORMS A SMALL PART OF LAND ALLOCATED FOR RESIDENTIAL DEVELOPMENT UNDER LOCAL PLAN PART 1 HOUSING POLICY 3.\". http://www.south-derbys.gov.uk/our-services/planning-and-building-control/planning/planning-policy/local-plan/adopted-local-plan", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "LAND AT FOOTBALL CLUB SITE, CHURCH GRESLEY", "SiteReference": "LP HOUSING POLICY 3", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429530.24627579\u0026StartNorthing=318330.10806944\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.531998, "GeoY": 52.763646, "HazardousSubstances": null, "Hectares": 5.02, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"ALLOCATED FOR RESIDENTIAL DEVELOPMENT UNDER LOCAL PLAN PART 2 HOUSING POLICY 23M\". http://www.south-derbys.gov.uk/our-services/planning-and-building-control/planning/planning-policy/local-plan/adopted-local-plan", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "LAND AT MONTRACON, SWADLINCOTE", "SiteReference": "LP HOUSING POLICY 23M", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=431685.45046678\u0026StartNorthing=318553.19954637\u0026StartZoom=1000\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -1.555774, "GeoY": 52.776287, "HazardousSubstances": null, "Hectares": 1.48, "LastUpdatedDate": "2018-12-06", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"THE 74 DWELLINGS CONSENTED UNDER PLANNING APPLICATION 9/2014/0232 WHICH INCLUDED PROVISION FOR 74 DWELLINGS HAS BEEN SUPERCEDED BY PLANNING APPLICATION 9/2016/0898 WHICH REDUCES THE NUMBER OF DWELLINGS TO 38.. \"DEMOLITION OF EXISTING BUILDINGS AND ERECTION OF A CONTINUING CARE RETIREMENT COMMUNITY (CLASS C2)  TOGETHER WITH 74 DWELLINGHOUSES (CLASS C3)\". http://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2016/0898", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-09-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "FORMER ASTON HALL HOSPITAL, ASTON-ON-TRENT", "SiteReference": "LP HOUSING POLICY H8", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=441233.48914275\u0026StartNorthing=328880.8945464\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.562039, "GeoY": 52.764993, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". THE ERECTION OF 13 DWELLINGS AND ANCILLARY WORKS. https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2016/1318", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "FORMER CHURCH GRESLEY COUNTY INFANT AND NURSERY SCHOOL YORK ROAD CHURCH GRESLEY SWADLINCOTE", "SiteReference": "9/2016/1318", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429649.48914275\u0026StartNorthing=318689.8945464\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.552513, "GeoY": 52.771924, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". THE ERECTION OF 15 AFFORDABLE DWELLINGS INCLUDING ASSOCIATED ACCESS AND PARKING REQUIREMENTS. https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2017/0125", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-01-17", "PermissionType": "full planning permission", "PlanningHistory": "Previous applications to the site , 9/2005/0645 \u0026 9/2010/0932", "PlanningStatus": "permissioned", "SiteNameAddress": "FORMER DILKES GARAGE SITE HILL STREET SWADLINCOTE", "SiteReference": "9/2017/0125", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=430287.48914275\u0026StartNorthing=319464.8945464\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.562962, "GeoY": 52.853444, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 4 TWYFORD ROAD WILLINGTON DERBY. https://www.planning.south-derbys.gov.uk/ApplicationDetail.aspx?Ref=9/2015/0468", "OrganisationURI": "http://opendatacommunities.org/id/district-council/south-derbyshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-26", "PermissionType": "reserved matters approval", "PlanningHistory": "Outline Permission is 9/2012/0075", "PlanningStatus": "permissioned", "SiteNameAddress": "4 TWYFORD ROAD WILLINGTON DERBY", "SiteReference": "9/2015/0468", "SiteplanURL": "http://maps.south-derbys.gov.uk/ishareLIVE.Web/atmyresponsivecouncil.aspx?MapSource=mapsources/AllMaps\u0026StartEasting=429527.48914275\u0026StartNorthing=328528.8945464\u0026StartZoom=500\u0026o=1\u0026Layers=Brownfield_Land_Register"}];
+    const bbox = [-1.728133324278723, -1.503305675721277, 52.75082884341859, 52.882977156581404];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

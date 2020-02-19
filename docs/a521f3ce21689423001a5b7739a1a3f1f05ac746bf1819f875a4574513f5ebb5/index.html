@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">a521f3ce...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://s3.eu-west-2.amazonaws.com/digital-land/brownfield-sites/trafford-2017-12-22-rev1.csv">https://s3.eu-west-2.amazonaws.com/digital-land/brownfield-sites/trafford-2017-12-22-rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.trafford.gov.uk/planning/strategic-planning/local-plan/brownfield-land-register.aspx">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:TRF">Trafford Metropolitan Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/a521f3ce21689423001a5b7739a1a3f1f05ac746bf1819f875a4574513f5ebb5/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/a521f3ce21689423001a5b7739a1a3f1f05ac746bf1819f875a4574513f5ebb5">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">46 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">32.47
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>46</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/a521f3ce21689423001a5b7739a1a3f1f05ac746bf1819f875a4574513f5ebb5.csv"
+        download="a521f3ce21689423001a5b7739a1a3f1f05ac746bf1819f875a4574513f5ebb5_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/a521f3ce21689423001a5b7739a1a3f1f05ac746bf1819f875a4574513f5ebb5"
+        download="a521f3ce21689423001a5b7739a1a3f1f05ac746bf1819f875a4574513f5ebb5_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>1501</td>
+                    <td>-2.329392</td>
+                    <td>53.446622</td>
+                    <td>0.78</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-23</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OA3AAHQLILS00</td>
+                    <td>permissioned</td>
+                    <td>Simpsons Food Factory, Stretford Road, M41 9WH</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application for demolition of existing factory buildings followed by erection of two to three storey residential development (up to 58 units) with access onto Stretford Road and the provision of a turning area on Link Avenue. Approval sought for access with all other matters reserved.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1530</td>
+                    <td>-2.39142</td>
+                    <td>53.439729</td>
+                    <td>0.7</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Mosedales Brickworks, 4 Ends Lane, Flixton</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 27 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1552</td>
+                    <td>-2.348259</td>
+                    <td>53.448698</td>
+                    <td>0.58</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Higher Road Depot and Adjoining site, Urmston</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 22 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1582</td>
+                    <td>-2.352807</td>
+                    <td>53.385217</td>
+                    <td>0.42</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Regent Road/New Street, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Adopted Altrincham Business Neighbourhood Plan as a potential housing site for a minimum of 21 units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1585</td>
+                    <td>-2.344476</td>
+                    <td>53.386796</td>
+                    <td>0.85</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Oakfield Road/Balmoral Road, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Adopted Altrincham Business Neighbourhood Plan as a potential housing site for a minimum of 43 units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1586</td>
+                    <td>-2.345324</td>
+                    <td>53.385679</td>
+                    <td>0.35</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Mayors Road/Manors Road, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Adopted Altrincham Business Neighbourhood Plan as a potential housing site for a minimum of 17 units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1607</td>
+                    <td>-2.278468</td>
+                    <td>53.459982</td>
+                    <td>2.51</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Bakemark UK, Skerton Road, Old Trafford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 125 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1623</td>
+                    <td>-2.316824</td>
+                    <td>53.372356</td>
+                    <td>0.87</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>289 Hale Road, Halebarns</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 31 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1677</td>
+                    <td>-2.337729</td>
+                    <td>53.457573</td>
+                    <td>0.38</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land South of Lostock Road Roundabout, Lostock, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 15 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1696</td>
+                    <td>-2.346584</td>
+                    <td>53.387159</td>
+                    <td>2.5</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-01-28</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW32QLTA718</td>
+                    <td>permissioned</td>
+                    <td>Land at Oakfield Road (Altair) Moss Lane, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings and erection of a mixed-use development including residential for a minimum of 150 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1713</td>
+                    <td>-2.337462</td>
+                    <td>53.456127</td>
+                    <td>0.37</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Moss Vale Crescent, Lostock, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 14 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1848-2</td>
+                    <td>-2.276687</td>
+                    <td>53.466234</td>
+                    <td>1.62</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2007-05-04</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW4PQLTA820</td>
+                    <td>permissioned</td>
+                    <td>Pomona Docks II, Pomona Stand, Old Trafford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of residential development comprising 5 blocks (varying from 8 to 16 storeys height) to provide 546 apartments with ancillary car parking, landscaping and amenity areas.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1888</td>
+                    <td>-2.258421</td>
+                    <td>53.46232</td>
+                    <td>1.72</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-04-11</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW38QLTA692</td>
+                    <td>permissioned</td>
+                    <td>Globe Trading Estate, 88-118 Chorlton Road, Old Trafford, M15 4AL</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline permission for the erection of a part four storey, part three storey mixed use development which includes residential</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1988</td>
+                    <td>-2.298714</td>
+                    <td>53.451898</td>
+                    <td>2.91</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Talbot Road, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 150 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2082</td>
+                    <td>-2.351882</td>
+                    <td>53.396995</td>
+                    <td>0.54</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Trafalgar House, Manchester Road, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site submitted through the Draft Allocations plan as a potential housing site for a minimum of 38 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2084</td>
+                    <td>-2.353136</td>
+                    <td>53.397737</td>
+                    <td>0.43</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Mansion House, Manchester Road, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site submitted through the Draft Allocations plan as a potential housing site for a minimum of 30 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2086</td>
+                    <td>-2.315207</td>
+                    <td>53.428117</td>
+                    <td>0.86</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Britannia Road, Industrial Estate, Sale</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site submitted through the Draft Allocations plan as a potential housing site for a minimum of 43 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2252</td>
+                    <td>-2.351391</td>
+                    <td>53.39216</td>
+                    <td>0.9</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-15</td>
+                    <td>other</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NZPIRFQL01500</td>
+                    <td>permissioned</td>
+                    <td>Lynnfield House, Milton House, Church Street, Altrincham, WA14 4DZ</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of existing office buildings (Lynnfield House and Hamilton House) from office (Use Class B1(a) ) to residential (Use Class C3) to create 80 no. apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1601-4</td>
+                    <td>-2.285006</td>
+                    <td>53.46012</td>
+                    <td>0.3</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-02</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O9FISFQLID700</td>
+                    <td>permissioned</td>
+                    <td>86 Talbot Road, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a 10 storey block of 90 apartments (comprising of 27no 1 bedroom, 54no 2 bedroom and 9no 3 bedroom)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1688</td>
+                    <td>-2.306288</td>
+                    <td>53.443501</td>
+                    <td>0.76</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-04</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW4BQLTA637</td>
+                    <td>permissioned</td>
+                    <td>Fomer Royal Canal Works, South of Edge Lane, Stretford, M32 8</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline planning application (including details of access) for redevelopment of site to provide up to 31 no. residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1974</td>
+                    <td>-2.280086</td>
+                    <td>53.460976</td>
+                    <td>0.47</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>39 Talbot Road, Old Trafford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 38 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2369</td>
+                    <td>-2.325277</td>
+                    <td>53.42631</td>
+                    <td>1.03</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Trafford Magistrates' Court, Ashton Lane, Sale, M33 7NR</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 50 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2370</td>
+                    <td>-2.280758</td>
+                    <td>53.462386</td>
+                    <td>3.28</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Chester House, 1 Boyer Street, Stretford, M16 0RE</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 660 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1503</td>
+                    <td>-2.274386</td>
+                    <td>53.452801</td>
+                    <td>0.75</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Stretford Memorial Hospital, 226 Seymour Grove, Stretford, M16 0DU</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 36 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1639</td>
+                    <td>-2.434922</td>
+                    <td>53.411336</td>
+                    <td>0.3</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Red Brook Public House, Oak Road, Partington</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 14 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2393</td>
+                    <td>-2.342541</td>
+                    <td>53.445461</td>
+                    <td>0.48</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Meadowside Adult training Centre, Torbay Road, Urmston, M41 9LF</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 18 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2394</td>
+                    <td>-2.343516</td>
+                    <td>53.398286</td>
+                    <td>0.4</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Brentwood School, Timperley, Altrincham, WA14 1SR</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 18 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1568</td>
+                    <td>-2.351065</td>
+                    <td>53.398237</td>
+                    <td>0.22</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Wharf Road, Altrincham</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site could be a potential housing site for a minimum of 11 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1601-1</td>
+                    <td>-2.287086</td>
+                    <td>53.460349</td>
+                    <td>0.11</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-06</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O66W41QLH7J00</td>
+                    <td>permissioned</td>
+                    <td>Site of Former MKM House, Warwick Road, Stretford, M16 0XX</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a 12 storey building with basement car parking (44 spaces), comprising a total of 89 residential apartments (Class C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1608</td>
+                    <td>-2.304217</td>
+                    <td>53.446518</td>
+                    <td>0.21</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-19</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW4EQLTA303</td>
+                    <td>permissioned</td>
+                    <td>Former Boat Yard, Edge Lane, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of one four storey building and one part three, part two storey building with undercroft car parking to provide 28 no. dwellings, comprising 5 no. one bedroom apartments and 23 no. two bedroom apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2144</td>
+                    <td>-2.348571</td>
+                    <td>53.387566</td>
+                    <td>0.11</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-08</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O9ZNPYQLIKH00</td>
+                    <td>permissioned</td>
+                    <td>Clarendon House, Stamford New Road, Altrincham, WA14 1BY</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. COU Office to Residential to provide 60 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2187</td>
+                    <td>-2.351834</td>
+                    <td>53.394801</td>
+                    <td>0.04</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-09</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW32QLTA249</td>
+                    <td>permissioned</td>
+                    <td>Bollin Private Hotel, 58 Manchester Road, Altrincham, WA14 4PJ</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change-of-use and conversion of ten bedroom hotel to six self contained one bedroom flats with associated car and cycle parking provision and external alterations to include demolition of existing single storey rear extension and two storey side extension.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2230</td>
+                    <td>-2.263348</td>
+                    <td>53.464907</td>
+                    <td>0.07</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-05</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NR2KG8QLJMQ00</td>
+                    <td>permissioned</td>
+                    <td>476-480, Stretford Road, Old Trafford, M16 9AD</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application for the erection of a part 3, part 2-storey apartment building comprising 11 no. apartments with associated parking.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2234</td>
+                    <td>-2.27072</td>
+                    <td>53.463632</td>
+                    <td>0.23</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-29</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NMW6TFQL00X00</td>
+                    <td>permissioned</td>
+                    <td>Petrol Station and adj land at 499 Chester Road, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 1 x residential apartment building ranging from four to seven storeys, plus basement floor level. Development to provide 106 apartments together with 106 car parking spaces.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2267</td>
+                    <td>-2.351106</td>
+                    <td>53.386741</td>
+                    <td>0.13</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-06</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NNK932QLIED00</td>
+                    <td>permissioned</td>
+                    <td>74-84 George Street, Altrincham, WA14 1RF</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 27 apartments on the upper floors, car parking on two lower levels with access from Central Way</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2273</td>
+                    <td>-2.353252</td>
+                    <td>53.384469</td>
+                    <td>0.21</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-13</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O1O080QL01T00</td>
+                    <td>permissioned</td>
+                    <td>Land rear of 16-24 The Downs, Altrincham, WA14 2PU</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 10 dwellings comprising of 4 No 3 bed houses and 6 No 2 bed apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1601-3</td>
+                    <td>-2.288143</td>
+                    <td>53.460849</td>
+                    <td>0.15</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-15</td>
+                    <td>other</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O2Y0ZSQL01500</td>
+                    <td>permissioned</td>
+                    <td>City Point, 701 Chester road, Stretford, M32 0RW</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of existing office building from office (Use Class B1(a) ) to residential (Use Class C3) to create 35 no. apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2287</td>
+                    <td>-2.350439</td>
+                    <td>53.386069</td>
+                    <td>0.02</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-06</td>
+                    <td>other</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O305LIQLG4X00</td>
+                    <td>permissioned</td>
+                    <td>84-86 Stamford New Road, Altrincham, WA14 1BS</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from existing bank / offices to 6No Self contained flats (First and Second Floors).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2293</td>
+                    <td>-2.350995</td>
+                    <td>53.38604</td>
+                    <td>0.2</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-08</td>
+                    <td>other</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O4I0LDQLGO700</td>
+                    <td>permissioned</td>
+                    <td>The Dome, Grafton House, Stamford New Road, Altrincham, WA14 1DQ</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of part of existing building from office (Use Class B1(a) ) to residential (Use Class C3) to create No 14 residential apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2303</td>
+                    <td>-2.350802</td>
+                    <td>53.386355</td>
+                    <td>0.03</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-02</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O7Q3KUQLHRF00</td>
+                    <td>permissioned</td>
+                    <td>101-105 George Street, Altrincham, WA14 1RN</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of Use of the first and second floor offices (B1) to 8 No Residential Apartments (C3) along with associated external alterations.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2324</td>
+                    <td>-2.300145</td>
+                    <td>53.449791</td>
+                    <td>0.05</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-15</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OB2S4XQLIYH00</td>
+                    <td>permissioned</td>
+                    <td>Garages, Wardle Close, Stretford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing 15 garages and erection of a three storey no6 1 bed apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2338</td>
+                    <td>-2.349526</td>
+                    <td>53.386674</td>
+                    <td>0.02</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-12</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OCIV4UQLJGZ00</td>
+                    <td>permissioned</td>
+                    <td>60 Stamford New Road, Altrincham, WA14 1EE</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of ground floor to offices together with conversion of upper floors to 9 apartments (No 4 x1 bed and No 5 x2 bed)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2343</td>
+                    <td>-2.336605</td>
+                    <td>53.397281</td>
+                    <td>0.12</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-15</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OJZCE8QLMMB00</td>
+                    <td>permissioned</td>
+                    <td>Brethrens Meeting Room, Brook Lane, Timperley</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of No5 3 bed dwellinghouses with associated parking and landscaping following demolition of existing building.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2355</td>
+                    <td>-2.27556</td>
+                    <td>53.464349</td>
+                    <td>0.2</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-27</td>
+                    <td>other</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OHCZYSQL00Y00</td>
+                    <td>permissioned</td>
+                    <td>Metropolitan House, 20 Brindley Road, Old Trafford</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of existing office building from office (Use Class B1(a) ) to residential (Use Class C3) to create 52 no. apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2364</td>
+                    <td>-2.352672</td>
+                    <td>53.383473</td>
+                    <td>0.01</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-09-09</td>
+                    <td>other</td>
+                    <td>http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZW30QLTA538</td>
+                    <td>permissioned</td>
+                    <td>Ashley House, Ashley Road, Altrincham, WA14 2DW</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from offices (Class B1) to 32no. apartments (Class C3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1934-2</td>
+                    <td>-2.254819</td>
+                    <td>53.461941</td>
+                    <td>3.28</td>
+                    <td>2017-12-18</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/metropolitan-district-council/trafford</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land off Bold Street, Old Trafford, M15 5PW</td>
+                    <td>https://mappinggm.org.uk/gmodin</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Site is included in the Draft Allocations plan as a potential housing site for a minimum of 144 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.329392, "GeoY": 53.446622, "HazardousSubstances": null, "Hectares": 0.78, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application for demolition of existing factory buildings followed by erection of two to three storey residential development (up to 58 units) with access onto Stretford Road and the provision of a turning area on Link Avenue. Approval sought for access with all other matters reserved.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-23", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OA3AAHQLILS00", "PlanningStatus": "permissioned", "SiteNameAddress": "Simpsons Food Factory, Stretford Road, M41 9WH", "SiteReference": "1501", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.39142, "GeoY": 53.439729, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 27 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Mosedales Brickworks, 4 Ends Lane, Flixton", "SiteReference": "1530", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.348259, "GeoY": 53.448698, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 22 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Higher Road Depot and Adjoining site, Urmston", "SiteReference": "1552", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.352807, "GeoY": 53.385217, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Adopted Altrincham Business Neighbourhood Plan as a potential housing site for a minimum of 21 units.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Regent Road/New Street, Altrincham", "SiteReference": "1582", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.344476, "GeoY": 53.386796, "HazardousSubstances": null, "Hectares": 0.85, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Adopted Altrincham Business Neighbourhood Plan as a potential housing site for a minimum of 43 units.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Oakfield Road/Balmoral Road, Altrincham", "SiteReference": "1585", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.345324, "GeoY": 53.385679, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Adopted Altrincham Business Neighbourhood Plan as a potential housing site for a minimum of 17 units.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Mayors Road/Manors Road, Altrincham", "SiteReference": "1586", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.278468, "GeoY": 53.459982, "HazardousSubstances": null, "Hectares": 2.51, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 125 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Bakemark UK, Skerton Road, Old Trafford", "SiteReference": "1607", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.316824, "GeoY": 53.372356, "HazardousSubstances": null, "Hectares": 0.87, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 31 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "289 Hale Road, Halebarns", "SiteReference": "1623", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.337729, "GeoY": 53.457573, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 15 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land South of Lostock Road Roundabout, Lostock, Stretford", "SiteReference": "1677", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.346584, "GeoY": 53.387159, "HazardousSubstances": null, "Hectares": 2.5, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings and erection of a mixed-use development including residential for a minimum of 150 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-01-28", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW32QLTA718", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Oakfield Road (Altair) Moss Lane, Altrincham", "SiteReference": "1696", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.337462, "GeoY": 53.456127, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 14 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Moss Vale Crescent, Lostock, Stretford", "SiteReference": "1713", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.276687, "GeoY": 53.466234, "HazardousSubstances": null, "Hectares": 1.62, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of residential development comprising 5 blocks (varying from 8 to 16 storeys height) to provide 546 apartments with ancillary car parking, landscaping and amenity areas.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2007-05-04", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW4PQLTA820", "PlanningStatus": "permissioned", "SiteNameAddress": "Pomona Docks II, Pomona Stand, Old Trafford", "SiteReference": "1848-2", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.258421, "GeoY": 53.46232, "HazardousSubstances": null, "Hectares": 1.72, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline permission for the erection of a part four storey, part three storey mixed use development which includes residential", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-04-11", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW38QLTA692", "PlanningStatus": "permissioned", "SiteNameAddress": "Globe Trading Estate, 88-118 Chorlton Road, Old Trafford, M15 4AL", "SiteReference": "1888", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.298714, "GeoY": 53.451898, "HazardousSubstances": null, "Hectares": 2.91, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 150 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Talbot Road, Stretford", "SiteReference": "1988", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.351882, "GeoY": 53.396995, "HazardousSubstances": null, "Hectares": 0.54, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site submitted through the Draft Allocations plan as a potential housing site for a minimum of 38 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Trafalgar House, Manchester Road, Altrincham", "SiteReference": "2082", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.353136, "GeoY": 53.397737, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site submitted through the Draft Allocations plan as a potential housing site for a minimum of 30 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Mansion House, Manchester Road, Altrincham", "SiteReference": "2084", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.315207, "GeoY": 53.428117, "HazardousSubstances": null, "Hectares": 0.86, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site submitted through the Draft Allocations plan as a potential housing site for a minimum of 43 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Britannia Road, Industrial Estate, Sale", "SiteReference": "2086", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.351391, "GeoY": 53.39216, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of existing office buildings (Lynnfield House and Hamilton House) from office (Use Class B1(a) ) to residential (Use Class C3) to create 80 no. apartments.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-15", "PermissionType": "other", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NZPIRFQL01500", "PlanningStatus": "permissioned", "SiteNameAddress": "Lynnfield House, Milton House, Church Street, Altrincham, WA14 4DZ", "SiteReference": "2252", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.285006, "GeoY": 53.46012, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a 10 storey block of 90 apartments (comprising of 27no 1 bedroom, 54no 2 bedroom and 9no 3 bedroom)", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-02", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O9FISFQLID700", "PlanningStatus": "permissioned", "SiteNameAddress": "86 Talbot Road, Stretford", "SiteReference": "1601-4", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.306288, "GeoY": 53.443501, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline planning application (including details of access) for redevelopment of site to provide up to 31 no. residential units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-04", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW4BQLTA637", "PlanningStatus": "permissioned", "SiteNameAddress": "Fomer Royal Canal Works, South of Edge Lane, Stretford, M32 8", "SiteReference": "1688", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.280086, "GeoY": 53.460976, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 38 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "39 Talbot Road, Old Trafford", "SiteReference": "1974", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.325277, "GeoY": 53.42631, "HazardousSubstances": null, "Hectares": 1.03, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 50 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Trafford Magistrates\u0027 Court, Ashton Lane, Sale, M33 7NR", "SiteReference": "2369", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.280758, "GeoY": 53.462386, "HazardousSubstances": null, "Hectares": 3.28, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 660 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Chester House, 1 Boyer Street, Stretford, M16 0RE", "SiteReference": "2370", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.274386, "GeoY": 53.452801, "HazardousSubstances": null, "Hectares": 0.75, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 36 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Stretford Memorial Hospital, 226 Seymour Grove, Stretford, M16 0DU", "SiteReference": "1503", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.434922, "GeoY": 53.411336, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 14 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Red Brook Public House, Oak Road, Partington", "SiteReference": "1639", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.342541, "GeoY": 53.445461, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 18 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Meadowside Adult training Centre, Torbay Road, Urmston, M41 9LF", "SiteReference": "2393", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.343516, "GeoY": 53.398286, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 18 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Brentwood School, Timperley, Altrincham, WA14 1SR", "SiteReference": "2394", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.351065, "GeoY": 53.398237, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site could be a potential housing site for a minimum of 11 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Wharf Road, Altrincham", "SiteReference": "1568", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.287086, "GeoY": 53.460349, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a 12 storey building with basement car parking (44 spaces), comprising a total of 89 residential apartments (Class C3)", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-06", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O66W41QLH7J00", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Former MKM House, Warwick Road, Stretford, M16 0XX", "SiteReference": "1601-1", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.304217, "GeoY": 53.446518, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of one four storey building and one part three, part two storey building with undercroft car parking to provide 28 no. dwellings, comprising 5 no. one bedroom apartments and 23 no. two bedroom apartments", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-19", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW4EQLTA303", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Boat Yard, Edge Lane, Stretford", "SiteReference": "1608", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.348571, "GeoY": 53.387566, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". COU Office to Residential to provide 60 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-08", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O9ZNPYQLIKH00", "PlanningStatus": "permissioned", "SiteNameAddress": "Clarendon House, Stamford New Road, Altrincham, WA14 1BY", "SiteReference": "2144", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.351834, "GeoY": 53.394801, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change-of-use and conversion of ten bedroom hotel to six self contained one bedroom flats with associated car and cycle parking provision and external alterations to include demolition of existing single storey rear extension and two storey side extension.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-09", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW32QLTA249", "PlanningStatus": "permissioned", "SiteNameAddress": "Bollin Private Hotel, 58 Manchester Road, Altrincham, WA14 4PJ", "SiteReference": "2187", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.263348, "GeoY": 53.464907, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application for the erection of a part 3, part 2-storey apartment building comprising 11 no. apartments with associated parking.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-05", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NR2KG8QLJMQ00", "PlanningStatus": "permissioned", "SiteNameAddress": "476-480, Stretford Road, Old Trafford, M16 9AD", "SiteReference": "2230", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.27072, "GeoY": 53.463632, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 1 x residential apartment building ranging from four to seven storeys, plus basement floor level. Development to provide 106 apartments together with 106 car parking spaces.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-29", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NMW6TFQL00X00", "PlanningStatus": "permissioned", "SiteNameAddress": "Petrol Station and adj land at 499 Chester Road, Stretford", "SiteReference": "2234", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.351106, "GeoY": 53.386741, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 27 apartments on the upper floors, car parking on two lower levels with access from Central Way", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-06", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NNK932QLIED00", "PlanningStatus": "permissioned", "SiteNameAddress": "74-84 George Street, Altrincham, WA14 1RF", "SiteReference": "2267", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.353252, "GeoY": 53.384469, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 10 dwellings comprising of 4 No 3 bed houses and 6 No 2 bed apartments", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-13", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O1O080QL01T00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land rear of 16-24 The Downs, Altrincham, WA14 2PU", "SiteReference": "2273", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.288143, "GeoY": 53.460849, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of existing office building from office (Use Class B1(a) ) to residential (Use Class C3) to create 35 no. apartments", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-15", "PermissionType": "other", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O2Y0ZSQL01500", "PlanningStatus": "permissioned", "SiteNameAddress": "City Point, 701 Chester road, Stretford, M32 0RW", "SiteReference": "1601-3", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.350439, "GeoY": 53.386069, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from existing bank / offices to 6No Self contained flats (First and Second Floors).", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-06", "PermissionType": "other", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O305LIQLG4X00", "PlanningStatus": "permissioned", "SiteNameAddress": "84-86 Stamford New Road, Altrincham, WA14 1BS", "SiteReference": "2287", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.350995, "GeoY": 53.38604, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of part of existing building from office (Use Class B1(a) ) to residential (Use Class C3) to create No 14 residential apartments.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-08", "PermissionType": "other", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O4I0LDQLGO700", "PlanningStatus": "permissioned", "SiteNameAddress": "The Dome, Grafton House, Stamford New Road, Altrincham, WA14 1DQ", "SiteReference": "2293", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.350802, "GeoY": 53.386355, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of Use of the first and second floor offices (B1) to 8 No Residential Apartments (C3) along with associated external alterations.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-02", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O7Q3KUQLHRF00", "PlanningStatus": "permissioned", "SiteNameAddress": "101-105 George Street, Altrincham, WA14 1RN", "SiteReference": "2303", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.300145, "GeoY": 53.449791, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing 15 garages and erection of a three storey no6 1 bed apartments.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-15", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OB2S4XQLIYH00", "PlanningStatus": "permissioned", "SiteNameAddress": "Garages, Wardle Close, Stretford", "SiteReference": "2324", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.349526, "GeoY": 53.386674, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of ground floor to offices together with conversion of upper floors to 9 apartments (No 4 x1 bed and No 5 x2 bed)", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-12", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OCIV4UQLJGZ00", "PlanningStatus": "permissioned", "SiteNameAddress": "60 Stamford New Road, Altrincham, WA14 1EE", "SiteReference": "2338", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.336605, "GeoY": 53.397281, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of No5 3 bed dwellinghouses with associated parking and landscaping following demolition of existing building.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-15", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OJZCE8QLMMB00", "PlanningStatus": "permissioned", "SiteNameAddress": "Brethrens Meeting Room, Brook Lane, Timperley", "SiteReference": "2343", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.27556, "GeoY": 53.464349, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of existing office building from office (Use Class B1(a) ) to residential (Use Class C3) to create 52 no. apartments.", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-27", "PermissionType": "other", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OHCZYSQL00Y00", "PlanningStatus": "permissioned", "SiteNameAddress": "Metropolitan House, 20 Brindley Road, Old Trafford", "SiteReference": "2355", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.352672, "GeoY": 53.383473, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from offices (Class B1) to 32no. apartments (Class C3).", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-09-09", "PermissionType": "other", "PlanningHistory": "http://publicaccess.trafford.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZW30QLTA538", "PlanningStatus": "permissioned", "SiteNameAddress": "Ashley House, Ashley Road, Altrincham, WA14 2DW", "SiteReference": "2364", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.254819, "GeoY": 53.461941, "HazardousSubstances": null, "Hectares": 3.28, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Site is included in the Draft Allocations plan as a potential housing site for a minimum of 144 units", "OrganisationURI": "http://opendatacommunities.org/id/metropolitan-district-council/trafford", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Bold Street, Old Trafford, M15 5PW", "SiteReference": "1934-2", "SiteplanURL": "https://mappinggm.org.uk/gmodin"}];
+    const bbox = [-2.4499789454742227, -2.2397620545257775, 53.363372843418595, 53.47521715658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

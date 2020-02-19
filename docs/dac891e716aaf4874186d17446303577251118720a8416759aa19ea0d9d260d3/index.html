@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">dac891e7...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/west-somerset_brownfieldregister_2017-12-31_rev1.aspx">https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/west-somerset_brownfieldregister_2017-12-31_rev1.aspx</a>
+        </dd>
+    </dl>
+    <a href="https://www.westsomersetonline.gov.uk/Planning---Building/Planning-Policy/Brownfield-Register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:WSO">West Somerset District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/dac891e716aaf4874186d17446303577251118720a8416759aa19ea0d9d260d3/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/dac891e716aaf4874186d17446303577251118720a8416759aa19ea0d9d260d3">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">13 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">24.22
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>13</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/dac891e716aaf4874186d17446303577251118720a8416759aa19ea0d9d260d3.csv"
+        download="dac891e716aaf4874186d17446303577251118720a8416759aa19ea0d9d260d3_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/dac891e716aaf4874186d17446303577251118720a8416759aa19ea0d9d260d3"
+        download="dac891e716aaf4874186d17446303577251118720a8416759aa19ea0d9d260d3_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>3/21/14/040</td>
+                    <td>-3.471904</td>
+                    <td>51.206442</td>
+                    <td>0.07</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-06-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>52 The Avenue, Minehead, TA24 5BB</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/52-The-Avenue-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of existing multiple occupancy home, (HMO) consisting of 13 rooms and 1 flat, into 7 flats. Demolition of the existing ground and first floor rear extension, and construction of new, smaller extension rebuilt on first floor. Renovation and restoration of original exterior details and associated hard and soft landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/21/14/042</td>
+                    <td>-3.471725</td>
+                    <td>51.20622</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Rear of 52 The Avenue, Minehead, TA24 5BB</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Rear-of-52-The-Avenue-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of five "mews" houses with associated car parking, refuse store, cycle store and associated hard and soft landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/21/15/113</td>
+                    <td>-3.47679</td>
+                    <td>51.206129</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Old Hospital, The Avenue, Minehead, TA24 5LY</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/The-Old-Hospital-The-Avenue-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from community hospital (Class C2) to community hub (Class D1), Assembly Room (Class D2), café (Class A3) four apartments (Class C3), associated parking and public open space</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/21/16/115</td>
+                    <td>-3.463849</td>
+                    <td>51.195294</td>
+                    <td>0.1</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Tikoh and Rosslea, Bircham Road, Minehead, TA24 6BQ</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Tikoh-and-Rosslea-Bircham-Road-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of houses and erection of an assisted housing development to provide 11 self-contained one bedroom living units with housekeeper accommodation, car park and ancillary facilities</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/28/16/002</td>
+                    <td>-3.312949</td>
+                    <td>51.157671</td>
+                    <td>0.29</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Union Quarry, Tower Hill, Williton, Taunton, TA4 4JR</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Land-at-Union-Quarry-Tower-Hill-Williton</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of dwellinghouse (Class C3) together with provision of garden and manoeuvring area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/32/14/004</td>
+                    <td>-3.141366</td>
+                    <td>51.178041</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at and adjoining 16 Castle Street, Stogursey, Bridgwater, TA5 1TG</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/16-Castle-Street-Stogursey-(1)</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing bungalow and redundant agricultural building and construction of 12 new dwellings, associated parking and turning and improvements to existing vehicular entrance</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/37/08/036</td>
+                    <td>-3.333202</td>
+                    <td>51.179635</td>
+                    <td>0.94</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-12-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Mill, Anchor Street, Watchet, TA23 0AZ</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/The-Mill-Anchor-Street-Watchet</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of commercial units into 10 residential units, erection of a 70 bedroom care home, redesigned access & associated works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3/39/16/007</td>
+                    <td>-3.319877</td>
+                    <td>51.165416</td>
+                    <td>0.13</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at Larviscombe Road, Williton, TA4 4SA</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Land-at-Larviscombe-Road-Williton</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of three terrace dwellings with associated vehicle parking and gardens</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAAMHD5</td>
+                    <td>-3.50373</td>
+                    <td>51.201253</td>
+                    <td>1.2</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Minehead and Exmoor Caravan and Camping Park, Middlecombe Cross, Minehead, TA24 8SW</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Minehead-and-Exmoor-Caravan-and-Camping-Park-Middl</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAAMHD16</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.23</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Staunton Quarry, Alcombe, Minehead, TA24 6EE</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Staunton-Quarry-Alcombe-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAAMHD17</td>
+                    <td>-3.470963</td>
+                    <td>51.201175</td>
+                    <td>0.1</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Kingsway Hotel, Ponsford Road, Minehead, TA24 5DY</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Kingsway-Hotel-Ponsford-Road-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAAMHD18</td>
+                    <td>-3.476927</td>
+                    <td>51.214877</td>
+                    <td>1.6</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Culvercliffe, Minehead, TA24 5UN</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Culvercliffe-Minehead</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAAWW2</td>
+                    <td>-3.343083</td>
+                    <td>51.176015</td>
+                    <td>17.0</td>
+                    <td></td>
+                    <td>2018-05-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/west-somerset</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Wansborough Paper Mill, Watchet, TA23 0AY</td>
+                    <td>https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Wansborough-Paper-Mill-Watchet</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.471904, "GeoY": 51.206442, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of existing multiple occupancy home, (HMO) consisting of 13 rooms and 1 flat, into 7 flats. Demolition of the existing ground and first floor rear extension, and construction of new, smaller extension rebuilt on first floor. Renovation and restoration of original exterior details and associated hard and soft landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-06-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "52 The Avenue, Minehead, TA24 5BB", "SiteReference": "3/21/14/040", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/52-The-Avenue-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.471725, "GeoY": 51.20622, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of five \"mews\" houses with associated car parking, refuse store, cycle store and associated hard and soft landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 52 The Avenue, Minehead, TA24 5BB", "SiteReference": "3/21/14/042", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Rear-of-52-The-Avenue-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.47679, "GeoY": 51.206129, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from community hospital (Class C2) to community hub (Class D1), Assembly Room (Class D2), caf\u00e9 (Class A3) four apartments (Class C3), associated parking and public open space", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Old Hospital, The Avenue, Minehead, TA24 5LY", "SiteReference": "3/21/15/113", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/The-Old-Hospital-The-Avenue-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.463849, "GeoY": 51.195294, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of houses and erection of an assisted housing development to provide 11 self-contained one bedroom living units with housekeeper accommodation, car park and ancillary facilities", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Tikoh and Rosslea, Bircham Road, Minehead, TA24 6BQ", "SiteReference": "3/21/16/115", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Tikoh-and-Rosslea-Bircham-Road-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.312949, "GeoY": 51.157671, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of dwellinghouse (Class C3) together with provision of garden and manoeuvring area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Union Quarry, Tower Hill, Williton, Taunton, TA4 4JR", "SiteReference": "3/28/16/002", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Land-at-Union-Quarry-Tower-Hill-Williton"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.141366, "GeoY": 51.178041, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing bungalow and redundant agricultural building and construction of 12 new dwellings, associated parking and turning and improvements to existing vehicular entrance", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at and adjoining 16 Castle Street, Stogursey, Bridgwater, TA5 1TG", "SiteReference": "3/32/14/004", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/16-Castle-Street-Stogursey-(1)"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.333202, "GeoY": 51.179635, "HazardousSubstances": null, "Hectares": 0.94, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of commercial units into 10 residential units, erection of a 70 bedroom care home, redesigned access \u0026 associated works", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-12-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Mill, Anchor Street, Watchet, TA23 0AZ", "SiteReference": "3/37/08/036", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/The-Mill-Anchor-Street-Watchet"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -3.319877, "GeoY": 51.165416, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of three terrace dwellings with associated vehicle parking and gardens", "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Larviscombe Road, Williton, TA4 4SA", "SiteReference": "3/39/16/007", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Land-at-Larviscombe-Road-Williton"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -3.50373, "GeoY": 51.201253, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Minehead and Exmoor Caravan and Camping Park, Middlecombe Cross, Minehead, TA24 8SW", "SiteReference": "SHLAAMHD5", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Minehead-and-Exmoor-Caravan-and-Camping-Park-Middl"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.23, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Staunton Quarry, Alcombe, Minehead, TA24 6EE", "SiteReference": "SHLAAMHD16", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Staunton-Quarry-Alcombe-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -3.470963, "GeoY": 51.201175, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Kingsway Hotel, Ponsford Road, Minehead, TA24 5DY", "SiteReference": "SHLAAMHD17", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Kingsway-Hotel-Ponsford-Road-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -3.476927, "GeoY": 51.214877, "HazardousSubstances": null, "Hectares": 1.6, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Culvercliffe, Minehead, TA24 5UN", "SiteReference": "SHLAAMHD18", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Culvercliffe-Minehead"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -3.343083, "GeoY": 51.176015, "HazardousSubstances": null, "Hectares": 17.0, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/west-somerset", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": null, "SiteNameAddress": "Wansborough Paper Mill, Watchet, TA23 0AY", "SiteReference": "SHLAAWW2", "SiteplanURL": "https://www.westsomersetonline.gov.uk/Docs/Brownfield-Register/Wansborough-Paper-Mill-Watchet"}];
+    const bbox = [-3.5180531052905284, -3.127042894709472, 51.14868784341859, 51.22386015658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

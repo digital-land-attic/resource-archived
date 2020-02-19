@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">029cc49a...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.melton.gov.uk/download/downloads/id/4413/melton_brownfieldlandregister_2019-22-02_rev1.csv">http://www.melton.gov.uk/download/downloads/id/4413/melton_brownfieldlandregister_2019-22-02_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.meltonplan.co.uk/brownfieldregister">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 30 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:MEL">Melton Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/029cc49adb09689874d3424fbb3b58baefe106a311e8e8ebbc8beb6e0eae5201/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/029cc49adb09689874d3424fbb3b58baefe106a311e8e8ebbc8beb6e0eae5201">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">19 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">30.51
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>19</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/029cc49adb09689874d3424fbb3b58baefe106a311e8e8ebbc8beb6e0eae5201.csv"
+        download="029cc49adb09689874d3424fbb3b58baefe106a311e8e8ebbc8beb6e0eae5201_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/029cc49adb09689874d3424fbb3b58baefe106a311e8e8ebbc8beb6e0eae5201"
+        download="029cc49adb09689874d3424fbb3b58baefe106a311e8e8ebbc8beb6e0eae5201_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>14/00496/FUL</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.3</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td>2015-02-06</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=N79HT3KO00G00</td>
+                    <td>permissioned</td>
+                    <td>81 Burton Road, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/00496/FUL (permitted), expires 2019-02-06.. Removal of existing building (5 flats) and erection of 9 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL5</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.87</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P83A64KOFPU00</td>
+                    <td>pending decision</td>
+                    <td>Catherine Dalley & Silverdale, Scalford Road, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Expired 08/00249/OUT (permitted). MEL5 and Former Catherine Dalley care home site sold as one lot by Leicestershire County Council. Site consists of a former learning difficulties supported living home (MEL5) and care home. 18/00518/FUL (pending decision). Demolition of former local authority care home and supported living unit, erection of 46 retirement apartments and 10 bungalows</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/00577/FUL</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.45</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td>2017-10-23</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OC212KKO0FP00</td>
+                    <td>permissioned</td>
+                    <td>Greenwood Stock Boxes Ltd, Nottingham Road, Nether Broughton</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Former box factory. demolition of factory and erection of ten new dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL8</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.18</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-09-20</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=JYY7ZOKO00K00</td>
+                    <td>permissioned</td>
+                    <td>Beebys Yard, Burton Street, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Single ownership; 08/00326/FUL (permitted 2018). Conversion of existing buildings to form 7 one and two bed terraced houses and erection 4 two bedroom terraced dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL9</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.55</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=J7P34HKOK0000</td>
+                    <td>not permissioned</td>
+                    <td>Wycliffe House, Snow Hill, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Single ownership; partially brownfield. 06/01008/OUT (refused). Demolition of existing buildings and erection of apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL4</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.79</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Top End Cattle Market, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site owned by Melton Borough Council. Redevelopment of council owned car park to provide in the region of 26 new dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL7</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.12</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Thorpe Road, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Surplus NHS land; part of Homes England Land DPP Disposals program (ref: 12444). Constrained nature of site and the re-use of existing buildings protected by Article 4 capacity reduces capacity to 16 dwellings. Redevelopment of former hospital buildings for residential use, subject to retention of important buildings and high quality design to protect local heritage asset</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>LONG3</td>
+                    <td></td>
+                    <td></td>
+                    <td>2.16</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OBP4M2KO0FH00</td>
+                    <td>pending decision</td>
+                    <td>Birleys Garage, Waltham Lane, Long Clawson</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part previously developed land, part Agricultural land. 16/00560/OUT (pending consideration) for 45 dwellings primarily to existing agricultural use area of the site.. Redevelopment of car garage workshop, residential dwellings and agricultural land to provide new residential development of 45-65 new homes</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>HAR3</td>
+                    <td></td>
+                    <td></td>
+                    <td>3.12</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-29</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NTOIYKKO00G00</td>
+                    <td>permissioned</td>
+                    <td>Former Millway Foods Premises, Colston Lane, Harby</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Former industrial site (cheese production). 15/00673/OUT (refused; appeal allowed); 16/00664/OUT (refused). Currently being marketed for sale as part of larger plot of land (including parcel of adjoining greenfield land). Demolition of existing buildings and structures and erection of up to 53 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL2</td>
+                    <td></td>
+                    <td></td>
+                    <td>5.59</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td>2016-10-27</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P4EQ3UKOMJ900|
+https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P4EQ3AKOMJ700|
+https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P4EQ2CKOMJ500</td>
+                    <td>permissioned</td>
+                    <td>Site of former King Edward VII School site, Burton Road, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Redevelopment of former school and playing fields, partially previously developed land. Full planning submitted for site and currently pending consideration (18/00200/REM (120 units); 18/00201/FUL (13 units) and 18/00202/FUL (4 units)).. Demolition of the majority of the existing buildings on the site. Remodelling retained buildings to provide 17 new dwellings with construction of 120 new dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MEL11</td>
+                    <td></td>
+                    <td></td>
+                    <td>9.65</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Snow Hill, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Employment site, currently in use, principle of development acceptable subject to replacement employment land. MEL 11 contains 2 parcels of land, main parcel suitable for housing redevelopment (8.65ha); second  parcel on the opposite side of road (1ha0 for employment use. Pre-application advice, design review and community consultation undertaken by landowner for housing development in 2018. SHLAA ref MBC/0153/15. Demolition of existing industrial buildings and erection of 240-320 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/00537/OUT</td>
+                    <td></td>
+                    <td></td>
+                    <td>3.92</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td>2017-04-19</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NR9N2NKO00K00</td>
+                    <td>permissioned</td>
+                    <td>Sandy Lane Poultry Farm Sandy Lane Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>15/00537/OUT (permitted with Section 106); Brownfield site comprises a range of derelict 1940's buildings including 'nissen hut' to be refurbished. Refurbishment of nissen hut, demolition of other existing structures and erection of 30 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>The Gollings</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.09</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Gollings, Main Street, Wymondham</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Neighbourhood plan allocation for approximately 5 dwellings. In conservation area.. demolishment of existing building and replacement with approximately 5 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>18/00685/OUT</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.1</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P9YC2SKOG7Z00</td>
+                    <td>pending decision</td>
+                    <td>13 High Street, Bottesford</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/01003/ENQG - set out that 7 dwellings possible on site subject to plans being examined. demolish existing bungalow and replace with 7 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/00116/FUL</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.02</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td>2016-05-27</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O2Y86EKO0FH00</td>
+                    <td>permissioned</td>
+                    <td>Equity House, 47 Burton Street, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Former office accommodation converted into residential flats. Conversion of office accommodation into 6 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>12/00530/FUL</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.14</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PG0XJSKOHTN00</td>
+                    <td>pending decision</td>
+                    <td>Land Adjacent 7, Ashby Road, Gaddesby</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Former petrol station. Expired   12/00530/FUL (permitted)  for development of 5 dwellings.  18/01182/FUL (pending consideration) for 9 dwellings. Erection of 9 dwellings on former petrol station site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>MBC/124/13</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.08</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=K01GSTKO00K00</td>
+                    <td>not permissioned</td>
+                    <td>36-44 Thorpe End, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Expired 08/00380/FU (permitted). Expired 13/00648/EXT (permitted). Net 11 dwellings as 1 flat currently above existing shops.. Re-development to form three retail units and 12 two bedroom flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/00919/FUL</td>
+                    <td></td>
+                    <td></td>
+                    <td>0.22</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-01-03</td>
+                    <td>full planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OHTE3XKOIDW00</td>
+                    <td>permissioned</td>
+                    <td>Former Brooksby Campus, Kings Street, Melton Mowbray</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Affordable housing scheme, linked to housing development in Brooksby.. Conversion and partial demolition of existing buildings together with new build element to provide an affordable housing scheme of 21 units (18 flats and 3 houses).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/00157/OUT</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.16</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/melton</td>
+                    <td></td>
+                    <td>2017-12-15</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O3Q03YKO0FP00</td>
+                    <td>permissioned</td>
+                    <td>Land at former White Lodge, Station Road, Old Dalby</td>
+                    <td>https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>14/00064/GDOCOU Change of use from office building to a dwelling. All matters reserved except access.. Erection of up to 25 houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "14/00496/FUL (permitted), expires 2019-02-06.. Removal of existing building (5 flats) and erection of 9 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": "2015-02-06", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=N79HT3KO00G00", "PlanningStatus": "permissioned", "SiteNameAddress": "81 Burton Road, Melton Mowbray", "SiteReference": "14/00496/FUL", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.87, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Expired 08/00249/OUT (permitted). MEL5 and Former Catherine Dalley care home site sold as one lot by Leicestershire County Council. Site consists of a former learning difficulties supported living home (MEL5) and care home. 18/00518/FUL (pending decision). Demolition of former local authority care home and supported living unit, erection of 46 retirement apartments and 10 bungalows", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P83A64KOFPU00", "PlanningStatus": "pending decision", "SiteNameAddress": "Catherine Dalley \u0026 Silverdale, Scalford Road, Melton Mowbray", "SiteReference": "MEL5", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Former box factory. demolition of factory and erection of ten new dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": "2017-10-23", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OC212KKO0FP00", "PlanningStatus": "permissioned", "SiteNameAddress": "Greenwood Stock Boxes Ltd, Nottingham Road, Nether Broughton", "SiteReference": "16/00577/FUL", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Single ownership; 08/00326/FUL (permitted 2018). Conversion of existing buildings to form 7 one and two bed terraced houses and erection 4 two bedroom terraced dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-09-20", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=JYY7ZOKO00K00", "PlanningStatus": "permissioned", "SiteNameAddress": "Beebys Yard, Burton Street, Melton Mowbray", "SiteReference": "MEL8", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.55, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Single ownership; partially brownfield. 06/01008/OUT (refused). Demolition of existing buildings and erection of apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=J7P34HKOK0000", "PlanningStatus": "not permissioned", "SiteNameAddress": "Wycliffe House, Snow Hill, Melton Mowbray", "SiteReference": "MEL9", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site owned by Melton Borough Council. Redevelopment of council owned car park to provide in the region of 26 new dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Top End Cattle Market, Melton Mowbray", "SiteReference": "MEL4", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.12, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Surplus NHS land; part of Homes England Land DPP Disposals program (ref: 12444). Constrained nature of site and the re-use of existing buildings protected by Article 4 capacity reduces capacity to 16 dwellings. Redevelopment of former hospital buildings for residential use, subject to retention of important buildings and high quality design to protect local heritage asset", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Thorpe Road, Melton Mowbray", "SiteReference": "MEL7", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 2.16, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Part previously developed land, part Agricultural land. 16/00560/OUT (pending consideration) for 45 dwellings primarily to existing agricultural use area of the site.. Redevelopment of car garage workshop, residential dwellings and agricultural land to provide new residential development of 45-65 new homes", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OBP4M2KO0FH00", "PlanningStatus": "pending decision", "SiteNameAddress": "Birleys Garage, Waltham Lane, Long Clawson", "SiteReference": "LONG3", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 3.12, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Former industrial site (cheese production). 15/00673/OUT (refused; appeal allowed); 16/00664/OUT (refused). Currently being marketed for sale as part of larger plot of land (including parcel of adjoining greenfield land). Demolition of existing buildings and structures and erection of up to 53 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-29", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NTOIYKKO00G00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Millway Foods Premises, Colston Lane, Harby", "SiteReference": "HAR3", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 5.59, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Redevelopment of former school and playing fields, partially previously developed land. Full planning submitted for site and currently pending consideration (18/00200/REM (120 units); 18/00201/FUL (13 units) and 18/00202/FUL (4 units)).. Demolition of the majority of the existing buildings on the site. Remodelling retained buildings to provide 17 new dwellings with construction of 120 new dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": "2016-10-27", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P4EQ3UKOMJ900|\r\nhttps://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P4EQ3AKOMJ700|\r\nhttps://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P4EQ2CKOMJ500", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of former King Edward VII School site, Burton Road, Melton Mowbray", "SiteReference": "MEL2", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 9.65, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Employment site, currently in use, principle of development acceptable subject to replacement employment land. MEL 11 contains 2 parcels of land, main parcel suitable for housing redevelopment (8.65ha); second  parcel on the opposite side of road (1ha0 for employment use. Pre-application advice, design review and community consultation undertaken by landowner for housing development in 2018. SHLAA ref MBC/0153/15. Demolition of existing industrial buildings and erection of 240-320 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Snow Hill, Melton Mowbray", "SiteReference": "MEL11", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 3.92, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "15/00537/OUT (permitted with Section 106); Brownfield site comprises a range of derelict 1940\u0027s buildings including \u0027nissen hut\u0027 to be refurbished. Refurbishment of nissen hut, demolition of other existing structures and erection of 30 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": "2017-04-19", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NR9N2NKO00K00", "PlanningStatus": "permissioned", "SiteNameAddress": "Sandy Lane Poultry Farm Sandy Lane Melton Mowbray", "SiteReference": "15/00537/OUT", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Neighbourhood plan allocation for approximately 5 dwellings. In conservation area.. demolishment of existing building and replacement with approximately 5 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Gollings, Main Street, Wymondham", "SiteReference": "The Gollings", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "17/01003/ENQG - set out that 7 dwellings possible on site subject to plans being examined. demolish existing bungalow and replace with 7 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P9YC2SKOG7Z00", "PlanningStatus": "pending decision", "SiteNameAddress": "13 High Street, Bottesford", "SiteReference": "18/00685/OUT", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Former office accommodation converted into residential flats. Conversion of office accommodation into 6 flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": "2016-05-27", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O2Y86EKO0FH00", "PlanningStatus": "permissioned", "SiteNameAddress": "Equity House, 47 Burton Street, Melton Mowbray", "SiteReference": "16/00116/FUL", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Former petrol station. Expired   12/00530/FUL (permitted)  for development of 5 dwellings.  18/01182/FUL (pending consideration) for 9 dwellings. Erection of 9 dwellings on former petrol station site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PG0XJSKOHTN00", "PlanningStatus": "pending decision", "SiteNameAddress": "Land Adjacent 7, Ashby Road, Gaddesby", "SiteReference": "12/00530/FUL", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Expired 08/00380/FU (permitted). Expired 13/00648/EXT (permitted). Net 11 dwellings as 1 flat currently above existing shops.. Re-development to form three retail units and 12 two bedroom flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=K01GSTKO00K00", "PlanningStatus": "not permissioned", "SiteNameAddress": "36-44 Thorpe End, Melton Mowbray", "SiteReference": "MBC/124/13", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Affordable housing scheme, linked to housing development in Brooksby.. Conversion and partial demolition of existing buildings together with new build element to provide an affordable housing scheme of 21 units (18 flats and 3 houses).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-01-03", "PermissionType": "full planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OHTE3XKOIDW00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Brooksby Campus, Kings Street, Melton Mowbray", "SiteReference": "16/00919/FUL", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.16, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "14/00064/GDOCOU Change of use from office building to a dwelling. All matters reserved except access.. Erection of up to 25 houses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/melton", "OwnershipStatus": null, "PermissionDate": "2017-12-15", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa.melton.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O3Q03YKO0FP00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at former White Lodge, Station Road, Old Dalby", "SiteReference": "16/00157/OUT", "SiteplanURL": "https://meltonborough.maps.arcgis.com/apps/webappviewer/index.html?id=2bbd49fe0a4648fdbde775beefc46392"}];
+    const bbox = [NaN, NaN, NaN, NaN];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

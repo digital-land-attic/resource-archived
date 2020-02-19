@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b0bcc17c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://maps.northlincs.gov.uk/brownfieldregister/north-lincolnshire_browfieldregister_2017-12-18_rev1.csv">http://maps.northlincs.gov.uk/brownfieldregister/north-lincolnshire_browfieldregister_2017-12-18_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.northlincs.gov.uk/planning-and-environment/planning-policy/brownfield-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:NLN">North Lincolnshire Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b0bcc17c0af4975a5f47dbb6d3a6c9802d17caec592de1ddd92fd4ff65d460c8/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b0bcc17c0af4975a5f47dbb6d3a6c9802d17caec592de1ddd92fd4ff65d460c8">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">61 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">82.39
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>61</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b0bcc17c0af4975a5f47dbb6d3a6c9802d17caec592de1ddd92fd4ff65d460c8.csv"
+        download="b0bcc17c0af4975a5f47dbb6d3a6c9802d17caec592de1ddd92fd4ff65d460c8_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b0bcc17c0af4975a5f47dbb6d3a6c9802d17caec592de1ddd92fd4ff65d460c8"
+        download="b0bcc17c0af4975a5f47dbb6d3a6c9802d17caec592de1ddd92fd4ff65d460c8_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>IN1-18</td>
+                    <td>-0.37421</td>
+                    <td>53.678746</td>
+                    <td>2.23</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land east of Beck Lane, Barrow Upon Humber</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=507485.029164299&StartNorthing=421480.830485244&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of Barrow upon Humber.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-12</td>
+                    <td>-0.644239</td>
+                    <td>53.56769</td>
+                    <td>0.16</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Carpark, Collum Avenue, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489885.39706548&StartNorthing=408752.20508063&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>X5EJ7</td>
+                    <td>-0.59224</td>
+                    <td>53.653398</td>
+                    <td>0.31</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>6 Park Street, Winterton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=493140.361136339&StartNorthing=418353.737024812&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2018/845</td>
+                    <td>-0.389147</td>
+                    <td>53.677</td>
+                    <td>1.55</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>C Spencer Ltd, Mill Lane, Barrow Upon Humber</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=506502.850701114&StartNorthing=421264.200246377&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RMI4C</td>
+                    <td>-0.336462</td>
+                    <td>53.676999</td>
+                    <td>0.25</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Mellors Coaches Depot, Goxhill</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=509982.744550759&StartNorthing=421344.169947869&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>9F980</td>
+                    <td>-0.740363</td>
+                    <td>53.585756</td>
+                    <td>3.05</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Railway Sidings, Keadby</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=483484.181715147&StartNorthing=410645.182227312&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>OI177</td>
+                    <td>-0.495458</td>
+                    <td>53.552195</td>
+                    <td>0.8</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land to rear of 48 to 57 Bridge Street, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=499774.472835261&StartNorthing=407226.311871983&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Brigg.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/113</td>
+                    <td>-0.670121</td>
+                    <td>53.58759</td>
+                    <td>0.05</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>32-34 Newland Avenue, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=488130.033784832&StartNorthing=410933.745093097&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2016/2033</td>
+                    <td>-0.655718</td>
+                    <td>53.531713</td>
+                    <td>0.28</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-26</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-2033</td>
+                    <td>permissioned</td>
+                    <td>Off Temperance Avenue, Messingham</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489200.761805254&StartNorthing=404735.52369562&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Planning permission to erect five dwellings and one pair of semi-detatched dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BARH-3</td>
+                    <td>-0.436055</td>
+                    <td>53.685715</td>
+                    <td>1.95</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former St Marys CycleWorks, Barton Upon Humber</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=503383.294028402&StartNorthing=422164.505355223&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2018/660</td>
+                    <td>-0.851361</td>
+                    <td>53.561281</td>
+                    <td>0.34</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-06</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2018-660</td>
+                    <td>permissioned</td>
+                    <td>Belton Garden Centre, Sandtoft Road, Westgate, Epworth, DN9 1PN</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=476180.42875876&StartNorthing=407798.009674063&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline planning permission with all matters reserved for the erection of five detatched dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/1989</td>
+                    <td>-0.408102</td>
+                    <td>53.576887</td>
+                    <td>0.15</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-06-07</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-1989</td>
+                    <td>permissioned</td>
+                    <td>Site of the former Railway Inn, Kings Road, Barnetby le Wold, DN38 6HJ</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=505500.051724264&StartNorthing=410098.990818415&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The planning permission has been implemented.. Planning permission to erect three pairs of semi-detached houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/1234</td>
+                    <td>-0.500053</td>
+                    <td>53.551685</td>
+                    <td>2.2</td>
+                    <td>2018-12-18</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-24</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-1234</td>
+                    <td>permissioned</td>
+                    <td>Falcon Cycles, Bridge Street, Brigg, DN20 8NQ</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=499471.249245412&StartNorthing=407163.253267317&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is alllocated within the development limit of Brigg. Planning permisison to erect sixty six dwellings with garages, including landscaping and access and outline application for an over 55's accomodation, will all matters reserved</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>4SKWE</td>
+                    <td>-0.498394</td>
+                    <td>53.552851</td>
+                    <td>3.53</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-11-18</td>
+                    <td>reserved matters approval</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2014-0887</td>
+                    <td>permissioned</td>
+                    <td>Land at Island Carr Road, Ancholme Way, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=499578.426968399&StartNorthing=407295.268022248&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Brigg.. Application for approval of reserved matters following outline planning permission PA/2012/0674 dated 07/09/2012 for the erection of 60 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2004/0692</td>
+                    <td>-0.507924</td>
+                    <td>53.547312</td>
+                    <td>1.56</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2004-10-22</td>
+                    <td>reserved matters approval</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2004-0692</td>
+                    <td>permissioned</td>
+                    <td>Silversides Lane, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=498960.033128188&StartNorthing=406665.75518337&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The planning permission has been implemented.. Planning permission to erect 44 dwellings and associated infrastructure</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2016/337</td>
+                    <td>-0.597047</td>
+                    <td>53.482553</td>
+                    <td>0.85</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-05</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-337</td>
+                    <td>permissioned</td>
+                    <td>Gleadells Mill, Station Road, Kirton in Lindsey</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=493197.066600199&StartNorthing=399341.624835508&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Kirton in Lindsey.. Outline planning permission to erect dwellings with access, landscaping and layout not reserved for subsequent approval</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2014/1183</td>
+                    <td>-0.682541</td>
+                    <td>53.598789</td>
+                    <td>0.39</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-30</td>
+                    <td>reserved matters approval</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2014-1183</td>
+                    <td>permissioned</td>
+                    <td>Plot 29 Hebden Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=487284.874001697&StartNorthing=412164.324383514&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Application for approval of reserved matters relating to access following the grant of outline planning permission PA/2011/0941 dated 13/03/2012 for the erection of 14 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-C2</td>
+                    <td>-0.641716</td>
+                    <td>53.575862</td>
+                    <td>3.4</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-08-17</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1369</td>
+                    <td>permissioned</td>
+                    <td>Brumby Resource Centre, East Common Lane, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=490035.149004413&StartNorthing=409664.533354886&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.. Outline planning permission for up to 122 dwellings with all matters reserved (PA/2015/1369)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CROH-2</td>
+                    <td>-0.83362</td>
+                    <td>53.604224</td>
+                    <td>1.32</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land of Godnow Road, Crowle</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=477277.22790944&StartNorthing=412594.569243751&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-C4</td>
+                    <td>-0.652225</td>
+                    <td>53.586827</td>
+                    <td>0.74</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Hartwell Ford, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489316.258427903&StartNorthing=410871.102701337&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-C6</td>
+                    <td>-0.65713</td>
+                    <td>53.59104</td>
+                    <td>0.24</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Scunthorpe Telegraph Office Site, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=488982.730215676&StartNorthing=411333.617116233&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-7</td>
+                    <td>-0.649798</td>
+                    <td>53.592729</td>
+                    <td>0.36</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Advance Crosby Scheme Phase 2 Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489464.455739415&StartNorthing=411530.788193024&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-14</td>
+                    <td>-0.676835</td>
+                    <td>53.572044</td>
+                    <td>2.3</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-18</td>
+                    <td></td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1531</td>
+                    <td>permissioned</td>
+                    <td>The Precinct, Westcliff, Scunthorpe, DN17 1PS</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=487717.755647329&StartNorthing=409195.975172933&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.. Planning permission to erect 41 affordable housing units to include the demolition of the shopping precinct, the Desert Rat pub, the library, bookmakers and Drop In Centre</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/1320</td>
+                    <td>-0.655182</td>
+                    <td>53.593211</td>
+                    <td>0.1</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-16</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1320</td>
+                    <td>permissioned</td>
+                    <td>Methodist Church Frodingham Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489107.097270598&StartNorthing=411577.572788908&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. planning permission is to demolition of existing Methodist Church and construction of 2/3 storey development comprising of 17 residential units with associated external works .</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-15</td>
+                    <td>-0.655312</td>
+                    <td>53.578395</td>
+                    <td>0.4</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Kingsway House Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489129.630847458&StartNorthing=409929.248773277&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/522</td>
+                    <td>-0.495605</td>
+                    <td>53.550348</td>
+                    <td>0.19</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-27</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-522</td>
+                    <td>permissioned</td>
+                    <td>Land at Engine Street and James Street, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=499769.109053091&StartNorthing=407020.652614882&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Brigg.. Outline planning permission for the erection of 8 dwellings with associated and ancillary infrastructure</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/0798</td>
+                    <td>-0.64162</td>
+                    <td>53.584799</td>
+                    <td>0.08</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-24</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-0798</td>
+                    <td>permissioned</td>
+                    <td>Former Holloways Coaches, Cottage Beck Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=490022.508990117&StartNorthing=410658.797647575&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Planning permission to demolish existing bus depot, workshop and offices and erect 7no. link-terraced two-bedroomed houses including associated access and parking facilities</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/0832</td>
+                    <td>-0.653586</td>
+                    <td>53.586478</td>
+                    <td>0.09</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-10</td>
+                    <td>technical details consent</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-0832</td>
+                    <td>permissioned</td>
+                    <td>106-108 Oswald Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489226.848636183&StartNorthing=410830.615293943&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Application for prior approval of a proposed change of use of ground and first-floor offices (Use Class B1) to 10 self-contained flats (Use Class C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>VQX9D</td>
+                    <td>-0.359697</td>
+                    <td>53.627951</td>
+                    <td>0.32</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Vehicle and repairs garage, Cherry Lane, Wooton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=508573.871308189&StartNorthing=415852.168415989&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of Wooton</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-17</td>
+                    <td>-0.623181</td>
+                    <td>53.567491</td>
+                    <td>2.11</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Yorkshire Electricity Depot, Land off Queensway and Dudley Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=491280.381371647&StartNorthing=408756.790021335&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/0828</td>
+                    <td>-0.646825</td>
+                    <td>53.591593</td>
+                    <td>0.02</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-18</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-0828</td>
+                    <td>permissioned</td>
+                    <td>2-12 Cole Street, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489663.583073726&StartNorthing=411408.145545882&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Planning permission for the change of use and conversion of existing 1st and 2nd floor offices and cafe into 8 flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/1187</td>
+                    <td>-0.668066</td>
+                    <td>53.601871</td>
+                    <td>0.11</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-15</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1187</td>
+                    <td>permissioned</td>
+                    <td>Land at Reginald Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=488236.34889624&StartNorthing=412525.022899122&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Planning permission to erect seven dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2012/1399</td>
+                    <td>-0.493318</td>
+                    <td>53.552441</td>
+                    <td>0.2</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-31</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2012-1399</td>
+                    <td>permissioned</td>
+                    <td>6-8 Market Place, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=499915.667236221&StartNorthing=407256.692188445&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Brigg.. Demolition of a metal clad shop, a store and a retail stall and planning permission for the erection of a mixed use development comprising eight town houses,six flats and three shops</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2016/1611</td>
+                    <td>-0.48669</td>
+                    <td>53.549133</td>
+                    <td>0.82</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-09-14</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-1611</td>
+                    <td>permissioned</td>
+                    <td>Station Road, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=500362.555959833&StartNorthing=406898.033112471&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Brigg.. Outline planning permission for proposed mixed development of 40 residential apartments, commercial market and enhancements to the new village green with all matters reserved</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/111</td>
+                    <td>-0.83646</td>
+                    <td>53.611629</td>
+                    <td>0.38</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-26</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-111</td>
+                    <td>permissioned</td>
+                    <td>Land adjacent to 17 Low Cross Street, Crowle</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=477075.882092988&StartNorthing=413415.231039543&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Crowle.. Outline planning permission for residential development of 9 building plots</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>KIRH-3</td>
+                    <td>-0.581326</td>
+                    <td>53.467965</td>
+                    <td>14.2</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-1199</td>
+                    <td>pending decision</td>
+                    <td>Land at Former RAF, Kirton in Lindsey</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=494272.576451108&StartNorthing=397739.465541187&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.. Outline planning application for up to 302 dwellings with public open space, including demolition of existing buildings, with all matters reserved except for access (PA/2017/1199)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2013/0491</td>
+                    <td>-0.597652</td>
+                    <td>53.655675</td>
+                    <td>0.16</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-01-17</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2013-0491</td>
+                    <td>permissioned</td>
+                    <td>Rear of 43 West Street, Winterton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=492777.659646117&StartNorthing=418600.050222174&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Winterton.. Application to replace an extant planning permission (PA/2007/1633) to erect three detached dwellings and a pair of semi-detached dwellings, and convert part of an existing joinery workshop into two dwellings, together with demolition of existing workshops, creation of an access road, garages and parking areas to cater for the development</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2014/1048</td>
+                    <td>-0.556505</td>
+                    <td>53.561782</td>
+                    <td>0.4</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-23</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2014-1048</td>
+                    <td>permissioned</td>
+                    <td>Land at Wyatt Avenue, Broughton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=495708.696183785&StartNorthing=408209.127899376&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Broughton.. Planning permission to erect 13 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/1195</td>
+                    <td>-0.338353</td>
+                    <td>53.675924</td>
+                    <td>0.43</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-08</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1195</td>
+                    <td>permissioned</td>
+                    <td>Brocklesby Hunt Inn, Howe Lane, Goxhill</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=509860.639680035&StartNorthing=421221.666703406&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Goxhill.. Planning permission to demolish rear of existing public house and outbuilding and convert public house to two new dwellings, and erect a further eight dwellings and associated works, including garaging, driveways, landscaping and access road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/1139</td>
+                    <td>-0.833257</td>
+                    <td>53.488049</td>
+                    <td>0.58</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-13</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1139</td>
+                    <td>permissioned</td>
+                    <td>32 Low Street, Haxey</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=477512.955191273&StartNorthing=399670.643505236&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Haxey.. Planning permission to erect five dwellings with associated hard and soft landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2D1B1</td>
+                    <td>-0.646739</td>
+                    <td>53.567327</td>
+                    <td>0.07</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Rustys Car Garage, Ashby</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489720.629417471&StartNorthing=408708.644734501&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is a former car showroom and garage and is surrounded by residential properties and the former Ashby Market site. The site is located within the development limit of Scunthorpe.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>4RKH8</td>
+                    <td>-0.660059</td>
+                    <td>53.569654</td>
+                    <td>0.89</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>West Common Gardens Former School</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=488833.616319079&StartNorthing=408950.915665879&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>NG0IR</td>
+                    <td>-0.445028</td>
+                    <td>53.690143</td>
+                    <td>0.45</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-03</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2013-1578</td>
+                    <td>permissioned</td>
+                    <td>Disused windmill and adjacent land Hewsons Lane Barton Upon Humber</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=502779.916367653&StartNorthing=422644.054913522&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of Barton upon Humber.. Part of the site has planning permission for 14 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/646</td>
+                    <td>-0.264006</td>
+                    <td>53.630557</td>
+                    <td>0.25</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-01</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-646</td>
+                    <td>permissioned</td>
+                    <td>Saxons, 17 Greengate Lane, South Killingholme</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=514894.470812568&StartNorthing=416292.305884498&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of South Killingholme.. Outline planning permission to demolish existing buildings and outbuildings and erect two two-bedroom semi-detached bungalows and six two-bedroom townhouses (in two blocks of three) including associated roads and parking areas</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>7IZDN</td>
+                    <td>-0.267592</td>
+                    <td>53.628756</td>
+                    <td>0.22</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-18</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-0724</td>
+                    <td>permissioned</td>
+                    <td>Former site of Cross Keys Inn, 6 Top Road, South Killingholme</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=514662.238263848&StartNorthing=416086.141826785&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of South Killingholme.. Planning permission to erect 12 affordable dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2013/0734</td>
+                    <td>-0.591552</td>
+                    <td>53.686726</td>
+                    <td>0.09</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-11-10</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2013-0734</td>
+                    <td>permissioned</td>
+                    <td>Ferry Boat Inn 24 High Burnage, Winteringham</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=493112.369871234&StartNorthing=422062.30872356&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of Wintertingham.. Planning permission for the conversion and extension of a former public house into 3 dwellings, erection of 4 new dwellings, and associated access and landscaping (including demolition of part of former public house)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2016/582</td>
+                    <td>-0.544981</td>
+                    <td>53.566001</td>
+                    <td>0.18</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-12</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-582</td>
+                    <td>permissioned</td>
+                    <td>Broughton Youth Club Brigg Road, Broughton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=496462.407986824&StartNorthing=408693.998357542&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Broughton.. Outline planning permission for development of five residential dwellings and associated highway works with all matters reserved</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/124</td>
+                    <td>-0.550217</td>
+                    <td>53.565393</td>
+                    <td>0.35</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-28</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2017-124</td>
+                    <td>permissioned</td>
+                    <td>Land behind Red Lion, Broughton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=496116.988985038&StartNorthing=408619.286982806&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Broughton.. Planning permission to erect six dwellings on land to the rear of The Red Lion, construct an associated private access and amend access to the public house car park</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2016/848</td>
+                    <td>-0.649391</td>
+                    <td>53.594625</td>
+                    <td>0.28</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-05</td>
+                    <td>outline planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-848</td>
+                    <td>permissioned</td>
+                    <td>Former Crosby Hotel Normanby Road Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489487.38955924&StartNorthing=411742.201216773&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Outline planning permission to demolish existing public house and erect 20 terraced houses with associated access road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-4</td>
+                    <td>-0.688876</td>
+                    <td>53.565601</td>
+                    <td>1.0</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Capps Coal and Timber Yard</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=486933.653092014&StartNorthing=408464.500784521&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/0104</td>
+                    <td>-0.645901</td>
+                    <td>53.566465</td>
+                    <td>0.05</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-07</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-0104</td>
+                    <td>permissioned</td>
+                    <td>200 Ashby High Street, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489777.888871538&StartNorthing=408613.881948158&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Planning permission for conversion of 1st floor retail storage area into 6 one-bedroom flats. New entrance stairway. Demolition of redundant trolley ramp and enclosure to rear</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2007/1773</td>
+                    <td>-0.434778</td>
+                    <td>53.685379</td>
+                    <td>0.09</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2008-01-24</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2007-1773</td>
+                    <td>permissioned</td>
+                    <td>Land to rear of 13-19, Pasture Road, Barton Upon Humber</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=503468.420349415&StartNorthing=422128.980704685&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The planning permission has been implemented.. Planning permission to erect 34 apartments together with communal facilities including demolition of a garage. The planning permission has been implemented.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>WH11O</td>
+                    <td>-0.830688</td>
+                    <td>53.607701</td>
+                    <td>0.49</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land east of Fieldside, Crowle</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=477464.869891551&StartNorthing=412984.565175087&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Crowle.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-3</td>
+                    <td>-0.647203</td>
+                    <td>53.596613</td>
+                    <td>10.2</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at the Glebe, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489627.955421404&StartNorthing=411966.121948336&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2017/1070</td>
+                    <td>-0.654613</td>
+                    <td>53.588786</td>
+                    <td>0.42</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-10-06</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-1073</td>
+                    <td>permissioned</td>
+                    <td>1-7 Cliff Garden Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489154.057828125&StartNorthing=411086.1085862&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Scunthorpe.. Half the site has planning permission to  to change the use of vacant office (B1) to 14 self-contained assisted living apartments (C3) and associated single-storey extensions and car parking including demolition of existing outbuilding. PA/2015/0246</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-9</td>
+                    <td>-0.642582</td>
+                    <td>53.591846</td>
+                    <td>12.1</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Church Square, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489943.901888865&StartNorthing=411441.556771173&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-11</td>
+                    <td>-0.644057</td>
+                    <td>53.587993</td>
+                    <td>1.01</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at the Council Depot, Station Road, Scunthorpe</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=489854.432593842&StartNorthing=411011.140374783&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2016/101</td>
+                    <td>-0.484833</td>
+                    <td>53.561267</td>
+                    <td>0.07</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-03-29</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2016-101</td>
+                    <td>permissioned</td>
+                    <td>13 Poplar Drive, Brigg</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=500456.856748981&StartNorthing=408250.452287662&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within  the development limit of Brigg.. Planning permission to change the use from children's home to six self-contained apartments erection of a two storey extension with alterations to windows doors parking and boundary features</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/1010</td>
+                    <td>-0.362323</td>
+                    <td>53.629018</td>
+                    <td>0.7</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-04</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-1010</td>
+                    <td>permissioned</td>
+                    <td>Warehouse No 5 High Street, Wooton</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=508397.491615308&StartNorthing=415966.925394301&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is located within the development limit of Wooton.. Approval of the details of the appearance, scale and landscaping of 13no. dwellings following the grant of outline planning permission PA/2012/0274 dated 16/01/2013 (AMENDED POSITIONS OF GARAGES TO PLOTS 2 AND 3 RETAINING WALL TO PLOT 4. AMENDED POSITION OF GARAGES TO PLOTS 7 AND 8 AND NEW RETAINING WALL TOGETHER WITH REVISED LANDSCAPING)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>PA/2015/0481</td>
+                    <td>-0.819856</td>
+                    <td>53.591325</td>
+                    <td>0.79</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-24</td>
+                    <td>full planning permission</td>
+                    <td>https://apps.northlincs.gov.uk/application/pa-2015-0481</td>
+                    <td>permissioned</td>
+                    <td>Land west of A161 Seven Lakes Industrial Estate, Ealand</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=478211.760378109&StartNorthing=411174.572078553&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for employment development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.. Outline planning permission for residential development . The site has previously been allocated as an Employment site in the Housing and Employment Land Allocations DPD.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SCUH-C9</td>
+                    <td>-0.62148</td>
+                    <td>53.56794</td>
+                    <td>4.09</td>
+                    <td>2017-12-19</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/north-lincolnshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land off Queensway and Dudley Road</td>
+                    <td>http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps&StartEasting=491392.003498173&StartNorthing=408808.945898134&StartZoom=1000&Layers=brownfield</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.37421, "GeoY": 53.678746, "HazardousSubstances": null, "Hectares": 2.23, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of Barrow upon Humber.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land east of Beck Lane, Barrow Upon Humber", "SiteReference": "IN1-18", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=507485.029164299\u0026StartNorthing=421480.830485244\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.644239, "GeoY": 53.56769, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Carpark, Collum Avenue, Scunthorpe", "SiteReference": "SCUH-12", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489885.39706548\u0026StartNorthing=408752.20508063\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.59224, "GeoY": 53.653398, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "6 Park Street, Winterton", "SiteReference": "X5EJ7", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=493140.361136339\u0026StartNorthing=418353.737024812\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.389147, "GeoY": 53.677, "HazardousSubstances": null, "Hectares": 1.55, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "C Spencer Ltd, Mill Lane, Barrow Upon Humber", "SiteReference": "PA/2018/845", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=506502.850701114\u0026StartNorthing=421264.200246377\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.336462, "GeoY": 53.676999, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Mellors Coaches Depot, Goxhill", "SiteReference": "RMI4C", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=509982.744550759\u0026StartNorthing=421344.169947869\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.740363, "GeoY": 53.585756, "HazardousSubstances": null, "Hectares": 3.05, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Railway Sidings, Keadby", "SiteReference": "9F980", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=483484.181715147\u0026StartNorthing=410645.182227312\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.495458, "GeoY": 53.552195, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Brigg.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land to rear of 48 to 57 Bridge Street, Brigg", "SiteReference": "OI177", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=499774.472835261\u0026StartNorthing=407226.311871983\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.670121, "GeoY": 53.58759, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "32-34 Newland Avenue, Scunthorpe", "SiteReference": "PA/2017/113", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=488130.033784832\u0026StartNorthing=410933.745093097\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.655718, "GeoY": 53.531713, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Planning permission to erect five dwellings and one pair of semi-detatched dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-26", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-2033", "PlanningStatus": "permissioned", "SiteNameAddress": "Off Temperance Avenue, Messingham", "SiteReference": "PA/2016/2033", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489200.761805254\u0026StartNorthing=404735.52369562\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.436055, "GeoY": 53.685715, "HazardousSubstances": null, "Hectares": 1.95, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former St Marys CycleWorks, Barton Upon Humber", "SiteReference": "BARH-3", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=503383.294028402\u0026StartNorthing=422164.505355223\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.851361, "GeoY": 53.561281, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline planning permission with all matters reserved for the erection of five detatched dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-06", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2018-660", "PlanningStatus": "permissioned", "SiteNameAddress": "Belton Garden Centre, Sandtoft Road, Westgate, Epworth, DN9 1PN", "SiteReference": "PA/2018/660", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=476180.42875876\u0026StartNorthing=407798.009674063\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.408102, "GeoY": 53.576887, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The planning permission has been implemented.. Planning permission to erect three pairs of semi-detached houses", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-06-07", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-1989", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of the former Railway Inn, Kings Road, Barnetby le Wold, DN38 6HJ", "SiteReference": "PA/2017/1989", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=505500.051724264\u0026StartNorthing=410098.990818415\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-18", "GeoX": -0.500053, "GeoY": 53.551685, "HazardousSubstances": null, "Hectares": 2.2, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is alllocated within the development limit of Brigg. Planning permisison to erect sixty six dwellings with garages, including landscaping and access and outline application for an over 55\u0027s accomodation, will all matters reserved", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-24", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-1234", "PlanningStatus": "permissioned", "SiteNameAddress": "Falcon Cycles, Bridge Street, Brigg, DN20 8NQ", "SiteReference": "PA/2017/1234", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=499471.249245412\u0026StartNorthing=407163.253267317\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.498394, "GeoY": 53.552851, "HazardousSubstances": null, "Hectares": 3.53, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Brigg.. Application for approval of reserved matters following outline planning permission PA/2012/0674 dated 07/09/2012 for the erection of 60 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-11-18", "PermissionType": "reserved matters approval", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2014-0887", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Island Carr Road, Ancholme Way, Brigg", "SiteReference": "4SKWE", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=499578.426968399\u0026StartNorthing=407295.268022248\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.507924, "GeoY": 53.547312, "HazardousSubstances": null, "Hectares": 1.56, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The planning permission has been implemented.. Planning permission to erect 44 dwellings and associated infrastructure", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2004-10-22", "PermissionType": "reserved matters approval", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2004-0692", "PlanningStatus": "permissioned", "SiteNameAddress": "Silversides Lane, Brigg", "SiteReference": "PA/2004/0692", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=498960.033128188\u0026StartNorthing=406665.75518337\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.597047, "GeoY": 53.482553, "HazardousSubstances": null, "Hectares": 0.85, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Kirton in Lindsey.. Outline planning permission to erect dwellings with access, landscaping and layout not reserved for subsequent approval", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-05", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-337", "PlanningStatus": "permissioned", "SiteNameAddress": "Gleadells Mill, Station Road, Kirton in Lindsey", "SiteReference": "PA/2016/337", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=493197.066600199\u0026StartNorthing=399341.624835508\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.682541, "GeoY": 53.598789, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Application for approval of reserved matters relating to access following the grant of outline planning permission PA/2011/0941 dated 13/03/2012 for the erection of 14 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-30", "PermissionType": "reserved matters approval", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2014-1183", "PlanningStatus": "permissioned", "SiteNameAddress": "Plot 29 Hebden Road, Scunthorpe", "SiteReference": "PA/2014/1183", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=487284.874001697\u0026StartNorthing=412164.324383514\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.641716, "GeoY": 53.575862, "HazardousSubstances": null, "Hectares": 3.4, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.. Outline planning permission for up to 122 dwellings with all matters reserved (PA/2015/1369)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-08-17", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1369", "PlanningStatus": "permissioned", "SiteNameAddress": "Brumby Resource Centre, East Common Lane, Scunthorpe", "SiteReference": "SCUH-C2", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=490035.149004413\u0026StartNorthing=409664.533354886\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.83362, "GeoY": 53.604224, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land of Godnow Road, Crowle", "SiteReference": "CROH-2", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=477277.22790944\u0026StartNorthing=412594.569243751\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.652225, "GeoY": 53.586827, "HazardousSubstances": null, "Hectares": 0.74, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Hartwell Ford, Scunthorpe", "SiteReference": "SCUH-C4", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489316.258427903\u0026StartNorthing=410871.102701337\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.65713, "GeoY": 53.59104, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Scunthorpe Telegraph Office Site, Scunthorpe", "SiteReference": "SCUH-C6", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=488982.730215676\u0026StartNorthing=411333.617116233\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.649798, "GeoY": 53.592729, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Advance Crosby Scheme Phase 2 Scunthorpe", "SiteReference": "SCUH-7", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489464.455739415\u0026StartNorthing=411530.788193024\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.676835, "GeoY": 53.572044, "HazardousSubstances": null, "Hectares": 2.3, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.. Planning permission to erect 41 affordable housing units to include the demolition of the shopping precinct, the Desert Rat pub, the library, bookmakers and Drop In Centre", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-18", "PermissionType": null, "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1531", "PlanningStatus": "permissioned", "SiteNameAddress": "The Precinct, Westcliff, Scunthorpe, DN17 1PS", "SiteReference": "SCUH-14", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=487717.755647329\u0026StartNorthing=409195.975172933\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.655182, "GeoY": 53.593211, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. planning permission is to demolition of existing Methodist Church and construction of 2/3 storey development comprising of 17 residential units with associated external works .", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-16", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1320", "PlanningStatus": "permissioned", "SiteNameAddress": "Methodist Church Frodingham Road, Scunthorpe", "SiteReference": "PA/2015/1320", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489107.097270598\u0026StartNorthing=411577.572788908\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.655312, "GeoY": 53.578395, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Kingsway House Scunthorpe", "SiteReference": "SCUH-15", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489129.630847458\u0026StartNorthing=409929.248773277\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.495605, "GeoY": 53.550348, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Brigg.. Outline planning permission for the erection of 8 dwellings with associated and ancillary infrastructure", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-27", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-522", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Engine Street and James Street, Brigg", "SiteReference": "PA/2017/522", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=499769.109053091\u0026StartNorthing=407020.652614882\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.64162, "GeoY": 53.584799, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Planning permission to demolish existing bus depot, workshop and offices and erect 7no. link-terraced two-bedroomed houses including associated access and parking facilities", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-24", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-0798", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Holloways Coaches, Cottage Beck Road, Scunthorpe", "SiteReference": "PA/2015/0798", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=490022.508990117\u0026StartNorthing=410658.797647575\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.653586, "GeoY": 53.586478, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Application for prior approval of a proposed change of use of ground and first-floor offices (Use Class B1) to 10 self-contained flats (Use Class C3)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-10", "PermissionType": "technical details consent", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-0832", "PlanningStatus": "permissioned", "SiteNameAddress": "106-108 Oswald Road, Scunthorpe", "SiteReference": "PA/2015/0832", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489226.848636183\u0026StartNorthing=410830.615293943\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.359697, "GeoY": 53.627951, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of Wooton", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Vehicle and repairs garage, Cherry Lane, Wooton", "SiteReference": "VQX9D", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=508573.871308189\u0026StartNorthing=415852.168415989\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.623181, "GeoY": 53.567491, "HazardousSubstances": null, "Hectares": 2.11, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Yorkshire Electricity Depot, Land off Queensway and Dudley Road, Scunthorpe", "SiteReference": "SCUH-17", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=491280.381371647\u0026StartNorthing=408756.790021335\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.646825, "GeoY": 53.591593, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Planning permission for the change of use and conversion of existing 1st and 2nd floor offices and cafe into 8 flats", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-18", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-0828", "PlanningStatus": "permissioned", "SiteNameAddress": "2-12 Cole Street, Scunthorpe", "SiteReference": "PA/2015/0828", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489663.583073726\u0026StartNorthing=411408.145545882\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.668066, "GeoY": 53.601871, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Planning permission to erect seven dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-15", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1187", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Reginald Road, Scunthorpe", "SiteReference": "PA/2015/1187", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=488236.34889624\u0026StartNorthing=412525.022899122\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.493318, "GeoY": 53.552441, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Brigg.. Demolition of a metal clad shop, a store and a retail stall and planning permission for the erection of a mixed use development comprising eight town houses,six flats and three shops", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-31", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2012-1399", "PlanningStatus": "permissioned", "SiteNameAddress": "6-8 Market Place, Brigg", "SiteReference": "PA/2012/1399", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=499915.667236221\u0026StartNorthing=407256.692188445\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.48669, "GeoY": 53.549133, "HazardousSubstances": null, "Hectares": 0.82, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Brigg.. Outline planning permission for proposed mixed development of 40 residential apartments, commercial market and enhancements to the new village green with all matters reserved", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-09-14", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-1611", "PlanningStatus": "permissioned", "SiteNameAddress": "Station Road, Brigg", "SiteReference": "PA/2016/1611", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=500362.555959833\u0026StartNorthing=406898.033112471\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.83646, "GeoY": 53.611629, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Crowle.. Outline planning permission for residential development of 9 building plots", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-26", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-111", "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent to 17 Low Cross Street, Crowle", "SiteReference": "PA/2017/111", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=477075.882092988\u0026StartNorthing=413415.231039543\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.581326, "GeoY": 53.467965, "HazardousSubstances": null, "Hectares": 14.2, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.. Outline planning application for up to 302 dwellings with public open space, including demolition of existing buildings, with all matters reserved except for access (PA/2017/1199)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-1199", "PlanningStatus": "pending decision", "SiteNameAddress": "Land at Former RAF, Kirton in Lindsey", "SiteReference": "KIRH-3", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=494272.576451108\u0026StartNorthing=397739.465541187\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.597652, "GeoY": 53.655675, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Winterton.. Application to replace an extant planning permission (PA/2007/1633) to erect three detached dwellings and a pair of semi-detached dwellings, and convert part of an existing joinery workshop into two dwellings, together with demolition of existing workshops, creation of an access road, garages and parking areas to cater for the development", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-01-17", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2013-0491", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of 43 West Street, Winterton", "SiteReference": "PA/2013/0491", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=492777.659646117\u0026StartNorthing=418600.050222174\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.556505, "GeoY": 53.561782, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Broughton.. Planning permission to erect 13 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-23", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2014-1048", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Wyatt Avenue, Broughton", "SiteReference": "PA/2014/1048", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=495708.696183785\u0026StartNorthing=408209.127899376\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.338353, "GeoY": 53.675924, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Goxhill.. Planning permission to demolish rear of existing public house and outbuilding and convert public house to two new dwellings, and erect a further eight dwellings and associated works, including garaging, driveways, landscaping and access road", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-08", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1195", "PlanningStatus": "permissioned", "SiteNameAddress": "Brocklesby Hunt Inn, Howe Lane, Goxhill", "SiteReference": "PA/2015/1195", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=509860.639680035\u0026StartNorthing=421221.666703406\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.833257, "GeoY": 53.488049, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Haxey.. Planning permission to erect five dwellings with associated hard and soft landscaping", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-13", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1139", "PlanningStatus": "permissioned", "SiteNameAddress": "32 Low Street, Haxey", "SiteReference": "PA/2015/1139", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=477512.955191273\u0026StartNorthing=399670.643505236\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.646739, "GeoY": 53.567327, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is a former car showroom and garage and is surrounded by residential properties and the former Ashby Market site. The site is located within the development limit of Scunthorpe.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Rustys Car Garage, Ashby", "SiteReference": "2D1B1", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489720.629417471\u0026StartNorthing=408708.644734501\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.660059, "GeoY": 53.569654, "HazardousSubstances": null, "Hectares": 0.89, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "West Common Gardens Former School", "SiteReference": "4RKH8", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=488833.616319079\u0026StartNorthing=408950.915665879\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.445028, "GeoY": 53.690143, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of Barton upon Humber.. Part of the site has planning permission for 14 units", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-03", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2013-1578", "PlanningStatus": "permissioned", "SiteNameAddress": "Disused windmill and adjacent land Hewsons Lane Barton Upon Humber", "SiteReference": "NG0IR", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=502779.916367653\u0026StartNorthing=422644.054913522\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.264006, "GeoY": 53.630557, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of South Killingholme.. Outline planning permission to demolish existing buildings and outbuildings and erect two two-bedroom semi-detached bungalows and six two-bedroom townhouses (in two blocks of three) including associated roads and parking areas", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-01", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-646", "PlanningStatus": "permissioned", "SiteNameAddress": "Saxons, 17 Greengate Lane, South Killingholme", "SiteReference": "PA/2017/646", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=514894.470812568\u0026StartNorthing=416292.305884498\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.267592, "GeoY": 53.628756, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of South Killingholme.. Planning permission to erect 12 affordable dwellings", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-18", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-0724", "PlanningStatus": "permissioned", "SiteNameAddress": "Former site of Cross Keys Inn, 6 Top Road, South Killingholme", "SiteReference": "7IZDN", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=514662.238263848\u0026StartNorthing=416086.141826785\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.591552, "GeoY": 53.686726, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of Wintertingham.. Planning permission for the conversion and extension of a former public house into 3 dwellings, erection of 4 new dwellings, and associated access and landscaping (including demolition of part of former public house)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-11-10", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2013-0734", "PlanningStatus": "permissioned", "SiteNameAddress": "Ferry Boat Inn 24 High Burnage, Winteringham", "SiteReference": "PA/2013/0734", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=493112.369871234\u0026StartNorthing=422062.30872356\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.544981, "GeoY": 53.566001, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Broughton.. Outline planning permission for development of five residential dwellings and associated highway works with all matters reserved", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-12", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-582", "PlanningStatus": "permissioned", "SiteNameAddress": "Broughton Youth Club Brigg Road, Broughton", "SiteReference": "PA/2016/582", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=496462.407986824\u0026StartNorthing=408693.998357542\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.550217, "GeoY": 53.565393, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Broughton.. Planning permission to erect six dwellings on land to the rear of The Red Lion, construct an associated private access and amend access to the public house car park", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-28", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2017-124", "PlanningStatus": "permissioned", "SiteNameAddress": "Land behind Red Lion, Broughton", "SiteReference": "PA/2017/124", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=496116.988985038\u0026StartNorthing=408619.286982806\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.649391, "GeoY": 53.594625, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Outline planning permission to demolish existing public house and erect 20 terraced houses with associated access road", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-05", "PermissionType": "outline planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-848", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Crosby Hotel Normanby Road Scunthorpe", "SiteReference": "PA/2016/848", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489487.38955924\u0026StartNorthing=411742.201216773\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.688876, "GeoY": 53.565601, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Capps Coal and Timber Yard", "SiteReference": "SCUH-4", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=486933.653092014\u0026StartNorthing=408464.500784521\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.645901, "GeoY": 53.566465, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Planning permission for conversion of 1st floor retail storage area into 6 one-bedroom flats. New entrance stairway. Demolition of redundant trolley ramp and enclosure to rear", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-07", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-0104", "PlanningStatus": "permissioned", "SiteNameAddress": "200 Ashby High Street, Scunthorpe", "SiteReference": "PA/2015/0104", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489777.888871538\u0026StartNorthing=408613.881948158\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.434778, "GeoY": 53.685379, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The planning permission has been implemented.. Planning permission to erect 34 apartments together with communal facilities including demolition of a garage. The planning permission has been implemented.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2008-01-24", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2007-1773", "PlanningStatus": "permissioned", "SiteNameAddress": "Land to rear of 13-19, Pasture Road, Barton Upon Humber", "SiteReference": "PA/2007/1773", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=503468.420349415\u0026StartNorthing=422128.980704685\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.830688, "GeoY": 53.607701, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Crowle.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land east of Fieldside, Crowle", "SiteReference": "WH11O", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=477464.869891551\u0026StartNorthing=412984.565175087\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.647203, "GeoY": 53.596613, "HazardousSubstances": null, "Hectares": 10.2, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for residential development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at the Glebe, Scunthorpe", "SiteReference": "SCUH-3", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489627.955421404\u0026StartNorthing=411966.121948336\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.654613, "GeoY": 53.588786, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Scunthorpe.. Half the site has planning permission to  to change the use of vacant office (B1) to 14 self-contained assisted living apartments (C3) and associated single-storey extensions and car parking including demolition of existing outbuilding. PA/2015/0246", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-10-06", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-1073", "PlanningStatus": "permissioned", "SiteNameAddress": "1-7 Cliff Garden Scunthorpe", "SiteReference": "PA/2017/1070", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489154.057828125\u0026StartNorthing=411086.1085862\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.642582, "GeoY": 53.591846, "HazardousSubstances": null, "Hectares": 12.1, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Church Square, Scunthorpe", "SiteReference": "SCUH-9", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489943.901888865\u0026StartNorthing=411441.556771173\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.644057, "GeoY": 53.587993, "HazardousSubstances": null, "Hectares": 1.01, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at the Council Depot, Station Road, Scunthorpe", "SiteReference": "SCUH-11", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=489854.432593842\u0026StartNorthing=411011.140374783\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.484833, "GeoY": 53.561267, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within  the development limit of Brigg.. Planning permission to change the use from children\u0027s home to six self-contained apartments erection of a two storey extension with alterations to windows doors parking and boundary features", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-03-29", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2016-101", "PlanningStatus": "permissioned", "SiteNameAddress": "13 Poplar Drive, Brigg", "SiteReference": "PA/2016/101", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=500456.856748981\u0026StartNorthing=408250.452287662\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.362323, "GeoY": 53.629018, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is located within the development limit of Wooton.. Approval of the details of the appearance, scale and landscaping of 13no. dwellings following the grant of outline planning permission PA/2012/0274 dated 16/01/2013 (AMENDED POSITIONS OF GARAGES TO PLOTS 2 AND 3 RETAINING WALL TO PLOT 4. AMENDED POSITION OF GARAGES TO PLOTS 7 AND 8 AND NEW RETAINING WALL TOGETHER WITH REVISED LANDSCAPING)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-04", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-1010", "PlanningStatus": "permissioned", "SiteNameAddress": "Warehouse No 5 High Street, Wooton", "SiteReference": "PA/2015/1010", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=508397.491615308\u0026StartNorthing=415966.925394301\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.819856, "GeoY": 53.591325, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for employment development within North Lincolnshire Housing and Employment Land Allocation Development Plan Document.. Outline planning permission for residential development . The site has previously been allocated as an Employment site in the Housing and Employment Land Allocations DPD.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-24", "PermissionType": "full planning permission", "PlanningHistory": "https://apps.northlincs.gov.uk/application/pa-2015-0481", "PlanningStatus": "permissioned", "SiteNameAddress": "Land west of A161 Seven Lakes Industrial Estate, Ealand", "SiteReference": "PA/2015/0481", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=478211.760378109\u0026StartNorthing=411174.572078553\u0026StartZoom=1000\u0026Layers=brownfield"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.62148, "GeoY": 53.56794, "HazardousSubstances": null, "Hectares": 4.09, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site is allocated for housing development within the Housing and Employment Land Allocation Development Plan Document.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/north-lincolnshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land off Queensway and Dudley Road", "SiteReference": "SCUH-C9", "SiteplanURL": "http://maps.northlincs.gov.uk/iSharewebin.Web/myNorthlincs.aspx?mapsource=Northlincs_webin/nlc_AllMaps\u0026StartEasting=491392.003498173\u0026StartNorthing=408808.945898134\u0026StartZoom=1000\u0026Layers=brownfield"}];
+    const bbox = [-0.86645183985285, -0.24891516014715007, 53.45898184341859, 53.699126156581414];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

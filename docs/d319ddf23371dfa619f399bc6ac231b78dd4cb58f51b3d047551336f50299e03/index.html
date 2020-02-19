@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">d319ddf2...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.eastsuffolk.gov.uk/assets/Planning/Brownfield-Land-Register/East-Suffolk-Brownfield-Land-Register.csv">https://www.eastsuffolk.gov.uk/assets/Planning/Brownfield-Land-Register/East-Suffolk-Brownfield-Land-Register.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.eastsuffolk.gov.uk/planning/brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 08 January 2020
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:ESK">East Suffolk Council</a>,</dd><dd>
+            <a href="local-authority-eng:SUF">Suffolk Coastal District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/d319ddf23371dfa619f399bc6ac231b78dd4cb58f51b3d047551336f50299e03/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/d319ddf23371dfa619f399bc6ac231b78dd4cb58f51b3d047551336f50299e03">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">71 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">12 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">93.77
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                3254</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                3336</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>71</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/d319ddf23371dfa619f399bc6ac231b78dd4cb58f51b3d047551336f50299e03.csv"
+        download="d319ddf23371dfa619f399bc6ac231b78dd4cb58f51b3d047551336f50299e03_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/d319ddf23371dfa619f399bc6ac231b78dd4cb58f51b3d047551336f50299e03"
+        download="d319ddf23371dfa619f399bc6ac231b78dd4cb58f51b3d047551336f50299e03_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>ES001</td>
+                    <td>1.339633</td>
+                    <td>51.951603</td>
+                    <td>0.58</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>59</td>
+                    <td>59</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-06</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OWBNC7QX0GC00</td>
+                    <td>permissioned</td>
+                    <td>Land at Felixstowe Sunday Market site Sea Road</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES002</td>
+                    <td>1.17152</td>
+                    <td>52.081673</td>
+                    <td>3.33</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>75</td>
+                    <td>75</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-09-26</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PF7DEPQXLC700</td>
+                    <td>permissioned</td>
+                    <td>Old Station Works Westerfield Road Westerfield Ipswich IP6 9AB</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>DC/18/3850/OUT approved 27.06.19 for 75 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES003</td>
+                    <td>1.189463</td>
+                    <td>52.105041</td>
+                    <td>0.71</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PDEK0JQXKFM00</td>
+                    <td>pending decision</td>
+                    <td>Street Farm The Street Witnesham Ipswich IP6 9HG</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Mostly in agricultural use therefore not previously developed land</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-09</td>
+                </tr>
+                
+                <tr>
+                    <td>ES004</td>
+                    <td>1.353126</td>
+                    <td>51.964541</td>
+                    <td>0.12</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-12-05</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OQX55IQXFKG00</td>
+                    <td>permissioned</td>
+                    <td>Penfold Road Felixstowe Suffolk IP11 7BP</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site completed 31/03/2019</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-31</td>
+                </tr>
+                
+                <tr>
+                    <td>ES005</td>
+                    <td>1.354514</td>
+                    <td>51.962282</td>
+                    <td>0.08</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-12</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NIXVW0QXFHV00</td>
+                    <td>permissioned</td>
+                    <td>38-40 Victoria Street Felixstowe Suffolk IP11 7EW</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>1 under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES006</td>
+                    <td>1.348713</td>
+                    <td>51.967078</td>
+                    <td>0.16</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=Q19WDWQX07400</td>
+                    <td>pending decision</td>
+                    <td>Land At Junction With Garrison Lane And High Road West Felixstowe Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>EXPIRED 17/11/19. DC/19/4528/OUT pending. 10 dwellings in total on 0.35ha; 8 on 0.16ha brownfield land</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES007</td>
+                    <td>1.350184</td>
+                    <td>52.221205</td>
+                    <td>0.1</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-08</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OSMEQGQXGIE00</td>
+                    <td>permissioned</td>
+                    <td>Conrad House 38 Fore Street Framlingham Woodbridge Suffolk IP13 9DF</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Below threshold for number of dwelligns and site area</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-09</td>
+                </tr>
+                
+                <tr>
+                    <td>ES008</td>
+                    <td>1.439008</td>
+                    <td>52.050761</td>
+                    <td>0.97</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-26</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O2A12CQXHWY00</td>
+                    <td>permissioned</td>
+                    <td>Glebe House Residential Home Rectory Road Hollesley Suffolk IP12 3JS</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES009</td>
+                    <td>1.220131</td>
+                    <td>52.150158</td>
+                    <td>2.14</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>35</td>
+                    <td>35</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-05</td>
+                    <td>reserved matters approval</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O453WUQX06O00</td>
+                    <td>permissioned</td>
+                    <td>Hillview Church Road Otley Suffolk IP6 9NP</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>10 under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES010</td>
+                    <td>1.48821</td>
+                    <td>52.216033</td>
+                    <td>0.59</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>16</td>
+                    <td>16</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-07-01</td>
+                    <td>reserved matters approval</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O2QRTHQXI6K00</td>
+                    <td>permissioned</td>
+                    <td>Former County Primary School Fairfield Road Saxmundham Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>6 under construction</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES011</td>
+                    <td>1.498446</td>
+                    <td>52.162707</td>
+                    <td>1.47</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>73</td>
+                    <td>73</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-10</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Snape Maltings Snape Bridge Tunstall Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>30 dwellings completed</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES012</td>
+                    <td>1.185365</td>
+                    <td>52.09676</td>
+                    <td>2.13</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-05</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O3RQE3QXIRO00</td>
+                    <td>permissioned</td>
+                    <td>Fynn Valley Golf Club Rose Hill Witnesham Suffolk IP6 9JA</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Built part of site only included; permitted area includes some greenfield land</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES013</td>
+                    <td>1.723973</td>
+                    <td>52.481578</td>
+                    <td>2.54</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>49</td>
+                    <td>49</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NZJYASQXGK700</td>
+                    <td>pending decision</td>
+                    <td>Neeves Pit Normanston Drive Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in now superseded Waveney Local Plan (Waveney Site Specific Allocations DPD, 2011); pending decision (DC/15/5094/RG3)</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-09</td>
+                </tr>
+                
+                <tr>
+                    <td>ES014</td>
+                    <td>1.726136</td>
+                    <td>52.483457</td>
+                    <td>1.52</td>
+                    <td>2017-12-01</td>
+                    <td>2018-11-20</td>
+                    <td>45</td>
+                    <td>45</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-12-05</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OLFAPQQXK8F00</td>
+                    <td>permissioned</td>
+                    <td>Monckton Avenue Nursery Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2022</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES015</td>
+                    <td>1.441597</td>
+                    <td>52.452338</td>
+                    <td>0.26</td>
+                    <td>2017-12-01</td>
+                    <td>2020-01-06</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Telephone Exchange Lower Olland Street Bungay Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>No longer meets criteria for Brownfield Land Register as not an allocation in an adopted Local Plan. Formerly an allocation in the Waveney Site Specific Allocations DPD, 2011</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-20</td>
+                </tr>
+                
+                <tr>
+                    <td>ES016</td>
+                    <td>1.726076</td>
+                    <td>52.474477</td>
+                    <td>11.93</td>
+                    <td>2017-12-01</td>
+                    <td>2020-01-06</td>
+                    <td>850</td>
+                    <td>850</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-17</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MWMEQ7QXJ1A00</td>
+                    <td>permissioned</td>
+                    <td>Brooke Business Park Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Waveney Local Plan 2019 (WLP2.4) as part of a larger mixed-use site; outline planning consent (DC/13/3482/OUT) includes CWS and playing field; Approval of Reserved Matters for Phase 1 
+(DC/18/1728/ARM) consented 26/07/2018</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES017</td>
+                    <td>1.723544</td>
+                    <td>52.472305</td>
+                    <td>8.06</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>300</td>
+                    <td>300</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-01-22</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NODY5YQXIKO00</td>
+                    <td>permissioned</td>
+                    <td>Former Sanyo site Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Waveney Local Plan 2019 (WLP2.4) as part of a larger mixed-use site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES018</td>
+                    <td>1.732236</td>
+                    <td>52.47135</td>
+                    <td>6.08</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>250</td>
+                    <td>300</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Part Former Jeld Wen site Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Waveney Local Plan 2019 (WLP2.4) as part of a larger mixed-use site</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES019</td>
+                    <td>1.714187</td>
+                    <td>52.474697</td>
+                    <td>0.7</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-19</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NURCDGQXLQP00</td>
+                    <td>permissioned</td>
+                    <td>Oswald’s Boatyard Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in now superseded Local Plan (Site Specific Allocations DPD 2011); full planning permission with VOC to allow limited highway work permitted Jan-19 DC/18/5164/VOC</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES020</td>
+                    <td>1.714343</td>
+                    <td>52.472339</td>
+                    <td>0.98</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NBSMMXQXIZM00</td>
+                    <td>not permissioned</td>
+                    <td>Builders Direct Supply Co Ltd South Elmham Terrace Lowestoft Suffolk NR33 9NH</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger mixed-use allocation in the Waveney Local Plan (WLP2.6). Outline consent lapsed (DC/14/2986/OUT ) and outline renewal refused for reasons including the non-provision of affordable housing. (DC/18/0161/OUT).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES021</td>
+                    <td>1.706893</td>
+                    <td>52.510028</td>
+                    <td>9.86</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>130</td>
+                    <td>130</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-30</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O7OBW6QX01F00</td>
+                    <td>permissioned</td>
+                    <td>Former H M Prison Blundeston Lakeside Rise Blundeston Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2025</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES022</td>
+                    <td>1.449201</td>
+                    <td>52.448841</td>
+                    <td>0.26</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-11-08</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYKJQXXE093</td>
+                    <td>permissioned</td>
+                    <td>Hillside Garage Hillside Road East Bungay Suffolk NR35 1RX</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission implemented by commencement inspection on plot 5 (Nov-2011). Site remains in commercial use</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES023</td>
+                    <td>1.710443</td>
+                    <td>52.476653</td>
+                    <td>1.47</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>76</td>
+                    <td>76</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-02-19</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.broads-authority.gov.uk/online-applications/applicationDetails.do?keyVal=M96Z8STBT0000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Pegasus Marine Caldecott Road Lowestoft Suffolk NR32 3PH</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by a developer and expected to complete by 2024 (BA/2012/0271/FUL)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES024</td>
+                    <td>1.712943</td>
+                    <td>52.472381</td>
+                    <td>0.63</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>56</td>
+                    <td>56</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-06-22</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYKMQXXE807</td>
+                    <td>permissioned</td>
+                    <td>Oulton Broad Caravan Site Saltwater Way Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission implemented by highway works to access</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES025</td>
+                    <td>1.67863</td>
+                    <td>52.329303</td>
+                    <td>0.33</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-07-15</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O5OCRLQXJOB00</td>
+                    <td>permissioned</td>
+                    <td>Unit 20 Southwold Business Centre St Edmunds Road Southwold Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Redeveloped as Council Housing and completed February 2019</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-12-09</td>
+                </tr>
+                
+                <tr>
+                    <td>ES026</td>
+                    <td>1.578766</td>
+                    <td>52.440054</td>
+                    <td>0.56</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-02-22</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=LX0PVSQX03H00</td>
+                    <td>permissioned</td>
+                    <td>Old MJ Hales Scrapyard and Landloc Cucumber Lane Weston Suffolk NR34 7XQ</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger site (majority greenfield) allocated for mixed-use in the Waveney Local Plan 2019 (WLP3.1). Part of this site (0.56ha) has planning permission for 6 houses - works have commenced to implement the permission but no further progress. It is anticipated this area will be delivered as part of a comprehensive, masterplanned development of the site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES027</td>
+                    <td>1.754824</td>
+                    <td>52.479185</td>
+                    <td>0.72</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>45</td>
+                    <td>45</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Lowestoft Hospital Tennyson Road Lowestoft Suffolk NR32 1PT</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated for housing in Waveney Local Plan 2019 (WLP2.8)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES028</td>
+                    <td>1.757933</td>
+                    <td>52.47793</td>
+                    <td>0.3</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-08-09</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PQXI9AQX0IH00</td>
+                    <td>permissioned</td>
+                    <td>Former Lowestoft Magistrates Court Old Nelson Street Lowestoft Suffolk NR32 1EG</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Vacant building - recently sold and planning permission granted for change of use to B1</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES029</td>
+                    <td>1.743631</td>
+                    <td>52.461582</td>
+                    <td>0.31</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PAQBXBQXIXZ00</td>
+                    <td>not permissioned</td>
+                    <td>Shaftesbury Court Rectory Road Lowestoft Suffolk NR33 0BU</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Vacant site - planning consent (DC/18/2641/FUL ) refused due to under provision of car parking spaces and appeal in progress</div>
+                        </details>
+                        
+                    </td>
+                    <td>2018-10-28</td>
+                </tr>
+                
+                <tr>
+                    <td>ES030</td>
+                    <td>1.661631</td>
+                    <td>52.516755</td>
+                    <td>0.4</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Garage site Somerleyton Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger site (part greenfield) allocated in the Waveney Local Plan 2019 (WLP7.5)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES031</td>
+                    <td>1.528308</td>
+                    <td>52.342398</td>
+                    <td>1.55</td>
+                    <td>2017-12-01</td>
+                    <td>2020-01-06</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Holton Sawmill and Timber Yard Sandy Lane Holton Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>No longer meets suitability criteria for Brownfield Land Register as not policy compliant with Waveney Local Plan March 2019</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-20</td>
+                </tr>
+                
+                <tr>
+                    <td>ES032</td>
+                    <td>1.569716</td>
+                    <td>52.456267</td>
+                    <td>1.29</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>38</td>
+                    <td>64</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-11-13</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PKYUKPQXGQA00</td>
+                    <td>permissioned</td>
+                    <td>Rear of Gosford Road Beccles Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permitted (DC/19/0051/FUL ) for 80 dwellings for the over 55s comprising 55 flats (C2) and 23 bungalows and 2 flats (C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES033</td>
+                    <td>1.759312</td>
+                    <td>52.485129</td>
+                    <td>0.34</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=K78AFKQX02200</td>
+                    <td>not permissioned</td>
+                    <td>325-329 Whapload Road Lowestoft Suffolk NR32 1UL</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission for residential development expired December 2008 (DC/08/1059/FUL)</div>
+                        </details>
+                        
+                    </td>
+                    <td>2018-12-22</td>
+                </tr>
+                
+                <tr>
+                    <td>ES034</td>
+                    <td>1.718665</td>
+                    <td>52.424877</td>
+                    <td>1.26</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Ashley Nurseries Site Kessingland Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Allocated in Kessingland Neighbourhood Plan 2017 (SA1)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES035</td>
+                    <td>1.745126</td>
+                    <td>52.469628</td>
+                    <td>0.62</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-03</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OEIGEHQXGNI00</td>
+                    <td>permissioned</td>
+                    <td>Land at Kirkley Rise Lowestoft Suffolk NR33 0PP</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site now cleared. Planning consent (DC/16/4137/FUL) for 21 flats includes non-residential uses. The part of the site to be developed for commercial uses to be implemented under a subsequent permission, DC/18/2576/FUL.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES036</td>
+                    <td>1.565777</td>
+                    <td>52.46002</td>
+                    <td>0.1</td>
+                    <td>2017-12-01</td>
+                    <td>2018-11-20</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-01-14</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PHKMLGQXMNI00</td>
+                    <td>permissioned</td>
+                    <td>19-21 Ravensmere Beccles Suffolk NR34 9DX</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning consent for demolition of existing workshop and shop and construction of 4 new dwellings (DC/18/4543/FUL)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES037</td>
+                    <td>1.606248</td>
+                    <td>52.369833</td>
+                    <td>0.5</td>
+                    <td>2017-12-01</td>
+                    <td>2020-01-06</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Firs Garage Church Road Uggeshall Suffolk NR34 8BH</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>No longer meets suitability criteria for Brownfield Land Register as not policy compliant with Waveney Local Plan March 2019</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-20</td>
+                </tr>
+                
+                <tr>
+                    <td>ES038</td>
+                    <td>1.561742</td>
+                    <td>52.44589</td>
+                    <td>1.32</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Montrose Garage London Road Beccles Suffolk NR34 9YU</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of a larger site (majority greenfield) allocated for housing in Waveney Local Plan 2019 (WLP3.2)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES039</td>
+                    <td>1.557323</td>
+                    <td>52.44624</td>
+                    <td>1.96</td>
+                    <td>2017-12-01</td>
+                    <td>2020-01-06</td>
+                    <td>49</td>
+                    <td>49</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>West of Ringsfield Road Beccles Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>No longer meets suitability criteria for Brownfield Land Register as not policy compliant with Waveney Local Plan March 2019</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-20</td>
+                </tr>
+                
+                <tr>
+                    <td>ES040</td>
+                    <td>1.719853</td>
+                    <td>52.496905</td>
+                    <td>2.59</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-09</td>
+                    <td>47</td>
+                    <td>47</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at the former Lothingland Hospital site off Airey Close and Allington-Smith Close Lowestoft Suffolk NR32 3JQ</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Forms part of site of a larger (greenfield) site allocated for housing in the Waveney Local Plan 2019 (WLP2.14)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES041</td>
+                    <td>1.722009</td>
+                    <td>52.476984</td>
+                    <td>1.2</td>
+                    <td>2017-12-01</td>
+                    <td>2020-01-06</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Harbour Road Lowestoft Suffolk</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>No longer meets suitability criteria for Brownfield Land Register as identified as existing employment land (WLP8.12) in Waveney Local Plan March 2019</div>
+                        </details>
+                        
+                    </td>
+                    <td>2019-03-20</td>
+                </tr>
+                
+                <tr>
+                    <td>ES042</td>
+                    <td>1.367542</td>
+                    <td>51.96735</td>
+                    <td>1.78</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>72</td>
+                    <td>72</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Brackenbury Sports Centre</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Included in Brownfield Land Register as found to be suitable, available and achievable through the Suffolk Coastal Strategic Housing and Economic Land Availability Assessment – dwelling estimates relate to SHELAA. Proposed allocation (SCLP12.5) in Suffolk Coastal Final Draft Local Plan (Jan 2019)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES043</td>
+                    <td>1.271888</td>
+                    <td>52.066254</td>
+                    <td>5.37</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>140</td>
+                    <td>140</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Suffolk Police HQ, Portal Avenue, Martlesham</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Included in Brownfield Land Register as found to be suitable, available and achievable through the Suffolk Coastal Strategic Housing and Economic Land Availability Assessment – dwelling estimates relate to SHELAA. Proposed allocation (SCLP12.25) in Suffolk Coastal Final Draft Local Plan (Jan 2019). Part PDL/part greeenfield. 140 dwellings based on 5.37ha previously developed land; rest of site is greenfield (5.68ha)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES044</td>
+                    <td>1.325046</td>
+                    <td>52.095558</td>
+                    <td>1.27</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>owned by a public authority</td>
+                    <td>2019-11-29</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=PU0LSKQX0H800&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Former Council Offices, Melton Hill</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission issued November 2019 for residential dwellings, community space (91 sq m) and retail unit (157.7sq m) (DC/19/2641/FUL). Proposed allocation (SCLP12.32) in Suffolk Coastal Final Draft Local Plan (Jan 2019)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES045</td>
+                    <td>1.353385</td>
+                    <td>51.965789</td>
+                    <td>0.12</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2007-08-01</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJRPOXC600&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>85-93 St Andrews Road, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES046</td>
+                    <td>1.344341</td>
+                    <td>51.956047</td>
+                    <td>0.04</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-06</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OIL7YKQXITA00</td>
+                    <td>permissioned</td>
+                    <td>Suffolk Private Retirement Home, 9 Sea Road, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES047</td>
+                    <td>1.349431</td>
+                    <td>51.96062</td>
+                    <td>0.07</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-12-05</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PGHQU2QXM0Y00</td>
+                    <td>permissioned</td>
+                    <td>Abbeyfield House, 53 Orwell Road, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES048</td>
+                    <td>1.345087</td>
+                    <td>51.95687</td>
+                    <td>0.08</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>23</td>
+                    <td>23</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-08</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=NI9FC0QXMTV00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>North Sea Hotel, Sea Road, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES049</td>
+                    <td>1.351182</td>
+                    <td>51.960972</td>
+                    <td>0.08</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-28</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P61Z2BQXGAM00</td>
+                    <td>permissioned</td>
+                    <td>Orwell Hall, Orwell Hall Road, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES050</td>
+                    <td>1.317257</td>
+                    <td>52.09387</td>
+                    <td>0.11</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-29</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ON66YEQXL8M00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>64-66 New Street, Woodbridge</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES051</td>
+                    <td>1.353527</td>
+                    <td>51.959983</td>
+                    <td>0.12</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-30</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PE7N8RQXKUH00</td>
+                    <td>permissioned</td>
+                    <td>South Beach Mansion, Bent Hill, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES052</td>
+                    <td>1.578954</td>
+                    <td>52.207155</td>
+                    <td>0.04</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-28</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=O7HAQJQXKNI00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>15 High Street, Leiston</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES053</td>
+                    <td>1.578142</td>
+                    <td>52.209569</td>
+                    <td>0.12</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-04-19</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OYSECKQXJW500&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>The Mill, 22 Carr Avenue, Leiston</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES054</td>
+                    <td>1.594101</td>
+                    <td>52.1575</td>
+                    <td>0.19</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-02</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=NS8ZU4QXKIL00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land between 36 & 38 Leiston Road, Aldeburgh</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>4 built</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES055</td>
+                    <td>1.303247</td>
+                    <td>52.096208</td>
+                    <td>0.17</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-26</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=P5ZFDIQXG9200&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Former Police Station, Grundisburgh Road, Woodbridge</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES056</td>
+                    <td>1.26385</td>
+                    <td>52.06162</td>
+                    <td>0.21</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-04-04</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P477L3QX0H800</td>
+                    <td>permissioned</td>
+                    <td>Foxwood House, 75 Dobbs Lane, Kesgrave</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES057</td>
+                    <td>1.348666</td>
+                    <td>52.220463</td>
+                    <td>0.22</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-02</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OIKU1NQXISU00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>26 Fore Street, Framlingham</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES058</td>
+                    <td>1.351521</td>
+                    <td>51.967738</td>
+                    <td>0.24</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-12</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=P8042EQXHF100</td>
+                    <td>permissioned</td>
+                    <td>Police Station, 32 High Road West, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES059</td>
+                    <td>1.301234</td>
+                    <td>52.096263</td>
+                    <td>0.25</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-22</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OP2FGNQX06O00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>34 Grundisburgh Road, Woodbridge</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>2 built</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES060</td>
+                    <td>1.381005</td>
+                    <td>51.97482</td>
+                    <td>0.29</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2008-12-10</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWKBPOXC583&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Stowe House, 105 Cliff Road, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES061</td>
+                    <td>1.455557</td>
+                    <td>52.271109</td>
+                    <td>0.79</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2019-01-23</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OCB7TFQXFI100&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land adj. Bridge Cottage, The Causeway, Peasenhall</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission includes on site open space and allotments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES062</td>
+                    <td>1.595867</td>
+                    <td>52.158472</td>
+                    <td>0.47</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>19</td>
+                    <td>19</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-01-29</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ONXCLZQXLP400&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Police Station, Leiston Road, Aldeburgh</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES063</td>
+                    <td>1.269358</td>
+                    <td>52.029457</td>
+                    <td>0.41</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-09</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=O35Z3OQXIG700&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>6 Levington Lane, Bucklesham</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part PDL/part greenfield. 11 dwellings in total on 0.94ha; 5 on 0.41ha brownfield land</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES064</td>
+                    <td>1.341487</td>
+                    <td>52.223255</td>
+                    <td>0.44</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>16</td>
+                    <td>16</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-07</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=NOA8Y9QXIHY00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Atlasfram Group Ltd, New Road, Framlingham</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>13 built</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES065</td>
+                    <td>1.332832</td>
+                    <td>51.975761</td>
+                    <td>0.65</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-08-09</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land north of Walton High Street, Felixstowe</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part PDL/part greenfield. 385 dwellings in total on 10.61ha; 24 on 0.65ha brownfield land</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES066</td>
+                    <td>1.393243</td>
+                    <td>52.232567</td>
+                    <td>0.76</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2005-02-10</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJRPOXC060&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land adjacent to Cherry Trees, Cransford</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES067</td>
+                    <td>1.578014</td>
+                    <td>52.216774</td>
+                    <td>0.67</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Abbey View Lodges, 105 Abbey Road, Leiston</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES068</td>
+                    <td>1.329534</td>
+                    <td>52.099956</td>
+                    <td>1.32</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>54</td>
+                    <td>54</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-06</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OPF1XOQXMHM00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Site of former Factory Warehouse, Melton Road, Melton</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES069</td>
+                    <td>1.583592</td>
+                    <td>52.157084</td>
+                    <td>2.5</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-01-15</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJGPOXC270&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Aldeburgh Brickworks, Saxmundham Road, Aldeburgh</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>8 built; dwellings to occupy approx 0.96ha and remaining area proposed as semi natural managed landscape area serving as open space for residential properties</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES070</td>
+                    <td>1.446556</td>
+                    <td>52.27362</td>
+                    <td>1.15</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2002-02-20</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJBPOXC532&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>OS 0960 Mill View Farm, Mill Road, Peasenhall</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>3 built</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>ES071</td>
+                    <td>1.312465</td>
+                    <td>52.097802</td>
+                    <td>1.82</td>
+                    <td>2019-12-30</td>
+                    <td>2019-12-30</td>
+                    <td>31</td>
+                    <td>31</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/east-suffolk</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-01</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=PAVYXDQXJ0L00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Queens House, Woodbridge School, Burkett Road, Woodbridge</td>
+                    <td>http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Residential development to occupy approx 1 hectare of total site, remaining area to be developed as on site amenity/open space.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.339633, "GeoY": 51.951603, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 59, "NetDwellingsRangeTo": 59, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-06", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OWBNC7QX0GC00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Felixstowe Sunday Market site Sea Road", "SiteReference": "ES001", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.17152, "GeoY": 52.081673, "HazardousSubstances": null, "Hectares": 3.33, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 75, "NetDwellingsRangeTo": 75, "Notes": "DC/18/3850/OUT approved 27.06.19 for 75 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-09-26", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PF7DEPQXLC700", "PlanningStatus": "permissioned", "SiteNameAddress": "Old Station Works Westerfield Road Westerfield Ipswich IP6 9AB", "SiteReference": "ES002", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": "2019-12-09", "FirstAddedDate": "2017-12-01", "GeoX": 1.189463, "GeoY": 52.105041, "HazardousSubstances": null, "Hectares": 0.71, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Mostly in agricultural use therefore not previously developed land", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PDEK0JQXKFM00", "PlanningStatus": "pending decision", "SiteNameAddress": "Street Farm The Street Witnesham Ipswich IP6 9HG", "SiteReference": "ES003", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": "2019-03-31", "FirstAddedDate": "2017-12-01", "GeoX": 1.353126, "GeoY": 51.964541, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Site completed 31/03/2019", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-12-05", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OQX55IQXFKG00", "PlanningStatus": "permissioned", "SiteNameAddress": "Penfold Road Felixstowe Suffolk IP11 7BP", "SiteReference": "ES004", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.354514, "GeoY": 51.962282, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "1 under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-12", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NIXVW0QXFHV00", "PlanningStatus": "permissioned", "SiteNameAddress": "38-40 Victoria Street Felixstowe Suffolk IP11 7EW", "SiteReference": "ES005", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.348713, "GeoY": 51.967078, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "EXPIRED 17/11/19. DC/19/4528/OUT pending. 10 dwellings in total on 0.35ha; 8 on 0.16ha brownfield land", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=Q19WDWQX07400", "PlanningStatus": "pending decision", "SiteNameAddress": "Land At Junction With Garrison Lane And High Road West Felixstowe Suffolk", "SiteReference": "ES006", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": "2019-12-09", "FirstAddedDate": "2017-12-01", "GeoX": 1.350184, "GeoY": 52.221205, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 3, "NetDwellingsRangeTo": 3, "Notes": "Below threshold for number of dwelligns and site area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-08", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OSMEQGQXGIE00", "PlanningStatus": "permissioned", "SiteNameAddress": "Conrad House 38 Fore Street Framlingham Woodbridge Suffolk IP13 9DF", "SiteReference": "ES007", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.439008, "GeoY": 52.050761, "HazardousSubstances": null, "Hectares": 0.97, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-26", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O2A12CQXHWY00", "PlanningStatus": "permissioned", "SiteNameAddress": "Glebe House Residential Home Rectory Road Hollesley Suffolk IP12 3JS", "SiteReference": "ES008", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.220131, "GeoY": 52.150158, "HazardousSubstances": null, "Hectares": 2.14, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 35, "NetDwellingsRangeTo": 35, "Notes": "10 under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-05", "PermissionType": "reserved matters approval", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O453WUQX06O00", "PlanningStatus": "permissioned", "SiteNameAddress": "Hillview Church Road Otley Suffolk IP6 9NP", "SiteReference": "ES009", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.48821, "GeoY": 52.216033, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 16, "NetDwellingsRangeTo": 16, "Notes": "6 under construction", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-07-01", "PermissionType": "reserved matters approval", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O2QRTHQXI6K00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former County Primary School Fairfield Road Saxmundham Suffolk", "SiteReference": "ES010", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.498446, "GeoY": 52.162707, "HazardousSubstances": null, "Hectares": 1.47, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 73, "NetDwellingsRangeTo": 73, "Notes": "30 dwellings completed", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-10", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Snape Maltings Snape Bridge Tunstall Suffolk", "SiteReference": "ES011", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.185365, "GeoY": 52.09676, "HazardousSubstances": null, "Hectares": 2.13, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": "Built part of site only included; permitted area includes some greenfield land", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-05", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O3RQE3QXIRO00", "PlanningStatus": "permissioned", "SiteNameAddress": "Fynn Valley Golf Club Rose Hill Witnesham Suffolk IP6 9JA", "SiteReference": "ES012", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2019-12-09", "FirstAddedDate": "2017-12-01", "GeoX": 1.723973, "GeoY": 52.481578, "HazardousSubstances": null, "Hectares": 2.54, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 49, "NetDwellingsRangeTo": 49, "Notes": "Allocated in now superseded Waveney Local Plan (Waveney Site Specific Allocations DPD, 2011); pending decision (DC/15/5094/RG3)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NZJYASQXGK700", "PlanningStatus": "pending decision", "SiteNameAddress": "Neeves Pit Normanston Drive Lowestoft Suffolk", "SiteReference": "ES013", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.726136, "GeoY": 52.483457, "HazardousSubstances": null, "Hectares": 1.52, "LastUpdatedDate": "2018-11-20", "NetDwellingsRangeFrom": 45, "NetDwellingsRangeTo": 45, "Notes": "Owned by a developer and expected to complete by 2022", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-05", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OLFAPQQXK8F00", "PlanningStatus": "permissioned", "SiteNameAddress": "Monckton Avenue Nursery Lowestoft Suffolk", "SiteReference": "ES014", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2019-03-20", "FirstAddedDate": "2017-12-01", "GeoX": 1.441597, "GeoY": 52.452338, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2020-01-06", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": "No longer meets criteria for Brownfield Land Register as not an allocation in an adopted Local Plan. Formerly an allocation in the Waveney Site Specific Allocations DPD, 2011", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Telephone Exchange Lower Olland Street Bungay Suffolk", "SiteReference": "ES015", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.726076, "GeoY": 52.474477, "HazardousSubstances": null, "Hectares": 11.93, "LastUpdatedDate": "2020-01-06", "NetDwellingsRangeFrom": 850, "NetDwellingsRangeTo": 850, "Notes": "Allocated in Waveney Local Plan 2019 (WLP2.4) as part of a larger mixed-use site; outline planning consent (DC/13/3482/OUT) includes CWS and playing field; Approval of Reserved Matters for Phase 1 \r\n(DC/18/1728/ARM) consented 26/07/2018", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-17", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MWMEQ7QXJ1A00", "PlanningStatus": "permissioned", "SiteNameAddress": "Brooke Business Park Lowestoft Suffolk", "SiteReference": "ES016", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.723544, "GeoY": 52.472305, "HazardousSubstances": null, "Hectares": 8.06, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 300, "NetDwellingsRangeTo": 300, "Notes": "Allocated in Waveney Local Plan 2019 (WLP2.4) as part of a larger mixed-use site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-01-22", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NODY5YQXIKO00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Sanyo site Lowestoft Suffolk", "SiteReference": "ES017", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.732236, "GeoY": 52.47135, "HazardousSubstances": null, "Hectares": 6.08, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 250, "NetDwellingsRangeTo": 300, "Notes": "Allocated in Waveney Local Plan 2019 (WLP2.4) as part of a larger mixed-use site", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Part Former Jeld Wen site Lowestoft Suffolk", "SiteReference": "ES018", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.714187, "GeoY": 52.474697, "HazardousSubstances": null, "Hectares": 0.7, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 80, "NetDwellingsRangeTo": 80, "Notes": "Allocated in now superseded Local Plan (Site Specific Allocations DPD 2011); full planning permission with VOC to allow limited highway work permitted Jan-19 DC/18/5164/VOC", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-19", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NURCDGQXLQP00", "PlanningStatus": "permissioned", "SiteNameAddress": "Oswald\u2019s Boatyard Lowestoft Suffolk", "SiteReference": "ES019", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.714343, "GeoY": 52.472339, "HazardousSubstances": null, "Hectares": 0.98, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 44, "NetDwellingsRangeTo": 44, "Notes": "Forms part of a larger mixed-use allocation in the Waveney Local Plan (WLP2.6). Outline consent lapsed (DC/14/2986/OUT ) and outline renewal refused for reasons including the non-provision of affordable housing. (DC/18/0161/OUT).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NBSMMXQXIZM00", "PlanningStatus": "not permissioned", "SiteNameAddress": "Builders Direct Supply Co Ltd South Elmham Terrace Lowestoft Suffolk NR33 9NH", "SiteReference": "ES020", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.706893, "GeoY": 52.510028, "HazardousSubstances": null, "Hectares": 9.86, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 130, "NetDwellingsRangeTo": 130, "Notes": "Owned by a developer and expected to complete by 2025", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-30", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O7OBW6QX01F00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former H M Prison Blundeston Lakeside Rise Blundeston Suffolk", "SiteReference": "ES021", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.449201, "GeoY": 52.448841, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "Permission implemented by commencement inspection on plot 5 (Nov-2011). Site remains in commercial use", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-11-08", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYKJQXXE093", "PlanningStatus": "permissioned", "SiteNameAddress": "Hillside Garage Hillside Road East Bungay Suffolk NR35 1RX", "SiteReference": "ES022", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.710443, "GeoY": 52.476653, "HazardousSubstances": null, "Hectares": 1.47, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 76, "NetDwellingsRangeTo": 76, "Notes": "Owned by a developer and expected to complete by 2024 (BA/2012/0271/FUL)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-02-19", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.broads-authority.gov.uk/online-applications/applicationDetails.do?keyVal=M96Z8STBT0000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Pegasus Marine Caldecott Road Lowestoft Suffolk NR32 3PH", "SiteReference": "ES023", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.712943, "GeoY": 52.472381, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 56, "NetDwellingsRangeTo": 56, "Notes": "Permission implemented by highway works to access", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-06-22", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYKMQXXE807", "PlanningStatus": "permissioned", "SiteNameAddress": "Oulton Broad Caravan Site Saltwater Way Lowestoft Suffolk", "SiteReference": "ES024", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": "2019-12-09", "FirstAddedDate": "2017-12-01", "GeoX": 1.67863, "GeoY": 52.329303, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Redeveloped as Council Housing and completed February 2019", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-07-15", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O5OCRLQXJOB00", "PlanningStatus": "permissioned", "SiteNameAddress": "Unit 20 Southwold Business Centre St Edmunds Road Southwold Suffolk", "SiteReference": "ES025", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.578766, "GeoY": 52.440054, "HazardousSubstances": null, "Hectares": 0.56, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Forms part of a larger site (majority greenfield) allocated for mixed-use in the Waveney Local Plan 2019 (WLP3.1). Part of this site (0.56ha) has planning permission for 6 houses - works have commenced to implement the permission but no further progress. It is anticipated this area will be delivered as part of a comprehensive, masterplanned development of the site.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-02-22", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=LX0PVSQX03H00", "PlanningStatus": "permissioned", "SiteNameAddress": "Old MJ Hales Scrapyard and Landloc Cucumber Lane Weston Suffolk NR34 7XQ", "SiteReference": "ES026", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.754824, "GeoY": 52.479185, "HazardousSubstances": null, "Hectares": 0.72, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 45, "NetDwellingsRangeTo": 45, "Notes": "Allocated for housing in Waveney Local Plan 2019 (WLP2.8)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Lowestoft Hospital Tennyson Road Lowestoft Suffolk NR32 1PT", "SiteReference": "ES027", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.757933, "GeoY": 52.47793, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 15, "Notes": "Vacant building - recently sold and planning permission granted for change of use to B1", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-08-09", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PQXI9AQX0IH00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Lowestoft Magistrates Court Old Nelson Street Lowestoft Suffolk NR32 1EG", "SiteReference": "ES028", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2018-10-28", "FirstAddedDate": "2017-12-01", "GeoX": 1.743631, "GeoY": 52.461582, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": "Vacant site - planning consent (DC/18/2641/FUL ) refused due to under provision of car parking spaces and appeal in progress", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PAQBXBQXIXZ00", "PlanningStatus": "not permissioned", "SiteNameAddress": "Shaftesbury Court Rectory Road Lowestoft Suffolk NR33 0BU", "SiteReference": "ES029", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.661631, "GeoY": 52.516755, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Forms part of a larger site (part greenfield) allocated in the Waveney Local Plan 2019 (WLP7.5)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Garage site Somerleyton Suffolk", "SiteReference": "ES030", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": "2019-03-20", "FirstAddedDate": "2017-12-01", "GeoX": 1.528308, "GeoY": 52.342398, "HazardousSubstances": null, "Hectares": 1.55, "LastUpdatedDate": "2020-01-06", "NetDwellingsRangeFrom": 27, "NetDwellingsRangeTo": 27, "Notes": "No longer meets suitability criteria for Brownfield Land Register as not policy compliant with Waveney Local Plan March 2019", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Holton Sawmill and Timber Yard Sandy Lane Holton Suffolk", "SiteReference": "ES031", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.569716, "GeoY": 52.456267, "HazardousSubstances": null, "Hectares": 1.29, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 38, "NetDwellingsRangeTo": 64, "Notes": "Permitted (DC/19/0051/FUL ) for 80 dwellings for the over 55s comprising 55 flats (C2) and 23 bungalows and 2 flats (C3)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-11-13", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PKYUKPQXGQA00", "PlanningStatus": "permissioned", "SiteNameAddress": "Rear of Gosford Road Beccles Suffolk", "SiteReference": "ES032", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2018-12-22", "FirstAddedDate": "2017-12-01", "GeoX": 1.759312, "GeoY": 52.485129, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": "Planning permission for residential development expired December 2008 (DC/08/1059/FUL)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=K78AFKQX02200", "PlanningStatus": "not permissioned", "SiteNameAddress": "325-329 Whapload Road Lowestoft Suffolk NR32 1UL", "SiteReference": "ES033", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.718665, "GeoY": 52.424877, "HazardousSubstances": null, "Hectares": 1.26, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": 25, "NetDwellingsRangeTo": 25, "Notes": "Allocated in Kessingland Neighbourhood Plan 2017 (SA1)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Ashley Nurseries Site Kessingland Suffolk", "SiteReference": "ES034", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.745126, "GeoY": 52.469628, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 21, "NetDwellingsRangeTo": 21, "Notes": "Site now cleared. Planning consent (DC/16/4137/FUL) for 21 flats includes non-residential uses. The part of the site to be developed for commercial uses to be implemented under a subsequent permission, DC/18/2576/FUL.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-03", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OEIGEHQXGNI00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Kirkley Rise Lowestoft Suffolk NR33 0PP", "SiteReference": "ES035", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.565777, "GeoY": 52.46002, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-11-20", "NetDwellingsRangeFrom": 4, "NetDwellingsRangeTo": 4, "Notes": "Planning consent for demolition of existing workshop and shop and construction of 4 new dwellings (DC/18/4543/FUL)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-01-14", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PHKMLGQXMNI00", "PlanningStatus": "permissioned", "SiteNameAddress": "19-21 Ravensmere Beccles Suffolk NR34 9DX", "SiteReference": "ES036", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2019-03-20", "FirstAddedDate": "2017-12-01", "GeoX": 1.606248, "GeoY": 52.369833, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2020-01-06", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "No longer meets suitability criteria for Brownfield Land Register as not policy compliant with Waveney Local Plan March 2019", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Firs Garage Church Road Uggeshall Suffolk NR34 8BH", "SiteReference": "ES037", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.561742, "GeoY": 52.44589, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": "Forms part of a larger site (majority greenfield) allocated for housing in Waveney Local Plan 2019 (WLP3.2)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Montrose Garage London Road Beccles Suffolk NR34 9YU", "SiteReference": "ES038", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2019-03-20", "FirstAddedDate": "2017-12-01", "GeoX": 1.557323, "GeoY": 52.44624, "HazardousSubstances": null, "Hectares": 1.96, "LastUpdatedDate": "2020-01-06", "NetDwellingsRangeFrom": 49, "NetDwellingsRangeTo": 49, "Notes": "No longer meets suitability criteria for Brownfield Land Register as not policy compliant with Waveney Local Plan March 2019", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "West of Ringsfield Road Beccles Suffolk", "SiteReference": "ES039", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": 1.719853, "GeoY": 52.496905, "HazardousSubstances": null, "Hectares": 2.59, "LastUpdatedDate": "2019-12-09", "NetDwellingsRangeFrom": 47, "NetDwellingsRangeTo": 47, "Notes": "Forms part of site of a larger (greenfield) site allocated for housing in the Waveney Local Plan 2019 (WLP2.14)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at the former Lothingland Hospital site off Airey Close and Allington-Smith Close Lowestoft Suffolk NR32 3JQ", "SiteReference": "ES040", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": "2019-03-20", "FirstAddedDate": "2017-12-01", "GeoX": 1.722009, "GeoY": 52.476984, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2020-01-06", "NetDwellingsRangeFrom": 30, "NetDwellingsRangeTo": 30, "Notes": "No longer meets suitability criteria for Brownfield Land Register as identified as existing employment land (WLP8.12) in Waveney Local Plan March 2019", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Harbour Road Lowestoft Suffolk", "SiteReference": "ES041", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.367542, "GeoY": 51.96735, "HazardousSubstances": null, "Hectares": 1.78, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 72, "NetDwellingsRangeTo": 72, "Notes": "Included in Brownfield Land Register as found to be suitable, available and achievable through the Suffolk Coastal Strategic Housing and Economic Land Availability Assessment \u2013 dwelling estimates relate to SHELAA. Proposed allocation (SCLP12.5) in Suffolk Coastal Final Draft Local Plan (Jan 2019)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Brackenbury Sports Centre", "SiteReference": "ES042", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.271888, "GeoY": 52.066254, "HazardousSubstances": null, "Hectares": 5.37, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 140, "NetDwellingsRangeTo": 140, "Notes": "Included in Brownfield Land Register as found to be suitable, available and achievable through the Suffolk Coastal Strategic Housing and Economic Land Availability Assessment \u2013 dwelling estimates relate to SHELAA. Proposed allocation (SCLP12.25) in Suffolk Coastal Final Draft Local Plan (Jan 2019). Part PDL/part greeenfield. 140 dwellings based on 5.37ha previously developed land; rest of site is greenfield (5.68ha)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Suffolk Police HQ, Portal Avenue, Martlesham", "SiteReference": "ES043", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.325046, "GeoY": 52.095558, "HazardousSubstances": null, "Hectares": 1.27, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": "Planning permission issued November 2019 for residential dwellings, community space (91 sq m) and retail unit (157.7sq m) (DC/19/2641/FUL). Proposed allocation (SCLP12.32) in Suffolk Coastal Final Draft Local Plan (Jan 2019)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2019-11-29", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=PU0LSKQX0H800\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Council Offices, Melton Hill", "SiteReference": "ES044", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.353385, "GeoY": 51.965789, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2007-08-01", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJRPOXC600\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "85-93 St Andrews Road, Felixstowe", "SiteReference": "ES045", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.344341, "GeoY": 51.956047, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-06", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OIL7YKQXITA00", "PlanningStatus": "permissioned", "SiteNameAddress": "Suffolk Private Retirement Home, 9 Sea Road, Felixstowe", "SiteReference": "ES046", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.349431, "GeoY": 51.96062, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-12-05", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PGHQU2QXM0Y00", "PlanningStatus": "permissioned", "SiteNameAddress": "Abbeyfield House, 53 Orwell Road, Felixstowe", "SiteReference": "ES047", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.345087, "GeoY": 51.95687, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 23, "NetDwellingsRangeTo": 23, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-08", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=NI9FC0QXMTV00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "North Sea Hotel, Sea Road, Felixstowe", "SiteReference": "ES048", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.351182, "GeoY": 51.960972, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-28", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P61Z2BQXGAM00", "PlanningStatus": "permissioned", "SiteNameAddress": "Orwell Hall, Orwell Hall Road, Felixstowe", "SiteReference": "ES049", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.317257, "GeoY": 52.09387, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-29", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ON66YEQXL8M00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "64-66 New Street, Woodbridge", "SiteReference": "ES050", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.353527, "GeoY": 51.959983, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-30", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PE7N8RQXKUH00", "PlanningStatus": "permissioned", "SiteNameAddress": "South Beach Mansion, Bent Hill, Felixstowe", "SiteReference": "ES051", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.578954, "GeoY": 52.207155, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-28", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=O7HAQJQXKNI00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "15 High Street, Leiston", "SiteReference": "ES052", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.578142, "GeoY": 52.209569, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 7, "NetDwellingsRangeTo": 7, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-04-19", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OYSECKQXJW500\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "The Mill, 22 Carr Avenue, Leiston", "SiteReference": "ES053", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.594101, "GeoY": 52.1575, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "4 built", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-02", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=NS8ZU4QXKIL00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land between 36 \u0026 38 Leiston Road, Aldeburgh", "SiteReference": "ES054", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.303247, "GeoY": 52.096208, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-26", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=P5ZFDIQXG9200\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Police Station, Grundisburgh Road, Woodbridge", "SiteReference": "ES055", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.26385, "GeoY": 52.06162, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-04-04", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P477L3QX0H800", "PlanningStatus": "permissioned", "SiteNameAddress": "Foxwood House, 75 Dobbs Lane, Kesgrave", "SiteReference": "ES056", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.348666, "GeoY": 52.220463, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-02", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OIKU1NQXISU00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "26 Fore Street, Framlingham", "SiteReference": "ES057", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.351521, "GeoY": 51.967738, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 20, "NetDwellingsRangeTo": 20, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-12", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=P8042EQXHF100", "PlanningStatus": "permissioned", "SiteNameAddress": "Police Station, 32 High Road West, Felixstowe", "SiteReference": "ES058", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.301234, "GeoY": 52.096263, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "2 built", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-22", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OP2FGNQX06O00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "34 Grundisburgh Road, Woodbridge", "SiteReference": "ES059", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.381005, "GeoY": 51.97482, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2008-12-10", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWKBPOXC583\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Stowe House, 105 Cliff Road, Felixstowe", "SiteReference": "ES060", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.455557, "GeoY": 52.271109, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": "Planning permission includes on site open space and allotments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2019-01-23", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OCB7TFQXFI100\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land adj. Bridge Cottage, The Causeway, Peasenhall", "SiteReference": "ES061", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.595867, "GeoY": 52.158472, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 19, "NetDwellingsRangeTo": 19, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-01-29", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ONXCLZQXLP400\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Police Station, Leiston Road, Aldeburgh", "SiteReference": "ES062", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.269358, "GeoY": 52.029457, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "Part PDL/part greenfield. 11 dwellings in total on 0.94ha; 5 on 0.41ha brownfield land", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-09", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=O35Z3OQXIG700\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "6 Levington Lane, Bucklesham", "SiteReference": "ES063", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.341487, "GeoY": 52.223255, "HazardousSubstances": null, "Hectares": 0.44, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 16, "NetDwellingsRangeTo": 16, "Notes": "13 built", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-07", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=NOA8Y9QXIHY00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Atlasfram Group Ltd, New Road, Framlingham", "SiteReference": "ES064", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.332832, "GeoY": 51.975761, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 24, "NetDwellingsRangeTo": 24, "Notes": "Part PDL/part greenfield. 385 dwellings in total on 10.61ha; 24 on 0.65ha brownfield land", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-08-09", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land north of Walton High Street, Felixstowe", "SiteReference": "ES065", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.393243, "GeoY": 52.232567, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2005-02-10", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJRPOXC060\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent to Cherry Trees, Cransford", "SiteReference": "ES066", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.578014, "GeoY": 52.216774, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Abbey View Lodges, 105 Abbey Road, Leiston", "SiteReference": "ES067", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.329534, "GeoY": 52.099956, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 54, "NetDwellingsRangeTo": 54, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-06", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=OPF1XOQXMHM00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of former Factory Warehouse, Melton Road, Melton", "SiteReference": "ES068", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.583592, "GeoY": 52.157084, "HazardousSubstances": null, "Hectares": 2.5, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": "8 built; dwellings to occupy approx 0.96ha and remaining area proposed as semi natural managed landscape area serving as open space for residential properties", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-01-15", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJGPOXC270\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Aldeburgh Brickworks, Saxmundham Road, Aldeburgh", "SiteReference": "ES069", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.446556, "GeoY": 52.27362, "HazardousSubstances": null, "Hectares": 1.15, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "3 built", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2002-02-20", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZWJBPOXC532\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "OS 0960 Mill View Farm, Mill Road, Peasenhall", "SiteReference": "ES070", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-12-30", "GeoX": 1.312465, "GeoY": 52.097802, "HazardousSubstances": null, "Hectares": 1.82, "LastUpdatedDate": "2019-12-30", "NetDwellingsRangeFrom": 31, "NetDwellingsRangeTo": 31, "Notes": "Residential development to occupy approx 1 hectare of total site, remaining area to be developed as on site amenity/open space.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-suffolk", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-01", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?keyVal=PAVYXDQXJ0L00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Queens House, Woodbridge School, Burkett Road, Woodbridge", "SiteReference": "ES071", "SiteplanURL": "http://eastsuffolk.maps.arcgis.com/apps/MapJournal/index.html?appid=6eb61ef7c03744668814fba6f1587f4e"}];
+    const bbox = [1.156944687935313, 1.7738873120646872, 51.9426198434186, 52.52573815658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

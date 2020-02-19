@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">80cde042...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/Register-2018-October-update-for-website-PASSWORD-PROTECTED.xlsx">https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/Register-2018-October-update-for-website-PASSWORD-PROTECTED.xlsx</a>
+        </dd>
+    </dl>
+    <a href="https://www.swale.gov.uk/brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 01 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:SWL">Swale Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/80cde042e8bf5ac5fe1f9e3436825526dedceda6b3da62942f433fd40145e6ab/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/80cde042e8bf5ac5fe1f9e3436825526dedceda6b3da62942f433fd40145e6ab">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">14 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">43.42
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                1754</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                1799</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>14</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/80cde042e8bf5ac5fe1f9e3436825526dedceda6b3da62942f433fd40145e6ab.csv"
+        download="80cde042e8bf5ac5fe1f9e3436825526dedceda6b3da62942f433fd40145e6ab_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/80cde042e8bf5ac5fe1f9e3436825526dedceda6b3da62942f433fd40145e6ab"
+        download="80cde042e8bf5ac5fe1f9e3436825526dedceda6b3da62942f433fd40145e6ab_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BF/023</td>
+                    <td>0.891776</td>
+                    <td>51.318282</td>
+                    <td>0.3</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Swan Quay, Belvedere Road, Faversham</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF023Swan-QuayBelvedere-Road.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Faversham Creek Neighbourhood Plan and its inclusion for a Permission in Principle could undermine this process.. The site comprises four buildings formerly used by the Frank and Whitorne Joinery Company and is adjacent to Faversham creek.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/136</td>
+                    <td>0.747297</td>
+                    <td>51.414737</td>
+                    <td>0.37</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>37</td>
+                    <td>37</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Foundry, Rushenden Road, Queenborough</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF136The-Foundary-Queenborough.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Queenborough & Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process.. The site comprises a former foundry and is open, flat and adjacent to Queenborough Creek.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/167</td>
+                    <td>0.719076</td>
+                    <td>51.341017</td>
+                    <td>1.7</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>49</td>
+                    <td>49</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2001-09-20</td>
+                    <td>reserved matters approval</td>
+                    <td>SW/01/0623</td>
+                    <td>permissioned</td>
+                    <td>Former Nicholls Transport site, Lydbrook Close, Sittingbourne</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF167Lydbrook-CloseSittingbourne.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site was granted planning permission in 2001 and remains extant due to early trench digging. Application 17/503888/OUT was recently withdrawn in favour of building out the previous application.. Approval of Reserved Matters for Residential Development Pursuant to Outline Planning Permission SW/97/0623 (49 dwellings).. The site comprises the former Nicholls Transport depot which has now been vacant for a number of years and is surrounded by dwellings close to the A2.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/237</td>
+                    <td>0.718908</td>
+                    <td>51.345221</td>
+                    <td>1.8</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>75</td>
+                    <td>75</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>152 Staplehurst Road, Sittingbourne</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF237152-Staplehurst-RoadSittingbourne.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site is allcoated within the  adopted Local Plan and its inclusion for a Permission in Principle could undermine this process.. The site comprises a flat piece of land within a predominantly residential area, with some commercial/industrial use too. It is adjacent to the railway  line to the north.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/256</td>
+                    <td>0.741481</td>
+                    <td>51.415863</td>
+                    <td>1.45</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>West Street, Queenborough</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF256West-StreetQueenborough.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Queenborough & Rushenden Regeneration Area and its inclusion for a Permission in Principle could undermine this process.. The site comrises land including business offices, dockyard buildings and wharfs adjacent to Queenborough Creek.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/258</td>
+                    <td>0.745006</td>
+                    <td>51.415394</td>
+                    <td>13.31</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>379</td>
+                    <td>379</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land West of Rushenden Road, Queenborough</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF258West-of-Rushenden-Road.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Queenborough & Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process. The overall site is identified as having capacity for up to 480 dwellings, however application 16/507298/FULL was approved for 101 dwellings on the southern portion of the site and is under construction.. The site is vacant and is surrounded by Rushenden Road to the east and Queenborough Creek to the west.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/259</td>
+                    <td>0.739715</td>
+                    <td>51.344214</td>
+                    <td>7.6</td>
+                    <td>2018-03-10</td>
+                    <td>2018-03-10</td>
+                    <td>267</td>
+                    <td>267</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Crown Quay Lane</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF260Crown-Quay-Lane.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The overall site is identified as having capacity for up to 650 dwellings, however a large part of the site was granted planning permission for 383 dwellings in May 2018 which are now under construction. The remainder of the site forms part of a detailed Local Plan allocation and its inclusion for a Permission in Principle could undermine this process.. The site comprises a cleared former industrial estate. It is surrounded by Milton Creek, Eurolink Way, Eurolink industrial estate and Sittingbourne retail park.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/265</td>
+                    <td>0.739581</td>
+                    <td>51.338596</td>
+                    <td>0.9</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>120</td>
+                    <td>165</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>16/506946/FULL</td>
+                    <td>pending decision</td>
+                    <td>Bell Centre, Bell Road, Sittingbourne</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF265Bell-CentreSittingbourne.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has an application currently pending decision.. Proposed mixed use development comprising 165 no. residential apartments, medical centre and pharmacy across three blocks with associated parking and landscaping, refurbishment of existing Bell House with retention of offices and an additional storey.. The site comprises the former Bell Shopping Centre which was demolished a number of years ago. The land has been vacant since and fronts Bell Road close to Sittingbourne town centre.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/275</td>
+                    <td>0.897152</td>
+                    <td>51.320942</td>
+                    <td>0.95</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Provender Mill, New Creek Road, Faversham</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF275Provender-Mill-New-Creek-Road.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Faversham Creek Neighbourhood Plan and its inclusion for a Permission in Principle could undermine this process.. The site sits between Faversham Creek and New Creek Road and contains a number of designated heritage assets.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/281</td>
+                    <td>0.745006</td>
+                    <td>51.415394</td>
+                    <td>7.0</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>380</td>
+                    <td>380</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land South of Queenborough Creek, Queenborough</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF281South-of-Queenborough-Creek.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Queenborough & Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process.. The site lies to the south of Queenborough Creek and falls partly within the Queenborough Conservation Area, with a number of designated heritage assets close by.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/283</td>
+                    <td>0.719902</td>
+                    <td>51.346241</td>
+                    <td>1.5</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>60</td>
+                    <td>60</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>17/502935/OUT</td>
+                    <td>pending decision</td>
+                    <td>Former McDonald's Mailing Centre, Staplehurst Road, Sittingbourne</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF283Staplehurst-RoadSittingbourne.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has an application currently pending consideration.. Outline application  for demolition of existing warehouse and office building and erection of 52 new dwellings with matters of access and scale to be considered as this stage.. The comprises a number of commercial premises and is generally flat with a change in level to Staplehurst Road to the east.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/373</td>
+                    <td>0.747966</td>
+                    <td>51.412464</td>
+                    <td>4.0</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>240</td>
+                    <td>240</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Istil Mill Site, Rushenden Road, Queenborough</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF373Former-Istil-siteRushenden-RoadThomsett-Way.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the Queenborough & Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process. An application has been submitted for ground raising (18/502348/FULL) in preparation for future residential development and is pending consideration.. The site is a former steel rolling mill site and most of the associated structures have been demolished with hardstanding and vegetation remaining. Access is taken from Thomsett Way to the South.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/511</td>
+                    <td>0.92045</td>
+                    <td>51.263582</td>
+                    <td>1.0</td>
+                    <td>2018-03-20</td>
+                    <td>2018-03-10</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-12</td>
+                    <td>full planning permission</td>
+                    <td>15/501089/FULL</td>
+                    <td>permissioned</td>
+                    <td>Moons of Selling, Grove Road, Selling</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF511Moons-of-SellingGrove-Road.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site was granted planning permission in 2015.. Demolition of existing commercial buildings, removal of the existing hard surface areas and the erection of 5 no dwellings with amenity space, paddocks, parking, access and landscaping as amended by drawings received 1st June 2015.. The site comprises a number of buildings formerly used for commercial purposes. It is set back from Grove Road and generally well screened.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BF/588</td>
+                    <td>0.725954</td>
+                    <td>51.362541</td>
+                    <td>1.54</td>
+                    <td>2018-03-10</td>
+                    <td>2018-03-10</td>
+                    <td>42</td>
+                    <td>42</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/swale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>14/506167/OUT</td>
+                    <td>pending decision</td>
+                    <td>Floplast Ltd, Sheppey Way, Bobbing</td>
+                    <td>https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF588Floplast-LtdSheppey-Way.docx</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has an application currently pending decision.. Demolition of existing buildings. Outline application for the erection of 42 dwellings, with all matters reserved for future consideration.. The site comprises a recently vacatged industrial site opposite Howt Green Farm and close to a small ribbon of development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.891776, "GeoY": 51.318282, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "The site forms part of the Faversham Creek Neighbourhood Plan and its inclusion for a Permission in Principle could undermine this process.. The site comprises four buildings formerly used by the Frank and Whitorne Joinery Company and is adjacent to Faversham creek.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Swan Quay, Belvedere Road, Faversham", "SiteReference": "BF/023", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF023Swan-QuayBelvedere-Road.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.747297, "GeoY": 51.414737, "HazardousSubstances": "yes", "Hectares": 0.37, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 37, "NetDwellingsRangeTo": 37, "Notes": "The site forms part of the Queenborough \u0026 Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process.. The site comprises a former foundry and is open, flat and adjacent to Queenborough Creek.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Foundry, Rushenden Road, Queenborough", "SiteReference": "BF/136", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF136The-Foundary-Queenborough.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.719076, "GeoY": 51.341017, "HazardousSubstances": "yes", "Hectares": 1.7, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 49, "NetDwellingsRangeTo": 49, "Notes": "The site was granted planning permission in 2001 and remains extant due to early trench digging. Application 17/503888/OUT was recently withdrawn in favour of building out the previous application.. Approval of Reserved Matters for Residential Development Pursuant to Outline Planning Permission SW/97/0623 (49 dwellings).. The site comprises the former Nicholls Transport depot which has now been vacant for a number of years and is surrounded by dwellings close to the A2.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2001-09-20", "PermissionType": "reserved matters approval", "PlanningHistory": "SW/01/0623", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Nicholls Transport site, Lydbrook Close, Sittingbourne", "SiteReference": "BF/167", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF167Lydbrook-CloseSittingbourne.docx"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.718908, "GeoY": 51.345221, "HazardousSubstances": "yes", "Hectares": 1.8, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 75, "NetDwellingsRangeTo": 75, "Notes": "The site is allcoated within the  adopted Local Plan and its inclusion for a Permission in Principle could undermine this process.. The site comprises a flat piece of land within a predominantly residential area, with some commercial/industrial use too. It is adjacent to the railway  line to the north.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "152 Staplehurst Road, Sittingbourne", "SiteReference": "BF/237", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF237152-Staplehurst-RoadSittingbourne.docx"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.741481, "GeoY": 51.415863, "HazardousSubstances": "yes", "Hectares": 1.45, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 80, "NetDwellingsRangeTo": 80, "Notes": "The site forms part of the Queenborough \u0026 Rushenden Regeneration Area and its inclusion for a Permission in Principle could undermine this process.. The site comrises land including business offices, dockyard buildings and wharfs adjacent to Queenborough Creek.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "West Street, Queenborough", "SiteReference": "BF/256", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF256West-StreetQueenborough.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.745006, "GeoY": 51.415394, "HazardousSubstances": "yes", "Hectares": 13.31, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 379, "NetDwellingsRangeTo": 379, "Notes": "The site forms part of the Queenborough \u0026 Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process. The overall site is identified as having capacity for up to 480 dwellings, however application 16/507298/FULL was approved for 101 dwellings on the southern portion of the site and is under construction.. The site is vacant and is surrounded by Rushenden Road to the east and Queenborough Creek to the west.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land West of Rushenden Road, Queenborough", "SiteReference": "BF/258", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF258West-of-Rushenden-Road.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-10", "GeoX": 0.739715, "GeoY": 51.344214, "HazardousSubstances": "yes", "Hectares": 7.6, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 267, "NetDwellingsRangeTo": 267, "Notes": "The overall site is identified as having capacity for up to 650 dwellings, however a large part of the site was granted planning permission for 383 dwellings in May 2018 which are now under construction. The remainder of the site forms part of a detailed Local Plan allocation and its inclusion for a Permission in Principle could undermine this process.. The site comprises a cleared former industrial estate. It is surrounded by Milton Creek, Eurolink Way, Eurolink industrial estate and Sittingbourne retail park.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Crown Quay Lane", "SiteReference": "BF/259", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF260Crown-Quay-Lane.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.739581, "GeoY": 51.338596, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 120, "NetDwellingsRangeTo": 165, "Notes": "The site has an application currently pending decision.. Proposed mixed use development comprising 165 no. residential apartments, medical centre and pharmacy across three blocks with associated parking and landscaping, refurbishment of existing Bell House with retention of offices and an additional storey.. The site comprises the former Bell Shopping Centre which was demolished a number of years ago. The land has been vacant since and fronts Bell Road close to Sittingbourne town centre.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "16/506946/FULL", "PlanningStatus": "pending decision", "SiteNameAddress": "Bell Centre, Bell Road, Sittingbourne", "SiteReference": "BF/265", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF265Bell-CentreSittingbourne.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.897152, "GeoY": 51.320942, "HazardousSubstances": "yes", "Hectares": 0.95, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 10, "NetDwellingsRangeTo": 10, "Notes": "The site forms part of the Faversham Creek Neighbourhood Plan and its inclusion for a Permission in Principle could undermine this process.. The site sits between Faversham Creek and New Creek Road and contains a number of designated heritage assets.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Provender Mill, New Creek Road, Faversham", "SiteReference": "BF/275", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF275Provender-Mill-New-Creek-Road.docx"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.745006, "GeoY": 51.415394, "HazardousSubstances": "yes", "Hectares": 7.0, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 380, "NetDwellingsRangeTo": 380, "Notes": "The site forms part of the Queenborough \u0026 Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process.. The site lies to the south of Queenborough Creek and falls partly within the Queenborough Conservation Area, with a number of designated heritage assets close by.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land South of Queenborough Creek, Queenborough", "SiteReference": "BF/281", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF281South-of-Queenborough-Creek.docx"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.719902, "GeoY": 51.346241, "HazardousSubstances": "yes", "Hectares": 1.5, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 60, "NetDwellingsRangeTo": 60, "Notes": "The site has an application currently pending consideration.. Outline application  for demolition of existing warehouse and office building and erection of 52 new dwellings with matters of access and scale to be considered as this stage.. The comprises a number of commercial premises and is generally flat with a change in level to Staplehurst Road to the east.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "17/502935/OUT", "PlanningStatus": "pending decision", "SiteNameAddress": "Former McDonald\u0027s Mailing Centre, Staplehurst Road, Sittingbourne", "SiteReference": "BF/283", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF283Staplehurst-RoadSittingbourne.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.747966, "GeoY": 51.412464, "HazardousSubstances": "yes", "Hectares": 4.0, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 240, "NetDwellingsRangeTo": 240, "Notes": "The site forms part of the Queenborough \u0026 Rushenden Masterplan and its inclusion for a Permission in Principle could undermine this process. An application has been submitted for ground raising (18/502348/FULL) in preparation for future residential development and is pending consideration.. The site is a former steel rolling mill site and most of the associated structures have been demolished with hardstanding and vegetation remaining. Access is taken from Thomsett Way to the South.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Istil Mill Site, Rushenden Road, Queenborough", "SiteReference": "BF/373", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF373Former-Istil-siteRushenden-RoadThomsett-Way.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-20", "GeoX": 0.92045, "GeoY": 51.263582, "HazardousSubstances": "yes", "Hectares": 1.0, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": "The site was granted planning permission in 2015.. Demolition of existing commercial buildings, removal of the existing hard surface areas and the erection of 5 no dwellings with amenity space, paddocks, parking, access and landscaping as amended by drawings received 1st June 2015.. The site comprises a number of buildings formerly used for commercial purposes. It is set back from Grove Road and generally well screened.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-12", "PermissionType": "full planning permission", "PlanningHistory": "15/501089/FULL", "PlanningStatus": "permissioned", "SiteNameAddress": "Moons of Selling, Grove Road, Selling", "SiteReference": "BF/511", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF511Moons-of-SellingGrove-Road.docx"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-03-10", "GeoX": 0.725954, "GeoY": 51.362541, "HazardousSubstances": null, "Hectares": 1.54, "LastUpdatedDate": "2018-03-10", "NetDwellingsRangeFrom": 42, "NetDwellingsRangeTo": 42, "Notes": "The site has an application currently pending decision.. Demolition of existing buildings. Outline application for the erection of 42 dwellings, with all matters reserved for future consideration.. The site comprises a recently vacatged industrial site opposite Howt Green Farm and close to a small ribbon of development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/swale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "14/506167/OUT", "PlanningStatus": "pending decision", "SiteNameAddress": "Floplast Ltd, Sheppey Way, Bobbing", "SiteReference": "BF/588", "SiteplanURL": "https://archive.swale.gov.uk/assets/Planning-General/Planning-Policy/Brownfield-Land-Register/BF588Floplast-LtdSheppey-Way.docx"}];
+    const bbox = [0.7045519145153576, 0.9348060854846424, 51.25459884341859, 51.42484615658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

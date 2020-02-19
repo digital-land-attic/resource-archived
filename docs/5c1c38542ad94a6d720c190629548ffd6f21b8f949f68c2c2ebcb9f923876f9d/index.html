@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">5c1c3854...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.cotswold.gov.uk/media/1565830/Brownfield-Land-Register.csv">http://www.cotswold.gov.uk/media/1565830/Brownfield-Land-Register.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:COT">Cotswold District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/5c1c38542ad94a6d720c190629548ffd6f21b8f949f68c2c2ebcb9f923876f9d/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/5c1c38542ad94a6d720c190629548ffd6f21b8f949f68c2c2ebcb9f923876f9d">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">26 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22.56
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>26</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/5c1c38542ad94a6d720c190629548ffd6f21b8f949f68c2c2ebcb9f923876f9d.csv"
+        download="5c1c38542ad94a6d720c190629548ffd6f21b8f949f68c2c2ebcb9f923876f9d_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/5c1c38542ad94a6d720c190629548ffd6f21b8f949f68c2c2ebcb9f923876f9d"
+        download="5c1c38542ad94a6d720c190629548ffd6f21b8f949f68c2c2ebcb9f923876f9d_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>16/03163/FUL</td>
+                    <td>-1.775533</td>
+                    <td>52.040978</td>
+                    <td>0.78</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Swimming Pool, Broad Campden, Chipping Campden</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=415493.000000&StartNorthing=238088.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for six dwellings. Construction of six dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/00254/FUL</td>
+                    <td>-1.969395</td>
+                    <td>51.717758</td>
+                    <td>2.06</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>4-6 Black Jack Street, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402211.000000&StartNorthing=202115.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for seven dwellings. Demolition (in part) of 4 Black Jack Street, and outbuildings to rear of 4-6 Black Jack Street and erection of 7 houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/00224/FUL</td>
+                    <td>-1.970206</td>
+                    <td>51.71801</td>
+                    <td>0.06</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Cirencester Baptist Church, 37A Coxwell Street, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402155.000000&StartNorthing=202143.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for five dwellings. Change of use and conversion of Baptist Church to five residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/03017/REM</td>
+                    <td>-1.967302</td>
+                    <td>51.709621</td>
+                    <td>0.48</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-22</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Chesterton Halt Adult Training Centre, Meadow Road, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402356.000000&StartNorthing=201210.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 24 dwellings. Redevelopment to provide 24  apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/05023/FUL</td>
+                    <td>-1.964243</td>
+                    <td>51.716606</td>
+                    <td>0.16</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>First Floor, 27 Dyer Street, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402567.000000&StartNorthing=201987.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for six dwellings. Change of use of gym to create six apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/00549/OFRPAN</td>
+                    <td>-1.960098</td>
+                    <td>51.705707</td>
+                    <td>0.01</td>
+                    <td>2017-12-01</td>
+                    <td>2017-12-01</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-30</td>
+                    <td>planning permission granted under an order</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Gap House, 1 Longwood Court, Love Lane, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402854.000000&StartNorthing=200775.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for six dwellings. Change of use from offices to six apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/01659/FUL</td>
+                    <td>-1.955205</td>
+                    <td>51.70745</td>
+                    <td>0.1</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-25</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>38 Cricklade Road, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=403192.000000&StartNorthing=200969.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for eight dwellings. Demolition of existing dwelling house and outbuildings and erection of two blocks consisting of in total of eight flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/02205/FUL</td>
+                    <td>-1.962767</td>
+                    <td>51.715634</td>
+                    <td>0.04</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>50-52 Lewis Lane, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402669.000000&StartNorthing=201879.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for seven dwellings. Change of use from shop to seven flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>C_17</td>
+                    <td>-1.968761</td>
+                    <td>51.713316</td>
+                    <td>0.18</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>42-54 Querns Lane, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402255.000000&StartNorthing=201621.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for six dwellings - see SHELAA (November 2017) for further information. Suitable for development (six dwellings)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>C_57/C_101A /C_101B</td>
+                    <td>-1.965315</td>
+                    <td>51.715545</td>
+                    <td>0.88</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Forum Car Park, Magistrates Court and Cirencester Police Station, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402493.000000&StartNorthing=201869.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for 24 dwellings - see SHELAA (November 2017) for further information. Suitable for mixed use (24 flats) subject to the outcome of the Cirencester Parking Strategy</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>C_82B</td>
+                    <td>-1.965433</td>
+                    <td>51.712228</td>
+                    <td>0.51</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Paternoster House, Watermoor Road, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402485.000000&StartNorthing=201500.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for 13 dwellings - see SHELAA (November 2017) for further information. Suitable for demolition and new-build housing (13 dwellings)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>C_97/CIR_E12</td>
+                    <td>-1.97083</td>
+                    <td>51.715277</td>
+                    <td>0.38</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Old Memorial Hospital Site & Car Park, Sheep Street, Cirencester</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=402112.000000&StartNorthing=201839.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for nine dwellings - see SHELAA (November 2017) for further information. Suitable for car parking and development (nine dwellings) subject to completion of the car parking strategy</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>14/05225/OUT</td>
+                    <td>-2.089547</td>
+                    <td>51.852746</td>
+                    <td>7.27</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-29</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Ullenwood Court, Ullenwood, Coberley</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=393929.000000&StartNorthing=217132.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 20 dwellings. Residential re-development consisting of 20 units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/00820/FUL</td>
+                    <td>-1.703973</td>
+                    <td>51.986363</td>
+                    <td>0.07</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-25</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>White House, Stow Road, Moreton-in-Marsh</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=420426.000000&StartNorthing=232031.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for six dwellings. Demolition of existing dwelling and erection of six flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/03221/FUL</td>
+                    <td>-1.704864</td>
+                    <td>51.992506</td>
+                    <td>0.79</td>
+                    <td>2017-11-13</td>
+                    <td>2017-12-01</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-21</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Hospital Site, Moreton-in-Marsh</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=420362.000000&StartNorthing=232714.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 20 dwellings. Residential development to provide 20 homes (19 retirement homes and 1 open market)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>M_63</td>
+                    <td>-1.700967</td>
+                    <td>51.991732</td>
+                    <td>0.29</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>British Legion Site, Moreton-in-Marsh</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=420630.000000&StartNorthing=232629.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for 30 dwellings - see SHELAA (November 2017) for further information. Suitable for development (30 dwellings)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>14/00188/FUL</td>
+                    <td>-1.726351</td>
+                    <td>51.929434</td>
+                    <td>0.18</td>
+                    <td>2017-11-13</td>
+                    <td>2017-12-01</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Stow Agricultural Services, Lower Swell Road, Stow-on-the-Wold</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=418913.000000&StartNorthing=225693.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 13 dwellings. New application pending consideration for seven dwellings (reference 17/04749/FUL). Demolition of existing buildings and erection of 13 two-bedroom apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>14/03649/FUL</td>
+                    <td>-1.721209</td>
+                    <td>51.93086</td>
+                    <td>0.06</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-06-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land at White Hart Lane, Stow-on-the-Wold</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=419266.000000&StartNorthing=225853.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for seven dwellings. Construction of four houses and three apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>12/01792/OUT</td>
+                    <td>-2.150873</td>
+                    <td>51.644468</td>
+                    <td>5.0</td>
+                    <td>2017-11-13</td>
+                    <td>2017-12-01</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-09-26</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land parcel south of Quercus Road, Quercus Road (Matbro SIAC), Tetbury</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=389657.000000&StartNorthing=193974.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Only 50 of the Outline permission remain not started (see 13/04451/REM, 15/03479/REM and 16/02483/REM for parts of the site that are under construction). Approximately 124 dwellings, 50 sheltered units and 50 extra care apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/01282/FUL</td>
+                    <td>-2.158291</td>
+                    <td>51.637256</td>
+                    <td>0.06</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Crown Inn, Gumstool Hill, Tetbury</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=389142.000000&StartNorthing=193173.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for six dwellings. Proposed conversion and redevelopment to provide six residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/02343/FUL</td>
+                    <td>-2.158946</td>
+                    <td>51.638649</td>
+                    <td>0.3</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Priory Nursing Home, The Chipping, Tetbury</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=389097.000000&StartNorthing=193328.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for six dwellings. Change of use to provide six residential dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>T_51</td>
+                    <td>-2.155349</td>
+                    <td>51.643131</td>
+                    <td>0.77</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Northfield Garage Site, London Road, Tetbury</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=389347.000000&StartNorthing=193826.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for 18 dwellings - see SHELAA (November 2017) for further information. Suitable for development (18 dwellings), subject to access onto the A433 being achieved</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>16/04810/FUL</td>
+                    <td>-2.143679</td>
+                    <td>51.645466</td>
+                    <td>0.76</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Wells Masonry Group Ltd, Ilsom Farm, Cirencester Road, Tetbury Upton</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=390155.000000&StartNorthing=194084.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 16 dwellings. Erection of 16 dwellings following demolition of existing buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>13/02463/OUT</td>
+                    <td>-1.727007</td>
+                    <td>51.811519</td>
+                    <td>1.17</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-06-03</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former filling station on the A40 Windrush section, Windrush</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=418917.000000&StartNorthing=212578.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 16 dwellings. Conversion of partially constructed motel building to form 16 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>W_1A/W_1B</td>
+                    <td>-1.847089</td>
+                    <td>52.053796</td>
+                    <td>0.05</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garage workshop behind The Nook, Main Street, Willersey</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=410582.000000&StartNorthing=239501.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Proposed allocation for five dwellings - see SHELAA (November 2017) for further information. Suitable for development (five dwellings)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/03385/FUL</td>
+                    <td>-1.726736</td>
+                    <td>51.810799</td>
+                    <td>0.15</td>
+                    <td>2017-11-13</td>
+                    <td>2017-11-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/cotswold</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former filling station on the A40 Windrush Section, Windrush</td>
+                    <td>http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps&StartEasting=418936.000000&StartNorthing=212498.000000&StartZoom=250&o=1&Layers=Brownfield_Sites_CDC</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Has planning permission for 12 dwellings. Erection of 12 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.775533, "GeoY": 52.040978, "HazardousSubstances": null, "Hectares": 0.78, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for six dwellings. Construction of six dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Swimming Pool, Broad Campden, Chipping Campden", "SiteReference": "16/03163/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=415493.000000\u0026StartNorthing=238088.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.969395, "GeoY": 51.717758, "HazardousSubstances": null, "Hectares": 2.06, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for seven dwellings. Demolition (in part) of 4 Black Jack Street, and outbuildings to rear of 4-6 Black Jack Street and erection of 7 houses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "4-6 Black Jack Street, Cirencester", "SiteReference": "15/00254/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402211.000000\u0026StartNorthing=202115.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.970206, "GeoY": 51.71801, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for five dwellings. Change of use and conversion of Baptist Church to five residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Cirencester Baptist Church, 37A Coxwell Street, Cirencester", "SiteReference": "16/00224/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402155.000000\u0026StartNorthing=202143.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.967302, "GeoY": 51.709621, "HazardousSubstances": null, "Hectares": 0.48, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 24 dwellings. Redevelopment to provide 24  apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-22", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Chesterton Halt Adult Training Centre, Meadow Road, Cirencester", "SiteReference": "16/03017/REM", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402356.000000\u0026StartNorthing=201210.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.964243, "GeoY": 51.716606, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for six dwellings. Change of use of gym to create six apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "First Floor, 27 Dyer Street, Cirencester", "SiteReference": "16/05023/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402567.000000\u0026StartNorthing=201987.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.960098, "GeoY": 51.705707, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for six dwellings. Change of use from offices to six apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-30", "PermissionType": "planning permission granted under an order", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Gap House, 1 Longwood Court, Love Lane, Cirencester", "SiteReference": "17/00549/OFRPAN", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402854.000000\u0026StartNorthing=200775.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.955205, "GeoY": 51.70745, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for eight dwellings. Demolition of existing dwelling house and outbuildings and erection of two blocks consisting of in total of eight flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-25", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "38 Cricklade Road, Cirencester", "SiteReference": "17/01659/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=403192.000000\u0026StartNorthing=200969.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.962767, "GeoY": 51.715634, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for seven dwellings. Change of use from shop to seven flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "50-52 Lewis Lane, Cirencester", "SiteReference": "17/02205/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402669.000000\u0026StartNorthing=201879.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.968761, "GeoY": 51.713316, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for six dwellings - see SHELAA (November 2017) for further information. Suitable for development (six dwellings)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "42-54 Querns Lane, Cirencester", "SiteReference": "C_17", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402255.000000\u0026StartNorthing=201621.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.965315, "GeoY": 51.715545, "HazardousSubstances": null, "Hectares": 0.88, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for 24 dwellings - see SHELAA (November 2017) for further information. Suitable for mixed use (24 flats) subject to the outcome of the Cirencester Parking Strategy", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Forum Car Park, Magistrates Court and Cirencester Police Station, Cirencester", "SiteReference": "C_57/C_101A /C_101B", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402493.000000\u0026StartNorthing=201869.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.965433, "GeoY": 51.712228, "HazardousSubstances": null, "Hectares": 0.51, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for 13 dwellings - see SHELAA (November 2017) for further information. Suitable for demolition and new-build housing (13 dwellings)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Paternoster House, Watermoor Road, Cirencester", "SiteReference": "C_82B", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402485.000000\u0026StartNorthing=201500.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.97083, "GeoY": 51.715277, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for nine dwellings - see SHELAA (November 2017) for further information. Suitable for car parking and development (nine dwellings) subject to completion of the car parking strategy", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Old Memorial Hospital Site \u0026 Car Park, Sheep Street, Cirencester", "SiteReference": "C_97/CIR_E12", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=402112.000000\u0026StartNorthing=201839.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -2.089547, "GeoY": 51.852746, "HazardousSubstances": null, "Hectares": 7.27, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 20 dwellings. Residential re-development consisting of 20 units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-29", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Ullenwood Court, Ullenwood, Coberley", "SiteReference": "14/05225/OUT", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=393929.000000\u0026StartNorthing=217132.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.703973, "GeoY": 51.986363, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for six dwellings. Demolition of existing dwelling and erection of six flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-25", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "White House, Stow Road, Moreton-in-Marsh", "SiteReference": "17/00820/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=420426.000000\u0026StartNorthing=232031.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.704864, "GeoY": 51.992506, "HazardousSubstances": null, "Hectares": 0.79, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 20 dwellings. Residential development to provide 20 homes (19 retirement homes and 1 open market)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-21", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Hospital Site, Moreton-in-Marsh", "SiteReference": "17/03221/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=420362.000000\u0026StartNorthing=232714.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.700967, "GeoY": 51.991732, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for 30 dwellings - see SHELAA (November 2017) for further information. Suitable for development (30 dwellings)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "British Legion Site, Moreton-in-Marsh", "SiteReference": "M_63", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=420630.000000\u0026StartNorthing=232629.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.726351, "GeoY": 51.929434, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 13 dwellings. New application pending consideration for seven dwellings (reference 17/04749/FUL). Demolition of existing buildings and erection of 13 two-bedroom apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Stow Agricultural Services, Lower Swell Road, Stow-on-the-Wold", "SiteReference": "14/00188/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=418913.000000\u0026StartNorthing=225693.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.721209, "GeoY": 51.93086, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for seven dwellings. Construction of four houses and three apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-06-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land at White Hart Lane, Stow-on-the-Wold", "SiteReference": "14/03649/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=419266.000000\u0026StartNorthing=225853.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -2.150873, "GeoY": 51.644468, "HazardousSubstances": null, "Hectares": 5.0, "LastUpdatedDate": "2017-12-01", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Only 50 of the Outline permission remain not started (see 13/04451/REM, 15/03479/REM and 16/02483/REM for parts of the site that are under construction). Approximately 124 dwellings, 50 sheltered units and 50 extra care apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-09-26", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land parcel south of Quercus Road, Quercus Road (Matbro SIAC), Tetbury", "SiteReference": "12/01792/OUT", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=389657.000000\u0026StartNorthing=193974.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -2.158291, "GeoY": 51.637256, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for six dwellings. Proposed conversion and redevelopment to provide six residential units", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Crown Inn, Gumstool Hill, Tetbury", "SiteReference": "16/01282/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=389142.000000\u0026StartNorthing=193173.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -2.158946, "GeoY": 51.638649, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for six dwellings. Change of use to provide six residential dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Priory Nursing Home, The Chipping, Tetbury", "SiteReference": "17/02343/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=389097.000000\u0026StartNorthing=193328.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -2.155349, "GeoY": 51.643131, "HazardousSubstances": null, "Hectares": 0.77, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for 18 dwellings - see SHELAA (November 2017) for further information. Suitable for development (18 dwellings), subject to access onto the A433 being achieved", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Northfield Garage Site, London Road, Tetbury", "SiteReference": "T_51", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=389347.000000\u0026StartNorthing=193826.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -2.143679, "GeoY": 51.645466, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 16 dwellings. Erection of 16 dwellings following demolition of existing buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Wells Masonry Group Ltd, Ilsom Farm, Cirencester Road, Tetbury Upton", "SiteReference": "16/04810/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=390155.000000\u0026StartNorthing=194084.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.727007, "GeoY": 51.811519, "HazardousSubstances": null, "Hectares": 1.17, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 16 dwellings. Conversion of partially constructed motel building to form 16 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-06-03", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former filling station on the A40 Windrush section, Windrush", "SiteReference": "13/02463/OUT", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=418917.000000\u0026StartNorthing=212578.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.847089, "GeoY": 52.053796, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Proposed allocation for five dwellings - see SHELAA (November 2017) for further information. Suitable for development (five dwellings)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garage workshop behind The Nook, Main Street, Willersey", "SiteReference": "W_1A/W_1B", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=410582.000000\u0026StartNorthing=239501.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-13", "GeoX": -1.726736, "GeoY": 51.810799, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-11-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Has planning permission for 12 dwellings. Erection of 12 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/cotswold", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former filling station on the A40 Windrush Section, Windrush", "SiteReference": "15/03385/FUL", "SiteplanURL": "http://my.cotswold.gov.uk/mcd.aspx?MapSource=WOxford/cdc_AllMaps\u0026StartEasting=418936.000000\u0026StartNorthing=212498.000000\u0026StartZoom=250\u0026o=1\u0026Layers=Brownfield_Sites_CDC"}];
+    const bbox = [-2.17342006653966, -1.6864929334603396, 51.62827284341859, 52.06277915658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

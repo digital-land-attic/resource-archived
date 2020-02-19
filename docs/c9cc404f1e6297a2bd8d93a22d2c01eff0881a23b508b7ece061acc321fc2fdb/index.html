@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">c9cc404f...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.fareham.gov.uk/PDF/planning/Brownfield/FBC_Brownfield_Land_Register_Part1.csv">http://www.fareham.gov.uk/PDF/planning/Brownfield/FBC_Brownfield_Land_Register_Part1.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:FAR">Fareham Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/c9cc404f1e6297a2bd8d93a22d2c01eff0881a23b508b7ece061acc321fc2fdb/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/c9cc404f1e6297a2bd8d93a22d2c01eff0881a23b508b7ece061acc321fc2fdb">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">30 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">22.71
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>30</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/c9cc404f1e6297a2bd8d93a22d2c01eff0881a23b508b7ece061acc321fc2fdb.csv"
+        download="c9cc404f1e6297a2bd8d93a22d2c01eff0881a23b508b7ece061acc321fc2fdb_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/c9cc404f1e6297a2bd8d93a22d2c01eff0881a23b508b7ece061acc321fc2fdb"
+        download="c9cc404f1e6297a2bd8d93a22d2c01eff0881a23b508b7ece061acc321fc2fdb_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>37</td>
+                    <td>-1.180587</td>
+                    <td>50.883688</td>
+                    <td>2.2</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0189/FP&uprn=100062408858</td>
+                    <td>pending decision</td>
+                    <td>Sawmills Industrial Park, Wickham Road, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-37.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is currently occupied by a series of industrial uses and is in single ownership. Grade II Listed building is located adjacent to the site. Site is within the Welborne boundary as shown in Local Plan Part 3: The Welborne Plan (June 2015).. Demolition, Site Clearance And Remediation With The Erection Of 72 C3 Residential Dwellings And Associated Access, Parking, Ancillary Infrastructure And Landscaping Works. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0189/FP&uprn=100062408858</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>86</td>
+                    <td>-1.193378</td>
+                    <td>50.852986</td>
+                    <td>0.18</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>9.0</td>
+                    <td>20.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>1-2 The Avenue, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-86.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is located in Fareham Town Centre and is currently occupied by vehicle repair garage. Site is identified as a proposed housing allocation in the 2019 supplement to the Draft Local Plan.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>87</td>
+                    <td>-1.189876</td>
+                    <td>50.851958</td>
+                    <td>0.17</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>34.0</td>
+                    <td>34.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>280-282 (UTP) West Street, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-87.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017). This identifies a capacity of 34 dwellings for the site. Access is provided from Station Roundabout and Western Way slip road.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>158</td>
+                    <td>-1.173524</td>
+                    <td>50.851858</td>
+                    <td>0.08</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-10</td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1060/FP</td>
+                    <td>permissioned</td>
+                    <td>Norgar House, 10 East Street, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-158.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is located in Fareham Town Centre. There are two vehicular accesses to 10 on-site car parking spaces. Building is listed and is located within Fareham High Street Conservation Area.. Conversion Of Offices Into 5No 2-Bedroom Flats, With Offices Retained On Part Of The Ground Floor. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1060/FP</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>198</td>
+                    <td>-1.176862</td>
+                    <td>50.854319</td>
+                    <td>3.35</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>100.0</td>
+                    <td>100.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Civic Quarter, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-198.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017). This identifies a capacity of 100 dwellings for the site.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>203</td>
+                    <td>-1.124891</td>
+                    <td>50.846588</td>
+                    <td>0.25</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>26.0</td>
+                    <td>26.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F1040%2FOA</td>
+                    <td>pending decision</td>
+                    <td>3-33 West Street, Portchester</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-203.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is located in Portchester District Centre. Development proposed above existing retail and residential units.. Additional 1 and 2 storeys on the existing building to provide 26 apartments. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F1040%2FOA</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>211</td>
+                    <td>-1.191472</td>
+                    <td>50.853452</td>
+                    <td>1.58</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>120.0</td>
+                    <td>120.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fareham Station East, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-211.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a Development Opportunity Area in the adopted Fareham Local Plan Part 2 (2015) and identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).  This identifies a capacity of 120 dwellings for the site. Immediate and surrounding uses include a public transport hub and interchange, low-key industrial service industries, fire station and some residential. Relocation of existing fire station or incorporation into a redevelopment would be required.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>212</td>
+                    <td>-1.193139</td>
+                    <td>50.853735</td>
+                    <td>1.05</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>94.0</td>
+                    <td>94.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fareham Station West, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-212.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).  This identifies a capacity of 94 dwellings for the site. Industrial and service industries, car garage and residential are located to the west and train station to the east. Area with TPOs is also located adjacent to the west. Indicative capacity of 30 dwellings and a care home or 75 dwellings is also identified for Fareham Station East in the Local Plan Part 2 Sites and Policies document (adopted June 2015).. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1058</td>
+                    <td>-1.215644</td>
+                    <td>50.862323</td>
+                    <td>0.43</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>13.0</td>
+                    <td>13.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Wynton Way, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1058.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in Draft Local Plan (2017).  Constitutes a D Class use and a garage block.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1076</td>
+                    <td>-1.180995</td>
+                    <td>50.838329</td>
+                    <td>0.2</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>8.0</td>
+                    <td>8.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>335-357 Gosport Road, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1076.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in Draft Local Plan (2017).  Site is currently vacant and located adjacent to the Bus Rapid Transit (BRT) route along the former railway line. Site is owned by Hampshire County Council.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1203</td>
+                    <td>-1.299308</td>
+                    <td>50.882614</td>
+                    <td>4.66</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>50.0</td>
+                    <td>50.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-03</td>
+                    <td>other</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/15/0424/VC&uprn=10012134300</td>
+                    <td>permissioned</td>
+                    <td>Swanwick Marina, Bridge Road</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1203.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Permission remains extant due to groundworks commencement having initially been granted in 2008 (P/07/0764/FP). South eastern portion of the site is located adjacent to Swanwick Shore Conservation Area and Listed Buildings. Latest consent (P/15/0424/VC) relates to a variation of condition for an additional affordable dwelling increasing the proposed total to 50. Majority of site located in Flood Zone 3.. Comprehensive Redevelopment Of Marina Comprising Retail, Bar, Restaurant, Offices, And Storage Revised Marina Layout & 49 Dwellings: Variation Of Planning Condition 2 Of P/07/0764/Fp - Minor Amendments To Block A Residential, To Create Additional Unit For Affordable Housing. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/15/0424/VC&uprn=10012134300</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1325</td>
+                    <td>-1.188618</td>
+                    <td>50.852425</td>
+                    <td>0.24</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>49.0</td>
+                    <td>49.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Crofton Conservatories, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1325.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in the Draft Local Plan (2017).  This identifies a capacity of 49 dwellings for the site. Access is from Maytree Road. The site is currently under retail use.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>1425</td>
+                    <td>-1.177444</td>
+                    <td>50.851458</td>
+                    <td>1.48</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>100.0</td>
+                    <td>100.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Market Quay, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1425.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a Development Opportunity Area in the adopted Fareham Local Plan Part 2 (2015) and identified as a proposed Fareham Town Centre mixed use allocation in the Draft Local Plan (2017).  This identifies a capacity of 100 dwellings for the site (excluding potential hotel use on upper floors). A car park currently serves the commercial shopping and retail core forming the town centre. The A27 is located within proximity to the south.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2826</td>
+                    <td>-1.172197</td>
+                    <td>50.854326</td>
+                    <td>0.42</td>
+                    <td>2018-01-08</td>
+                    <td>2019-12-19</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lysses Car Park, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2826.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).  This identifies a capacity of 24 dwellings for the site. Site is subject to the relocation of current car parking provision. Any proposed development would need to respect the character and appearance of the Fareham High Street Conservation Area within which the site is located. UPDATE - site is no longer considered suitable for residential development as at 8.1.18.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2851</td>
+                    <td>-1.272678</td>
+                    <td>50.862967</td>
+                    <td>0.27</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>13.0</td>
+                    <td>13.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Genesis Centre, Locks Heath</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2851.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in Draft Local Plan (2017).  This identifies an indicative capacity of 35 dwellings for the site. However, an indicative capacity of 13 dwellings per hectare has been calculated at this stage for the previously developed part of the site as per the site boundary. Site is located on the edge of Locks Heath District Centre.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2956</td>
+                    <td>-1.189423</td>
+                    <td>50.85236</td>
+                    <td>0.11</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>11.0</td>
+                    <td>11.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Delme Court, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2956.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).This identifies a capacity of 11 net dwellings for the site (a gross total of 32). Site currently comprises a mix of retail, hot food, and residential uses.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2969</td>
+                    <td>-1.179777</td>
+                    <td>50.863718</td>
+                    <td>0.6</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>13.0</td>
+                    <td>13.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-19</td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/14/1252/FP&uprn=200001840995</td>
+                    <td>permissioned</td>
+                    <td>100 Wickham Road, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2969.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Existing building currently used as offices. Site is located adjacent to Wickham Road Cemetery.. Demolition Of Existing Office, Erection Of Office With 7 No. Flats Above With Associated Access, Parking And Landscaping And The Erection Of 6 No. Dwellings Fronting Furzehall Avenue. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/14/1252/FP&uprn=200001840995</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3063</td>
+                    <td>-1.183123</td>
+                    <td>50.853855</td>
+                    <td>0.17</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>12.0</td>
+                    <td>12.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Trinity Street Car Park, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3063.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site owned by Fareham Borough Council. Potential for the site to come forward as part of any future proposals for the adjoining vacant Magistrates Court building.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3070</td>
+                    <td>-1.183124</td>
+                    <td>50.853384</td>
+                    <td>0.22</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>45.0</td>
+                    <td>45.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1261%2FOA</td>
+                    <td>pending decision</td>
+                    <td>Magistrates Court, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3070.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017). This identifies a capacity of 45 dwellings for the site. Former Magistrates Court building identified as surplus to requirements.. Demolition of Fareham Magistrates Court and redevelopment of the site which comprises up to 45 apartments. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1261%2FOA</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3088</td>
+                    <td>-1.302721</td>
+                    <td>50.84543</td>
+                    <td>2.46</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>100.0</td>
+                    <td>100.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Warsash Maritime Academy, Warsash</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3088.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is identified as a proposed housing allocation in the Draft Local Plan (2017). This identifies an indicative capacity of 100 dwellings for the site which are deliverable within 5 years. Listed Buildings and TPOs on the site. Site is also located adjacent to sensitive environmental designations and Flood Zone 3. Site is identified as surplus to requirements by Southampton Solent University.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3116</td>
+                    <td>-1.261813</td>
+                    <td>50.893823</td>
+                    <td>0.92</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>15.0</td>
+                    <td>15.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Cherry Tree Industrial Park, Burridge</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3116.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site currently in operational use. SHELAA (October 2019) shows that 80% of the site is developable at 20 dph with an indicative dwellings yield of 15 dwellings. TPO trees located on front part of the site.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3120</td>
+                    <td>-1.219356</td>
+                    <td>50.835902</td>
+                    <td>0.72</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>9.0</td>
+                    <td>9.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F0483%2FFP</td>
+                    <td>pending decision</td>
+                    <td>The Grange, Oakcroft Lane, Stubbington</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3120.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted for redevelopment of 9 dwellings.. Development comprising 9 dwellings, together with access, landscaping, car parking and associated works. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F0483%2FFP</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3142</td>
+                    <td>-1.266528</td>
+                    <td>50.875288</td>
+                    <td>0.09</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>15.0</td>
+                    <td>15.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-31</td>
+                    <td>other</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1219/PC</td>
+                    <td>permissioned</td>
+                    <td>1 Station Industrial Park, Duncan Road, Park Gate</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3142.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Prior approval required and subsequently granted for conversion of the existing office building into flats.. Part 3, Class O: Change Of Use From B1(A) Offices Into C3 Dwellinghouses - Proposal For 15No. Studio Flats. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1219/PC</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3144</td>
+                    <td>-1.212117</td>
+                    <td>50.858711</td>
+                    <td>0.15</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-12</td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0366/FP&uprn=100062643181</td>
+                    <td>permissioned</td>
+                    <td>132 Highlands Road, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3144.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site previously used for the sale of second hand cars. Site contains former petrol station structures with a large canopy facing the street frontage. Conditions have been agreed with the applicant with regards to clearing up site contamination. TPO trees located adjacent to the north east of the site.. 5No. Two Storey Dwellings, Following Demolition Of Existing Garage. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0366/FP&uprn=100062643181</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3145</td>
+                    <td>-1.185406</td>
+                    <td>50.852947</td>
+                    <td>0.17</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>8.0</td>
+                    <td>8.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-17</td>
+                    <td>other</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0293/PC&uprn=100062407518</td>
+                    <td>permissioned</td>
+                    <td>189-199 West Street, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3145.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This prior approval application (P/17/0293/PC) was made prior to an approved full planning application for 6 units (P/17/0338/FP). Ground floor is classed as secondary retail frontage for the purposes of the adopted Local Plan.. Prior Approval For Change Of Use Of Upper Two Floors From Office Use (Class B1) To Residential Use (Class C3) To Provide 4 One-Bedroom And 4 Two-Bedroom Flats With Access From Ground Floor And Designated Off-Site Parking. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0293/PC&uprn=100062407518</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3146</td>
+                    <td>-1.268668</td>
+                    <td>50.87277</td>
+                    <td>0.12</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>9.0</td>
+                    <td>9.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-12</td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/16/0914/FP&uprn=200002901456</td>
+                    <td>permissioned</td>
+                    <td>Former Wavemar Electronics Building, Fareham</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3146.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is located in Park Gate Local Centre.. Demolition Of Existing Factory And Erection Of 9 One Bed Flats, 2 Self Contained Offices, Parking, Cycle And Bin Storage. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/16/0914/FP&uprn=200002901456</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3149</td>
+                    <td>-1.209422</td>
+                    <td>50.860466</td>
+                    <td>0.15</td>
+                    <td>2017-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>7.0</td>
+                    <td>7.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1420/OA</td>
+                    <td>permissioned</td>
+                    <td>Former Scout Hut, Coldeast Way, Sarisbury Green</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3149.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site forms part of the wider Coldeast development. Permission granted for demolition of Scout hut and construction of apartments.. Outline Application For 3No. 1 Bedroom Apartments  and 4No 2 Bedroom Apartments(Starter Homes/Shared Ownership), Following The Demolition Of The Existing Scout Hut Building. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1420/OA</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3204</td>
+                    <td>-1.28044</td>
+                    <td>50.869184</td>
+                    <td>0.09</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>6.0</td>
+                    <td>6.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>20 Botley Road, Park Gate</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3204.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site located close to Park Gate retail centre. Promoted for redevelopment of 6 dwellings.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3206</td>
+                    <td>-1.288645</td>
+                    <td>50.868817</td>
+                    <td>0.09</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>9.0</td>
+                    <td>9.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1410%2FFP</td>
+                    <td>pending decision</td>
+                    <td>22-27a Stubbington Green</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3206.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is located in Stubbington Local Centre. Application for change of use of first floor to residential dwellings.. Change of use of first floor from sports club to nine flats. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1410%2FFP</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3209</td>
+                    <td>-1.182268</td>
+                    <td>50.847321</td>
+                    <td>0.09</td>
+                    <td>2019-12-01</td>
+                    <td>2019-12-19</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/fareham</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>116 Bridge Road, Sarisbury Green</td>
+                    <td>http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3209.jpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site promoted for redevelopment of 5 dwellings, accessible urban location.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.180587, "GeoY": 50.883688, "HazardousSubstances": null, "Hectares": 2.2, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site is currently occupied by a series of industrial uses and is in single ownership. Grade II Listed building is located adjacent to the site. Site is within the Welborne boundary as shown in Local Plan Part 3: The Welborne Plan (June 2015).. Demolition, Site Clearance And Remediation With The Erection Of 72 C3 Residential Dwellings And Associated Access, Parking, Ancillary Infrastructure And Landscaping Works. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0189/FP\u0026uprn=100062408858", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0189/FP\u0026uprn=100062408858", "PlanningStatus": "pending decision", "SiteNameAddress": "Sawmills Industrial Park, Wickham Road, Fareham", "SiteReference": 37, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-37.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.193378, "GeoY": 50.852986, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 20.0, "Notes": "Site is located in Fareham Town Centre and is currently occupied by vehicle repair garage. Site is identified as a proposed housing allocation in the 2019 supplement to the Draft Local Plan.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "1-2 The Avenue, Fareham", "SiteReference": 86, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-86.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.189876, "GeoY": 50.851958, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 34.0, "NetDwellingsRangeTo": 34.0, "Notes": "Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017). This identifies a capacity of 34 dwellings for the site. Access is provided from Station Roundabout and Western Way slip road.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "280-282 (UTP) West Street, Fareham", "SiteReference": 87, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-87.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.173524, "GeoY": 50.851858, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site is located in Fareham Town Centre. There are two vehicular accesses to 10 on-site car parking spaces. Building is listed and is located within Fareham High Street Conservation Area.. Conversion Of Offices Into 5No 2-Bedroom Flats, With Offices Retained On Part Of The Ground Floor. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1060/FP", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-10", "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1060/FP", "PlanningStatus": "permissioned", "SiteNameAddress": "Norgar House, 10 East Street, Fareham", "SiteReference": 158, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-158.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.176862, "GeoY": 50.854319, "HazardousSubstances": null, "Hectares": 3.35, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 100.0, "NetDwellingsRangeTo": 100.0, "Notes": "Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017). This identifies a capacity of 100 dwellings for the site.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Civic Quarter, Fareham", "SiteReference": 198, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-198.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.124891, "GeoY": 50.846588, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 26.0, "NetDwellingsRangeTo": 26.0, "Notes": "Site is located in Portchester District Centre. Development proposed above existing retail and residential units.. Additional 1 and 2 storeys on the existing building to provide 26 apartments. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F1040%2FOA", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F1040%2FOA", "PlanningStatus": "pending decision", "SiteNameAddress": "3-33 West Street, Portchester", "SiteReference": 203, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-203.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.191472, "GeoY": 50.853452, "HazardousSubstances": null, "Hectares": 1.58, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 120.0, "NetDwellingsRangeTo": 120.0, "Notes": "Site is identified as a Development Opportunity Area in the adopted Fareham Local Plan Part 2 (2015) and identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).  This identifies a capacity of 120 dwellings for the site. Immediate and surrounding uses include a public transport hub and interchange, low-key industrial service industries, fire station and some residential. Relocation of existing fire station or incorporation into a redevelopment would be required.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fareham Station East, Fareham", "SiteReference": 211, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-211.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.193139, "GeoY": 50.853735, "HazardousSubstances": null, "Hectares": 1.05, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 94.0, "NetDwellingsRangeTo": 94.0, "Notes": "Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).  This identifies a capacity of 94 dwellings for the site. Industrial and service industries, car garage and residential are located to the west and train station to the east. Area with TPOs is also located adjacent to the west. Indicative capacity of 30 dwellings and a care home or 75 dwellings is also identified for Fareham Station East in the Local Plan Part 2 Sites and Policies document (adopted June 2015).. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fareham Station West, Fareham", "SiteReference": 212, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-212.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.215644, "GeoY": 50.862323, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 13.0, "NetDwellingsRangeTo": 13.0, "Notes": "Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in Draft Local Plan (2017).  Constitutes a D Class use and a garage block.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Wynton Way, Fareham", "SiteReference": 1058, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1058.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.180995, "GeoY": 50.838329, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 8.0, "NetDwellingsRangeTo": 8.0, "Notes": "Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in Draft Local Plan (2017).  Site is currently vacant and located adjacent to the Bus Rapid Transit (BRT) route along the former railway line. Site is owned by Hampshire County Council.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "335-357 Gosport Road, Fareham", "SiteReference": 1076, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1076.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.299308, "GeoY": 50.882614, "HazardousSubstances": null, "Hectares": 4.66, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 50.0, "NetDwellingsRangeTo": 50.0, "Notes": "Permission remains extant due to groundworks commencement having initially been granted in 2008 (P/07/0764/FP). South eastern portion of the site is located adjacent to Swanwick Shore Conservation Area and Listed Buildings. Latest consent (P/15/0424/VC) relates to a variation of condition for an additional affordable dwelling increasing the proposed total to 50. Majority of site located in Flood Zone 3.. Comprehensive Redevelopment Of Marina Comprising Retail, Bar, Restaurant, Offices, And Storage Revised Marina Layout \u0026 49 Dwellings: Variation Of Planning Condition 2 Of P/07/0764/Fp - Minor Amendments To Block A Residential, To Create Additional Unit For Affordable Housing. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/15/0424/VC\u0026uprn=10012134300", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-03", "PermissionType": "other", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/15/0424/VC\u0026uprn=10012134300", "PlanningStatus": "permissioned", "SiteNameAddress": "Swanwick Marina, Bridge Road", "SiteReference": 1203, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1203.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.188618, "GeoY": 50.852425, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 49.0, "NetDwellingsRangeTo": 49.0, "Notes": "Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in the Draft Local Plan (2017).  This identifies a capacity of 49 dwellings for the site. Access is from Maytree Road. The site is currently under retail use.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Crofton Conservatories, Fareham", "SiteReference": 1325, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1325.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.177444, "GeoY": 50.851458, "HazardousSubstances": null, "Hectares": 1.48, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 100.0, "NetDwellingsRangeTo": 100.0, "Notes": "Site is identified as a Development Opportunity Area in the adopted Fareham Local Plan Part 2 (2015) and identified as a proposed Fareham Town Centre mixed use allocation in the Draft Local Plan (2017).  This identifies a capacity of 100 dwellings for the site (excluding potential hotel use on upper floors). A car park currently serves the commercial shopping and retail core forming the town centre. The A27 is located within proximity to the south.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Market Quay, Fareham", "SiteReference": 1425, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-1425.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-01-08", "GeoX": -1.172197, "GeoY": 50.854326, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 0.0, "NetDwellingsRangeTo": 0.0, "Notes": "Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).  This identifies a capacity of 24 dwellings for the site. Site is subject to the relocation of current car parking provision. Any proposed development would need to respect the character and appearance of the Fareham High Street Conservation Area within which the site is located. UPDATE - site is no longer considered suitable for residential development as at 8.1.18.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lysses Car Park, Fareham", "SiteReference": 2826, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2826.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.272678, "GeoY": 50.862967, "HazardousSubstances": null, "Hectares": 0.27, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 13.0, "NetDwellingsRangeTo": 13.0, "Notes": "Site is an adopted housing allocation in the adopted Fareham Local Plan Part 2 (2015) and proposed for retention in Draft Local Plan (2017).  This identifies an indicative capacity of 35 dwellings for the site. However, an indicative capacity of 13 dwellings per hectare has been calculated at this stage for the previously developed part of the site as per the site boundary. Site is located on the edge of Locks Heath District Centre.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Genesis Centre, Locks Heath", "SiteReference": 2851, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2851.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.189423, "GeoY": 50.85236, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 11.0, "NetDwellingsRangeTo": 11.0, "Notes": "Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017).This identifies a capacity of 11 net dwellings for the site (a gross total of 32). Site currently comprises a mix of retail, hot food, and residential uses.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Delme Court, Fareham", "SiteReference": 2956, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2956.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.179777, "GeoY": 50.863718, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 13.0, "NetDwellingsRangeTo": 13.0, "Notes": "Existing building currently used as offices. Site is located adjacent to Wickham Road Cemetery.. Demolition Of Existing Office, Erection Of Office With 7 No. Flats Above With Associated Access, Parking And Landscaping And The Erection Of 6 No. Dwellings Fronting Furzehall Avenue. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/14/1252/FP\u0026uprn=200001840995", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-19", "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/14/1252/FP\u0026uprn=200001840995", "PlanningStatus": "permissioned", "SiteNameAddress": "100 Wickham Road, Fareham", "SiteReference": 2969, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-2969.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.183123, "GeoY": 50.853855, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 12.0, "NetDwellingsRangeTo": 12.0, "Notes": "Site owned by Fareham Borough Council. Potential for the site to come forward as part of any future proposals for the adjoining vacant Magistrates Court building.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Trinity Street Car Park, Fareham", "SiteReference": 3063, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3063.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.183124, "GeoY": 50.853384, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 45.0, "NetDwellingsRangeTo": 45.0, "Notes": "Site is identified as a proposed Fareham Town Centre housing allocation in the Draft Local Plan (2017). This identifies a capacity of 45 dwellings for the site. Former Magistrates Court building identified as surplus to requirements.. Demolition of Fareham Magistrates Court and redevelopment of the site which comprises up to 45 apartments. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1261%2FOA", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1261%2FOA", "PlanningStatus": "pending decision", "SiteNameAddress": "Magistrates Court, Fareham", "SiteReference": 3070, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3070.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.302721, "GeoY": 50.84543, "HazardousSubstances": null, "Hectares": 2.46, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 100.0, "NetDwellingsRangeTo": 100.0, "Notes": "Site is identified as a proposed housing allocation in the Draft Local Plan (2017). This identifies an indicative capacity of 100 dwellings for the site which are deliverable within 5 years. Listed Buildings and TPOs on the site. Site is also located adjacent to sensitive environmental designations and Flood Zone 3. Site is identified as surplus to requirements by Southampton Solent University.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Warsash Maritime Academy, Warsash", "SiteReference": 3088, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3088.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.261813, "GeoY": 50.893823, "HazardousSubstances": null, "Hectares": 0.92, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 15.0, "NetDwellingsRangeTo": 15.0, "Notes": "Site currently in operational use. SHELAA (October 2019) shows that 80% of the site is developable at 20 dph with an indicative dwellings yield of 15 dwellings. TPO trees located on front part of the site.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Cherry Tree Industrial Park, Burridge", "SiteReference": 3116, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3116.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.219356, "GeoY": 50.835902, "HazardousSubstances": null, "Hectares": 0.72, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 9.0, "Notes": "Site promoted for redevelopment of 9 dwellings.. Development comprising 9 dwellings, together with access, landscaping, car parking and associated works. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F0483%2FFP", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F19%2F0483%2FFP", "PlanningStatus": "pending decision", "SiteNameAddress": "The Grange, Oakcroft Lane, Stubbington", "SiteReference": 3120, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3120.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.266528, "GeoY": 50.875288, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 15.0, "NetDwellingsRangeTo": 15.0, "Notes": "Prior approval required and subsequently granted for conversion of the existing office building into flats.. Part 3, Class O: Change Of Use From B1(A) Offices Into C3 Dwellinghouses - Proposal For 15No. Studio Flats. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1219/PC", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-31", "PermissionType": "other", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1219/PC", "PlanningStatus": "permissioned", "SiteNameAddress": "1 Station Industrial Park, Duncan Road, Park Gate", "SiteReference": 3142, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3142.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.212117, "GeoY": 50.858711, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": "Site previously used for the sale of second hand cars. Site contains former petrol station structures with a large canopy facing the street frontage. Conditions have been agreed with the applicant with regards to clearing up site contamination. TPO trees located adjacent to the north east of the site.. 5No. Two Storey Dwellings, Following Demolition Of Existing Garage. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0366/FP\u0026uprn=100062643181", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-12", "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0366/FP\u0026uprn=100062643181", "PlanningStatus": "permissioned", "SiteNameAddress": "132 Highlands Road, Fareham", "SiteReference": 3144, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3144.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.185406, "GeoY": 50.852947, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 8.0, "NetDwellingsRangeTo": 8.0, "Notes": "This prior approval application (P/17/0293/PC) was made prior to an approved full planning application for 6 units (P/17/0338/FP). Ground floor is classed as secondary retail frontage for the purposes of the adopted Local Plan.. Prior Approval For Change Of Use Of Upper Two Floors From Office Use (Class B1) To Residential Use (Class C3) To Provide 4 One-Bedroom And 4 Two-Bedroom Flats With Access From Ground Floor And Designated Off-Site Parking. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0293/PC\u0026uprn=100062407518", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-17", "PermissionType": "other", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/0293/PC\u0026uprn=100062407518", "PlanningStatus": "permissioned", "SiteNameAddress": "189-199 West Street, Fareham", "SiteReference": 3145, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3145.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.268668, "GeoY": 50.87277, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 9.0, "Notes": "Site is located in Park Gate Local Centre.. Demolition Of Existing Factory And Erection Of 9 One Bed Flats, 2 Self Contained Offices, Parking, Cycle And Bin Storage. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/16/0914/FP\u0026uprn=200002901456", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-12", "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/16/0914/FP\u0026uprn=200002901456", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Wavemar Electronics Building, Fareham", "SiteReference": 3146, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3146.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-01", "GeoX": -1.209422, "GeoY": 50.860466, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 7.0, "NetDwellingsRangeTo": 7.0, "Notes": "Site forms part of the wider Coldeast development. Permission granted for demolition of Scout hut and construction of apartments.. Outline Application For 3No. 1 Bedroom Apartments  and 4No 2 Bedroom Apartments(Starter Homes/Shared Ownership), Following The Demolition Of The Existing Scout Hut Building. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1420/OA", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P/17/1420/OA", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Scout Hut, Coldeast Way, Sarisbury Green", "SiteReference": 3149, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3149.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.28044, "GeoY": 50.869184, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 6.0, "NetDwellingsRangeTo": 6.0, "Notes": "Site located close to Park Gate retail centre. Promoted for redevelopment of 6 dwellings.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "20 Botley Road, Park Gate", "SiteReference": 3204, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3204.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.288645, "GeoY": 50.868817, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 9.0, "Notes": "Site is located in Stubbington Local Centre. Application for change of use of first floor to residential dwellings.. Change of use of first floor from sports club to nine flats. http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1410%2FFP", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://www.fareham.gov.uk/casetrackerplanning/ApplicationDetails.aspx?reference=P%2F18%2F1410%2FFP", "PlanningStatus": "pending decision", "SiteNameAddress": "22-27a Stubbington Green", "SiteReference": 3206, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3206.jpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-12-01", "GeoX": -1.182268, "GeoY": 50.847321, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2019-12-19", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": "Site promoted for redevelopment of 5 dwellings, accessible urban location.. http://www.fareham.gov.uk/PDF/planning/local_plan/DraftLocalPlanEvidenceBase/EV11-SHLAAOct2017.pdf", "OrganisationURI": "http://opendatacommunities.org/id/district-council/fareham", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "116 Bridge Road, Sarisbury Green", "SiteReference": 3209, "SiteplanURL": "http://www.fareham.gov.uk/downloads/BLR_Plans/SitePlan-3209.jpg"}];
+    const bbox = [-1.316945127508429, -1.1106668724915711, 50.826918843418596, 50.902806156581406];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

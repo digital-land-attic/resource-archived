@@ -1,0 +1,3223 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">327cd759...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.royalgreenwich.gov.uk/download/downloads/id/3572/brownfield_land_register_csv">http://www.royalgreenwich.gov.uk/download/downloads/id/3572/brownfield_land_register_csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:GRE">Royal Borough of Greenwich</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/327cd759a67bf062632b8906638d622fbf3b2bad0c29020a1cdf191920023ebb/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/327cd759a67bf062632b8906638d622fbf3b2bad0c29020a1cdf191920023ebb">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">95 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">134.58
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>95</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/327cd759a67bf062632b8906638d622fbf3b2bad0c29020a1cdf191920023ebb.csv"
+        download="327cd759a67bf062632b8906638d622fbf3b2bad0c29020a1cdf191920023ebb_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/327cd759a67bf062632b8906638d622fbf3b2bad0c29020a1cdf191920023ebb"
+        download="327cd759a67bf062632b8906638d622fbf3b2bad0c29020a1cdf191920023ebb_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>RBG-01</td>
+                    <td></td>
+                    <td></td>
+                    <td>1.82</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2007-07-27</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Thomas St phases 3 & 4, Thomas St, Woolwich New Rd & Wellington St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Of the 960 total dwellings permitted, 259 dwellings completed 14/03/2014 in Phase 1 (10/2440/R)."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-02</td>
+                    <td>0.088441</td>
+                    <td>51.488379</td>
+                    <td>0.09</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2007-10-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“64 & rear of, Plumstead High St Plumstead“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-03</td>
+                    <td>0.009127</td>
+                    <td>51.485358</td>
+                    <td>2.2</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2009-03-31</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Former Greenwich District Hospital site, Vanbrugh Hill Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-04</td>
+                    <td>0.058655</td>
+                    <td>51.475956</td>
+                    <td>4.41</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2009-07-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“The Academy (former Royal Military Academy), Academy Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-05</td>
+                    <td>0.02368</td>
+                    <td>51.460441</td>
+                    <td>5.04</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2010-03-24</td>
+                    <td>reserved matters approval</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kidbrooke Village Phase 2, Kidbrooke Park Rd Kidbrooke“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-06</td>
+                    <td>0.025765</td>
+                    <td>51.474685</td>
+                    <td>0.07</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2010-08-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“92-94 Shooters Hill Rd Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-07</td>
+                    <td>-0.018096</td>
+                    <td>51.476379</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2011-07-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Former Millers PH & newsagent, 83-87 Greenwich High Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-08</td>
+                    <td>0.006515</td>
+                    <td>51.490178</td>
+                    <td>3.6</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2012-03-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Alcatel-Lucent, Christchurch Way Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-09</td>
+                    <td>-0.017159</td>
+                    <td>51.479727</td>
+                    <td>0.13</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2012-03-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Hilton's Wharf, 30-52 Norman Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-10</td>
+                    <td>0.059252</td>
+                    <td>51.494012</td>
+                    <td>0.76</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2012-03-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Mast Quay Phase 2, Woolwich Church St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-11</td>
+                    <td>0.016378</td>
+                    <td>51.492365</td>
+                    <td>8.01</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2012-03-30</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Greenwich Millennium Village, Peartree Way & West Parkside Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-12</td>
+                    <td>0.05604</td>
+                    <td>51.494015</td>
+                    <td>0.13</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2012-03-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“South East London Aquatic Centre, Europe Rd Woolwich (King Henry's Dock)“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-13</td>
+                    <td>0.017813</td>
+                    <td>51.485704</td>
+                    <td>0.1</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2012-09-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Former Westcombe Park police station, 11 Combedale Rd Westcombe Park“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-14</td>
+                    <td>0.069501</td>
+                    <td>51.492878</td>
+                    <td>14.98</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2013-06-19</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Warren Masterplan, Beresford St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-15</td>
+                    <td>0.113179</td>
+                    <td>51.487243</td>
+                    <td>0.11</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2013-11-08</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Land adjacent to 106-116 McLeod Rd & Dahlia Rd Abbey Wood“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-16</td>
+                    <td>-0.016381</td>
+                    <td>51.477088</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-03-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“139 Greenwich High Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-17</td>
+                    <td>0.012363</td>
+                    <td>51.497362</td>
+                    <td>0.43</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-03-31</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Plot M0103 (land east of Barge Walk) Peninsula Riverside Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-18</td>
+                    <td>0.005553</td>
+                    <td>51.486625</td>
+                    <td>0.09</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-04-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“St Joseph's Community Hall, Pelton Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-19</td>
+                    <td>0.050978</td>
+                    <td>51.45056</td>
+                    <td>0.43</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-05-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Grove Market Place & 60 Eltham High St Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-20</td>
+                    <td>0.060088</td>
+                    <td>51.489555</td>
+                    <td>0.09</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-07-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Former Woolwich Congregational Church, Rectory Place Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-21</td>
+                    <td>0.064695</td>
+                    <td>51.493323</td>
+                    <td>0.43</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-12-05</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Callis Yard, Bunton St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-22</td>
+                    <td>0.019224</td>
+                    <td>51.454394</td>
+                    <td>0.07</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2014-12-16</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“76 Eltham Rd Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-23</td>
+                    <td>0.055418</td>
+                    <td>51.45041</td>
+                    <td>0.07</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-02-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“142-144 Eltham High St Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-24</td>
+                    <td>0.018409</td>
+                    <td>51.488122</td>
+                    <td>0.08</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-03-12</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kundan Building Supplies, Angerstein Wharf, Horn Lane Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-25</td>
+                    <td>0.064985</td>
+                    <td>51.489838</td>
+                    <td>0.08</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-03-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“38 Wellington St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-26</td>
+                    <td>0.027978</td>
+                    <td>51.460933</td>
+                    <td>4.73</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-03-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kidbrooke Village Phase 3, Kidbrooke Park Rd Kidbrooke“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-27</td>
+                    <td>0.029452</td>
+                    <td>51.458471</td>
+                    <td>4.78</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-03-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kidbrooke Village Phase 5, Kidbrooke Park Rd Kidbrooke“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-28</td>
+                    <td>0.022901</td>
+                    <td>51.46299</td>
+                    <td>4.09</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-03-27</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kidbrooke Village Phase 6, Kidbrooke Park Rd Kidbrooke“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-29</td>
+                    <td>0.073986</td>
+                    <td>51.491396</td>
+                    <td>0.84</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-04-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Former Car Park & Units 12, 14, 15 and 16 Gunnery Terrace, Plumstead Rd Woolwich (Crossrail above-station development)“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-30</td>
+                    <td>0.059233</td>
+                    <td>51.487825</td>
+                    <td>0.25</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-04-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“36-38 Artillery Place Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Construction likely to begin early 2018.“</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-31</td>
+                    <td>0.065997</td>
+                    <td>51.486115</td>
+                    <td>3.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-04-02</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Connaught Estate, land south of Sandy Hill Lane west of Brookhill Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-32</td>
+                    <td>0.056104</td>
+                    <td>51.487431</td>
+                    <td>0.05</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-04-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kings Arms, 1 Frances St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-33</td>
+                    <td>0.050782</td>
+                    <td>51.439763</td>
+                    <td>0.05</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-04-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Ava Cars, 188 Court Rd Mottingham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-34</td>
+                    <td>0.046374</td>
+                    <td>51.475056</td>
+                    <td>0.1</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-08-12</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“3rd & 4th Floors Farndale Court, 1-3 Master Gunner Place Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-35</td>
+                    <td>0.018754</td>
+                    <td>51.484842</td>
+                    <td>0.09</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-08-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“54 Westcombe Hill Westcombe Park“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-36</td>
+                    <td>0.019304</td>
+                    <td>51.478052</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-08-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Lower Ground, Ground & 1st Floors, 1 Charlton Rd Blackheath“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-37</td>
+                    <td>0.051817</td>
+                    <td>51.490779</td>
+                    <td>0.06</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-09-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Garages adjacent to 39 Samuel St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-38</td>
+                    <td>0.066897</td>
+                    <td>51.482439</td>
+                    <td>0.15</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-09-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Lord Clyde, 1 Brookhill Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-39</td>
+                    <td>0.058462</td>
+                    <td>51.47488</td>
+                    <td>0.04</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-10-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Kitchener House & Ellington House, Ashmore Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-40</td>
+                    <td>0.058486</td>
+                    <td>51.45845</td>
+                    <td>0.08</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-10-26</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“145 Westmount Rd Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-41</td>
+                    <td>0.069172</td>
+                    <td>51.479233</td>
+                    <td>0.01</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-11-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“11 Eglinton Hill Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-42</td>
+                    <td>0.056401</td>
+                    <td>51.487632</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-11-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“6 Frances St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-43</td>
+                    <td>0.068539</td>
+                    <td>51.490386</td>
+                    <td>0.14</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-11-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Equitable House, 7 General Gordon Square Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-44</td>
+                    <td>0.005156</td>
+                    <td>51.498259</td>
+                    <td>46.11</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-12-08</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Knight Dragon site, Edmund Halley Way Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Anticipated that 6,000 dwellings will be completed within a 15-year timeframe up to 2032."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-45</td>
+                    <td>-0.013155</td>
+                    <td>51.482708</td>
+                    <td>0.04</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-12-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Holt Court, 26 Horseferry Place Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-46</td>
+                    <td>0.032952</td>
+                    <td>51.48573</td>
+                    <td>0.05</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-12-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Charlton Liberal Club, 59 Charlton Church Lane Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-47</td>
+                    <td>-0.017164</td>
+                    <td>51.480932</td>
+                    <td>0.47</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-12-14</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Creekside East, Creek Rd & Copperas St Deptford“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-48</td>
+                    <td>0.003743</td>
+                    <td>51.490361</td>
+                    <td>3.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2015-12-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Enderby Wharf, Banning St & Christchurch Way Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started. Formerly part of Alcatel-Lucent site.“</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-49</td>
+                    <td>0.068359</td>
+                    <td>51.488654</td>
+                    <td>0.01</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-03-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“1 Anglesea Mews Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-50</td>
+                    <td>0.064799</td>
+                    <td>51.491783</td>
+                    <td>0.04</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-03-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“97-101 Powis St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-51</td>
+                    <td>0.058227</td>
+                    <td>51.492366</td>
+                    <td>0.26</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-03-31</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Sunbury Lodge, 1 Sunbury St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-52</td>
+                    <td>0.007586</td>
+                    <td>51.486356</td>
+                    <td>0.06</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-04-25</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“2-12 Blackwall Lane Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-53</td>
+                    <td>0.007074</td>
+                    <td>51.485528</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-05-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“228-232 Trafalgar Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-54</td>
+                    <td>0.063489</td>
+                    <td>51.490224</td>
+                    <td>0.1</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-05-12</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“29 Market St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-55</td>
+                    <td>0.008294</td>
+                    <td>51.501155</td>
+                    <td>1.63</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-05-31</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Plots N0205, N0206 & N0207, Peninsula Square, West Parkside Greenwich “</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>"Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-56</td>
+                    <td>-0.013051</td>
+                    <td>51.482472</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-07-18</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Old Loyal Britons PH, 62 Thames St Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-57</td>
+                    <td>0.037373</td>
+                    <td>51.482137</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-08-02</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“25-31 The Village Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-58</td>
+                    <td>0.042958</td>
+                    <td>51.491428</td>
+                    <td>0.06</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-08-08</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Penhall Tyres Ltd, 700 Woolwich Rd Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-59</td>
+                    <td>0.028893</td>
+                    <td>51.487743</td>
+                    <td>0.04</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-09-19</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“445 Woolwich Rd Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-60</td>
+                    <td>0.010999</td>
+                    <td>51.498456</td>
+                    <td>3.53</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-09-20</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Plots MO104 & MO121 (land west of coal jetty), Pilot Way, Barge Walk & Olympian Way Greenwich.</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started.15/2104/MA amended original permission to increase residential units on Plot M0121 from 251 to 260."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-61</td>
+                    <td>0.039624</td>
+                    <td>51.461577</td>
+                    <td>0.47</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-10-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Rochester Way Social Club and adjoining open space, Rochester Way & Briset Rd Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-62</td>
+                    <td>0.067526</td>
+                    <td>51.491241</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-10-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“1st & 2nd Floors, Murray's Yard, 26-28 Powis St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-63</td>
+                    <td>0.048438</td>
+                    <td>51.492187</td>
+                    <td>0.01</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-11-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“The Albion PH, 48 Woolwich Church St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-64</td>
+                    <td>0.1097</td>
+                    <td>51.484257</td>
+                    <td>0.22</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-11-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Land rear of 2-36 Bevan Rd Abbey Wood“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-65</td>
+                    <td>0.037946</td>
+                    <td>51.488539</td>
+                    <td>0.34</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2016-11-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Garages rear of 7-22 Prentiss Court Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-66</td>
+                    <td>0.073455</td>
+                    <td>51.489841</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-01-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Queens Arms PH, 23 Burrage Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-67</td>
+                    <td>0.068684</td>
+                    <td>51.479278</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-01-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“51 Herbert Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-68</td>
+                    <td>0.058803</td>
+                    <td>51.475738</td>
+                    <td>0.07</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-01-13</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Central Parade Building, Royal Military Academy, Academy Lane Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-69</td>
+                    <td>0.069158</td>
+                    <td>51.47926</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-01-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“9 Eglinton Hill Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-70</td>
+                    <td>0.063042</td>
+                    <td>51.434341</td>
+                    <td>0.07</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-02-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“260-262 Green Lane Mottingham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-71</td>
+                    <td>-0.020179</td>
+                    <td>51.475497</td>
+                    <td>0.38</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-03-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“37 Greenwich High Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-72</td>
+                    <td>0.062365</td>
+                    <td>51.447752</td>
+                    <td>0.09</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-03-10</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“48-60 Footscray Rd Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-73</td>
+                    <td>-0.013461</td>
+                    <td>51.481301</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-03-14</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“258-260 Creek Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-74</td>
+                    <td>0.052178</td>
+                    <td>51.450368</td>
+                    <td>0.01</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-03-17</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“The Crown PH, 11 Court Yard Eltham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-75</td>
+                    <td>0.071895</td>
+                    <td>51.492288</td>
+                    <td>1.0</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-03-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Buildings 10 & 11 & Royal Carriage Square, Woolwich Arsenal Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-76</td>
+                    <td>0.046889</td>
+                    <td>51.49073</td>
+                    <td>4.3</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-04-02</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Morris Walk (South) Estate, Prospect Vale & Maryon Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-77</td>
+                    <td>0.002724</td>
+                    <td>51.488471</td>
+                    <td>2.84</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-04-05</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Lovell's, Granite, Badcock's & Piper's Wharves, Pelton Rd & Banning St Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Started. Original application 06/1749/F approved 20/2/2007 for 667 dwelings. Several amendments since have increased the approved number to 840."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-78</td>
+                    <td>0.064438</td>
+                    <td>51.488894</td>
+                    <td>0.21</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-04-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Ogilby Housing Society site, Wellington St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-79</td>
+                    <td>0.090499</td>
+                    <td>51.498396</td>
+                    <td>0.39</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-05-09</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“The Reach, Thames Reach, Battery Rd Thamesmead“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-80</td>
+                    <td>0.005374</td>
+                    <td>51.482887</td>
+                    <td>0.06</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-05-23</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Garages adjacent to 63 & 73 Woodlands Park Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-81</td>
+                    <td>0.068141</td>
+                    <td>51.435753</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-05-25</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Albany House, 75 Southwood Rd Mottingham“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-82</td>
+                    <td>0.069762</td>
+                    <td>51.480185</td>
+                    <td>0.01</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-07-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“29 Herbert Rd Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-83</td>
+                    <td>0.022559</td>
+                    <td>51.481638</td>
+                    <td>0.03</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-07-24</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“79 Eastcombe Ave Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-84</td>
+                    <td>0.066505</td>
+                    <td>51.492877</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-07-27</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Royal Sovereign House, 40 Beresford St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-85</td>
+                    <td>0.095819</td>
+                    <td>51.473364</td>
+                    <td>0.05</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-08-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Glenmore Arms PH, 41 Edison Grove Plumstead“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-86</td>
+                    <td>0.031586</td>
+                    <td>51.487723</td>
+                    <td>0.02</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-08-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“Antigallican PH, 428 Woolwich Rd Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-87</td>
+                    <td>0.0878</td>
+                    <td>51.479074</td>
+                    <td>0.05</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-08-30</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“2a Kirkham St Plumstead“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-88</td>
+                    <td>0.015774</td>
+                    <td>51.486836</td>
+                    <td>0.11</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td>2017-09-22</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>“3-5 Tunnel Ave Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Not started."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-89</td>
+                    <td>0.065585</td>
+                    <td>51.490385</td>
+                    <td>0.68</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>“Island site, Thomas, Wellington, Polytechnic & Calderwood Sts Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Resolution to approve."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-90</td>
+                    <td>0.070956</td>
+                    <td>51.490641</td>
+                    <td>1.86</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>“Spray St SPD area, Spray St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Minimum net dwellings based on Illustrative Masterplan capacity and 2016 London SHLAA capacity.'</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-91</td>
+                    <td>0.120161</td>
+                    <td>51.493664</td>
+                    <td>2.15</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>“Land At Harrow Manorway & Felixstowe Rd Abbey Wood“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Resolution to approve."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-92</td>
+                    <td>-0.017574</td>
+                    <td>51.477135</td>
+                    <td>0.16</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>“Norman House, 110-114 Norman Rd Greenwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Resolution to approve."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-93</td>
+                    <td>0.068216</td>
+                    <td>51.492173</td>
+                    <td>0.8</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>“Woolwich Catholic Club, 81-88 Beresford St Woolwich“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Resolution to approve."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-94</td>
+                    <td>0.04909</td>
+                    <td>51.486169</td>
+                    <td>0.31</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>“16 Sandpit Pl Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Resolution to approve."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBG-95</td>
+                    <td>0.035667</td>
+                    <td>51.48232</td>
+                    <td>0.4</td>
+                    <td>2017-12-22</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>“Fred Styles House and adjacent garages, 20 Fletching Rd Charlton“</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>“Resolution to approve."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 1.82, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Of the 960 total dwellings permitted, 259 dwellings completed 14/03/2014 in Phase 1 (10/2440/R).\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2007-07-27", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cThomas St phases 3 \u0026 4, Thomas St, Woolwich New Rd \u0026 Wellington St Woolwich\u201c", "SiteReference": "RBG-01", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.088441, "GeoY": 51.488379, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2007-10-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c64 \u0026 rear of, Plumstead High St Plumstead\u201c", "SiteReference": "RBG-02", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.009127, "GeoY": 51.485358, "HazardousSubstances": null, "Hectares": 2.2, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2009-03-31", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cFormer Greenwich District Hospital site, Vanbrugh Hill Greenwich\u201c", "SiteReference": "RBG-03", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.058655, "GeoY": 51.475956, "HazardousSubstances": null, "Hectares": 4.41, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2009-07-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cThe Academy (former Royal Military Academy), Academy Rd Woolwich\u201c", "SiteReference": "RBG-04", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.02368, "GeoY": 51.460441, "HazardousSubstances": null, "Hectares": 5.04, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2010-03-24", "PermissionType": "reserved matters approval", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKidbrooke Village Phase 2, Kidbrooke Park Rd Kidbrooke\u201c", "SiteReference": "RBG-05", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.025765, "GeoY": 51.474685, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2010-08-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c92-94 Shooters Hill Rd Charlton\u201c", "SiteReference": "RBG-06", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.018096, "GeoY": 51.476379, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2011-07-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cFormer Millers PH \u0026 newsagent, 83-87 Greenwich High Rd Greenwich\u201c", "SiteReference": "RBG-07", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.006515, "GeoY": 51.490178, "HazardousSubstances": null, "Hectares": 3.6, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2012-03-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cAlcatel-Lucent, Christchurch Way Greenwich\u201c", "SiteReference": "RBG-08", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.017159, "GeoY": 51.479727, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2012-03-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cHilton\u0027s Wharf, 30-52 Norman Rd Greenwich\u201c", "SiteReference": "RBG-09", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.059252, "GeoY": 51.494012, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2012-03-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cMast Quay Phase 2, Woolwich Church St Woolwich\u201c", "SiteReference": "RBG-10", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.016378, "GeoY": 51.492365, "HazardousSubstances": null, "Hectares": 8.01, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2012-03-30", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cGreenwich Millennium Village, Peartree Way \u0026 West Parkside Greenwich\u201c", "SiteReference": "RBG-11", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.05604, "GeoY": 51.494015, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2012-03-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cSouth East London Aquatic Centre, Europe Rd Woolwich (King Henry\u0027s Dock)\u201c", "SiteReference": "RBG-12", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.017813, "GeoY": 51.485704, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2012-09-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cFormer Westcombe Park police station, 11 Combedale Rd Westcombe Park\u201c", "SiteReference": "RBG-13", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.069501, "GeoY": 51.492878, "HazardousSubstances": null, "Hectares": 14.98, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2013-06-19", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cWarren Masterplan, Beresford St Woolwich\u201c", "SiteReference": "RBG-14", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.113179, "GeoY": 51.487243, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2013-11-08", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cLand adjacent to 106-116 McLeod Rd \u0026 Dahlia Rd Abbey Wood\u201c", "SiteReference": "RBG-15", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.016381, "GeoY": 51.477088, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-03-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c139 Greenwich High Rd Greenwich\u201c", "SiteReference": "RBG-16", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.012363, "GeoY": 51.497362, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-03-31", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cPlot M0103 (land east of Barge Walk) Peninsula Riverside Greenwich\u201c", "SiteReference": "RBG-17", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.005553, "GeoY": 51.486625, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-04-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cSt Joseph\u0027s Community Hall, Pelton Rd Greenwich\u201c", "SiteReference": "RBG-18", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.050978, "GeoY": 51.45056, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-05-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cGrove Market Place \u0026 60 Eltham High St Eltham\u201c", "SiteReference": "RBG-19", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.060088, "GeoY": 51.489555, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-07-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cFormer Woolwich Congregational Church, Rectory Place Woolwich\u201c", "SiteReference": "RBG-20", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.064695, "GeoY": 51.493323, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-12-05", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cCallis Yard, Bunton St Woolwich\u201c", "SiteReference": "RBG-21", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.019224, "GeoY": 51.454394, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2014-12-16", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c76 Eltham Rd Eltham\u201c", "SiteReference": "RBG-22", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.055418, "GeoY": 51.45041, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-02-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c142-144 Eltham High St Eltham\u201c", "SiteReference": "RBG-23", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.018409, "GeoY": 51.488122, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-03-12", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKundan Building Supplies, Angerstein Wharf, Horn Lane Greenwich\u201c", "SiteReference": "RBG-24", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.064985, "GeoY": 51.489838, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-03-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c38 Wellington St Woolwich\u201c", "SiteReference": "RBG-25", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.027978, "GeoY": 51.460933, "HazardousSubstances": null, "Hectares": 4.73, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-03-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKidbrooke Village Phase 3, Kidbrooke Park Rd Kidbrooke\u201c", "SiteReference": "RBG-26", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.029452, "GeoY": 51.458471, "HazardousSubstances": null, "Hectares": 4.78, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-03-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKidbrooke Village Phase 5, Kidbrooke Park Rd Kidbrooke\u201c", "SiteReference": "RBG-27", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.022901, "GeoY": 51.46299, "HazardousSubstances": null, "Hectares": 4.09, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-03-27", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKidbrooke Village Phase 6, Kidbrooke Park Rd Kidbrooke\u201c", "SiteReference": "RBG-28", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.073986, "GeoY": 51.491396, "HazardousSubstances": null, "Hectares": 0.84, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Not started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-04-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cFormer Car Park \u0026 Units 12, 14, 15 and 16 Gunnery Terrace, Plumstead Rd Woolwich (Crossrail above-station development)\u201c", "SiteReference": "RBG-29", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.059233, "GeoY": 51.487825, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cConstruction likely to begin early 2018.\u201c", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-04-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c36-38 Artillery Place Woolwich\u201c", "SiteReference": "RBG-30", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.065997, "GeoY": 51.486115, "HazardousSubstances": null, "Hectares": 3.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-04-02", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cConnaught Estate, land south of Sandy Hill Lane west of Brookhill Rd Woolwich\u201c", "SiteReference": "RBG-31", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.056104, "GeoY": 51.487431, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-04-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKings Arms, 1 Frances St Woolwich\u201c", "SiteReference": "RBG-32", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.050782, "GeoY": 51.439763, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-04-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cAva Cars, 188 Court Rd Mottingham\u201c", "SiteReference": "RBG-33", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.046374, "GeoY": 51.475056, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-08-12", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c3rd \u0026 4th Floors Farndale Court, 1-3 Master Gunner Place Woolwich\u201c", "SiteReference": "RBG-34", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.018754, "GeoY": 51.484842, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-08-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c54 Westcombe Hill Westcombe Park\u201c", "SiteReference": "RBG-35", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.019304, "GeoY": 51.478052, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-08-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cLower Ground, Ground \u0026 1st Floors, 1 Charlton Rd Blackheath\u201c", "SiteReference": "RBG-36", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.051817, "GeoY": 51.490779, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-09-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cGarages adjacent to 39 Samuel St Woolwich\u201c", "SiteReference": "RBG-37", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.066897, "GeoY": 51.482439, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-09-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cLord Clyde, 1 Brookhill Rd Woolwich\u201c", "SiteReference": "RBG-38", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.058462, "GeoY": 51.47488, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-10-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKitchener House \u0026 Ellington House, Ashmore Rd Woolwich\u201c", "SiteReference": "RBG-39", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.058486, "GeoY": 51.45845, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-10-26", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c145 Westmount Rd Eltham\u201c", "SiteReference": "RBG-40", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.069172, "GeoY": 51.479233, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-11-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c11 Eglinton Hill Woolwich\u201c", "SiteReference": "RBG-41", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.056401, "GeoY": 51.487632, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-11-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c6 Frances St Woolwich\u201c", "SiteReference": "RBG-42", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.068539, "GeoY": 51.490386, "HazardousSubstances": null, "Hectares": 0.14, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-11-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cEquitable House, 7 General Gordon Square Woolwich\u201c", "SiteReference": "RBG-43", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.005156, "GeoY": 51.498259, "HazardousSubstances": null, "Hectares": 46.11, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cAnticipated that 6,000 dwellings will be completed within a 15-year timeframe up to 2032.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-12-08", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cKnight Dragon site, Edmund Halley Way Greenwich\u201c", "SiteReference": "RBG-44", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.013155, "GeoY": 51.482708, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-12-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cHolt Court, 26 Horseferry Place Greenwich\u201c", "SiteReference": "RBG-45", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.032952, "GeoY": 51.48573, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-12-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cCharlton Liberal Club, 59 Charlton Church Lane Charlton\u201c", "SiteReference": "RBG-46", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.017164, "GeoY": 51.480932, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-12-14", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cCreekside East, Creek Rd \u0026 Copperas St Deptford\u201c", "SiteReference": "RBG-47", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.003743, "GeoY": 51.490361, "HazardousSubstances": null, "Hectares": 3.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted. Formerly part of Alcatel-Lucent site.\u201c", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2015-12-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cEnderby Wharf, Banning St \u0026 Christchurch Way Greenwich\u201c", "SiteReference": "RBG-48", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.068359, "GeoY": 51.488654, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-03-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c1 Anglesea Mews Woolwich\u201c", "SiteReference": "RBG-49", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.064799, "GeoY": 51.491783, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-03-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c97-101 Powis St Woolwich\u201c", "SiteReference": "RBG-50", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.058227, "GeoY": 51.492366, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-03-31", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cSunbury Lodge, 1 Sunbury St Woolwich\u201c", "SiteReference": "RBG-51", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.007586, "GeoY": 51.486356, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-04-25", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c2-12 Blackwall Lane Greenwich\u201c", "SiteReference": "RBG-52", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.007074, "GeoY": 51.485528, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-05-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c228-232 Trafalgar Rd Greenwich\u201c", "SiteReference": "RBG-53", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.063489, "GeoY": 51.490224, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-05-12", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c29 Market St Woolwich\u201c", "SiteReference": "RBG-54", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.008294, "GeoY": 51.501155, "HazardousSubstances": null, "Hectares": 1.63, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\"Started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-05-31", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cPlots N0205, N0206 \u0026 N0207, Peninsula Square, West Parkside Greenwich \u201c", "SiteReference": "RBG-55", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.013051, "GeoY": 51.482472, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-07-18", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cOld Loyal Britons PH, 62 Thames St Greenwich\u201c", "SiteReference": "RBG-56", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.037373, "GeoY": 51.482137, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-08-02", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c25-31 The Village Charlton\u201c", "SiteReference": "RBG-57", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.042958, "GeoY": 51.491428, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-08-08", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cPenhall Tyres Ltd, 700 Woolwich Rd Charlton\u201c", "SiteReference": "RBG-58", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.028893, "GeoY": 51.487743, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-09-19", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c445 Woolwich Rd Charlton\u201c", "SiteReference": "RBG-59", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.010999, "GeoY": 51.498456, "HazardousSubstances": null, "Hectares": 3.53, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted.15/2104/MA amended original permission to increase residential units on Plot M0121 from 251 to 260.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-09-20", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cPlots MO104 \u0026 MO121 (land west of coal jetty), Pilot Way, Barge Walk \u0026 Olympian Way Greenwich.", "SiteReference": "RBG-60", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.039624, "GeoY": 51.461577, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-10-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cRochester Way Social Club and adjoining open space, Rochester Way \u0026 Briset Rd Eltham\u201c", "SiteReference": "RBG-61", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.067526, "GeoY": 51.491241, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-10-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c1st \u0026 2nd Floors, Murray\u0027s Yard, 26-28 Powis St Woolwich\u201c", "SiteReference": "RBG-62", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.048438, "GeoY": 51.492187, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-11-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cThe Albion PH, 48 Woolwich Church St Woolwich\u201c", "SiteReference": "RBG-63", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.1097, "GeoY": 51.484257, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-11-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cLand rear of 2-36 Bevan Rd Abbey Wood\u201c", "SiteReference": "RBG-64", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.037946, "GeoY": 51.488539, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2016-11-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cGarages rear of 7-22 Prentiss Court Charlton\u201c", "SiteReference": "RBG-65", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.073455, "GeoY": 51.489841, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-01-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cQueens Arms PH, 23 Burrage Rd Woolwich\u201c", "SiteReference": "RBG-66", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.068684, "GeoY": 51.479278, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-01-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c51 Herbert Rd Woolwich\u201c", "SiteReference": "RBG-67", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.058803, "GeoY": 51.475738, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-01-13", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cCentral Parade Building, Royal Military Academy, Academy Lane Woolwich\u201c", "SiteReference": "RBG-68", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.069158, "GeoY": 51.47926, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-01-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c9 Eglinton Hill Woolwich\u201c", "SiteReference": "RBG-69", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.063042, "GeoY": 51.434341, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-02-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c260-262 Green Lane Mottingham\u201c", "SiteReference": "RBG-70", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.020179, "GeoY": 51.475497, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-03-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c37 Greenwich High Rd Greenwich\u201c", "SiteReference": "RBG-71", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.062365, "GeoY": 51.447752, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-03-10", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c48-60 Footscray Rd Eltham\u201c", "SiteReference": "RBG-72", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.013461, "GeoY": 51.481301, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-03-14", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c258-260 Creek Rd Greenwich\u201c", "SiteReference": "RBG-73", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.052178, "GeoY": 51.450368, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-03-17", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cThe Crown PH, 11 Court Yard Eltham\u201c", "SiteReference": "RBG-74", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.071895, "GeoY": 51.492288, "HazardousSubstances": null, "Hectares": 1.0, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-03-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cBuildings 10 \u0026 11 \u0026 Royal Carriage Square, Woolwich Arsenal Woolwich\u201c", "SiteReference": "RBG-75", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.046889, "GeoY": 51.49073, "HazardousSubstances": null, "Hectares": 4.3, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-04-02", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cMorris Walk (South) Estate, Prospect Vale \u0026 Maryon Rd Woolwich\u201c", "SiteReference": "RBG-76", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.002724, "GeoY": 51.488471, "HazardousSubstances": null, "Hectares": 2.84, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cStarted. Original application 06/1749/F approved 20/2/2007 for 667 dwelings. Several amendments since have increased the approved number to 840.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-04-05", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cLovell\u0027s, Granite, Badcock\u0027s \u0026 Piper\u0027s Wharves, Pelton Rd \u0026 Banning St Greenwich\u201c", "SiteReference": "RBG-77", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.064438, "GeoY": 51.488894, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-04-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cOgilby Housing Society site, Wellington St Woolwich\u201c", "SiteReference": "RBG-78", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.090499, "GeoY": 51.498396, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-05-09", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cThe Reach, Thames Reach, Battery Rd Thamesmead\u201c", "SiteReference": "RBG-79", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.005374, "GeoY": 51.482887, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-05-23", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cGarages adjacent to 63 \u0026 73 Woodlands Park Rd Greenwich\u201c", "SiteReference": "RBG-80", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.068141, "GeoY": 51.435753, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-05-25", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cAlbany House, 75 Southwood Rd Mottingham\u201c", "SiteReference": "RBG-81", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.069762, "GeoY": 51.480185, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-07-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c29 Herbert Rd Woolwich\u201c", "SiteReference": "RBG-82", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.022559, "GeoY": 51.481638, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-07-24", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c79 Eastcombe Ave Charlton\u201c", "SiteReference": "RBG-83", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.066505, "GeoY": 51.492877, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-07-27", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cRoyal Sovereign House, 40 Beresford St Woolwich\u201c", "SiteReference": "RBG-84", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.095819, "GeoY": 51.473364, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-08-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cGlenmore Arms PH, 41 Edison Grove Plumstead\u201c", "SiteReference": "RBG-85", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.031586, "GeoY": 51.487723, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-08-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201cAntigallican PH, 428 Woolwich Rd Charlton\u201c", "SiteReference": "RBG-86", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.0878, "GeoY": 51.479074, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-08-30", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c2a Kirkham St Plumstead\u201c", "SiteReference": "RBG-87", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.015774, "GeoY": 51.486836, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cNot started.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": "2017-09-22", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "\u201c3-5 Tunnel Ave Greenwich\u201c", "SiteReference": "RBG-88", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.065585, "GeoY": 51.490385, "HazardousSubstances": null, "Hectares": 0.68, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cResolution to approve.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "\u201cIsland site, Thomas, Wellington, Polytechnic \u0026 Calderwood Sts Woolwich\u201c", "SiteReference": "RBG-89", "SiteplanURL": null}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.070956, "GeoY": 51.490641, "HazardousSubstances": null, "Hectares": 1.86, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cMinimum net dwellings based on Illustrative Masterplan capacity and 2016 London SHLAA capacity.\u0027", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "\u201cSpray St SPD area, Spray St Woolwich\u201c", "SiteReference": "RBG-90", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.120161, "GeoY": 51.493664, "HazardousSubstances": null, "Hectares": 2.15, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cResolution to approve.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "\u201cLand At Harrow Manorway \u0026 Felixstowe Rd Abbey Wood\u201c", "SiteReference": "RBG-91", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": -0.017574, "GeoY": 51.477135, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cResolution to approve.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "\u201cNorman House, 110-114 Norman Rd Greenwich\u201c", "SiteReference": "RBG-92", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.068216, "GeoY": 51.492173, "HazardousSubstances": null, "Hectares": 0.8, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cResolution to approve.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "\u201cWoolwich Catholic Club, 81-88 Beresford St Woolwich\u201c", "SiteReference": "RBG-93", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.04909, "GeoY": 51.486169, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cResolution to approve.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "\u201c16 Sandpit Pl Charlton\u201c", "SiteReference": "RBG-94", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-22", "GeoX": 0.035667, "GeoY": 51.48232, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "\u201cResolution to approve.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/greenwich", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "\u201cFred Styles House and adjacent garages, 20 Fletching Rd Charlton\u201c", "SiteReference": "RBG-95", "SiteplanURL": null}];
+    const bbox = [-0.03458868410144609, 0.13457068410144607, 51.42535784341859, 51.510138156581405];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

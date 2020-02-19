@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">4ef5a19e...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="http://www.reigate-banstead.gov.uk/download/downloads/id/3904/reigateandbanstead_brownfieldregister_2017-12-31_1_csv.csv">http://www.reigate-banstead.gov.uk/download/downloads/id/3904/reigateandbanstead_brownfieldregister_2017-12-31_1_csv.csv</a>
+        </dd>
+    </dl>
+    <a href="http://www.reigate-banstead.gov.uk/downloads/download/1346/brownfield_land_register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 24 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:REI">Reigate and Banstead Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/4ef5a19e52792af91d090bf7502f0fead21d0b2ad46aece3dc813d2bd8c0be6b/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/4ef5a19e52792af91d090bf7502f0fead21d0b2ad46aece3dc813d2bd8c0be6b">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">64 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">36.54
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>64</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/4ef5a19e52792af91d090bf7502f0fead21d0b2ad46aece3dc813d2bd8c0be6b.csv"
+        download="4ef5a19e52792af91d090bf7502f0fead21d0b2ad46aece3dc813d2bd8c0be6b_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/4ef5a19e52792af91d090bf7502f0fead21d0b2ad46aece3dc813d2bd8c0be6b"
+        download="4ef5a19e52792af91d090bf7502f0fead21d0b2ad46aece3dc813d2bd8c0be6b_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>RBBCBLR001</td>
+                    <td>-0.05178</td>
+                    <td>54.612709</td>
+                    <td>0.18</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-19</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>NRT Electrical & Mechanical, Castle House, Park Road, Banstead</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3819/rbbcblr001</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of ground floor and first floor of southern wing of Castle House from office use to residential use.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR002</td>
+                    <td>-0.187699</td>
+                    <td>51.325602</td>
+                    <td>0.59</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-12-22</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OA5NMYMVLXX00</td>
+                    <td>permissioned</td>
+                    <td>Hengest Farm, Woodmansterne Lane, Banstead</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3820/rbbcblr002</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Permission to demolish the existing buildings on site to provide 7 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR003</td>
+                    <td>-0.153622</td>
+                    <td>51.295294</td>
+                    <td>0.1</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-03-24</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>8 Brighton Road, Hooley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3822/rbbcblr003</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of detached 7 bedroomhouse to 5 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR004</td>
+                    <td>-0.184509</td>
+                    <td>51.317693</td>
+                    <td>2.5</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-20</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Courtlands Farm, Park Road, Banstead</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3825/rbbcblr004</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Removal of hardstanding and buildings, erection of 9 detached houses and retained bunker.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR005</td>
+                    <td>-0.211317</td>
+                    <td>51.294787</td>
+                    <td>0.78</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-24</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OB2ZPSMVGSQ00</td>
+                    <td>permissioned</td>
+                    <td>Kingswood Station, Waterhouse Lane, Kingswood</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3829/rbbcblr005</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of the site to provide 18 residential dwelling houses.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR006</td>
+                    <td>-0.20743</td>
+                    <td>51.258316</td>
+                    <td>0.36</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>7.0</td>
+                    <td>7.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Land south of Margery Lane (Kingswood Hall Estate), Lower Kingswood</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3830/rbbcblr006</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR007</td>
+                    <td>-0.258609</td>
+                    <td>51.270446</td>
+                    <td>1.64</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-24</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Frith Park Mansion, Sturts Lane, Walton on the Hill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3823/rbbcblr007</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Full planning permission and listed building consent is sought for a mixed-use redevelopment comprising 37 residential dwellings and employment uses.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR008</td>
+                    <td>-0.170394</td>
+                    <td>51.232365</td>
+                    <td>0.52</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-08</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Hockley Business Centre, Hooley Lane, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3828/rbbcblr008</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Partial demolition of existing buildings and erection of 4 apartment blocks containing 49 flats, retention of locally listed wall and conversion of existing building into 2 bed house.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR009</td>
+                    <td>-0.138366</td>
+                    <td>51.216023</td>
+                    <td>6.54</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>130.0</td>
+                    <td>130.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Redhill Aerodrome, Kings Mill, Lane, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3824/rbbcblr009</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been identified, as part of a wider site, in the Regulation 19 Development Management Plan as a safeguarding site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR010</td>
+                    <td>-0.172873</td>
+                    <td>51.217152</td>
+                    <td>0.15</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-16</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Units 1 & 2 and Land R/O 8-13 Maple Works, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3826/rbbcblr010</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of warehouses and erection of 6 four bedroom houses.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR011</td>
+                    <td>-0.145883</td>
+                    <td>51.259156</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>6.0</td>
+                    <td>6.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Merstham Library, Weldon Way, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3827/rbbcblr011</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy Cf1 resists the loss of community buildings unless it can be satisfied that there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. 
+The library has recently closed following the re-location to the new Community Hub. 
+The site has been identified in the Regulation 19 Development Management Plan for mixed-use development including housing and community/ faith facilities (RED5). 
+The site is partially affected by flood risk (Zone 2 and 3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR012</td>
+                    <td>-0.132443</td>
+                    <td>51.261523</td>
+                    <td>0.58</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Former Oakley Centre, Radstock Way, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3821/rbbcblr012</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan Policy Cf1 resists the loss of community buildings unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality and no other community facility or service can make use of the premises or site. 
+The Oakley Centre has been closed for a number of years. 
+A new community hub has recently opened in Merstham. 
+During the course of the recent planning permission (15/02200/F) which was refused for other reasons, the loss of community uses was established. The site has been identified, as part of a wider site, for housing development in the Regulation 19 Development Management Plan (RED6).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR013</td>
+                    <td>-0.133085</td>
+                    <td>51.259483</td>
+                    <td>0.67</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>13.0</td>
+                    <td>13.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/propertyDetails.do?activeTab=relatedCases&keyVal=000AAPMVLI000</td>
+                    <td>not permissioned</td>
+                    <td>Oakley Farm, 143 Bletchingley Road, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3835/rbbcblr013</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been identified, as part of a wider site, as a Sustainable Urban Extension (ERM5) in the Regulation 19 Development Management Plan. 
+Upon adoption, its delivery will be subject to phasing policy (MLS1).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR014</td>
+                    <td>-0.151811</td>
+                    <td>51.265365</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-25</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Bellway House, Station Road North, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3838/rbbcblr014</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been identified, as part of a wider site (RED2), in the Development Management Plan for housing development.. Notification of proposed change of use of class B1(a) office to class C3 (dwellings houses) consisting of 15 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR015</td>
+                    <td>-0.145504</td>
+                    <td>51.261083</td>
+                    <td>0.95</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-03-21</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Portland Drive, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3845/rbbcblr015</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing 2-48 (retail) & 50-132 (residential) Portland Drive and associated garages and erection of 48 1, 2 and 3 bed dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR016</td>
+                    <td>-0.141664</td>
+                    <td>51.262119</td>
+                    <td>0.32</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Church of the Epiphany, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3836/rbbcblr016</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan Policy Cf1 resists the loss of community uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. 
+The church has been closed for a number of years. 
+There are a number of Anglican churches within the immediate locality.  
+The site has been identified in the Regulation 19 Development Management Plan for housing development (RED4).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR017</td>
+                    <td>-0.149074</td>
+                    <td>51.258217</td>
+                    <td>0.33</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-31</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>23-27 Endsleigh Road, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3834/rbbcblr017</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from B1(a) offices to 6 residential flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR018</td>
+                    <td>-0.151267</td>
+                    <td>51.257478</td>
+                    <td>0.42</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>14.0</td>
+                    <td>14.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Elgar Works, Merstham</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3833/rbbcblr018</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR019</td>
+                    <td>-0.166145</td>
+                    <td>51.240167</td>
+                    <td>0.9</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>150.0</td>
+                    <td>150.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Redhill Railway Station, Princess Way, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3847/rbbcblr019</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site previously had planning permission for mixed-use housing and retail development. This permission (13/00848/F) has since lapsed.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR020</td>
+                    <td>-0.167602</td>
+                    <td>51.239552</td>
+                    <td>0.65</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>mixed ownership</td>
+                    <td>2017-01-20</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Land at Marketfield Way/ High Street, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3848/rbbcblr020</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings and redevelopment to provide new multi-screen cinema and flexible retail, restaurant and caf´┐Ż units at ground and first floor level and residential.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR021</td>
+                    <td>-0.162682</td>
+                    <td>51.241233</td>
+                    <td>1.3</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>110.0</td>
+                    <td>110.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Colebrook Centre, Noke Drive, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3844/rbbcblr021</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy Cf1 resists the loss of community buildings or uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. 
+The site has been identified in the Regulation 19 Development Management Plan (RTC4) for mixed-use housing (potentially housing for older people) and community use.  
+The site is situated in a highly accessible location, in close proximity to Redhill town centre and adjacent to the rail station. 
+The site provides an opportunity for intensification of an existing previously developed site. 
+The site is partially affected by Flood Zones 2 and 3a and there are a number of protected trees on the site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR022</td>
+                    <td>-0.168632</td>
+                    <td>51.237059</td>
+                    <td>1.75</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>150.0</td>
+                    <td>150.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Reading Arch Road Industrial Estate, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3832/rbbcblr022</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy EM1A resists the loss of employment uses within areas identified for employment. 
+The site in its current state is not considered to provide a fitting approach to the town centre gateway along the important approach route. 
+The site also does not currently maximise the sites capacity potential. 
+Redevelopment of the site would need to secure the relocation of the active uses to suitable alternative premises elsewhere in the Borough. 
+
+The site has been identified in the Regulation 19 Development Management Plan for mixed-use development.   
+Development of the site for retail uses would be dependent upon a full assessment of the impact on the town centre.  
+The site partially falls within Flood Zones 2 and 3. 
+The Redhill Brook is partially culverted under the site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR023</td>
+                    <td>-0.166754</td>
+                    <td>51.239619</td>
+                    <td>0.29</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-18</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Former Liquid & Envy, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3840/rbbcblr023</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Planning permission for the development of up to 133 apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR024</td>
+                    <td>-0.156196</td>
+                    <td>51.238176</td>
+                    <td>1.68</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>35.0</td>
+                    <td>35.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Former Copyhold Works, Nutfield Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3841/rbbcblr024</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been identified, as part of a wider site, as a  Sustainable Urban Extension (ERM 2/3) in the Regulation 19 Development Management Plan. 
+Upon adoption, its delivery will be subject to phasing policy (MLS1).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR025</td>
+                    <td>-0.153664</td>
+                    <td>51.25311</td>
+                    <td>1.2</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>60.0</td>
+                    <td>60.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Quarryside Business Park, Thornton Side, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3852/rbbcblr025</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan Policy (2005) Em1a resists the loss of employment uses. 
+The site has been identified for residential development in the Land at Holmethorpe Development Brief (2001). 
+The site has been identified in the Regulation 19 Development Management Plan for mixed-use residential and community development (RED1).
+Provision of community services would be dependent upon demand.   
+The site is partially affected by surface water flooding.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR026</td>
+                    <td>-0.16769</td>
+                    <td>51.240227</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-08-06</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>26-28 Station Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3849/rbbcblr026</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from office to residential plus five storey extension providing residential accommodation.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR027</td>
+                    <td>-0.148038</td>
+                    <td>51.237251</td>
+                    <td>0.4</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-24</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Patteson Court, Nutfield Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3842/rbbcblr027</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from offices (B1(A)) to 10 residential dwelling houses (C3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR028</td>
+                    <td>-0.164894</td>
+                    <td>51.251425</td>
+                    <td>0.52</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-12</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>126 London Road, 2-10 Claremont Road and 1-11 Ranmore Close, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3837/rbbcblr028</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing Ranmore House and 16 bungalows and erection of 34 new dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR029</td>
+                    <td>-0.170997</td>
+                    <td>51.235216</td>
+                    <td>0.3</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-28</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Furness House, Brighton Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3843/rbbcblr029</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from B1(A) to C3 (dwelling house). 
+It is proposed that 72 residential units will be created on ground, first, second and third floors.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR030</td>
+                    <td>-0.172715</td>
+                    <td>51.238148</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-30</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Oakdene House, Oakdene Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3839/rbbcblr030</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Three storey side extension and conversion of property into five self-contained flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR031</td>
+                    <td>-0.165833</td>
+                    <td>51.24224</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-22</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>49 Ladbroke Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3850/rbbcblr031</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of the existing detached garage and single storey rear extension. Conversion of existing dwelling to provide 5 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR032</td>
+                    <td>-0.169913</td>
+                    <td>51.239084</td>
+                    <td>0.08</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>32.0</td>
+                    <td>32.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Land at Cromwell Road/ Sincotts Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3846/rbbcblr032</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site forms part of the secondary shopping frontage and secondary shopping area. 
+Borough Local Plan (2005) policy Sh7 resists the loss of retail uses.
+Borough Local Plan (2005) policy Cf1 resists the loss of community uses. 
+The current units are in a poor condition. 
+There are a number of long-term vacant units within the frontage. 
+The existing quality of the retail frontage does not provide an appropriate gateway into the town centre. 
+The site has been identified in the Regulation 19 Development Management Plan for mixed-use development with retail/ commercial/ leisure uses on the ground floor (RTC2). 
+The site is partially affected by surface water flooding.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR033</td>
+                    <td>-0.169208</td>
+                    <td>51.243471</td>
+                    <td>0.76</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>60.0</td>
+                    <td>60.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Land at Gloucester Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3851/rbbcblr033</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been identified in the Regulation 19 Development Management Plan for residential development, potentially as part of a mixed-use scheme with office accommodation (RTC6).  
+The Core Strategy identifies the need to provide employment accommodation within Redhill town centre. 
+The site is partially affected by surface water flooding. 
+Loss of town centre car parking capacity would need to be fully assessed and retained or re-provided.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR034</td>
+                    <td>-0.171708</td>
+                    <td>51.239337</td>
+                    <td>0.22</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>20.0</td>
+                    <td>20.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Longmead Adult Education Centre, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3831/rbbcblr034</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan Policy (2005) Cf1 resists the loss of community uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. 
+The site has been vacant for a number of years. 
+The site provides the opportunity for intensification of an existing previously developed site. 
+The site has been identified in the Regulation 19 Development Management Plan for residential development (RTC5). 
+The site is largely affected by surface water flooding.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR035</td>
+                    <td>-0.167843</td>
+                    <td>51.244304</td>
+                    <td>0.45</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-10</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Grosvenor House, London Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3856/rbbcblr035</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The proposal relates to the change of use from offices to residential apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR036</td>
+                    <td>-0.170133</td>
+                    <td>51.242559</td>
+                    <td>0.4</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-08</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Prospect Housing Association, 5 Gloucester Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3873/rbbcblr036</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of the site and premises to accommodate a development of 9 no.1-bedroom apartments in 2 residential blocks with a common room, staff room and staff bedroom as supported accommodation for young people and adults with learning difficulties.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR037</td>
+                    <td>-0.200586</td>
+                    <td>51.233912</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-11</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>City Space Filestores, Lesbourne Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3857/rbbcblr037</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed change of use from storage to residential.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR038</td>
+                    <td>-0.200833</td>
+                    <td>51.233826</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-25</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Bourne House, Lesbourne Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3854/rbbcblr038</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from offices (class B1(A)) to living accommodation (class C3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR039</td>
+                    <td>-0.19007</td>
+                    <td>51.226295</td>
+                    <td>0.2</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-27</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Garages Arbutus Road, Redhill</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3859/rbbcblr039</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 40 garages for the construction of 7 two storey houses, 3 houses in a terrace and 4 houses as pairs of semi-detached.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR040</td>
+                    <td>-0.196125</td>
+                    <td>51.233691</td>
+                    <td>0.07</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-02</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Group House, Albion Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3861/rbbcblr040</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing building and erection of 2 storey building, with accommodation in the roof space, containing 8 2-bedroom flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR041</td>
+                    <td>-0.216234</td>
+                    <td>51.243774</td>
+                    <td>1.27</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>40.0</td>
+                    <td>40.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Land at 50-52, Unit 54 and 61 Albert Road North, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3876/rbbcblr041</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy EM1a resists the loss of employment uses within designated employment areas. 
+The site has been identified in the Regulation 19 Development Management Plan as there is conflict between the more intensive industrial uses on the site and the surrounding residential area. 
+The site has been identified in the Regulation 19 Development Management Plan as part of a wider site for mixed-use redevelopment including employment and residential uses (REI3). 
+The site is partially affected by surface water flooding risk.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR042</td>
+                    <td>-0.215642</td>
+                    <td>51.242776</td>
+                    <td>0.59</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>20.0</td>
+                    <td>20.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>51-57 Albert Road North, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3868/rbbcblr042</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy EM1a resists the loss of employment uses within designated employment areas. 
+The site has been identified in the Regulation 19 Development Management Plan as there is conflict between the more intensive industrial uses on the site and the surrounding residential area. 
+The site has been identified in the Regulation 19 Development Management Plan as part of a wider site for mixed-use redevelopment including employment and residential uses (REI3). 
+The site is partially affected by surface water flooding risk.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR043</td>
+                    <td>-0.187304</td>
+                    <td>51.236909</td>
+                    <td>0.57</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>25.0</td>
+                    <td>25.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Surrey Police Headquarters, Reigate Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3875/rbbcblr043</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Availability of the site for housing development will be dependent upon an alternative location for a police station being found. The landowner has indicated that this will be likely in the next 5-10 years.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR044</td>
+                    <td>-0.211308</td>
+                    <td>51.236307</td>
+                    <td>0.09</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Former Priory Stables, Park Lane, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3864/rbbcblr044</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR045</td>
+                    <td>-0.205111</td>
+                    <td>51.239244</td>
+                    <td>0.25</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>23.0</td>
+                    <td>23.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Town Hall, Castlefield Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3869/rbbcblr045</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been identified in the Regulation 19 Development Management Plan for housing or office development (REI2). The site is within the Reigate Town Centre Conservation Area. 
+The site is adjacent to the Grade II Listed Town Hall, Scheduled Monument, Regionally Important Geological Site and Urban Open Space designation.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR046</td>
+                    <td>-0.203152</td>
+                    <td>51.236793</td>
+                    <td>0.22</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>25.0</td>
+                    <td>25.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/pagedSearchResults.do?action=page&searchCriteria.page=1</td>
+                    <td>not permissioned</td>
+                    <td>Reigate Library, Bancroft Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3866/rbbcblr046</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy Cf1 resists the loss of community uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facilities or service can make use of the premises or site. 
+Development of the site would be dependent upon the reprovision of the community facilities or relocation to alternative suitable premises.   The site has been identified in the Regulation 19 Development Management Plan, as part of a wider site, as a potential town centre opportunity site for library, community uses, retail, commercial and residential development (REI1).
+The site is partially affected by Flood Zones 2 and 3.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR047</td>
+                    <td>-0.203771</td>
+                    <td>51.234519</td>
+                    <td>0.1</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-19</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Millennium House, 99 Bell Street, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3870/rbbcblr047</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from office (B1(A)) to residential (C3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR048</td>
+                    <td>-0.204005</td>
+                    <td>51.235134</td>
+                    <td>0.06</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-21</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Park House, 77-83 Bell Street, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3867/rbbcblr048</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Prior approval under Class J for a change of use from offices (Use Class B1(A)) to dwelling houses (Use Class C3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR049</td>
+                    <td>-0.204131</td>
+                    <td>51.239614</td>
+                    <td>0.4</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-07-24</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Castlefield House, 3-5 Castlefield Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3865/rbbcblr049</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed change of use from Class B1(A) to Class C3 residential use.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR050</td>
+                    <td>-0.203952</td>
+                    <td>51.245331</td>
+                    <td>0.29</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-08-06</td>
+                    <td>outline planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Acacia House, Reigate Hill, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3880/rbbcblr050</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Proposed change of use from Class B1(A) to Class C3 residential use.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR051</td>
+                    <td>-0.186052</td>
+                    <td>51.219209</td>
+                    <td>1.22</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>30.0</td>
+                    <td>30.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>New Pond Farm, Woodhatch Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3882/rbbcblr051</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR052</td>
+                    <td>-0.204057</td>
+                    <td>51.216124</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Hartswood Nursery, Dovers Green Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3871/rbbcblr052</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site, as part of a wider site, has been identified in the Regulation 19 Development Management Plan as a Sustainable Urban Extension (SSW2). 
+Upon adoption, its delivery will be subject to phasing policy (MLS1).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR053</td>
+                    <td>-0.194733</td>
+                    <td>51.223139</td>
+                    <td>0.03</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Former Garage Block, Atherfield Road, Reigate</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3878/rbbcblr053</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR054</td>
+                    <td>-0.161222</td>
+                    <td>51.172454</td>
+                    <td>0.43</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>30.0</td>
+                    <td>30.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>High Street Car Park, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3879/rbbcblr054</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site has been allocated for development in the 2005 Borough Local Plan. 
+The site has been identified in the Regulation 19 Development Management Plan for mixed-use retail/ leisure and residential development. 
+Release of the site would be dependent upon public car parking needs within the town centre.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR055</td>
+                    <td>-0.161936</td>
+                    <td>51.171764</td>
+                    <td>0.42</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>30.0</td>
+                    <td>30.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Central Car Park, Consort Way East, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3872/rbbcblr055</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Policy Hr28 of the Borough Local Plan (2005) retains the car park for parking uses. 
+Release of the site would be dependent upon public car parking needs within the town centre.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR056</td>
+                    <td>-0.165461</td>
+                    <td>51.173061</td>
+                    <td>0.35</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>35.0</td>
+                    <td>35.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Horley Library, Kings Road, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3877/rbbcblr056</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy Cf1 resists the loss of community buildings or uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality and no other community facility or service can make use of the premises or site. 
+Surrey County Council has recently agreed to relocate the library to the former Newman House site. 
+The site has been identified in the Regulation 19 Development Management Plan for mixed-use community, car parking and residential development (HOR5).
+Land to the rear of the library is partially at risk of surface water flooding.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR057</td>
+                    <td>-0.164208</td>
+                    <td>51.171116</td>
+                    <td>0.15</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>20.0</td>
+                    <td>20.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Horley Police Station, Massetts Road, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3874/rbbcblr057</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Borough Local Plan (2005) policy Cf1 resists the loss of community buildings or uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality and no other community facility or service can make use of the premises or site. 
+The site is owned by the Police Crime Commissioner for Surrey. The landowner has indicated that the site is no longer required for operational purposes. The site has been identified in the Regulation 19 Development Management Plan for housing development.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR058</td>
+                    <td>-0.160118</td>
+                    <td>51.173597</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>6.0</td>
+                    <td>6.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>T Northeast Ltd. 4 Station Road, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3855/rbbcblr058</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site lies within an Area for Small Business. 
+Borough Local Plan (2005) policy Em6 requires proposals to complement the character of the area. The surrounding area is comprised of retail ground floor uses and residential on upper floors.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR059</td>
+                    <td>-0.161742</td>
+                    <td>51.173056</td>
+                    <td>0.5</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-24</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>R/O 43-49 High Street, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3853/rbbcblr059</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of first and second floor additions to the rear of the existing building to provide six flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR060</td>
+                    <td>-0.146971</td>
+                    <td>51.162886</td>
+                    <td>0.66</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td>13.0</td>
+                    <td>13.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Woodside Works, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3860/rbbcblr060</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>The site, as part of a wider site, has been identified in the Regulation 19 Development Management Plan as a Sustainable Urban Extension (SEH4). 
+Upon adoption, its delivery will be subject to phasing policy (MLS1).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR061</td>
+                    <td>-0.164731</td>
+                    <td>51.181359</td>
+                    <td>0.16</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-01</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Sangers House, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3858/rbbcblr061</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of existing buildings to provide 8 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR062</td>
+                    <td>-0.163204</td>
+                    <td>51.184122</td>
+                    <td>0.15</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-12</td>
+                    <td>other</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>The Gables, 17 Massetts Road, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3858/rbbcblr061</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The development is the change of use of offices to 25 self-contained flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR063</td>
+                    <td>-0.16904</td>
+                    <td>51.17371</td>
+                    <td>0.04</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-05</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>Don Ruffles, 138 Victoria Road, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3863/rbbcblr063</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. To extend existing building with two storey and single storey extension and to convert existing shop/ office building including extension into 5 flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>RBBCBLR064</td>
+                    <td>-0.161259</td>
+                    <td>51.173331</td>
+                    <td>0.02</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/reigate-banstead</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-14</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>1 Yattendon Road, Horley</td>
+                    <td>http://www.reigate-banstead.gov.uk/downloads/file/3862/rbbcblr064</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Conversion of existing building to form 5 residential self-contained units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.05178, "GeoY": 54.612709, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of ground floor and first floor of southern wing of Castle House from office use to residential use.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-19", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "NRT Electrical \u0026 Mechanical, Castle House, Park Road, Banstead", "SiteReference": "RBBCBLR001", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3819/rbbcblr001"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.187699, "GeoY": 51.325602, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Permission to demolish the existing buildings on site to provide 7 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-12-22", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OA5NMYMVLXX00", "PlanningStatus": "permissioned", "SiteNameAddress": "Hengest Farm, Woodmansterne Lane, Banstead", "SiteReference": "RBBCBLR002", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3820/rbbcblr002"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.153622, "GeoY": 51.295294, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of detached 7 bedroomhouse to 5 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-03-24", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "8 Brighton Road, Hooley", "SiteReference": "RBBCBLR003", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3822/rbbcblr003"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.184509, "GeoY": 51.317693, "HazardousSubstances": null, "Hectares": 2.5, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Removal of hardstanding and buildings, erection of 9 detached houses and retained bunker.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-20", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Courtlands Farm, Park Road, Banstead", "SiteReference": "RBBCBLR004", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3825/rbbcblr004"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.211317, "GeoY": 51.294787, "HazardousSubstances": null, "Hectares": 0.78, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of the site to provide 18 residential dwelling houses.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-24", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OB2ZPSMVGSQ00", "PlanningStatus": "permissioned", "SiteNameAddress": "Kingswood Station, Waterhouse Lane, Kingswood", "SiteReference": "RBBCBLR005", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3829/rbbcblr005"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.20743, "GeoY": 51.258316, "HazardousSubstances": null, "Hectares": 0.36, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 7.0, "NetDwellingsRangeTo": 7.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land south of Margery Lane (Kingswood Hall Estate), Lower Kingswood", "SiteReference": "RBBCBLR006", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3830/rbbcblr006"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.258609, "GeoY": 51.270446, "HazardousSubstances": null, "Hectares": 1.64, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Full planning permission and listed building consent is sought for a mixed-use redevelopment comprising 37 residential dwellings and employment uses.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-24", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Frith Park Mansion, Sturts Lane, Walton on the Hill", "SiteReference": "RBBCBLR007", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3823/rbbcblr007"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.170394, "GeoY": 51.232365, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Partial demolition of existing buildings and erection of 4 apartment blocks containing 49 flats, retention of locally listed wall and conversion of existing building into 2 bed house.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-08", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Hockley Business Centre, Hooley Lane, Redhill", "SiteReference": "RBBCBLR008", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3828/rbbcblr008"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.138366, "GeoY": 51.216023, "HazardousSubstances": null, "Hectares": 6.54, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 130.0, "NetDwellingsRangeTo": 130.0, "Notes": "The site has been identified, as part of a wider site, in the Regulation 19 Development Management Plan as a safeguarding site.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Redhill Aerodrome, Kings Mill, Lane, Redhill", "SiteReference": "RBBCBLR009", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3824/rbbcblr009"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.172873, "GeoY": 51.217152, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of warehouses and erection of 6 four bedroom houses.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-16", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Units 1 \u0026 2 and Land R/O 8-13 Maple Works, Redhill", "SiteReference": "RBBCBLR010", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3826/rbbcblr010"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.145883, "GeoY": 51.259156, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 6.0, "NetDwellingsRangeTo": 6.0, "Notes": "Borough Local Plan (2005) policy Cf1 resists the loss of community buildings unless it can be satisfied that there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. \r\nThe library has recently closed following the re-location to the new Community Hub. \r\nThe site has been identified in the Regulation 19 Development Management Plan for mixed-use development including housing and community/ faith facilities (RED5). \r\nThe site is partially affected by flood risk (Zone 2 and 3).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Merstham Library, Weldon Way, Merstham", "SiteReference": "RBBCBLR011", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3827/rbbcblr011"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.132443, "GeoY": 51.261523, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 10.0, "Notes": "Borough Local Plan Policy Cf1 resists the loss of community buildings unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality and no other community facility or service can make use of the premises or site. \r\nThe Oakley Centre has been closed for a number of years. \r\nA new community hub has recently opened in Merstham. \r\nDuring the course of the recent planning permission (15/02200/F) which was refused for other reasons, the loss of community uses was established. The site has been identified, as part of a wider site, for housing development in the Regulation 19 Development Management Plan (RED6).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Oakley Centre, Radstock Way, Merstham", "SiteReference": "RBBCBLR012", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3821/rbbcblr012"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.133085, "GeoY": 51.259483, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 13.0, "NetDwellingsRangeTo": 13.0, "Notes": "The site has been identified, as part of a wider site, as a Sustainable Urban Extension (ERM5) in the Regulation 19 Development Management Plan. \r\nUpon adoption, its delivery will be subject to phasing policy (MLS1).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/propertyDetails.do?activeTab=relatedCases\u0026keyVal=000AAPMVLI000", "PlanningStatus": "not permissioned", "SiteNameAddress": "Oakley Farm, 143 Bletchingley Road, Merstham", "SiteReference": "RBBCBLR013", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3835/rbbcblr013"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.151811, "GeoY": 51.265365, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "The site has been identified, as part of a wider site (RED2), in the Development Management Plan for housing development.. Notification of proposed change of use of class B1(a) office to class C3 (dwellings houses) consisting of 15 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-25", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Bellway House, Station Road North, Merstham", "SiteReference": "RBBCBLR014", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3838/rbbcblr014"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.145504, "GeoY": 51.261083, "HazardousSubstances": null, "Hectares": 0.95, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing 2-48 (retail) \u0026 50-132 (residential) Portland Drive and associated garages and erection of 48 1, 2 and 3 bed dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-03-21", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Portland Drive, Merstham", "SiteReference": "RBBCBLR015", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3845/rbbcblr015"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.141664, "GeoY": 51.262119, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 10.0, "Notes": "Borough Local Plan Policy Cf1 resists the loss of community uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. \r\nThe church has been closed for a number of years. \r\nThere are a number of Anglican churches within the immediate locality.  \r\nThe site has been identified in the Regulation 19 Development Management Plan for housing development (RED4).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Church of the Epiphany, Merstham", "SiteReference": "RBBCBLR016", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3836/rbbcblr016"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.149074, "GeoY": 51.258217, "HazardousSubstances": null, "Hectares": 0.33, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from B1(a) offices to 6 residential flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-31", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "23-27 Endsleigh Road, Merstham", "SiteReference": "RBBCBLR017", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3834/rbbcblr017"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.151267, "GeoY": 51.257478, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 14.0, "NetDwellingsRangeTo": 14.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Elgar Works, Merstham", "SiteReference": "RBBCBLR018", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3833/rbbcblr018"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.166145, "GeoY": 51.240167, "HazardousSubstances": null, "Hectares": 0.9, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 150.0, "NetDwellingsRangeTo": 150.0, "Notes": "The site previously had planning permission for mixed-use housing and retail development. This permission (13/00848/F) has since lapsed.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Redhill Railway Station, Princess Way, Redhill", "SiteReference": "RBBCBLR019", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3847/rbbcblr019"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.167602, "GeoY": 51.239552, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings and redevelopment to provide new multi-screen cinema and flexible retail, restaurant and caf\u00b4\u2510\u017b units at ground and first floor level and residential.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "mixed ownership", "PermissionDate": "2017-01-20", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Marketfield Way/ High Street, Redhill", "SiteReference": "RBBCBLR020", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3848/rbbcblr020"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.162682, "GeoY": 51.241233, "HazardousSubstances": null, "Hectares": 1.3, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 110.0, "NetDwellingsRangeTo": 110.0, "Notes": "Borough Local Plan (2005) policy Cf1 resists the loss of community buildings or uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. \r\nThe site has been identified in the Regulation 19 Development Management Plan (RTC4) for mixed-use housing (potentially housing for older people) and community use.  \r\nThe site is situated in a highly accessible location, in close proximity to Redhill town centre and adjacent to the rail station. \r\nThe site provides an opportunity for intensification of an existing previously developed site. \r\nThe site is partially affected by Flood Zones 2 and 3a and there are a number of protected trees on the site.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Colebrook Centre, Noke Drive, Redhill", "SiteReference": "RBBCBLR021", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3844/rbbcblr021"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.168632, "GeoY": 51.237059, "HazardousSubstances": null, "Hectares": 1.75, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 150.0, "NetDwellingsRangeTo": 150.0, "Notes": "Borough Local Plan (2005) policy EM1A resists the loss of employment uses within areas identified for employment. \r\nThe site in its current state is not considered to provide a fitting approach to the town centre gateway along the important approach route. \r\nThe site also does not currently maximise the sites capacity potential. \r\nRedevelopment of the site would need to secure the relocation of the active uses to suitable alternative premises elsewhere in the Borough. \r\n\r\nThe site has been identified in the Regulation 19 Development Management Plan for mixed-use development.   \r\nDevelopment of the site for retail uses would be dependent upon a full assessment of the impact on the town centre.  \r\nThe site partially falls within Flood Zones 2 and 3. \r\nThe Redhill Brook is partially culverted under the site.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Reading Arch Road Industrial Estate, Redhill", "SiteReference": "RBBCBLR022", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3832/rbbcblr022"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.166754, "GeoY": 51.239619, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Planning permission for the development of up to 133 apartments.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-18", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Liquid \u0026 Envy, Redhill", "SiteReference": "RBBCBLR023", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3840/rbbcblr023"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.156196, "GeoY": 51.238176, "HazardousSubstances": null, "Hectares": 1.68, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 35.0, "NetDwellingsRangeTo": 35.0, "Notes": "The site has been identified, as part of a wider site, as a  Sustainable Urban Extension (ERM 2/3) in the Regulation 19 Development Management Plan. \r\nUpon adoption, its delivery will be subject to phasing policy (MLS1).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Copyhold Works, Nutfield Road, Redhill", "SiteReference": "RBBCBLR024", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3841/rbbcblr024"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.153664, "GeoY": 51.25311, "HazardousSubstances": null, "Hectares": 1.2, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 60.0, "NetDwellingsRangeTo": 60.0, "Notes": "Borough Local Plan Policy (2005) Em1a resists the loss of employment uses. \r\nThe site has been identified for residential development in the Land at Holmethorpe Development Brief (2001). \r\nThe site has been identified in the Regulation 19 Development Management Plan for mixed-use residential and community development (RED1).\r\nProvision of community services would be dependent upon demand.   \r\nThe site is partially affected by surface water flooding.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Quarryside Business Park, Thornton Side, Redhill", "SiteReference": "RBBCBLR025", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3852/rbbcblr025"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.16769, "GeoY": 51.240227, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from office to residential plus five storey extension providing residential accommodation.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-08-06", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "26-28 Station Road, Redhill", "SiteReference": "RBBCBLR026", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3849/rbbcblr026"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.148038, "GeoY": 51.237251, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from offices (B1(A)) to 10 residential dwelling houses (C3).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-24", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Patteson Court, Nutfield Road, Redhill", "SiteReference": "RBBCBLR027", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3842/rbbcblr027"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.164894, "GeoY": 51.251425, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing Ranmore House and 16 bungalows and erection of 34 new dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-12", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "126 London Road, 2-10 Claremont Road and 1-11 Ranmore Close, Redhill", "SiteReference": "RBBCBLR028", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3837/rbbcblr028"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.170997, "GeoY": 51.235216, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from B1(A) to C3 (dwelling house). \r\nIt is proposed that 72 residential units will be created on ground, first, second and third floors.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-28", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Furness House, Brighton Road, Redhill", "SiteReference": "RBBCBLR029", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3843/rbbcblr029"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.172715, "GeoY": 51.238148, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Three storey side extension and conversion of property into five self-contained flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-30", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Oakdene House, Oakdene Road, Redhill", "SiteReference": "RBBCBLR030", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3839/rbbcblr030"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.165833, "GeoY": 51.24224, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of the existing detached garage and single storey rear extension. Conversion of existing dwelling to provide 5 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-22", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "49 Ladbroke Road, Redhill", "SiteReference": "RBBCBLR031", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3850/rbbcblr031"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.169913, "GeoY": 51.239084, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 32.0, "NetDwellingsRangeTo": 32.0, "Notes": "The site forms part of the secondary shopping frontage and secondary shopping area. \r\nBorough Local Plan (2005) policy Sh7 resists the loss of retail uses.\r\nBorough Local Plan (2005) policy Cf1 resists the loss of community uses. \r\nThe current units are in a poor condition. \r\nThere are a number of long-term vacant units within the frontage. \r\nThe existing quality of the retail frontage does not provide an appropriate gateway into the town centre. \r\nThe site has been identified in the Regulation 19 Development Management Plan for mixed-use development with retail/ commercial/ leisure uses on the ground floor (RTC2). \r\nThe site is partially affected by surface water flooding.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Cromwell Road/ Sincotts Road, Redhill", "SiteReference": "RBBCBLR032", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3846/rbbcblr032"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.169208, "GeoY": 51.243471, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 60.0, "NetDwellingsRangeTo": 60.0, "Notes": "The site has been identified in the Regulation 19 Development Management Plan for residential development, potentially as part of a mixed-use scheme with office accommodation (RTC6).  \r\nThe Core Strategy identifies the need to provide employment accommodation within Redhill town centre. \r\nThe site is partially affected by surface water flooding. \r\nLoss of town centre car parking capacity would need to be fully assessed and retained or re-provided.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Gloucester Road, Redhill", "SiteReference": "RBBCBLR033", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3851/rbbcblr033"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.171708, "GeoY": 51.239337, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 20.0, "NetDwellingsRangeTo": 20.0, "Notes": "Borough Local Plan Policy (2005) Cf1 resists the loss of community uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facility or service can make use of the premises or site. \r\nThe site has been vacant for a number of years. \r\nThe site provides the opportunity for intensification of an existing previously developed site. \r\nThe site has been identified in the Regulation 19 Development Management Plan for residential development (RTC5). \r\nThe site is largely affected by surface water flooding.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Longmead Adult Education Centre, Redhill", "SiteReference": "RBBCBLR034", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3831/rbbcblr034"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.167843, "GeoY": 51.244304, "HazardousSubstances": null, "Hectares": 0.45, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The proposal relates to the change of use from offices to residential apartments.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-10", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Grosvenor House, London Road, Redhill", "SiteReference": "RBBCBLR035", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3856/rbbcblr035"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.170133, "GeoY": 51.242559, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of the site and premises to accommodate a development of 9 no.1-bedroom apartments in 2 residential blocks with a common room, staff room and staff bedroom as supported accommodation for young people and adults with learning difficulties.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-08", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Prospect Housing Association, 5 Gloucester Road, Redhill", "SiteReference": "RBBCBLR036", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3873/rbbcblr036"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.200586, "GeoY": 51.233912, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed change of use from storage to residential.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-11", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "City Space Filestores, Lesbourne Road, Reigate", "SiteReference": "RBBCBLR037", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3857/rbbcblr037"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.200833, "GeoY": 51.233826, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from offices (class B1(A)) to living accommodation (class C3).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-25", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Bourne House, Lesbourne Road, Redhill", "SiteReference": "RBBCBLR038", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3854/rbbcblr038"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.19007, "GeoY": 51.226295, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 40 garages for the construction of 7 two storey houses, 3 houses in a terrace and 4 houses as pairs of semi-detached.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-27", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Garages Arbutus Road, Redhill", "SiteReference": "RBBCBLR039", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3859/rbbcblr039"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.196125, "GeoY": 51.233691, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing building and erection of 2 storey building, with accommodation in the roof space, containing 8 2-bedroom flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-02", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Group House, Albion Road, Reigate", "SiteReference": "RBBCBLR040", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3861/rbbcblr040"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.216234, "GeoY": 51.243774, "HazardousSubstances": null, "Hectares": 1.27, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 40.0, "NetDwellingsRangeTo": 40.0, "Notes": "Borough Local Plan (2005) policy EM1a resists the loss of employment uses within designated employment areas. \r\nThe site has been identified in the Regulation 19 Development Management Plan as there is conflict between the more intensive industrial uses on the site and the surrounding residential area. \r\nThe site has been identified in the Regulation 19 Development Management Plan as part of a wider site for mixed-use redevelopment including employment and residential uses (REI3). \r\nThe site is partially affected by surface water flooding risk.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at 50-52, Unit 54 and 61 Albert Road North, Reigate", "SiteReference": "RBBCBLR041", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3876/rbbcblr041"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.215642, "GeoY": 51.242776, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 20.0, "NetDwellingsRangeTo": 20.0, "Notes": "Borough Local Plan (2005) policy EM1a resists the loss of employment uses within designated employment areas. \r\nThe site has been identified in the Regulation 19 Development Management Plan as there is conflict between the more intensive industrial uses on the site and the surrounding residential area. \r\nThe site has been identified in the Regulation 19 Development Management Plan as part of a wider site for mixed-use redevelopment including employment and residential uses (REI3). \r\nThe site is partially affected by surface water flooding risk.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "51-57 Albert Road North, Reigate", "SiteReference": "RBBCBLR042", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3868/rbbcblr042"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.187304, "GeoY": 51.236909, "HazardousSubstances": null, "Hectares": 0.57, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 25.0, "NetDwellingsRangeTo": 25.0, "Notes": "Availability of the site for housing development will be dependent upon an alternative location for a police station being found. The landowner has indicated that this will be likely in the next 5-10 years.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Surrey Police Headquarters, Reigate Road, Reigate", "SiteReference": "RBBCBLR043", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3875/rbbcblr043"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.211308, "GeoY": 51.236307, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Priory Stables, Park Lane, Reigate", "SiteReference": "RBBCBLR044", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3864/rbbcblr044"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.205111, "GeoY": 51.239244, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 23.0, "NetDwellingsRangeTo": 23.0, "Notes": "The site has been identified in the Regulation 19 Development Management Plan for housing or office development (REI2). The site is within the Reigate Town Centre Conservation Area. \r\nThe site is adjacent to the Grade II Listed Town Hall, Scheduled Monument, Regionally Important Geological Site and Urban Open Space designation.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Town Hall, Castlefield Road, Reigate", "SiteReference": "RBBCBLR045", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3869/rbbcblr045"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.203152, "GeoY": 51.236793, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 25.0, "NetDwellingsRangeTo": 25.0, "Notes": "Borough Local Plan (2005) policy Cf1 resists the loss of community uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality; and no other community facilities or service can make use of the premises or site. \r\nDevelopment of the site would be dependent upon the reprovision of the community facilities or relocation to alternative suitable premises.   The site has been identified in the Regulation 19 Development Management Plan, as part of a wider site, as a potential town centre opportunity site for library, community uses, retail, commercial and residential development (REI1).\r\nThe site is partially affected by Flood Zones 2 and 3.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/pagedSearchResults.do?action=page\u0026searchCriteria.page=1", "PlanningStatus": "not permissioned", "SiteNameAddress": "Reigate Library, Bancroft Road, Reigate", "SiteReference": "RBBCBLR046", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3866/rbbcblr046"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.203771, "GeoY": 51.234519, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from office (B1(A)) to residential (C3).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-19", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Millennium House, 99 Bell Street, Reigate", "SiteReference": "RBBCBLR047", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3870/rbbcblr047"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.204005, "GeoY": 51.235134, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Prior approval under Class J for a change of use from offices (Use Class B1(A)) to dwelling houses (Use Class C3).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-21", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Park House, 77-83 Bell Street, Reigate", "SiteReference": "RBBCBLR048", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3867/rbbcblr048"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.204131, "GeoY": 51.239614, "HazardousSubstances": null, "Hectares": 0.4, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed change of use from Class B1(A) to Class C3 residential use.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-07-24", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Castlefield House, 3-5 Castlefield Road, Reigate", "SiteReference": "RBBCBLR049", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3865/rbbcblr049"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.203952, "GeoY": 51.245331, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Proposed change of use from Class B1(A) to Class C3 residential use.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-08-06", "PermissionType": "outline planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Acacia House, Reigate Hill, Reigate", "SiteReference": "RBBCBLR050", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3880/rbbcblr050"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.186052, "GeoY": 51.219209, "HazardousSubstances": null, "Hectares": 1.22, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 30.0, "NetDwellingsRangeTo": 30.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "New Pond Farm, Woodhatch Road, Reigate", "SiteReference": "RBBCBLR051", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3882/rbbcblr051"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.204057, "GeoY": 51.216124, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": "The site, as part of a wider site, has been identified in the Regulation 19 Development Management Plan as a Sustainable Urban Extension (SSW2). \r\nUpon adoption, its delivery will be subject to phasing policy (MLS1).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Hartswood Nursery, Dovers Green Road, Reigate", "SiteReference": "RBBCBLR052", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3871/rbbcblr052"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.194733, "GeoY": 51.223139, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Garage Block, Atherfield Road, Reigate", "SiteReference": "RBBCBLR053", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3878/rbbcblr053"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.161222, "GeoY": 51.172454, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 30.0, "NetDwellingsRangeTo": 30.0, "Notes": "The site has been allocated for development in the 2005 Borough Local Plan. \r\nThe site has been identified in the Regulation 19 Development Management Plan for mixed-use retail/ leisure and residential development. \r\nRelease of the site would be dependent upon public car parking needs within the town centre.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "High Street Car Park, Horley", "SiteReference": "RBBCBLR054", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3879/rbbcblr054"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.161936, "GeoY": 51.171764, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 30.0, "NetDwellingsRangeTo": 30.0, "Notes": "Policy Hr28 of the Borough Local Plan (2005) retains the car park for parking uses. \r\nRelease of the site would be dependent upon public car parking needs within the town centre.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Central Car Park, Consort Way East, Horley", "SiteReference": "RBBCBLR055", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3872/rbbcblr055"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.165461, "GeoY": 51.173061, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 35.0, "NetDwellingsRangeTo": 35.0, "Notes": "Borough Local Plan (2005) policy Cf1 resists the loss of community buildings or uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality and no other community facility or service can make use of the premises or site. \r\nSurrey County Council has recently agreed to relocate the library to the former Newman House site. \r\nThe site has been identified in the Regulation 19 Development Management Plan for mixed-use community, car parking and residential development (HOR5).\r\nLand to the rear of the library is partially at risk of surface water flooding.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Horley Library, Kings Road, Horley", "SiteReference": "RBBCBLR056", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3877/rbbcblr056"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.164208, "GeoY": 51.171116, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 20.0, "NetDwellingsRangeTo": 20.0, "Notes": "Borough Local Plan (2005) policy Cf1 resists the loss of community buildings or uses unless there is no longer a need for them, or adequate alternative provision is to be made elsewhere in the locality and no other community facility or service can make use of the premises or site. \r\nThe site is owned by the Police Crime Commissioner for Surrey. The landowner has indicated that the site is no longer required for operational purposes. The site has been identified in the Regulation 19 Development Management Plan for housing development.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Horley Police Station, Massetts Road, Horley", "SiteReference": "RBBCBLR057", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3874/rbbcblr057"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.160118, "GeoY": 51.173597, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 6.0, "NetDwellingsRangeTo": 6.0, "Notes": "The site lies within an Area for Small Business. \r\nBorough Local Plan (2005) policy Em6 requires proposals to complement the character of the area. The surrounding area is comprised of retail ground floor uses and residential on upper floors.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "T Northeast Ltd. 4 Station Road, Horley", "SiteReference": "RBBCBLR058", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3855/rbbcblr058"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.161742, "GeoY": 51.173056, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of first and second floor additions to the rear of the existing building to provide six flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-24", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "R/O 43-49 High Street, Horley", "SiteReference": "RBBCBLR059", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3853/rbbcblr059"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.146971, "GeoY": 51.162886, "HazardousSubstances": null, "Hectares": 0.66, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 13.0, "NetDwellingsRangeTo": 13.0, "Notes": "The site, as part of a wider site, has been identified in the Regulation 19 Development Management Plan as a Sustainable Urban Extension (SEH4). \r\nUpon adoption, its delivery will be subject to phasing policy (MLS1).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Woodside Works, Horley", "SiteReference": "RBBCBLR060", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3860/rbbcblr060"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.164731, "GeoY": 51.181359, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of existing buildings to provide 8 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-01", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Sangers House, Horley", "SiteReference": "RBBCBLR061", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3858/rbbcblr061"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.163204, "GeoY": 51.184122, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The development is the change of use of offices to 25 self-contained flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-12", "PermissionType": "other", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "The Gables, 17 Massetts Road, Horley", "SiteReference": "RBBCBLR062", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3858/rbbcblr061"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.16904, "GeoY": 51.17371, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". To extend existing building with two storey and single storey extension and to convert existing shop/ office building including extension into 5 flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-05", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "Don Ruffles, 138 Victoria Road, Horley", "SiteReference": "RBBCBLR063", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3863/rbbcblr063"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.161259, "GeoY": 51.173331, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of existing building to form 5 residential self-contained units.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/reigate-banstead", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-14", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.reigate-banstead.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "1 Yattendon Road, Horley", "SiteReference": "RBBCBLR064", "SiteplanURL": "http://www.reigate-banstead.gov.uk/downloads/file/3862/rbbcblr064"}];
+    const bbox = [-0.2729337245250615, -0.03745527547493856, 51.15390284341859, 54.6216921565814];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

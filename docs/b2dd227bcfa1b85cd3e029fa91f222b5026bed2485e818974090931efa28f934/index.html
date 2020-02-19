@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">b2dd227b...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Documents/Brownfield-Register-CSV-24KB.csv">https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Documents/Brownfield-Register-CSV-24KB.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BPL">Blackpool Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/b2dd227bcfa1b85cd3e029fa91f222b5026bed2485e818974090931efa28f934/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b2dd227bcfa1b85cd3e029fa91f222b5026bed2485e818974090931efa28f934">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">33 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">17.67
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>33</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/b2dd227bcfa1b85cd3e029fa91f222b5026bed2485e818974090931efa28f934.csv"
+        download="b2dd227bcfa1b85cd3e029fa91f222b5026bed2485e818974090931efa28f934_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/b2dd227bcfa1b85cd3e029fa91f222b5026bed2485e818974090931efa28f934"
+        download="b2dd227bcfa1b85cd3e029fa91f222b5026bed2485e818974090931efa28f934_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>SC/001</td>
+                    <td>-3.047884</td>
+                    <td>53.830272</td>
+                    <td>0.225</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>9.0</td>
+                    <td>11.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land to rear of 119-127 Warley Road, Blackpool, FY1 2RW</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Site is in employment use but is for sale. Assumed density range 40 - 50 dph reflecting outer area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/005</td>
+                    <td>-3.041108</td>
+                    <td>53.827886</td>
+                    <td>1.974</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2006-10-20</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_31195|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_37044</td>
+                    <td>permissioned</td>
+                    <td>Land at Coopers Way, Blackpool, FY1 3RJ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site commenced and units completed. Site has stalled with 74 dwellings outstanding. Erection of residential development consisting of 64, two-storey and three-storey dwellinghouses, and 36 flats in three-storey blocks with associated vehicle and pedestrian access, public open space, car parking, garages and incidental landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/017</td>
+                    <td>-3.045974</td>
+                    <td>53.820105</td>
+                    <td>0.037</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>5.0</td>
+                    <td>5.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_57656</td>
+                    <td>not permissioned</td>
+                    <td>37 Charles Street, Blackpool, FY1 3EY</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Permission 12/0826 for 5 dwellings expired. Density minimum and maximum reflect expired application.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/063</td>
+                    <td>-3.040623</td>
+                    <td>53.824834</td>
+                    <td>1.472</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>94.0</td>
+                    <td>118.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Devonshire Road & Talbot Road, Blackpool, FY3 8AZ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Site has been cleared and is available for redevelopment. Assumed density range 80 - 100 dph reflecting inner area location & assuming 80% developable area due to size of site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/074</td>
+                    <td>-3.04714</td>
+                    <td>53.822368</td>
+                    <td>0.1</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>10.0</td>
+                    <td>23.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_39214</td>
+                    <td>not permissioned</td>
+                    <td>119-125 Buchanan Street & 230-234 Talbot Road, Blackpool, FY1 3BP</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Outline permission for 23 residential units (11/0556) expired. Site in use as a car wash and a mobility centre but for sale for redevelopment. Density maximum reflects expired application and density minimum equates to 100 dph.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/080</td>
+                    <td>-3.041426</td>
+                    <td>53.819227</td>
+                    <td>0.051</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>5.0</td>
+                    <td>8.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_33962</td>
+                    <td>not permissioned</td>
+                    <td>Land rear of 2-14 Durham Road, Blackpool, FY1 3QB</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Permission 07/1138 for 4 terraced houses & 4 self contained flats expired. Site is advertised as for sale for redevelopment purposes. Density maximum reflects expired permission.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/081</td>
+                    <td>-3.046877</td>
+                    <td>53.814883</td>
+                    <td>0.205</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>16.0</td>
+                    <td>32.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_34257</td>
+                    <td>not permissioned</td>
+                    <td>102-110 Hornby Road, Blackpool, FY1 4QS</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Outline permission 11/0421 for 32 flats expired. Site is advertised as for sale. Density maximum reflects expired permission and density minimum equates to 80 dph reflecting inner area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/085</td>
+                    <td>-3.047991</td>
+                    <td>53.809607</td>
+                    <td>0.11</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-03-14</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_60116</td>
+                    <td>permissioned</td>
+                    <td>76 and 76a Kent Road, Blackpool, FY1 5ET</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 12 x three storey terrace dwelling houses with integral garages</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/088</td>
+                    <td>-3.04875</td>
+                    <td>53.817474</td>
+                    <td>0.052</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-24</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_60930</td>
+                    <td>permissioned</td>
+                    <td>7-11 Alfred Street, Blackpool, FY1 4LH</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a four-storey block of 14 self-contained permanent flats with balconies associated access and parking following the demolition of existing building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/094</td>
+                    <td>-3.054854</td>
+                    <td>53.805286</td>
+                    <td>0.071</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-03-01</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_38568|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61698</td>
+                    <td>permissioned</td>
+                    <td>273-275 Promenade, Blackpool, FY1 6AJ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. In relation to application 10/1445 records indicate foundation works have been undertaken that indicate a commencement. Permission 17/0568 granted for use of land as a car park for a temporary period of 3 years.. Renewal of planning permission 05/0541 involving the erection of six storey building to form retail unit at ground floor, restaurant at ground and first floor and 14 self contained permanent flats at upper floors, and basement parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/102</td>
+                    <td>-3.051668</td>
+                    <td>53.806626</td>
+                    <td>2.611</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>146.0</td>
+                    <td>183.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tram Depot, Rigby Road, Blackpool, FY1 5DD</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Currently in use by Blackpool Transport. Assumed density range 80 - 100 dph reflecting inner area location & assuming 70% developable area due to size of site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/103</td>
+                    <td>-3.051705</td>
+                    <td>53.809934</td>
+                    <td>0.278</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>22.0</td>
+                    <td>51.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_38640</td>
+                    <td>not permissioned</td>
+                    <td>Coop Street Car Park, Blackpool, FY1 5AJ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Outline permission 10/1516 for 51 flats expired. Density maximum reflects expired permission and density minimum equates to 80 dph reflecting inner area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/106</td>
+                    <td>-3.054702</td>
+                    <td>53.821646</td>
+                    <td>0.116</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>9.0</td>
+                    <td>15.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Revills Hotel, 190-194 Promenade, Blackpool, FY1 1RJ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Density maximum reflects withdrawn application 11/0056 for 15 flats and density minimum equates to 80 dph reflecting inner area location. Site is in use as a car park.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/123</td>
+                    <td>-3.04033</td>
+                    <td>53.823462</td>
+                    <td>0.136</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>11.0</td>
+                    <td>14.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Coleridge Road/George Street, Blackpool, FY1 3RP</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SE/031</td>
+                    <td>-2.997392</td>
+                    <td>53.803998</td>
+                    <td>4.831</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-28</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59863</td>
+                    <td>permissioned</td>
+                    <td>Land at NSI Site, Preston Road, Blackpool, FY3 9YP</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Application 15/0420 is a hybrid application. The dwellings are subject to a full application, but the offices and light industrial premises are subject to an outline application. Erection of 118 dwellings, highway works and new access. Demolition of the existing building and the erection of offices (Use Class B1a) and light industrial premises (Use Class B1c) with associated roads and parking/servicing areas</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/032</td>
+                    <td>-3.030456</td>
+                    <td>53.83649</td>
+                    <td>0.09</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-31</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61569</td>
+                    <td>permissioned</td>
+                    <td>50 Bispham Road, Blackpool, FY2 0SX</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of part three storey, part four storey building to form 12 self contained permanent flats, with associated parking for 8 cars, access from Bispham Road, bin and cycle stores, landscaping and boundary treatment</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/036</td>
+                    <td>-3.049062</td>
+                    <td>53.859221</td>
+                    <td>0.147</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-10</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59443</td>
+                    <td>permissioned</td>
+                    <td>Former filling Station, Norbreck Castle, Blackpool, FY2 9AB</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a part two, part four and part five storey building to form 15 self-contained permanent flats with associated balconies, roof gardens, landscaping and boundary treatment, vehicle access and car parking facilities for 23 vehicles</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/042</td>
+                    <td>-3.049144</td>
+                    <td>53.857045</td>
+                    <td>0.112</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>6.0</td>
+                    <td>35.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_56682</td>
+                    <td>not permissioned</td>
+                    <td>Former Mariners Public House, 8 Norbreck Road, Blackpool, FY5 1RP</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Density maximum reflects application 11/0967 for for 35 flats (S106 unsigned) and density minimum equates to 50 dph reflecting outer area location. Site is vacant and has been cleared.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/043</td>
+                    <td>-3.037392</td>
+                    <td>53.834282</td>
+                    <td>1.079</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>35.0</td>
+                    <td>44.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Mexford House, Mexford Avenue, Blackpool, FY2 0XN</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA.  Currently a vacant office building. Assumed density range 40 - 50 dph reflecting outer area location & assuming 80% developable area due to size of site.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/057</td>
+                    <td>-3.05064</td>
+                    <td>53.795858</td>
+                    <td>0.134</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>10.0</td>
+                    <td>13.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Station Road/Lytham Road, Blackpool, FY4 1EU</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/064</td>
+                    <td>-3.028283</td>
+                    <td>53.790516</td>
+                    <td>0.172</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-03-23</td>
+                    <td>reserved matters approval</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61200</td>
+                    <td>permissioned</td>
+                    <td>Land at former Hawes Side Clinic, Hawes Side Lane, FY4 5AJ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 8 no. two-storey, semi-detached dwellinghouses with vehicular accesses from Burgess Avenue, Crompton Avenue and Reaney Avenue and associated car parking, detached garages and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/070</td>
+                    <td>-3.046951</td>
+                    <td>53.781842</td>
+                    <td>0.135</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>5.0</td>
+                    <td>7.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_58358</td>
+                    <td>not permissioned</td>
+                    <td>Former St Margaret Clitherow RC Church, 575 Lytham Road, Blackpool, FY4 1PU</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Outline permission 13/0625 for 6 terraced houses recently expired. Assumed density range 40 - 50 dph reflecting outer area location. Site is vacant and has been cleared.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/071</td>
+                    <td>-3.048106</td>
+                    <td>53.78131</td>
+                    <td>0.19</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-29</td>
+                    <td>reserved matters approval</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_58080|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_60814</td>
+                    <td>permissioned</td>
+                    <td>Land adjacent to 73 Stony Hill Avenue, Blackpool, FY4 1PP</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 8 no. two-storey, semi-detached dwellinghouses with vehicular accesses from Stony Hill Avenue and associated car parking, attached garages and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/077</td>
+                    <td>-3.055168</td>
+                    <td>53.799054</td>
+                    <td>0.127</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-03</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_61111</td>
+                    <td>permissioned</td>
+                    <td>429-437 Promenade, Blackpool, FY1 6BQ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of five-storey building comprising 2 no. bar/restaurants at ground floor level (Class A3 & A4 uses) and 15 no. self-contained flats on the upper floors, with associated vehicular accesses from Bolton Street to car parking for 16 vehicles</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/078</td>
+                    <td>-3.054783</td>
+                    <td>53.795211</td>
+                    <td>0.174</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>10.0</td>
+                    <td>17.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_58231</td>
+                    <td>not permissioned</td>
+                    <td>9, 11, 11a Station Road, Blackpool, FY4 1BE</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Outline permission 13/0501 for 10 terraced houses expired. Density minimum reflects application 13/0501 and density maximum equates to 100 dph reflecting inner area location. Demolition of existing premises required.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/082</td>
+                    <td>-3.034793</td>
+                    <td>53.793507</td>
+                    <td>0.894</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td>28.0</td>
+                    <td>38.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_35371|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61386</td>
+                    <td>not permissioned</td>
+                    <td>200-210 Watson Road, Blackpool, FY4 3EE</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site is in 2014 SHLAA. Density maximum reflects expired application 08/1351 and density minimum equates to 40 dph reflecting outer area location & assuming 80% developable area. Demolition of existing buildings prior approval granted in 2017.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/083</td>
+                    <td>-3.057238</td>
+                    <td>53.785967</td>
+                    <td>0.37</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-10</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61323</td>
+                    <td>permissioned</td>
+                    <td>585-593 Promenade & 1 Wimbourne Place, FY4 1NQ</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of part 3 / part 4 / part 5 / part 6 storey block of 88 self contained permanent flats with car parking for 88 vehicles, access and associated works, following demolition of existing hotels.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SC/124</td>
+                    <td>-3.021868</td>
+                    <td>53.83331</td>
+                    <td>0.361</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61720</td>
+                    <td>pending decision</td>
+                    <td>Hoyle House, Argosy Avenue, Blackpool, FY3 7NN</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Dwellings proposed are social rented housing.. Erection of 6 two storey semi-detached dwellinghouses, 2 semi-detached bungalows, 3 two storey mews dwellinghouses and an Assistive Technology Centre forming 7 self contained flats and staff/communal area with associated parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/084</td>
+                    <td>-3.0233</td>
+                    <td>53.789129</td>
+                    <td>1.02</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-08</td>
+                    <td>full planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_61546</td>
+                    <td>permissioned</td>
+                    <td>Site of former E H Booth and Company Ltd, Highfield Road, Blackpool, FY4 5AP</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a food store with ancillary car park and 26 private dwelling houses, with associated landscaping, parking and revised access from Marshdale Road</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SS/085</td>
+                    <td>-3.05512</td>
+                    <td>53.800142</td>
+                    <td>0.05</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-07</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=_BLCKP_DCAPR_59171</td>
+                    <td>permissioned</td>
+                    <td>397-399 Promenade Blackpool, FY1 6BH</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing premises and erection of five-storey building comprising a restaurant (Use class A3) at ground floor and 7 self-contained, permanent flats on the upper floors, with associated car parking, bin and cycle stores</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/047</td>
+                    <td>-3.033345</td>
+                    <td>53.870531</td>
+                    <td>0.122</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-21</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59366</td>
+                    <td>permissioned</td>
+                    <td>Anchorsholme Methodist Church, North Drive, Blackpool, FY5 3PG</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 4 semi detached dwellinghouses and 1 detached dwellinghouse with associated garages, following demolition of existing church building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/048</td>
+                    <td>-3.053075</td>
+                    <td>53.847043</td>
+                    <td>0.103</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-08</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59400</td>
+                    <td>permissioned</td>
+                    <td>176 Queens Promenade, Blackpool, FY2 9JS</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a part two/ part three/ part four storey building comprising 11 self contained permanent flats with car parking, vehicle accesses from Queens Promenade and Cavendish Road, following demolition of existing building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SN/049</td>
+                    <td>-3.054236</td>
+                    <td>53.830917</td>
+                    <td>0.121</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/blackpool</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-11-04</td>
+                    <td>outline planning permission</td>
+                    <td>http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_BLCKP_DCAPR_59805</td>
+                    <td>permissioned</td>
+                    <td>Kings Christian Centre, Warley Road, Blackpool, FY1 2JU</td>
+                    <td>http://maps.blackpool.gov.uk/#zoom=3&lat=434255.06959&lon=333928.83324&layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of three storey building comprising 15 x two bedroom self contained permanent flats with vehicle access to rear from Gynn Avenue and associated car parking facilities for 13 vehicles, and refuse store to rear</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.047884, "GeoY": 53.830272, "HazardousSubstances": null, "Hectares": 0.225, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 11.0, "Notes": "Site is in 2014 SHLAA. Site is in employment use but is for sale. Assumed density range 40 - 50 dph reflecting outer area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land to rear of 119-127 Warley Road, Blackpool, FY1 2RW", "SiteReference": "SC/001", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.041108, "GeoY": 53.827886, "HazardousSubstances": null, "Hectares": 1.974, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site commenced and units completed. Site has stalled with 74 dwellings outstanding. Erection of residential development consisting of 64, two-storey and three-storey dwellinghouses, and 36 flats in three-storey blocks with associated vehicle and pedestrian access, public open space, car parking, garages and incidental landscaping", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2006-10-20", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_31195|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_37044", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Coopers Way, Blackpool, FY1 3RJ", "SiteReference": "SC/005", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.045974, "GeoY": 53.820105, "HazardousSubstances": null, "Hectares": 0.037, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 5.0, "Notes": "Site is in 2014 SHLAA. Permission 12/0826 for 5 dwellings expired. Density minimum and maximum reflect expired application.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_57656", "PlanningStatus": "not permissioned", "SiteNameAddress": "37 Charles Street, Blackpool, FY1 3EY", "SiteReference": "SC/017", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.040623, "GeoY": 53.824834, "HazardousSubstances": null, "Hectares": 1.472, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 94.0, "NetDwellingsRangeTo": 118.0, "Notes": "Site is in 2014 SHLAA. Site has been cleared and is available for redevelopment. Assumed density range 80 - 100 dph reflecting inner area location \u0026 assuming 80% developable area due to size of site.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Devonshire Road \u0026 Talbot Road, Blackpool, FY3 8AZ", "SiteReference": "SC/063", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.04714, "GeoY": 53.822368, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 23.0, "Notes": "Site is in 2014 SHLAA. Outline permission for 23 residential units (11/0556) expired. Site in use as a car wash and a mobility centre but for sale for redevelopment. Density maximum reflects expired application and density minimum equates to 100 dph.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_39214", "PlanningStatus": "not permissioned", "SiteNameAddress": "119-125 Buchanan Street \u0026 230-234 Talbot Road, Blackpool, FY1 3BP", "SiteReference": "SC/074", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.041426, "GeoY": 53.819227, "HazardousSubstances": null, "Hectares": 0.051, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 8.0, "Notes": "Site is in 2014 SHLAA. Permission 07/1138 for 4 terraced houses \u0026 4 self contained flats expired. Site is advertised as for sale for redevelopment purposes. Density maximum reflects expired permission.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_33962", "PlanningStatus": "not permissioned", "SiteNameAddress": "Land rear of 2-14 Durham Road, Blackpool, FY1 3QB", "SiteReference": "SC/080", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.046877, "GeoY": 53.814883, "HazardousSubstances": null, "Hectares": 0.205, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 16.0, "NetDwellingsRangeTo": 32.0, "Notes": "Site is in 2014 SHLAA. Outline permission 11/0421 for 32 flats expired. Site is advertised as for sale. Density maximum reflects expired permission and density minimum equates to 80 dph reflecting inner area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_34257", "PlanningStatus": "not permissioned", "SiteNameAddress": "102-110 Hornby Road, Blackpool, FY1 4QS", "SiteReference": "SC/081", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.047991, "GeoY": 53.809607, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 12 x three storey terrace dwelling houses with integral garages", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-03-14", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_60116", "PlanningStatus": "permissioned", "SiteNameAddress": "76 and 76a Kent Road, Blackpool, FY1 5ET", "SiteReference": "SC/085", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.04875, "GeoY": 53.817474, "HazardousSubstances": null, "Hectares": 0.052, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a four-storey block of 14 self-contained permanent flats with balconies associated access and parking following the demolition of existing building", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-24", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_60930", "PlanningStatus": "permissioned", "SiteNameAddress": "7-11 Alfred Street, Blackpool, FY1 4LH", "SiteReference": "SC/088", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.054854, "GeoY": 53.805286, "HazardousSubstances": null, "Hectares": 0.071, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site is in 2014 SHLAA. In relation to application 10/1445 records indicate foundation works have been undertaken that indicate a commencement. Permission 17/0568 granted for use of land as a car park for a temporary period of 3 years.. Renewal of planning permission 05/0541 involving the erection of six storey building to form retail unit at ground floor, restaurant at ground and first floor and 14 self contained permanent flats at upper floors, and basement parking", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-03-01", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_38568|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61698", "PlanningStatus": "permissioned", "SiteNameAddress": "273-275 Promenade, Blackpool, FY1 6AJ", "SiteReference": "SC/094", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.051668, "GeoY": 53.806626, "HazardousSubstances": null, "Hectares": 2.611, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 146.0, "NetDwellingsRangeTo": 183.0, "Notes": "Site is in 2014 SHLAA. Currently in use by Blackpool Transport. Assumed density range 80 - 100 dph reflecting inner area location \u0026 assuming 70% developable area due to size of site.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tram Depot, Rigby Road, Blackpool, FY1 5DD", "SiteReference": "SC/102", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.051705, "GeoY": 53.809934, "HazardousSubstances": null, "Hectares": 0.278, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 22.0, "NetDwellingsRangeTo": 51.0, "Notes": "Site is in 2014 SHLAA. Outline permission 10/1516 for 51 flats expired. Density maximum reflects expired permission and density minimum equates to 80 dph reflecting inner area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_38640", "PlanningStatus": "not permissioned", "SiteNameAddress": "Coop Street Car Park, Blackpool, FY1 5AJ", "SiteReference": "SC/103", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.054702, "GeoY": 53.821646, "HazardousSubstances": null, "Hectares": 0.116, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 15.0, "Notes": "Site is in 2014 SHLAA. Density maximum reflects withdrawn application 11/0056 for 15 flats and density minimum equates to 80 dph reflecting inner area location. Site is in use as a car park.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Revills Hotel, 190-194 Promenade, Blackpool, FY1 1RJ", "SiteReference": "SC/106", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.04033, "GeoY": 53.823462, "HazardousSubstances": null, "Hectares": 0.136, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 11.0, "NetDwellingsRangeTo": 14.0, "Notes": "Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Coleridge Road/George Street, Blackpool, FY1 3RP", "SiteReference": "SC/123", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -2.997392, "GeoY": 53.803998, "HazardousSubstances": null, "Hectares": 4.831, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Application 15/0420 is a hybrid application. The dwellings are subject to a full application, but the offices and light industrial premises are subject to an outline application. Erection of 118 dwellings, highway works and new access. Demolition of the existing building and the erection of offices (Use Class B1a) and light industrial premises (Use Class B1c) with associated roads and parking/servicing areas", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-28", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59863", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at NSI Site, Preston Road, Blackpool, FY3 9YP", "SiteReference": "SE/031", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.030456, "GeoY": 53.83649, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of part three storey, part four storey building to form 12 self contained permanent flats, with associated parking for 8 cars, access from Bispham Road, bin and cycle stores, landscaping and boundary treatment", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-31", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61569", "PlanningStatus": "permissioned", "SiteNameAddress": "50 Bispham Road, Blackpool, FY2 0SX", "SiteReference": "SN/032", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.049062, "GeoY": 53.859221, "HazardousSubstances": null, "Hectares": 0.147, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a part two, part four and part five storey building to form 15 self-contained permanent flats with associated balconies, roof gardens, landscaping and boundary treatment, vehicle access and car parking facilities for 23 vehicles", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-10", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59443", "PlanningStatus": "permissioned", "SiteNameAddress": "Former filling Station, Norbreck Castle, Blackpool, FY2 9AB", "SiteReference": "SN/036", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.049144, "GeoY": 53.857045, "HazardousSubstances": null, "Hectares": 0.112, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 6.0, "NetDwellingsRangeTo": 35.0, "Notes": "Site is in 2014 SHLAA. Density maximum reflects application 11/0967 for for 35 flats (S106 unsigned) and density minimum equates to 50 dph reflecting outer area location. Site is vacant and has been cleared.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_56682", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Mariners Public House, 8 Norbreck Road, Blackpool, FY5 1RP", "SiteReference": "SN/042", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.037392, "GeoY": 53.834282, "HazardousSubstances": null, "Hectares": 1.079, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 35.0, "NetDwellingsRangeTo": 44.0, "Notes": "Site is in 2014 SHLAA.  Currently a vacant office building. Assumed density range 40 - 50 dph reflecting outer area location \u0026 assuming 80% developable area due to size of site.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Mexford House, Mexford Avenue, Blackpool, FY2 0XN", "SiteReference": "SN/043", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.05064, "GeoY": 53.795858, "HazardousSubstances": null, "Hectares": 0.134, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 13.0, "Notes": "Site is in 2014 SHLAA. Site is vacant and has been cleared. Assumed density range 80 - 100 dph reflecting inner area location.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Station Road/Lytham Road, Blackpool, FY4 1EU", "SiteReference": "SS/057", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.028283, "GeoY": 53.790516, "HazardousSubstances": null, "Hectares": 0.172, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 8 no. two-storey, semi-detached dwellinghouses with vehicular accesses from Burgess Avenue, Crompton Avenue and Reaney Avenue and associated car parking, detached garages and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-03-23", "PermissionType": "reserved matters approval", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61200", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at former Hawes Side Clinic, Hawes Side Lane, FY4 5AJ", "SiteReference": "SS/064", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.046951, "GeoY": 53.781842, "HazardousSubstances": null, "Hectares": 0.135, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 5.0, "NetDwellingsRangeTo": 7.0, "Notes": "Site is in 2014 SHLAA. Outline permission 13/0625 for 6 terraced houses recently expired. Assumed density range 40 - 50 dph reflecting outer area location. Site is vacant and has been cleared.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_58358", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former St Margaret Clitherow RC Church, 575 Lytham Road, Blackpool, FY4 1PU", "SiteReference": "SS/070", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.048106, "GeoY": 53.78131, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 8 no. two-storey, semi-detached dwellinghouses with vehicular accesses from Stony Hill Avenue and associated car parking, attached garages and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-29", "PermissionType": "reserved matters approval", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_58080|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_60814", "PlanningStatus": "permissioned", "SiteNameAddress": "Land adjacent to 73 Stony Hill Avenue, Blackpool, FY4 1PP", "SiteReference": "SS/071", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.055168, "GeoY": 53.799054, "HazardousSubstances": null, "Hectares": 0.127, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of five-storey building comprising 2 no. bar/restaurants at ground floor level (Class A3 \u0026 A4 uses) and 15 no. self-contained flats on the upper floors, with associated vehicular accesses from Bolton Street to car parking for 16 vehicles", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-03", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_61111", "PlanningStatus": "permissioned", "SiteNameAddress": "429-437 Promenade, Blackpool, FY1 6BQ", "SiteReference": "SS/077", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.054783, "GeoY": 53.795211, "HazardousSubstances": null, "Hectares": 0.174, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 17.0, "Notes": "Site is in 2014 SHLAA. Outline permission 13/0501 for 10 terraced houses expired. Density minimum reflects application 13/0501 and density maximum equates to 100 dph reflecting inner area location. Demolition of existing premises required.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_58231", "PlanningStatus": "not permissioned", "SiteNameAddress": "9, 11, 11a Station Road, Blackpool, FY4 1BE", "SiteReference": "SS/078", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.034793, "GeoY": 53.793507, "HazardousSubstances": null, "Hectares": 0.894, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": 28.0, "NetDwellingsRangeTo": 38.0, "Notes": "Site is in 2014 SHLAA. Density maximum reflects expired application 08/1351 and density minimum equates to 40 dph reflecting outer area location \u0026 assuming 80% developable area. Demolition of existing buildings prior approval granted in 2017.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_35371|http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61386", "PlanningStatus": "not permissioned", "SiteNameAddress": "200-210 Watson Road, Blackpool, FY4 3EE", "SiteReference": "SS/082", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.057238, "GeoY": 53.785967, "HazardousSubstances": null, "Hectares": 0.37, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of part 3 / part 4 / part 5 / part 6 storey block of 88 self contained permanent flats with car parking for 88 vehicles, access and associated works, following demolition of existing hotels.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-10", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61323", "PlanningStatus": "permissioned", "SiteNameAddress": "585-593 Promenade \u0026 1 Wimbourne Place, FY4 1NQ", "SiteReference": "SS/083", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.021868, "GeoY": 53.83331, "HazardousSubstances": null, "Hectares": 0.361, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Dwellings proposed are social rented housing.. Erection of 6 two storey semi-detached dwellinghouses, 2 semi-detached bungalows, 3 two storey mews dwellinghouses and an Assistive Technology Centre forming 7 self contained flats and staff/communal area with associated parking", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61720", "PlanningStatus": "pending decision", "SiteNameAddress": "Hoyle House, Argosy Avenue, Blackpool, FY3 7NN", "SiteReference": "SC/124", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.0233, "GeoY": 53.789129, "HazardousSubstances": null, "Hectares": 1.02, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a food store with ancillary car park and 26 private dwelling houses, with associated landscaping, parking and revised access from Marshdale Road", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-08", "PermissionType": "full planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_61546", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of former E H Booth and Company Ltd, Highfield Road, Blackpool, FY4 5AP", "SiteReference": "SS/084", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.05512, "GeoY": 53.800142, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing premises and erection of five-storey building comprising a restaurant (Use class A3) at ground floor and 7 self-contained, permanent flats on the upper floors, with associated car parking, bin and cycle stores", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-07", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=documents\u0026keyVal=_BLCKP_DCAPR_59171", "PlanningStatus": "permissioned", "SiteNameAddress": "397-399 Promenade Blackpool, FY1 6BH", "SiteReference": "SS/085", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.033345, "GeoY": 53.870531, "HazardousSubstances": null, "Hectares": 0.122, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 4 semi detached dwellinghouses and 1 detached dwellinghouse with associated garages, following demolition of existing church building", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-21", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59366", "PlanningStatus": "permissioned", "SiteNameAddress": "Anchorsholme Methodist Church, North Drive, Blackpool, FY5 3PG", "SiteReference": "SN/047", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.053075, "GeoY": 53.847043, "HazardousSubstances": null, "Hectares": 0.103, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a part two/ part three/ part four storey building comprising 11 self contained permanent flats with car parking, vehicle accesses from Queens Promenade and Cavendish Road, following demolition of existing building", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-08", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59400", "PlanningStatus": "permissioned", "SiteNameAddress": "176 Queens Promenade, Blackpool, FY2 9JS", "SiteReference": "SN/048", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -3.054236, "GeoY": 53.830917, "HazardousSubstances": null, "Hectares": 0.121, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of three storey building comprising 15 x two bedroom self contained permanent flats with vehicle access to rear from Gynn Avenue and associated car parking facilities for 13 vehicles, and refuse store to rear", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/blackpool", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-11-04", "PermissionType": "outline planning permission", "PlanningHistory": "http://idoxpa.blackpool.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_BLCKP_DCAPR_59805", "PlanningStatus": "permissioned", "SiteNameAddress": "Kings Christian Centre, Warley Road, Blackpool, FY1 2JU", "SiteReference": "SN/049", "SiteplanURL": "http://maps.blackpool.gov.uk/#zoom=3\u0026lat=434255.06959\u0026lon=333928.83324\u0026layers=0BTFTFFFFFFFFFFFFFFFFFFFFFFFF"}];
+    const bbox = [-3.0724412998580544, -2.982188700141945, 53.77232684341859, 53.879514156581415];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

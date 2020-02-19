@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">6d117f3c...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://s3.eu-west-2.amazonaws.com/digital-land/brownfield-sites/CAR-2017-07-23.csv">https://s3.eu-west-2.amazonaws.com/digital-land/brownfield-sites/CAR-2017-07-23.csv</a>
+        </dd>
+    </dl>
+    <a href="http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 20 October 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:CAR">Carlisle City Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/6d117f3c8adffd5001c382a2aca9de226a80e79ab908feeab0bfbdb789635390/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/6d117f3c8adffd5001c382a2aca9de226a80e79ab908feeab0bfbdb789635390">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">20 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">45.77
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>20</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/6d117f3c8adffd5001c382a2aca9de226a80e79ab908feeab0bfbdb789635390.csv"
+        download="6d117f3c8adffd5001c382a2aca9de226a80e79ab908feeab0bfbdb789635390_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/6d117f3c8adffd5001c382a2aca9de226a80e79ab908feeab0bfbdb789635390"
+        download="6d117f3c8adffd5001c382a2aca9de226a80e79ab908feeab0bfbdb789635390_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>CA51</td>
+                    <td>-2.918437</td>
+                    <td>54.886287</td>
+                    <td>1.99</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Goods Yard, London Road Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA25</td>
+                    <td>-2.934552</td>
+                    <td>54.882067</td>
+                    <td>3.11</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_CARLI_DCAPR_53082</td>
+                    <td>not permissioned</td>
+                    <td>South Western Terrace, Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Authority to issue permission on site for 7 years. Contamination issues. Not deliverable in 5 years</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA12</td>
+                    <td>-2.964508</td>
+                    <td>54.881293</td>
+                    <td>1.67</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>owned by a public authority</td>
+                    <td>2010-03-30</td>
+                    <td>other</td>
+                    <td>https://cloud2.atriumsoft.com/ePlanningCMB/loadFullDetails.do?aplId=45192</td>
+                    <td>permissioned</td>
+                    <td>Site of Morton Primary School Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Permission for 60 bed care home</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA49</td>
+                    <td>-2.944281</td>
+                    <td>54.888848</td>
+                    <td>2.84</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_CARLI_DCAPR_56003</td>
+                    <td>permissioned</td>
+                    <td>Nelson Street Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline permission for residential development on site since 2004, regularly renewed.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA42</td>
+                    <td>-2.901525</td>
+                    <td>54.887052</td>
+                    <td>1.51</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-03-26</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_CARLI_DCAPR_70305</td>
+                    <td>pending decision</td>
+                    <td>Hollywell Crescent Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. outline permission for 66 dwellings. RM pending.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA31</td>
+                    <td>-2.947993</td>
+                    <td>54.890886</td>
+                    <td>1.12</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Dalston Road Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA75</td>
+                    <td>-2.966951</td>
+                    <td>54.897396</td>
+                    <td>1.4</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-11</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activhttp://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_CARLI_DCAPR_71165</td>
+                    <td>permissioned</td>
+                    <td>Caxton Rd Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. outline permission for 63 dwellings. Reserved matters currently being considered.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>OC23</td>
+                    <td>-2.954388</td>
+                    <td>54.937828</td>
+                    <td>10.59</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/simpleSearchResults.do;jsessionid=DEDBAF9DA529115979CC5176DAB07EF4?action=firstPage</td>
+                    <td>not permissioned</td>
+                    <td>Harker Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>CA100</td>
+                    <td>-2.89453</td>
+                    <td>54.882323</td>
+                    <td>3.46</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-14</td>
+                    <td>other</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_CARLI_DCAPR_67551</td>
+                    <td>permissioned</td>
+                    <td>Edgehill Road Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Land to be used for temporary relocation of school until 2021</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/0232</td>
+                    <td>-2.943084</td>
+                    <td>54.883654</td>
+                    <td>0.59</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-02</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=_CARLI_DCAPR_70255</td>
+                    <td>permissioned</td>
+                    <td>Former KSS Factory Constable St Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>17/0429</td>
+                    <td>-2.901627</td>
+                    <td>54.891608</td>
+                    <td>0.28</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-17</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=dates&keyVal=_CARLI_DCAPR_70638</td>
+                    <td>permissioned</td>
+                    <td>The Grange Wood St Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>15/1003</td>
+                    <td>-2.914201</td>
+                    <td>54.872004</td>
+                    <td>3.09</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-31</td>
+                    <td>outline planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>permissioned</td>
+                    <td>St Ninians Road Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.936055</td>
+                    <td>54.892453</td>
+                    <td>0.08</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Central Plaza Hotel Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Former hotel falling into disrepair. Small site area, but potentially developable over several floors</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.934159</td>
+                    <td>54.892054</td>
+                    <td>1.83</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Citadel Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.940023</td>
+                    <td>54.892781</td>
+                    <td>5.46</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Caldew Riverside Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>R 4</td>
+                    <td>-2.966123</td>
+                    <td>55.011875</td>
+                    <td>3.56</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Site of former Lochinvar School Longtown</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.962128</td>
+                    <td>54.889355</td>
+                    <td>1.5</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Raffles Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.928372</td>
+                    <td>54.892583</td>
+                    <td>0.93</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-12-23</td>
+                    <td>full planning permission</td>
+                    <td>http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=details&keyVal=_CARLI_DCAPR_68011</td>
+                    <td>permissioned</td>
+                    <td>Former Offices Portland Square Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of former council offices.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.948953</td>
+                    <td>54.88865</td>
+                    <td>0.38</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Caldew Hospital Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>-2.948953</td>
+                    <td>54.88865</td>
+                    <td>0.38</td>
+                    <td>2017-12-31</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/carlisle</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Caldew Hospital Carlisle</td>
+                    <td>http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.918437, "GeoY": 54.886287, "HazardousSubstances": "yes", "Hectares": 1.99, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Goods Yard, London Road Carlisle", "SiteReference": "CA51", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.934552, "GeoY": 54.882067, "HazardousSubstances": "yes", "Hectares": 3.11, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Authority to issue permission on site for 7 years. Contamination issues. Not deliverable in 5 years", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_CARLI_DCAPR_53082", "PlanningStatus": "not permissioned", "SiteNameAddress": "South Western Terrace, Carlisle", "SiteReference": "CA25", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.964508, "GeoY": 54.881293, "HazardousSubstances": null, "Hectares": 1.67, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Permission for 60 bed care home", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2010-03-30", "PermissionType": "other", "PlanningHistory": "https://cloud2.atriumsoft.com/ePlanningCMB/loadFullDetails.do?aplId=45192", "PlanningStatus": "permissioned", "SiteNameAddress": "Site of Morton Primary School Carlisle", "SiteReference": "CA12", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.944281, "GeoY": 54.888848, "HazardousSubstances": null, "Hectares": 2.84, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline permission for residential development on site since 2004, regularly renewed.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_CARLI_DCAPR_56003", "PlanningStatus": "permissioned", "SiteNameAddress": "Nelson Street Carlisle", "SiteReference": "CA49", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.901525, "GeoY": 54.887052, "HazardousSubstances": "yes", "Hectares": 1.51, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". outline permission for 66 dwellings. RM pending.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-03-26", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_CARLI_DCAPR_70305", "PlanningStatus": "pending decision", "SiteNameAddress": "Hollywell Crescent Carlisle", "SiteReference": "CA42", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.947993, "GeoY": 54.890886, "HazardousSubstances": null, "Hectares": 1.12, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Dalston Road Carlisle", "SiteReference": "CA31", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.966951, "GeoY": 54.897396, "HazardousSubstances": null, "Hectares": 1.4, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". outline permission for 63 dwellings. Reserved matters currently being considered.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-11", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activhttp://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_CARLI_DCAPR_71165", "PlanningStatus": "permissioned", "SiteNameAddress": "Caxton Rd Carlisle", "SiteReference": "CA75", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.954388, "GeoY": 54.937828, "HazardousSubstances": null, "Hectares": 10.59, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/simpleSearchResults.do;jsessionid=DEDBAF9DA529115979CC5176DAB07EF4?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Harker Carlisle", "SiteReference": "OC23", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.89453, "GeoY": 54.882323, "HazardousSubstances": null, "Hectares": 3.46, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Land to be used for temporary relocation of school until 2021", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-14", "PermissionType": "other", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_CARLI_DCAPR_67551", "PlanningStatus": "permissioned", "SiteNameAddress": "Edgehill Road Carlisle", "SiteReference": "CA100", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.943084, "GeoY": 54.883654, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-02", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_CARLI_DCAPR_70255", "PlanningStatus": "permissioned", "SiteNameAddress": "Former KSS Factory Constable St Carlisle", "SiteReference": "17/0232", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.901627, "GeoY": 54.891608, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-17", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=dates\u0026keyVal=_CARLI_DCAPR_70638", "PlanningStatus": "permissioned", "SiteNameAddress": "The Grange Wood St Carlisle", "SiteReference": "17/0429", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.914201, "GeoY": 54.872004, "HazardousSubstances": null, "Hectares": 3.09, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-31", "PermissionType": "outline planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "permissioned", "SiteNameAddress": "St Ninians Road Carlisle", "SiteReference": "15/1003", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.936055, "GeoY": 54.892453, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Former hotel falling into disrepair. Small site area, but potentially developable over several floors", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Central Plaza Hotel Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.934159, "GeoY": 54.892054, "HazardousSubstances": null, "Hectares": 1.83, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Citadel Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.940023, "GeoY": 54.892781, "HazardousSubstances": null, "Hectares": 5.46, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Caldew Riverside Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.966123, "GeoY": 55.011875, "HazardousSubstances": null, "Hectares": 3.56, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Site of former Lochinvar School Longtown", "SiteReference": "R 4", "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.962128, "GeoY": 54.889355, "HazardousSubstances": null, "Hectares": 1.5, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Raffles Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.928372, "GeoY": 54.892583, "HazardousSubstances": null, "Hectares": 0.93, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of former council offices.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-12-23", "PermissionType": "full planning permission", "PlanningHistory": "http://publicaccess.carlisle.gov.uk/online-applications/applicationDetails.do?activeTab=details\u0026keyVal=_CARLI_DCAPR_68011", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Offices Portland Square Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.948953, "GeoY": 54.88865, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Caldew Hospital Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -2.948953, "GeoY": 54.88865, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/carlisle", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Caldew Hospital Carlisle", "SiteReference": null, "SiteplanURL": "http://www.carlisle.gov.uk/planning-policy/Evidence-Base/Brownfield-Register"}];
+    const bbox = [-2.9825628861802334, -2.8789181138197666, 54.863020843418596, 55.02085815658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

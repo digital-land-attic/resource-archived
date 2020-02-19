@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">42fffc15...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.broxtowe.gov.uk/media/5875/broxtowe_brownfieldregister_2018-12-18_rev1.csv">https://www.broxtowe.gov.uk/media/5875/broxtowe_brownfieldregister_2018-12-18_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.broxtowe.gov.uk/for-you/planning/planning-policy/brownfield-land-register/">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 02 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:BRT">Broxtowe Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/42fffc159db734c50a6cc34d5b473cfce18e40e2d8a19b954a07b256c174b118/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/42fffc159db734c50a6cc34d5b473cfce18e40e2d8a19b954a07b256c174b118">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">18 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">159.38
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>18</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/42fffc159db734c50a6cc34d5b473cfce18e40e2d8a19b954a07b256c174b118.csv"
+        download="42fffc159db734c50a6cc34d5b473cfce18e40e2d8a19b954a07b256c174b118_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/42fffc159db734c50a6cc34d5b473cfce18e40e2d8a19b954a07b256c174b118"
+        download="42fffc159db734c50a6cc34d5b473cfce18e40e2d8a19b954a07b256c174b118_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>SHLAA/00690/AVA</td>
+                    <td>-1.244764</td>
+                    <td>52.997018</td>
+                    <td>0.07</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-01-06</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Larks Nest Larkfield Road Nuthall</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00690%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00690%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change use of public house (Class A4) to dwelling house (Class C3) to include six flats and erect two storey rear/side extension (revised scheme)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00761/AVA</td>
+                    <td>-1.217931</td>
+                    <td>52.929262</td>
+                    <td>0.03</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Car Park On Corner Of The Poplars Wollaton Road Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00761%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00761%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construct 10 apartments</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00634/AVA</td>
+                    <td>-1.221731</td>
+                    <td>52.922284</td>
+                    <td>0.09</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-01-14</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>22 High Road Chilwell</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00634%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00634%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application to demolish existing buildings and construct 9 N° one and two bed apartments, in one, two and three storey blocks with 7 N° parking spaces and communal gardens with all matters reserved except layout</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00051/AVA</td>
+                    <td>-1.271252</td>
+                    <td>52.931678</td>
+                    <td>1.09</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-26</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Units 12-15 Pinfold Trading Estate Nottingham Road Stapleford</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00051%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00051%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Hybrid planning application comprising: Full Application to construct shop (Class A1) including solar panels and with associated car parking, access and landscaping on a 0.78 ha site:. Hybrid planning application comprising: Outline Application to construct dwellings (Class C3) on 0.29 ha, with all matters reserved apart from the access.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00012/AVA</td>
+                    <td>-1.269068</td>
+                    <td>52.931521</td>
+                    <td>0.32</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-03-03</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Moults Yard, 68-70 Nottingham Road, Stapleford</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00012%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00012%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construct 15 N° dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00408/AVA</td>
+                    <td>-1.219673</td>
+                    <td>52.92175</td>
+                    <td>1.79</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Myford Machine Tools Wilmot Lane Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00408%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00408%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>13/00003/OUT - Redevelopment and change use of existing industrial site for residential/commercial uses (to include Classes A1; A2; A3; A4; A5; B1(a); C2; C3; and D1 uses) - now lapsed. Construct 47 dwellings, retail unit (Class A1), car parking and highway infrastructure</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00499/AVA</td>
+                    <td>-1.209459</td>
+                    <td>52.917385</td>
+                    <td>19.55</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-03</td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Beeston Business Park Technology Drive Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00499%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00499%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Hybrid planning application comprising: Outline application for up to 310 residential units and community building with means of access included (all other matters reserved).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00195/AVA</td>
+                    <td>-1.222026</td>
+                    <td>52.919886</td>
+                    <td>2.23</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-11-17</td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Former Bartons Bus Depot Queens Road West Chilwell</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00195%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00195%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Full permission for 29 dwellings, outline permission for up to 221 further dwellings. Hybrid planning application comprising: Full application to construct 29 dwellings, including access, associated road infrastructure, car parking and landscaping.  Outline application (including access) with some matters reserved to construct up to 221 dwellings and units with flexible uses (Classes D1, D2, A1, A2, A3, A4 and A5), following demolition of buildings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00237/AVA</td>
+                    <td>-1.191882</td>
+                    <td>52.921294</td>
+                    <td>14.68</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>The Boots Company Beeston site</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00237%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00237%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>This site crossed the boundary with Nottingham City Council therefore the number of dwellings in the description is not expected to be delivered in its entirety within Broxtowe.. Outline application for mixed-use development comprising: up to 82,000sqm of employment floorspace, comprising office units (B1a); research and development (B1b); industrial process (B1c); general industrial (B2); storage and distribution (B8); residential institutions (C2); non-residential institutions (D1); up to 2,500sqm retail & food/drink (A1, A2, A3, A4 and A5); up to 675 residential units (C3); and associated works including demolition of existing structures; earthworks; remediation; access; car parking; pedestrian and cycle routes; open space; utilities; sustainable drainage systems</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00193/AVA</td>
+                    <td>-1.250618</td>
+                    <td>52.912681</td>
+                    <td>94.57</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Chetwynd Barracks Chetwynd Road Chilwell</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00193%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00193%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by the Ministry of Defence, a private body has ownership interest in the existing on-site residential units to the north.. Residential led allocation in the emerging Local Plan (not yet allocated).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00571/AVA</td>
+                    <td>-1.218254</td>
+                    <td>52.929489</td>
+                    <td>0.06</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land Fronting Wollaton Road Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00571%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00571%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential allocation in the emerging Local Plan (not adopted).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00239/AVA</td>
+                    <td>-1.282252</td>
+                    <td>52.924167</td>
+                    <td>0.3</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Works Bailey Street Stapleford</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00239%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00239%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Outline permission to demolish existing commercial units and construct 15 N° dwellings lapsed.. Construct 15 N° dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00449/AVA</td>
+                    <td>-1.206268</td>
+                    <td>52.921922</td>
+                    <td>1.19</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Beeston Cement Depot Station Road Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00449%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00449%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by Network Rail. Residential allocation in the emerging Local Plan (not adopted).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00150/AVA</td>
+                    <td>-1.210537</td>
+                    <td>52.919478</td>
+                    <td>1.32</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Beeston Maltings, Dovecote Lane, Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00150%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00150%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential allocation in the emerging Local Plan (not yet allocated).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00771/AVA</td>
+                    <td>-1.214809</td>
+                    <td>52.92588</td>
+                    <td>1.39</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>The Square Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00771%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00771%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by Broxtowe Borough Council.. Mixed use allocation in the emerging Local Plan (not adopted) with a minimum of 100 homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00138/AVA</td>
+                    <td>-1.299296</td>
+                    <td>53.01916</td>
+                    <td>7.47</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Walker Street Eastwood</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00138%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00138%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Planning permission granetd at appeal with one year timelimit (which has now lapsed).. Construct 113 apartments, 27 bungalows, energy centre and associated access road, car parking, amenity space and landscaping.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00258/AVA</td>
+                    <td>-1.195329</td>
+                    <td>52.92067</td>
+                    <td>12.95</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Lilac Grove, Beeston</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00258%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00258%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Owned by Severn Trent. Residential allocation in the emerging Local Plan (not adopted).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SHLAA/00163/AVA</td>
+                    <td>-1.30554</td>
+                    <td>53.010909</td>
+                    <td>0.28</td>
+                    <td>2017-12-13</td>
+                    <td>2018-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/broxtowe</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-07-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>132 Chewton Street Eastwood</td>
+                    <td>http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00163%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6&query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00163%2FAVA</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Construct 13 N° dwellings (revised scheme)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.244764, "GeoY": 52.997018, "HazardousSubstances": null, "Hectares": 0.07, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change use of public house (Class A4) to dwelling house (Class C3) to include six flats and erect two storey rear/side extension (revised scheme)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-01-06", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Larks Nest Larkfield Road Nuthall", "SiteReference": "SHLAA/00690/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00690%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00690%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.217931, "GeoY": 52.929262, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construct 10 apartments", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Car Park On Corner Of The Poplars Wollaton Road Beeston", "SiteReference": "SHLAA/00761/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00761%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00761%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.221731, "GeoY": 52.922284, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application to demolish existing buildings and construct 9 N\u00b0 one and two bed apartments, in one, two and three storey blocks with 7 N\u00b0 parking spaces and communal gardens with all matters reserved except layout", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-01-14", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "22 High Road Chilwell", "SiteReference": "SHLAA/00634/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00634%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00634%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.271252, "GeoY": 52.931678, "HazardousSubstances": null, "Hectares": 1.09, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Hybrid planning application comprising: Full Application to construct shop (Class A1) including solar panels and with associated car parking, access and landscaping on a 0.78 ha site:. Hybrid planning application comprising: Outline Application to construct dwellings (Class C3) on 0.29 ha, with all matters reserved apart from the access.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-26", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Units 12-15 Pinfold Trading Estate Nottingham Road Stapleford", "SiteReference": "SHLAA/00051/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00051%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00051%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.269068, "GeoY": 52.931521, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construct 15 N\u00b0 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-03-03", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Moults Yard, 68-70 Nottingham Road, Stapleford", "SiteReference": "SHLAA/00012/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00012%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00012%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.219673, "GeoY": 52.92175, "HazardousSubstances": null, "Hectares": 1.79, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "13/00003/OUT - Redevelopment and change use of existing industrial site for residential/commercial uses (to include Classes A1; A2; A3; A4; A5; B1(a); C2; C3; and D1 uses) - now lapsed. Construct 47 dwellings, retail unit (Class A1), car parking and highway infrastructure", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Myford Machine Tools Wilmot Lane Beeston", "SiteReference": "SHLAA/00408/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00408%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00408%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.209459, "GeoY": 52.917385, "HazardousSubstances": null, "Hectares": 19.55, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Hybrid planning application comprising: Outline application for up to 310 residential units and community building with means of access included (all other matters reserved).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-03", "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Beeston Business Park Technology Drive Beeston", "SiteReference": "SHLAA/00499/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00499%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00499%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.222026, "GeoY": 52.919886, "HazardousSubstances": null, "Hectares": 2.23, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Full permission for 29 dwellings, outline permission for up to 221 further dwellings. Hybrid planning application comprising: Full application to construct 29 dwellings, including access, associated road infrastructure, car parking and landscaping.  Outline application (including access) with some matters reserved to construct up to 221 dwellings and units with flexible uses (Classes D1, D2, A1, A2, A3, A4 and A5), following demolition of buildings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-11-17", "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Former Bartons Bus Depot Queens Road West Chilwell", "SiteReference": "SHLAA/00195/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00195%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00195%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.191882, "GeoY": 52.921294, "HazardousSubstances": null, "Hectares": 14.68, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "This site crossed the boundary with Nottingham City Council therefore the number of dwellings in the description is not expected to be delivered in its entirety within Broxtowe.. Outline application for mixed-use development comprising: up to 82,000sqm of employment floorspace, comprising office units (B1a); research and development (B1b); industrial process (B1c); general industrial (B2); storage and distribution (B8); residential institutions (C2); non-residential institutions (D1); up to 2,500sqm retail \u0026 food/drink (A1, A2, A3, A4 and A5); up to 675 residential units (C3); and associated works including demolition of existing structures; earthworks; remediation; access; car parking; pedestrian and cycle routes; open space; utilities; sustainable drainage systems", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "The Boots Company Beeston site", "SiteReference": "SHLAA/00237/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00237%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00237%2FAVA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.250618, "GeoY": 52.912681, "HazardousSubstances": null, "Hectares": 94.57, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Owned by the Ministry of Defence, a private body has ownership interest in the existing on-site residential units to the north.. Residential led allocation in the emerging Local Plan (not yet allocated).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Chetwynd Barracks Chetwynd Road Chilwell", "SiteReference": "SHLAA/00193/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00193%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00193%2FAVA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.218254, "GeoY": 52.929489, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential allocation in the emerging Local Plan (not adopted).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land Fronting Wollaton Road Beeston", "SiteReference": "SHLAA/00571/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00571%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00571%2FAVA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.282252, "GeoY": 52.924167, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Outline permission to demolish existing commercial units and construct 15 N\u00b0 dwellings lapsed.. Construct 15 N\u00b0 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Works Bailey Street Stapleford", "SiteReference": "SHLAA/00239/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00239%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00239%2FAVA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.206268, "GeoY": 52.921922, "HazardousSubstances": null, "Hectares": 1.19, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Owned by Network Rail. Residential allocation in the emerging Local Plan (not adopted).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Beeston Cement Depot Station Road Beeston", "SiteReference": "SHLAA/00449/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00449%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00449%2FAVA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.210537, "GeoY": 52.919478, "HazardousSubstances": null, "Hectares": 1.32, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Residential allocation in the emerging Local Plan (not yet allocated).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Beeston Maltings, Dovecote Lane, Beeston", "SiteReference": "SHLAA/00150/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00150%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00150%2FAVA"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.214809, "GeoY": 52.92588, "HazardousSubstances": null, "Hectares": 1.39, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Owned by Broxtowe Borough Council.. Mixed use allocation in the emerging Local Plan (not adopted) with a minimum of 100 homes.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Square Beeston", "SiteReference": "SHLAA/00771/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00771%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00771%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.299296, "GeoY": 53.01916, "HazardousSubstances": null, "Hectares": 7.47, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Planning permission granetd at appeal with one year timelimit (which has now lapsed).. Construct 113 apartments, 27 bungalows, energy centre and associated access road, car parking, amenity space and landscaping.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Walker Street Eastwood", "SiteReference": "SHLAA/00138/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00138%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00138%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.195329, "GeoY": 52.92067, "HazardousSubstances": null, "Hectares": 12.95, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Owned by Severn Trent. Residential allocation in the emerging Local Plan (not adopted).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Lilac Grove, Beeston", "SiteReference": "SHLAA/00258/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00258%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00258%2FAVA"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-13", "GeoX": -1.30554, "GeoY": 53.010909, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Construct 13 N\u00b0 dwellings (revised scheme)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/broxtowe", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-07-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "132 Chewton Street Eastwood", "SiteReference": "SHLAA/00163/AVA", "SiteplanURL": "http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00163%2FAVA#http://www.arcgis.com/apps/webappviewer/index.html?id=08f516e5e14b48cfa555e52edb7e58f6\u0026query=External_Layes_3711%2CSITEREFERENCE%2CSHLAA%2F00163%2FAVA"}];
+    const bbox = [-1.3204366635453817, -1.1769853364546181, 52.9036978434186, 53.02814315658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

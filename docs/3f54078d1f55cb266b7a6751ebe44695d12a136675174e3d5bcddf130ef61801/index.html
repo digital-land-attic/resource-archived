@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">3f54078d...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://middlesbrough.gov.uk/sites/default/files/Brownfield-sites-March-2019-update.csv">https://middlesbrough.gov.uk/sites/default/files/Brownfield-sites-March-2019-update.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.middlesbrough.gov.uk/planning-and-housing/planning/planning-policy/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 14 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:MDB">Middlesbrough Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/3f54078d1f55cb266b7a6751ebe44695d12a136675174e3d5bcddf130ef61801/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/3f54078d1f55cb266b7a6751ebe44695d12a136675174e3d5bcddf130ef61801">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">32 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">55.61
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>32</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/3f54078d1f55cb266b7a6751ebe44695d12a136675174e3d5bcddf130ef61801.csv"
+        download="3f54078d1f55cb266b7a6751ebe44695d12a136675174e3d5bcddf130ef61801_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/3f54078d1f55cb266b7a6751ebe44695d12a136675174e3d5bcddf130ef61801"
+        download="3f54078d1f55cb266b7a6751ebe44695d12a136675174e3d5bcddf130ef61801_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR3</td>
+                    <td>-1.183741</td>
+                    <td>54.556505</td>
+                    <td>2.55</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Roworth Road, Thorntree</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br3-roworth-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR4</td>
+                    <td>-1.189377</td>
+                    <td>54.563949</td>
+                    <td>2.88</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-11</td>
+                    <td>other</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OR30JGKUG4M00</td>
+                    <td>permissioned</td>
+                    <td>Former Erimus Training Centre, College Road</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br4-former-erimus-training-centrejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site under construction as of Febrauary  2019. Erection of 106 no. dwellings and associated works.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR5</td>
+                    <td>-1.225008</td>
+                    <td>54.571363</td>
+                    <td>0.59</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-23</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZZSKKUSK299</td>
+                    <td>permissioned</td>
+                    <td>The Wave, Marton Road</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br5-wavejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 5 storey building (comprising 109no units for student residential accommodation, 95 studios and 14 cluster flats) with car parking, boundary treatments and landscaping.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR6</td>
+                    <td>-1.231829</td>
+                    <td>54.572251</td>
+                    <td>0.06</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-12-07</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZZSKKUSK887</td>
+                    <td>permissioned</td>
+                    <td>Springfield Hotel, Borough Road</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br6-springfield-hoteljpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing public house & erection of 1no 7 storey mixed use building, consisting of part ground floor (A1) commercial unit & 13 residential units (77 bed total).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR7</td>
+                    <td>-1.238699</td>
+                    <td>54.569634</td>
+                    <td>0.03</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-02-29</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZZSKKUSK559</td>
+                    <td>permissioned</td>
+                    <td>L/A 234 Linthorpe Road</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br7-la-234-linthorpe-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline planning application for mixed use development consisting of ground floor commercial/retail (A1,A2,A3,A4,A5) and residential accommodation of 55no beds</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR10</td>
+                    <td>-1.239413</td>
+                    <td>54.566987</td>
+                    <td>0.03</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-04-26</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OKUH5FKULQR00</td>
+                    <td>permissioned</td>
+                    <td>4-6 Park Road North</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br10-4-6-park-road-northjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from A4 drinking establishement with 2nd floor flat to 8 student cluster flats (1 3B, 6 2B & 1 5B), basement conversion, external alterations, enclosed rear yard and front boundary fencing.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR12</td>
+                    <td>-1.224103</td>
+                    <td>54.577477</td>
+                    <td>1.89</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>L/S Middlesbrough Dock, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br12-ls-middlesbrough-dockjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR17</td>
+                    <td>-1.23747</td>
+                    <td>54.579116</td>
+                    <td>0.19</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-09</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OPC1VXKUFHZ00</td>
+                    <td>permissioned</td>
+                    <td>Station Street</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br17-station-streetjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 7 storey student accommodation building comprising 337 student studios (Class C3) and ancillary space (Retail - A1, Cafe - A3 and takeaway - A5).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR19</td>
+                    <td>-1.251231</td>
+                    <td>54.540728</td>
+                    <td>6.5</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former St David's School, Cowley Road, Acklam</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfield-register-br19-former-st-davids-school-cowley-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR23</td>
+                    <td>-1.230891</td>
+                    <td>54.55712</td>
+                    <td>2.76</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-03-28</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=P190V2KUK2R00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Bishopton Road, Grove Hill</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br23-bishopton-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site under construction as of July 2018. Erection of 92no dwellinghouses (including 39no bungalows).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR25</td>
+                    <td>-1.212268</td>
+                    <td>54.549388</td>
+                    <td>1.78</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td>2014-02-12</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZZSMKUSK220</td>
+                    <td>permissioned</td>
+                    <td>Brackenhoe East</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br25-brackenhoe-eastjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Brownfield element of Hybrid application (10.04 ha) including outline permission for 130no dwellings and associated works, and full plans application for hospital car park, access road, landscaping/boundary treatment and associated works. 2.43 ha (103 dwellings)for housing on greenfield.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR26</td>
+                    <td>-1.208913</td>
+                    <td>54.542203</td>
+                    <td>0.99</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-14</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OM1FBAKU00300</td>
+                    <td>permissioned</td>
+                    <td>The Lawns, Marton</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br26-tennis-world-marton-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site under construction as of April 2018. Residential development comprising 23no dwellings (2,3 & 4 bed), landscaping and associated infrastructure.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR28</td>
+                    <td>-1.168683</td>
+                    <td>54.519106</td>
+                    <td>0.97</td>
+                    <td>2017-12-11</td>
+                    <td>2018-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Ford Close Riding School, Brass Castle Lane</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br28-ford-close-riding-schooljpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Part of a larger allocated housing site with additional 4.47 ha of greenfield.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR30</td>
+                    <td>-1.241475</td>
+                    <td>54.572572</td>
+                    <td>6.15</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Gresham</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br30-greshamjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR32</td>
+                    <td>-1.214056</td>
+                    <td>54.5698</td>
+                    <td>0.04</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-05-23</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZZSKKUSK331</td>
+                    <td>permissioned</td>
+                    <td>44 Westbourne Grove, North Ormesby</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br32-44-westbourne-grove-north-ormesbyjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 8no 1 bed self-contained flats with associated boundary works (demolition of existing building).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR35</td>
+                    <td>-1.24144</td>
+                    <td>54.563576</td>
+                    <td>0.76</td>
+                    <td>2017-12-11</td>
+                    <td>2018-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>368-374 Linthorpe Road</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br35-368-374-linthorpe-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Identified for 26 student beds in the HLAA.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR36</td>
+                    <td>-1.265177</td>
+                    <td>54.52585</td>
+                    <td>4.72</td>
+                    <td>2017-12-11</td>
+                    <td>2018-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Sporting Lodge, Low lane, Stainton</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br36-sporting-lodge-low-lane-staintonjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR38</td>
+                    <td>-1.229113</td>
+                    <td>54.562015</td>
+                    <td>0.39</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-08</td>
+                    <td>outline planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O9MTX2KU00500</td>
+                    <td>permissioned</td>
+                    <td>Acklam Iron & Steelworks Club, Park Road South</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br38-acklam-iron-and-steelworks-clube-park-road-southjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Brownfield element of application for residential development comprising upto 96no dwellinghouses and 28no apartments.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR42</td>
+                    <td>-1.233031</td>
+                    <td>54.57987</td>
+                    <td>0.12</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Spring Street, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br42-spring-street-middleshavenjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR43</td>
+                    <td>-1.232461</td>
+                    <td>54.579786</td>
+                    <td>0.1</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Brook Street, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br43-brook-street-middlehavenjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR44</td>
+                    <td>-1.23145</td>
+                    <td>54.580031</td>
+                    <td>0.67</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lower Gosford/Lower Feversham Street, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br44-lower-gosford-lower-feversham-street-middlehavenjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR45</td>
+                    <td>-1.231807</td>
+                    <td>54.580824</td>
+                    <td>1.09</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Lower Feversham/Lower East Street, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br45-lower-feversham-lower-east-streetjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR46</td>
+                    <td>-1.230861</td>
+                    <td>54.581726</td>
+                    <td>0.65</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Pioneering Way, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br46-pioneering-way-middlehavenjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR47</td>
+                    <td>-1.236708</td>
+                    <td>54.581844</td>
+                    <td>9.62</td>
+                    <td>2017-12-11</td>
+                    <td>2017-12-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land East of Stockton Street, Middlehaven</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br47-land-east-stockton-streetjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR48</td>
+                    <td>-1.231522</td>
+                    <td>54.554787</td>
+                    <td>8.22</td>
+                    <td>2017-12-11</td>
+                    <td>2018-03-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Keith Road/The Vale, Grove Hill</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br48-keith-road-valejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR49</td>
+                    <td>-1.232279</td>
+                    <td>54.552356</td>
+                    <td>1.34</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Pinewood Avenue, Grove Hill</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br49-pinewood-avenuejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR50</td>
+                    <td>-1.234775</td>
+                    <td>54.578479</td>
+                    <td>0.04</td>
+                    <td>2017-12-11</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-05</td>
+                    <td>other</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OSXBL7KU00300</td>
+                    <td>permissioned</td>
+                    <td>Pullman House, Zetland Road</td>
+                    <td>https://www.middlesbrough.gov.uk/files/brownfields-register-br50-pullman-housejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site under construction as of October 2018. Change of use of ground, 1st, 2nd and 3rd floor offices (B1) to 29no self-contained flats (C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR52</td>
+                    <td>-1.24239</td>
+                    <td>54.563258</td>
+                    <td>0.13</td>
+                    <td>2018-03-31</td>
+                    <td>2018-03-31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Church Hall, 381-395 Linthorpe Road</td>
+                    <td>https://middlesbrough.gov.uk/files/brownfields-register-br52-former-church-hall-linthorpe-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR54</td>
+                    <td>-1.233668</td>
+                    <td>54.579722</td>
+                    <td>0.04</td>
+                    <td>2019-03-08</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-14</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=PD194CKUGRT00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>New Exchange Buildings, Queen's Square</td>
+                    <td>https://middlesbrough.gov.uk/files/brownfields-register-br54-new-exchange-buildingsjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use of upper floors from offices (B1) to 12No two bed apartments (C3). Subdivision of ground floor to 2No commercial offices (B1) and conversion of two window openings to provide door openings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR55</td>
+                    <td>-1.232893</td>
+                    <td>54.576508</td>
+                    <td>0.24</td>
+                    <td>2019-03-08</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>mixed ownership</td>
+                    <td>2018-07-30</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=P9AHQ5KUN3F00&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Vancouver House, Fry Street</td>
+                    <td>https://middlesbrough.gov.uk/files/brownfields-register-br55-vancouver-housejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 4 additional storeys and conversion from offices (B1) to 104no bed hotel (C1), 3no banqueting halls with associated kitchens (D2) a restaurant/cafe (A3) and 71no one, two and three bed apartments (C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR56</td>
+                    <td>-1.237252</td>
+                    <td>54.575916</td>
+                    <td>0.04</td>
+                    <td>2019-03-08</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-07-26</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=PB0YPWKU01000&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>47 & 49 Linthorpe Road</td>
+                    <td>https://middlesbrough.gov.uk/files/brownfields-register-br56-47-49-linthorpe-roadjpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Non material amendment on application 17/0432/FUL (Change of use of first and second floors into HMO accommodation consisting of six pods with a total of twenty beds) for the installation of 2 no. additional windows and revised internal layout.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR57</td>
+                    <td>-1.239421</td>
+                    <td>54.567401</td>
+                    <td>0.03</td>
+                    <td>2019-03-08</td>
+                    <td>2019-03-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/unitary-authority/middlesbrough</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-11-08</td>
+                    <td>full planning permission</td>
+                    <td>https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=PAVMNCKUFY100&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>304 Linthorpe Road & 5 Albert Terrace</td>
+                    <td>https://middlesbrough.gov.uk/files/brownfields-register-br57-304-linthorpe-road-5-albert-terracejpg</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Alterations and extension to 304 Linthorpe Road and 5 Albert Terrace to 31no student bed accommodation (Sui Generis) comprising 3no. 3 bed pods, 4no. 2 bed pods and 14no 1 bed self contained apartments with ancillary facilities.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.183741, "GeoY": 54.556505, "HazardousSubstances": null, "Hectares": 2.55, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Roworth Road, Thorntree", "SiteReference": "BR3", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br3-roworth-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.189377, "GeoY": 54.563949, "HazardousSubstances": null, "Hectares": 2.88, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site under construction as of Febrauary  2019. Erection of 106 no. dwellings and associated works.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-11", "PermissionType": "other", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OR30JGKUG4M00", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Erimus Training Centre, College Road", "SiteReference": "BR4", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br4-former-erimus-training-centrejpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.225008, "GeoY": 54.571363, "HazardousSubstances": null, "Hectares": 0.59, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 5 storey building (comprising 109no units for student residential accommodation, 95 studios and 14 cluster flats) with car parking, boundary treatments and landscaping.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-23", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZZSKKUSK299", "PlanningStatus": "permissioned", "SiteNameAddress": "The Wave, Marton Road", "SiteReference": "BR5", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br5-wavejpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.231829, "GeoY": 54.572251, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing public house \u0026 erection of 1no 7 storey mixed use building, consisting of part ground floor (A1) commercial unit \u0026 13 residential units (77 bed total).", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-12-07", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZZSKKUSK887", "PlanningStatus": "permissioned", "SiteNameAddress": "Springfield Hotel, Borough Road", "SiteReference": "BR6", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br6-springfield-hoteljpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.238699, "GeoY": 54.569634, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline planning application for mixed use development consisting of ground floor commercial/retail (A1,A2,A3,A4,A5) and residential accommodation of 55no beds", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-02-29", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZZSKKUSK559", "PlanningStatus": "permissioned", "SiteNameAddress": "L/A 234 Linthorpe Road", "SiteReference": "BR7", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br7-la-234-linthorpe-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.239413, "GeoY": 54.566987, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use from A4 drinking establishement with 2nd floor flat to 8 student cluster flats (1 3B, 6 2B \u0026 1 5B), basement conversion, external alterations, enclosed rear yard and front boundary fencing.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-04-26", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OKUH5FKULQR00", "PlanningStatus": "permissioned", "SiteNameAddress": "4-6 Park Road North", "SiteReference": "BR10", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br10-4-6-park-road-northjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.224103, "GeoY": 54.577477, "HazardousSubstances": null, "Hectares": 1.89, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "L/S Middlesbrough Dock, Middlehaven", "SiteReference": "BR12", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br12-ls-middlesbrough-dockjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.23747, "GeoY": 54.579116, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 7 storey student accommodation building comprising 337 student studios (Class C3) and ancillary space (Retail - A1, Cafe - A3 and takeaway - A5).", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-09", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OPC1VXKUFHZ00", "PlanningStatus": "permissioned", "SiteNameAddress": "Station Street", "SiteReference": "BR17", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br17-station-streetjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.251231, "GeoY": 54.540728, "HazardousSubstances": null, "Hectares": 6.5, "LastUpdatedDate": "2019-03-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former St David\u0027s School, Cowley Road, Acklam", "SiteReference": "BR19", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfield-register-br19-former-st-davids-school-cowley-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.230891, "GeoY": 54.55712, "HazardousSubstances": null, "Hectares": 2.76, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site under construction as of July 2018. Erection of 92no dwellinghouses (including 39no bungalows).", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-03-28", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=P190V2KUK2R00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Bishopton Road, Grove Hill", "SiteReference": "BR23", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br23-bishopton-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.212268, "GeoY": 54.549388, "HazardousSubstances": null, "Hectares": 1.78, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Brownfield element of Hybrid application (10.04 ha) including outline permission for 130no dwellings and associated works, and full plans application for hospital car park, access road, landscaping/boundary treatment and associated works. 2.43 ha (103 dwellings)for housing on greenfield.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2014-02-12", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZZSMKUSK220", "PlanningStatus": "permissioned", "SiteNameAddress": "Brackenhoe East", "SiteReference": "BR25", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br25-brackenhoe-eastjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.208913, "GeoY": 54.542203, "HazardousSubstances": null, "Hectares": 0.99, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site under construction as of April 2018. Residential development comprising 23no dwellings (2,3 \u0026 4 bed), landscaping and associated infrastructure.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-14", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OM1FBAKU00300", "PlanningStatus": "permissioned", "SiteNameAddress": "The Lawns, Marton", "SiteReference": "BR26", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br26-tennis-world-marton-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.168683, "GeoY": 54.519106, "HazardousSubstances": null, "Hectares": 0.97, "LastUpdatedDate": "2018-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Part of a larger allocated housing site with additional 4.47 ha of greenfield.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Ford Close Riding School, Brass Castle Lane", "SiteReference": "BR28", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br28-ford-close-riding-schooljpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.241475, "GeoY": 54.572572, "HazardousSubstances": null, "Hectares": 6.15, "LastUpdatedDate": "2019-03-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Gresham", "SiteReference": "BR30", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br30-greshamjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.214056, "GeoY": 54.5698, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 8no 1 bed self-contained flats with associated boundary works (demolition of existing building).", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-05-23", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZZSKKUSK331", "PlanningStatus": "permissioned", "SiteNameAddress": "44 Westbourne Grove, North Ormesby", "SiteReference": "BR32", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br32-44-westbourne-grove-north-ormesbyjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.24144, "GeoY": 54.563576, "HazardousSubstances": null, "Hectares": 0.76, "LastUpdatedDate": "2018-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Identified for 26 student beds in the HLAA.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "368-374 Linthorpe Road", "SiteReference": "BR35", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br35-368-374-linthorpe-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.265177, "GeoY": 54.52585, "HazardousSubstances": null, "Hectares": 4.72, "LastUpdatedDate": "2018-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Sporting Lodge, Low lane, Stainton", "SiteReference": "BR36", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br36-sporting-lodge-low-lane-staintonjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.229113, "GeoY": 54.562015, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Brownfield element of application for residential development comprising upto 96no dwellinghouses and 28no apartments.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-08", "PermissionType": "outline planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O9MTX2KU00500", "PlanningStatus": "permissioned", "SiteNameAddress": "Acklam Iron \u0026 Steelworks Club, Park Road South", "SiteReference": "BR38", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br38-acklam-iron-and-steelworks-clube-park-road-southjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.233031, "GeoY": 54.57987, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Spring Street, Middlehaven", "SiteReference": "BR42", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br42-spring-street-middleshavenjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.232461, "GeoY": 54.579786, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Brook Street, Middlehaven", "SiteReference": "BR43", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br43-brook-street-middlehavenjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.23145, "GeoY": 54.580031, "HazardousSubstances": null, "Hectares": 0.67, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lower Gosford/Lower Feversham Street, Middlehaven", "SiteReference": "BR44", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br44-lower-gosford-lower-feversham-street-middlehavenjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.231807, "GeoY": 54.580824, "HazardousSubstances": null, "Hectares": 1.09, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Lower Feversham/Lower East Street, Middlehaven", "SiteReference": "BR45", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br45-lower-feversham-lower-east-streetjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.230861, "GeoY": 54.581726, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Pioneering Way, Middlehaven", "SiteReference": "BR46", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br46-pioneering-way-middlehavenjpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.236708, "GeoY": 54.581844, "HazardousSubstances": null, "Hectares": 9.62, "LastUpdatedDate": "2017-12-11", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land East of Stockton Street, Middlehaven", "SiteReference": "BR47", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br47-land-east-stockton-streetjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.231522, "GeoY": 54.554787, "HazardousSubstances": null, "Hectares": 8.22, "LastUpdatedDate": "2018-03-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Keith Road/The Vale, Grove Hill", "SiteReference": "BR48", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br48-keith-road-valejpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.232279, "GeoY": 54.552356, "HazardousSubstances": null, "Hectares": 1.34, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Pinewood Avenue, Grove Hill", "SiteReference": "BR49", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br49-pinewood-avenuejpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-11", "GeoX": -1.234775, "GeoY": 54.578479, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site under construction as of October 2018. Change of use of ground, 1st, 2nd and 3rd floor offices (B1) to 29no self-contained flats (C3)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-05", "PermissionType": "other", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OSXBL7KU00300", "PlanningStatus": "permissioned", "SiteNameAddress": "Pullman House, Zetland Road", "SiteReference": "BR50", "SiteplanURL": "https://www.middlesbrough.gov.uk/files/brownfields-register-br50-pullman-housejpg"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-03-31", "GeoX": -1.24239, "GeoY": 54.563258, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2018-03-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Church Hall, 381-395 Linthorpe Road", "SiteReference": "BR52", "SiteplanURL": "https://middlesbrough.gov.uk/files/brownfields-register-br52-former-church-hall-linthorpe-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-03-08", "GeoX": -1.233668, "GeoY": 54.579722, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Change of use of upper floors from offices (B1) to 12No two bed apartments (C3). Subdivision of ground floor to 2No commercial offices (B1) and conversion of two window openings to provide door openings.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-14", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=PD194CKUGRT00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "New Exchange Buildings, Queen\u0027s Square", "SiteReference": "BR54", "SiteplanURL": "https://middlesbrough.gov.uk/files/brownfields-register-br54-new-exchange-buildingsjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-03-08", "GeoX": -1.232893, "GeoY": 54.576508, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of 4 additional storeys and conversion from offices (B1) to 104no bed hotel (C1), 3no banqueting halls with associated kitchens (D2) a restaurant/cafe (A3) and 71no one, two and three bed apartments (C3)", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "mixed ownership", "PermissionDate": "2018-07-30", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=P9AHQ5KUN3F00\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Vancouver House, Fry Street", "SiteReference": "BR55", "SiteplanURL": "https://middlesbrough.gov.uk/files/brownfields-register-br55-vancouver-housejpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-03-08", "GeoX": -1.237252, "GeoY": 54.575916, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Non material amendment on application 17/0432/FUL (Change of use of first and second floors into HMO accommodation consisting of six pods with a total of twenty beds) for the installation of 2 no. additional windows and revised internal layout.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-07-26", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=PB0YPWKU01000\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "47 \u0026 49 Linthorpe Road", "SiteReference": "BR56", "SiteplanURL": "https://middlesbrough.gov.uk/files/brownfields-register-br56-47-49-linthorpe-roadjpg"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-03-08", "GeoX": -1.239421, "GeoY": 54.567401, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2019-03-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Alterations and extension to 304 Linthorpe Road and 5 Albert Terrace to 31no student bed accommodation (Sui Generis) comprising 3no. 3 bed pods, 4no. 2 bed pods and 14no 1 bed self contained apartments with ancillary facilities.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/middlesbrough", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-11-08", "PermissionType": "full planning permission", "PlanningHistory": "https://publicaccess.middlesbrough.gov.uk/online-applications/applicationDetails.do?keyVal=PAVMNCKUFY100\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "304 Linthorpe Road \u0026 5 Albert Terrace", "SiteReference": "BR57", "SiteplanURL": "https://middlesbrough.gov.uk/files/brownfields-register-br57-304-linthorpe-road-5-albert-terracejpg"}];
+    const bbox = [-1.28065368831169, -1.15320631168831, 54.5101228434186, 54.590827156581405];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

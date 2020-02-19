@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">fb5bf9a8...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Register%202018.csv">https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Register%202018.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.north-herts.gov.uk/home/planning/planning-policy/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 14 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:NHE">North Hertfordshire District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/fb5bf9a888b6cdf788db00e91696a3c4be24d664ab1ff45bdbdb9a04ccc7892b/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/fb5bf9a888b6cdf788db00e91696a3c4be24d664ab1ff45bdbdb9a04ccc7892b">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">30 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">26.19
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>30</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/fb5bf9a888b6cdf788db00e91696a3c4be24d664ab1ff45bdbdb9a04ccc7892b.csv"
+        download="fb5bf9a888b6cdf788db00e91696a3c4be24d664ab1ff45bdbdb9a04ccc7892b_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/fb5bf9a888b6cdf788db00e91696a3c4be24d664ab1ff45bdbdb9a04ccc7892b"
+        download="fb5bf9a888b6cdf788db00e91696a3c4be24d664ab1ff45bdbdb9a04ccc7892b_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BR1</td>
+                    <td>-0.179567</td>
+                    <td>51.986317</td>
+                    <td>0.32</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>20.0</td>
+                    <td>20.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Deans Yard, South Road, Baldock</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Baldock%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR2</td>
+                    <td>-0.191748</td>
+                    <td>51.991793</td>
+                    <td>0.52</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>26.0</td>
+                    <td>26.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Icknield Way, Baldock</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Baldock%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR5</td>
+                    <td>-0.266051</td>
+                    <td>51.953582</td>
+                    <td>0.68</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>60.0</td>
+                    <td>60.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former B&Q, at junction of Nightingale and Walsworth Road, Hitchin</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR8</td>
+                    <td>-0.18421</td>
+                    <td>51.866043</td>
+                    <td>0.41</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>14.0</td>
+                    <td>14.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Chas Lowe, London Road, Knebworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Knebworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR9</td>
+                    <td>-0.218193</td>
+                    <td>51.981591</td>
+                    <td>0.39</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>31.0</td>
+                    <td>31.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Pixmore Centre, Pixmore Avenue, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR10</td>
+                    <td>-0.213363</td>
+                    <td>51.974225</td>
+                    <td>0.31</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-08-25</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYUZLKID974&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Freeman House, Radburn Way, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application (all matters reserved except access) for a residential development comprising of 8 dwellings including new access from Radburn Way following demolition of existing elderly persons' home</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR11</td>
+                    <td>-0.2177</td>
+                    <td>51.985465</td>
+                    <td>0.78</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>47.0</td>
+                    <td>47.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Foundation House, Icknield Way, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR12</td>
+                    <td>-0.220563</td>
+                    <td>51.985351</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>9.0</td>
+                    <td>9.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PJMN5ZLKKGW00</td>
+                    <td>pending decision</td>
+                    <td>Glebe Road industrial estate, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 9 x 3 bedroom dwellings following demolition of existing industrial buildings, with all associated landscaping and ancillary works, including creation of new highway and pedestrian access.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR13</td>
+                    <td>-0.209501</td>
+                    <td>51.971207</td>
+                    <td>1.16</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-26</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV2LKID807&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Hamonte, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 3/4 storey building to provide 71 x 2-bedroom assisted living apartments together with communal facility and amenity area, provision of refuse & cycle store and 76 parking spaces for residents, staff and visitors and all associated works following demolition of existing 39 unit sheltered apartment scheme.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR14</td>
+                    <td>-0.233765</td>
+                    <td>51.980235</td>
+                    <td>0.43</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>8.0</td>
+                    <td>8.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Nursery, Icknield Way, Letchwoth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR15</td>
+                    <td>-0.219165</td>
+                    <td>51.981557</td>
+                    <td>0.6</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>48.0</td>
+                    <td>48.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Site at Birds Hill, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR16</td>
+                    <td>-0.236274</td>
+                    <td>51.9793</td>
+                    <td>0.69</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>25.0</td>
+                    <td>25.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garages, Icknield Way, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR17</td>
+                    <td>-0.211446</td>
+                    <td>51.985554</td>
+                    <td>0.92</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>55.0</td>
+                    <td>55.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>mixed ownership</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Depot, Icknield Way, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR18</td>
+                    <td>-0.219302</td>
+                    <td>51.982328</td>
+                    <td>1.07</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>86.0</td>
+                    <td>86.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Birds Hill, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR19</td>
+                    <td>-0.031709</td>
+                    <td>52.053204</td>
+                    <td>1.19</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>48.0</td>
+                    <td>48.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Anglian Business Park, Orchard Road, Royston</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Royston%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR20</td>
+                    <td>-0.022702</td>
+                    <td>52.052122</td>
+                    <td>0.28</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>15.0</td>
+                    <td>15.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-02-22</td>
+                    <td></td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV0LKID067&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Land at Lumen Road, Royston</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Royston%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 15 dwellings comprising 4 x two bedroom houses, 3 x three bedroom houses and 8 x two bedroom flats with associated parking, landscaping and ancillary works following demolition of existing depot building (as amended).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR21</td>
+                    <td>-0.014813</td>
+                    <td>52.051789</td>
+                    <td>0.93</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>19.0</td>
+                    <td>19.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-24</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYUYLKID997&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Agricultural supplier, Garden Walk, Royston</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Royston%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline planning application (all matters reserved except for access) for residential development of up to 19 dwellings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR22</td>
+                    <td>-0.292035</td>
+                    <td>51.958383</td>
+                    <td>0.71</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>33.0</td>
+                    <td>33.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-13</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYVALKID796&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>John Barker Place, Westmill, Hitchin</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing shops, flats and garages and redevelopment of site with housing retail and community facilities comprising: 15 x two-bed houses, 24 flats (22 x two-bed and 2 x one-bed flats), supermarket (Class A1) and takeaway (Class A5) on ground floor of flat block; associated landscaping, parking and new play area. Provision of new pedestrian crossing and visitor parking on John Barker Place.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR23</td>
+                    <td>-0.279521</td>
+                    <td>51.948948</td>
+                    <td>0.09</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-21</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV7LKID877&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Block B, Latchmore Court, Hitchin</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use from offices (B1 use) and bar / nightclub (A4 use) to 2 x 1 bedroom flats and 11 x 2 bedroom flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR25</td>
+                    <td>-0.283658</td>
+                    <td>51.946118</td>
+                    <td>0.41</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>11.0</td>
+                    <td>11.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-03</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV4LKID792&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Elderley Persons Home, Wratten Road West, Hitchin</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. 11 dwellings together with associated parking and open space, following demolition of existing elderly persons home - Outline application with all matters except access reserved.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR26</td>
+                    <td>-0.266863</td>
+                    <td>51.953792</td>
+                    <td>0.11</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>11.0</td>
+                    <td>11.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-14</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV4LKID649&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>The Nightingale, Nightingale Road, Hitchin</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application: Conversion of premises from Class A4 (Drinking Establishment) to Class C3 (Residential) togther with 2.5 storey side and rear extensions and detached two storey building and all associated works to provide 12 x 2-bed flats (matter of landscaping reserved).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR27</td>
+                    <td>-0.226636</td>
+                    <td>51.980638</td>
+                    <td>0.26</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>25.0</td>
+                    <td>25.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-07-30</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYVBLKID356&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>20-22 Station Road, Letchworth Garden City</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of part two and part three storey building comprising 25 one and two bedroom retirement apartments with communal facilities and associated parking, access, landscaping and ancillary works following demolition of former garage buildings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR28</td>
+                    <td>-0.226971</td>
+                    <td>51.978727</td>
+                    <td>0.16</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>45.0</td>
+                    <td>45.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-02-24</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV9LKID736&activeTab=summary</td>
+                    <td>permissioned</td>
+                    <td>Garden Square Shopping Centre, Leys Avenue, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Change of use and extension of Commerce House inc. addition of third floor to provide 21 x 2 bed apartments and 5 x 1 bedroom apartments at upper levels, following partial demolition of existing building. Demolition of 23/25 Leys Avenue and erection of three storey building comprising 275 sq m flexible Class A1-A4 floorspace at ground floor and 10 x 2 bedroom apartments & 2 x 1 bedroom apartments at upper levels. Demolition of existing outbuilding on land adjacent to 21 Leys Avenue & erection of a three storey building with accommodation in roof space inc. 224 sq m flexible Class A1-A4 floorspace at ground & 5 x 2 / 4 x 1 bed apartments above.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR30</td>
+                    <td>-0.260784</td>
+                    <td>51.951837</td>
+                    <td>3.86</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>123.0</td>
+                    <td>123.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Railway Sidings, St. Michael's Road, Hitchin</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR31</td>
+                    <td>-0.280737</td>
+                    <td>51.967274</td>
+                    <td>3.57</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>71.0</td>
+                    <td>71.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/caseDetails.do?caseType=Application&keyVal=ZZZYV2LKID605</td>
+                    <td>pending decision</td>
+                    <td>Bowman's Flour Mill, Ickleford</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR32</td>
+                    <td>-0.191756</td>
+                    <td>51.880974</td>
+                    <td>4.01</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>70.0</td>
+                    <td>70.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-05-12</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/caseDetails.do?caseType=Application&keyVal=ZZZYV1LKID999</td>
+                    <td>permissioned</td>
+                    <td>Oddysey Health Club, Knebworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Knebworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential redevelopment of the site to provide 70 dwellings (14 x 2 bedroom houses; 19 x 3 bedroom houses and 9 x 4 bedroom houses; 16 x one bedroom apartments; 12 x 2 bedroom apartments).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR33</td>
+                    <td>-0.187652</td>
+                    <td>51.8665</td>
+                    <td>0.01</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYV0LKID566</td>
+                    <td>pending decision</td>
+                    <td>The Station, Station Approach, Knebworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Knebworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of 3 storey building to provide 9 x 2 bed flats; conversion and extension of store to 1 bed house and new vehicular access off of Station Approach (as amended by drawings received 12th and 25th October 2017).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR34</td>
+                    <td>-0.279594</td>
+                    <td>51.92983</td>
+                    <td>1.59</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-10-30</td>
+                    <td>full planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYUXLKID838</td>
+                    <td>permissioned</td>
+                    <td>Paul Bromfield Aquatics, Maydencroft Lane, Gosmore</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Gosmore%20Site.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Residential development of eight units comprising of 1 x 2 bed, 3 x 3 bed and 4 x 4 bed dwellings together with associated access road, garaging and infrastructure following demolition of existing aquatic plant nursery buildings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR35</td>
+                    <td>-0.206646</td>
+                    <td>51.969192</td>
+                    <td>0.21</td>
+                    <td>2017-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>44.0</td>
+                    <td>44.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-03-29</td>
+                    <td>outline planning permission</td>
+                    <td>https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ZZZYV2LKID122</td>
+                    <td>permissioned</td>
+                    <td>Former Lannock School, Whiteway, Letchworth</td>
+                    <td>https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application (all matters reserved except access) for residential development up to 44 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BR36</td>
+                    <td>-0.237592</td>
+                    <td>51.854768</td>
+                    <td>0.26</td>
+                    <td>2018-12-31</td>
+                    <td>2018-12-31</td>
+                    <td>54.0</td>
+                    <td>54.0</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-hertfordshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Garden Centre, High Street, Codicote</td>
+                    <td>https://www.north-herts.gov.uk/home/planning/planning-policy/brownfield-land-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.179567, "GeoY": 51.986317, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 20.0, "NetDwellingsRangeTo": 20.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Deans Yard, South Road, Baldock", "SiteReference": "BR1", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Baldock%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.191748, "GeoY": 51.991793, "HazardousSubstances": null, "Hectares": 0.52, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 26.0, "NetDwellingsRangeTo": 26.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Icknield Way, Baldock", "SiteReference": "BR2", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Baldock%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.266051, "GeoY": 51.953582, "HazardousSubstances": null, "Hectares": 0.68, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 60.0, "NetDwellingsRangeTo": 60.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former B\u0026Q, at junction of Nightingale and Walsworth Road, Hitchin", "SiteReference": "BR5", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.18421, "GeoY": 51.866043, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 14.0, "NetDwellingsRangeTo": 14.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Chas Lowe, London Road, Knebworth", "SiteReference": "BR8", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Knebworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.218193, "GeoY": 51.981591, "HazardousSubstances": null, "Hectares": 0.39, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 31.0, "NetDwellingsRangeTo": 31.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Pixmore Centre, Pixmore Avenue, Letchworth", "SiteReference": "BR9", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.213363, "GeoY": 51.974225, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application (all matters reserved except access) for a residential development comprising of 8 dwellings including new access from Radburn Way following demolition of existing elderly persons\u0027 home", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-08-25", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYUZLKID974\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Freeman House, Radburn Way, Letchworth", "SiteReference": "BR10", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.2177, "GeoY": 51.985465, "HazardousSubstances": null, "Hectares": 0.78, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 47.0, "NetDwellingsRangeTo": 47.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Foundation House, Icknield Way, Letchworth", "SiteReference": "BR11", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.220563, "GeoY": 51.985351, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 9.0, "NetDwellingsRangeTo": 9.0, "Notes": ". Erection of 9 x 3 bedroom dwellings following demolition of existing industrial buildings, with all associated landscaping and ancillary works, including creation of new highway and pedestrian access.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PJMN5ZLKKGW00", "PlanningStatus": "pending decision", "SiteNameAddress": "Glebe Road industrial estate, Letchworth", "SiteReference": "BR12", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.209501, "GeoY": 51.971207, "HazardousSubstances": null, "Hectares": 1.16, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". 3/4 storey building to provide 71 x 2-bedroom assisted living apartments together with communal facility and amenity area, provision of refuse \u0026 cycle store and 76 parking spaces for residents, staff and visitors and all associated works following demolition of existing 39 unit sheltered apartment scheme.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-26", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV2LKID807\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Hamonte, Letchworth", "SiteReference": "BR13", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.233765, "GeoY": 51.980235, "HazardousSubstances": null, "Hectares": 0.43, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 8.0, "NetDwellingsRangeTo": 8.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Nursery, Icknield Way, Letchwoth", "SiteReference": "BR14", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.219165, "GeoY": 51.981557, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 48.0, "NetDwellingsRangeTo": 48.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Site at Birds Hill, Letchworth", "SiteReference": "BR15", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.236274, "GeoY": 51.9793, "HazardousSubstances": null, "Hectares": 0.69, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 25.0, "NetDwellingsRangeTo": 25.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garages, Icknield Way, Letchworth", "SiteReference": "BR16", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.211446, "GeoY": 51.985554, "HazardousSubstances": null, "Hectares": 0.92, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 55.0, "NetDwellingsRangeTo": 55.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "mixed ownership", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Depot, Icknield Way, Letchworth", "SiteReference": "BR17", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.219302, "GeoY": 51.982328, "HazardousSubstances": null, "Hectares": 1.07, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 86.0, "NetDwellingsRangeTo": 86.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Birds Hill, Letchworth", "SiteReference": "BR18", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.031709, "GeoY": 52.053204, "HazardousSubstances": null, "Hectares": 1.19, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 48.0, "NetDwellingsRangeTo": 48.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Anglian Business Park, Orchard Road, Royston", "SiteReference": "BR19", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Royston%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.022702, "GeoY": 52.052122, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 15.0, "NetDwellingsRangeTo": 15.0, "Notes": ". Erection of 15 dwellings comprising 4 x two bedroom houses, 3 x three bedroom houses and 8 x two bedroom flats with associated parking, landscaping and ancillary works following demolition of existing depot building (as amended).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-02-22", "PermissionType": null, "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV0LKID067\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Land at Lumen Road, Royston", "SiteReference": "BR20", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Royston%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.014813, "GeoY": 52.051789, "HazardousSubstances": null, "Hectares": 0.93, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 19.0, "NetDwellingsRangeTo": 19.0, "Notes": ". Outline planning application (all matters reserved except for access) for residential development of up to 19 dwellings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-24", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYUYLKID997\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Agricultural supplier, Garden Walk, Royston", "SiteReference": "BR21", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Royston%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.292035, "GeoY": 51.958383, "HazardousSubstances": null, "Hectares": 0.71, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 33.0, "NetDwellingsRangeTo": 33.0, "Notes": ". Demolition of existing shops, flats and garages and redevelopment of site with housing retail and community facilities comprising: 15 x two-bed houses, 24 flats (22 x two-bed and 2 x one-bed flats), supermarket (Class A1) and takeaway (Class A5) on ground floor of flat block; associated landscaping, parking and new play area. Provision of new pedestrian crossing and visitor parking on John Barker Place.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-13", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYVALKID796\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "John Barker Place, Westmill, Hitchin", "SiteReference": "BR22", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.279521, "GeoY": 51.948948, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 10.0, "Notes": ". Change of use from offices (B1 use) and bar / nightclub (A4 use) to 2 x 1 bedroom flats and 11 x 2 bedroom flats.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-21", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV7LKID877\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Block B, Latchmore Court, Hitchin", "SiteReference": "BR23", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.283658, "GeoY": 51.946118, "HazardousSubstances": null, "Hectares": 0.41, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 11.0, "NetDwellingsRangeTo": 11.0, "Notes": ". 11 dwellings together with associated parking and open space, following demolition of existing elderly persons home - Outline application with all matters except access reserved.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-03", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV4LKID792\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Elderley Persons Home, Wratten Road West, Hitchin", "SiteReference": "BR25", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.266863, "GeoY": 51.953792, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 11.0, "NetDwellingsRangeTo": 11.0, "Notes": ". Outline application: Conversion of premises from Class A4 (Drinking Establishment) to Class C3 (Residential) togther with 2.5 storey side and rear extensions and detached two storey building and all associated works to provide 12 x 2-bed flats (matter of landscaping reserved).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-14", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV4LKID649\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "The Nightingale, Nightingale Road, Hitchin", "SiteReference": "BR26", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.226636, "GeoY": 51.980638, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 25.0, "NetDwellingsRangeTo": 25.0, "Notes": ". Erection of part two and part three storey building comprising 25 one and two bedroom retirement apartments with communal facilities and associated parking, access, landscaping and ancillary works following demolition of former garage buildings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-07-30", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYVBLKID356\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "20-22 Station Road, Letchworth Garden City", "SiteReference": "BR27", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.226971, "GeoY": 51.978727, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 45.0, "NetDwellingsRangeTo": 45.0, "Notes": ". Change of use and extension of Commerce House inc. addition of third floor to provide 21 x 2 bed apartments and 5 x 1 bedroom apartments at upper levels, following partial demolition of existing building. Demolition of 23/25 Leys Avenue and erection of three storey building comprising 275 sq m flexible Class A1-A4 floorspace at ground floor and 10 x 2 bedroom apartments \u0026 2 x 1 bedroom apartments at upper levels. Demolition of existing outbuilding on land adjacent to 21 Leys Avenue \u0026 erection of a three storey building with accommodation in roof space inc. 224 sq m flexible Class A1-A4 floorspace at ground \u0026 5 x 2 / 4 x 1 bed apartments above.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-02-24", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?keyVal=ZZZYV9LKID736\u0026activeTab=summary", "PlanningStatus": "permissioned", "SiteNameAddress": "Garden Square Shopping Centre, Leys Avenue, Letchworth", "SiteReference": "BR28", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.260784, "GeoY": 51.951837, "HazardousSubstances": null, "Hectares": 3.86, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 123.0, "NetDwellingsRangeTo": 123.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Railway Sidings, St. Michael\u0027s Road, Hitchin", "SiteReference": "BR30", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.280737, "GeoY": 51.967274, "HazardousSubstances": null, "Hectares": 3.57, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 71.0, "NetDwellingsRangeTo": 71.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/caseDetails.do?caseType=Application\u0026keyVal=ZZZYV2LKID605", "PlanningStatus": "pending decision", "SiteNameAddress": "Bowman\u0027s Flour Mill, Ickleford", "SiteReference": "BR31", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Hitchin%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.191756, "GeoY": 51.880974, "HazardousSubstances": null, "Hectares": 4.01, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 70.0, "NetDwellingsRangeTo": 70.0, "Notes": ". Residential redevelopment of the site to provide 70 dwellings (14 x 2 bedroom houses; 19 x 3 bedroom houses and 9 x 4 bedroom houses; 16 x one bedroom apartments; 12 x 2 bedroom apartments).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-05-12", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/caseDetails.do?caseType=Application\u0026keyVal=ZZZYV1LKID999", "PlanningStatus": "permissioned", "SiteNameAddress": "Oddysey Health Club, Knebworth", "SiteReference": "BR32", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Knebworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.187652, "GeoY": 51.8665, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 10.0, "Notes": ". Erection of 3 storey building to provide 9 x 2 bed flats; conversion and extension of store to 1 bed house and new vehicular access off of Station Approach (as amended by drawings received 12th and 25th October 2017).", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYV0LKID566", "PlanningStatus": "pending decision", "SiteNameAddress": "The Station, Station Approach, Knebworth", "SiteReference": "BR33", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Knebworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.279594, "GeoY": 51.92983, "HazardousSubstances": null, "Hectares": 1.59, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 10.0, "NetDwellingsRangeTo": 10.0, "Notes": ". Residential development of eight units comprising of 1 x 2 bed, 3 x 3 bed and 4 x 4 bed dwellings together with associated access road, garaging and infrastructure following demolition of existing aquatic plant nursery buildings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-10-30", "PermissionType": "full planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYUXLKID838", "PlanningStatus": "permissioned", "SiteNameAddress": "Paul Bromfield Aquatics, Maydencroft Lane, Gosmore", "SiteReference": "BR34", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Gosmore%20Site.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.206646, "GeoY": 51.969192, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 44.0, "NetDwellingsRangeTo": 44.0, "Notes": ". Outline application (all matters reserved except access) for residential development up to 44 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-03-29", "PermissionType": "outline planning permission", "PlanningHistory": "https://pa2.north-herts.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ZZZYV2LKID122", "PlanningStatus": "permissioned", "SiteNameAddress": "Former Lannock School, Whiteway, Letchworth", "SiteReference": "BR35", "SiteplanURL": "https://www.north-herts.gov.uk/sites/northherts-cms/files/Brownfield%20Land%20Register%20-%20Letchworth%20Sites.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-31", "GeoX": -0.237592, "GeoY": 51.854768, "HazardousSubstances": null, "Hectares": 0.26, "LastUpdatedDate": "2018-12-31", "NetDwellingsRangeFrom": 54.0, "NetDwellingsRangeTo": 54.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-hertfordshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Garden Centre, High Street, Codicote", "SiteReference": "BR36", "SiteplanURL": "https://www.north-herts.gov.uk/home/planning/planning-policy/brownfield-land-register"}];
+    const bbox = [-0.3065789259162791, -0.000269074083720856, 51.84578484341859, 52.06218715658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

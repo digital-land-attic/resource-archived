@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">723447ef...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.northwarks.gov.uk/download/downloads/id/7760/brownfield_land_register.csv">https://www.northwarks.gov.uk/download/downloads/id/7760/brownfield_land_register.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.northwarks.gov.uk/info/20027/development_control/1088/self_custom_build_and_brownfield_land_register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 24 November 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:NWA">North Warwickshire Borough Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/723447ef60611babd812113719b6e97c72385682965dde7223794e96e3a8dd22/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/723447ef60611babd812113719b6e97c72385682965dde7223794e96e3a8dd22">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">31 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">19.02
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>31</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/723447ef60611babd812113719b6e97c72385682965dde7223794e96e3a8dd22.csv"
+        download="723447ef60611babd812113719b6e97c72385682965dde7223794e96e3a8dd22_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/723447ef60611babd812113719b6e97c72385682965dde7223794e96e3a8dd22"
+        download="723447ef60611babd812113719b6e97c72385682965dde7223794e96e3a8dd22_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BFR001</td>
+                    <td>-1.709995</td>
+                    <td>52.49774</td>
+                    <td>0.32</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Former Leisure Centre, Park Road, Coleshill</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>An application is currently being considered by the authority for 23 dwellings on the site - PAP/2018/0030. The land is allocated for residential development within the New Local Plan, reference H4</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR002</td>
+                    <td>-1.612026</td>
+                    <td>52.619884</td>
+                    <td>0.62</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Former Polesworth Learning Centre, High Street, Polesworth</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>An application is currently being considered by the authority for 11 dwellings on the site - PAP/2017/0425. The land is allocated for residential development within the New Local Plan, reference H10</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR003</td>
+                    <td>-1.593722</td>
+                    <td>52.593033</td>
+                    <td>2.1</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Land at Spon Lane, Grendon (former Sparrowdale School and Former Recycling Centre)</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>An application is currently being considered by the authority for 56 dwellings on the site - PAP/2018/0287. The land is allocated for residential development within the New Local Plan, reference H17</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR004</td>
+                    <td>-1.742152</td>
+                    <td>52.512747</td>
+                    <td>2.8</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Water Orton Primary School, Attleborough Lane, Water Orton</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The land is allocated for residential development within the Submission Local Plan, reference H21</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR005</td>
+                    <td>-1.565247</td>
+                    <td>52.524222</td>
+                    <td>0.6</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land at Village Farm, Birmingham Road, Ansley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. The land is allocated for residential development within the Submission Local Plan, reference H22</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR006</td>
+                    <td>-1.711633</td>
+                    <td>52.497358</td>
+                    <td>0.58</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-10-12</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=112999</td>
+                    <td>permissioned</td>
+                    <td>Ex Police Station, Park Road, Coleshill</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Site currently under construction, if units are not complete, could be suitable for residentilal use. Demolition of existing police station building. Construction of four storey (including basement) Care Home (use class C2), with associated car parking.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR007</td>
+                    <td>-1.559587</td>
+                    <td>52.519823</td>
+                    <td>0.31</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-04</td>
+                    <td>outline planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114172</td>
+                    <td>permissioned</td>
+                    <td>Ansley Social Club, Birmingham Road, Ansley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variation of conditions approved in 2018, PAP/2017/0683. Outline application (all matters reserved) for the demolition of former social club and residential dwelling and the erection of up to 10 dwellings, along with associated open space and drainage infrastructure</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR008</td>
+                    <td>-1.549074</td>
+                    <td>52.573543</td>
+                    <td>0.42</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-17</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111425</td>
+                    <td>permissioned</td>
+                    <td>Britannia Mill, Coleshill Road, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions applications currently under consideration, DOC/2018/0095 and DOC/2018/0096. Part demolition, new build & refurbishment to create 59  residential dwellings. Listed Building</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR009</td>
+                    <td>-1.551531</td>
+                    <td>52.587271</td>
+                    <td>3.65</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=110855</td>
+                    <td>permissioned</td>
+                    <td>Durnos Nurseries, Old Holly Lane, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>On-going dicussions between LPA and developer with regards to S106 agreements, decision pending. Demolition of Virginia House and nursery buildings and erection of 121 dwellings with public open space and associated infrastructure</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR010</td>
+                    <td>-1.547875</td>
+                    <td>52.578295</td>
+                    <td>0.6</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2007-10-16</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=81727</td>
+                    <td>permissioned</td>
+                    <td>Phoenix Yard, Church Street, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variation of conditions approved in 2013, PAP/2013/0405, Further application expected this year. Planning Permission and Conservation Area Consent to demolish unlisted buildings within the Atherstone Conservation Area, and to redevelop the site so as to provide 73 residential units through conversion and new build, together with associated access and parking provision</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR011</td>
+                    <td>-1.531486</td>
+                    <td>52.569358</td>
+                    <td>0.29</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-08-22</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=109502</td>
+                    <td>permissioned</td>
+                    <td>1-7 Church Walk, Mancetter</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions application approved in 2017, DOC/2017/0030. Demolition of block of 4 shops & 4 maisonettes & construction of 14 flats & 6 houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR012</td>
+                    <td>-1.521172</td>
+                    <td>52.536872</td>
+                    <td>0.23</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-06-16</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=110576</td>
+                    <td>permissioned</td>
+                    <td>Chapel End Social Club, Coleshill Road, Hartshill</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variation of conditions approved in 2016, PAP/2016/0551. Discharge of conditions application approved, DOC/2018/0040. Demolition of existing social club & erection of 13 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR013</td>
+                    <td>-1.616794</td>
+                    <td>52.601542</td>
+                    <td>0.44</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-09-15</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111802</td>
+                    <td>permissioned</td>
+                    <td>Shortwoods Day Centre, The Shortwoods, Dordon</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variation of conditions approved in 2017, PAP/2017/0493. Demolition of existing building and construction of new supported housing for residents with learning difficulties/physical disabilities/mental health (21 no: self-contained apartments and 6 no: shared living bedrooms)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR014</td>
+                    <td>-1.574128</td>
+                    <td>52.474567</td>
+                    <td>0.94</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-04-18</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114973</td>
+                    <td>permissioned</td>
+                    <td>L S Court Ltd, Coventry Road, Fillongley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings and construction of 5 new dwellings with associated access, parking and turning facilities</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR015</td>
+                    <td>-1.525808</td>
+                    <td>52.536297</td>
+                    <td>0.47</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-11-06</td>
+                    <td>outline planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=99658</td>
+                    <td>permissioned</td>
+                    <td>31 Plough Hill Road, Chapel End</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variation of conditions approved in 2016, PAP/2015/0699. Outline - residential development of 7x5 bed houses & terrace of 4x2 bed houses</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR016</td>
+                    <td>-1.617223</td>
+                    <td>52.616683</td>
+                    <td>0.12</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-04-12</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=115229</td>
+                    <td>permissioned</td>
+                    <td>14 Market Street, Polesworth</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing building, conversion of existing building into 4 no: 1 bed flats, construction of 2 no: 2 bed houses and 1 no: 3 bed house, access and parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR017</td>
+                    <td>-1.543955</td>
+                    <td>52.577713</td>
+                    <td>0.17</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-08-21</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113976</td>
+                    <td>permissioned</td>
+                    <td>Rowan Centre, North Street, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions approved in 2017, DOC/2017/0087. Erection of supported living facility and conversion of existing building into 16 supported living flats with associated Community Room</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR018</td>
+                    <td>-1.704337</td>
+                    <td>52.493699</td>
+                    <td>0.21</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-05</td>
+                    <td>other</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114648</td>
+                    <td>permissioned</td>
+                    <td>61 Coventry Road, Coleshill</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions pending, DOC/2016/0097. Prior Notification for change of use from office use (class B1a) to nine residential apartments (class C3)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR019</td>
+                    <td>-1.548374</td>
+                    <td>52.572804</td>
+                    <td>0.11</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2014-11-12</td>
+                    <td>reserved matters approval</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=110638</td>
+                    <td>permissioned</td>
+                    <td>BEC Engineering Ltd, Richmond Road, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Approval of reserved matters pursuant to outline permission ref. PAP/2009/0126 for demolition of existing factory premises and erection of 6 dwellings with associated parking and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR020</td>
+                    <td>-1.584133</td>
+                    <td>52.629696</td>
+                    <td>0.09</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-07-17</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111235</td>
+                    <td>permissioned</td>
+                    <td>Hatters Arms, Church Road, Warton</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions approved in 2015, DOC/2015/0054. Conversion of former public house into four 2-bedroom apartments and construction of two 3-bedroom houses and one 2-bedroomed house on the former car park area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR021</td>
+                    <td>-1.543154</td>
+                    <td>52.578115</td>
+                    <td>0.19</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>owned by a public authority</td>
+                    <td>2016-06-28</td>
+                    <td>outline planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=112344</td>
+                    <td>permissioned</td>
+                    <td>Atherstone College, Ratcliffe Road, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline - Change of use of existing college to residential including conversion of existing building and erection of new block</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR022</td>
+                    <td>-1.547017</td>
+                    <td>52.578462</td>
+                    <td>0.1</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-07</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111345</td>
+                    <td>permissioned</td>
+                    <td>The Angel Inn, 24 Church Street, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions pending, DOC/2018/0042. Part demolition of rear extension. Construction of 1 small retail unit and first floor storage. Erection of 5 pairs of 2 bedroom semi-detached dwellings & 2 one bedroom flats, with associated access ways and bins store and fencing</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR023</td>
+                    <td>-1.610008</td>
+                    <td>52.620812</td>
+                    <td>0.21</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-01-17</td>
+                    <td>outline planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113473</td>
+                    <td>permissioned</td>
+                    <td>49 High Street, Polesworth</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline application for clearance of derelict buildings and erection of 5 detached dwellings and access</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR024</td>
+                    <td>-1.556656</td>
+                    <td>52.519588</td>
+                    <td>0.2</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-02-07</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113504</td>
+                    <td>permissioned</td>
+                    <td>Croft Mead Business Centre, Croft Mead, Ansley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of commercial yard to accommodate 10 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR025</td>
+                    <td>-1.681422</td>
+                    <td>52.564561</td>
+                    <td>0.15</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-03-07</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113593</td>
+                    <td>permissioned</td>
+                    <td>Clinic and Welfare Centre, Coventry Road, Kingbsury</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Discharge of conditions and variation of conditions applications approved in 2017, DOC/2017/0060 and PAP/2017/0464, DOC/2018/0085 pending. Erection of 6 dwellings on site formerly occupied by the Kingsbury Health Centre</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR026</td>
+                    <td>-1.550101</td>
+                    <td>52.574105</td>
+                    <td>0.18</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2011-04-12</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=95303</td>
+                    <td>permissioned</td>
+                    <td>Bridge House, 80 Coleshill Road, Atherstone</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variation of conditions applications approved in 2014 and 2017, PAP/2013/0104 and PAP/2017/0343. Partial demolition of existing commercial premises and re-development with 14 dwellings, inc. erection of 7 new dwellings & conversion of retained existing buildings into 7 dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR027</td>
+                    <td>-1.701755</td>
+                    <td>52.544449</td>
+                    <td>0.44</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-09-20</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114084</td>
+                    <td>permissioned</td>
+                    <td>Coton House, Haunch Lane, Lea Marston</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of site for the erection of ten dwellings with associated access, car parking and landscaping. Demolition and removal of existing kennels, cattery and stable buildings.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR028</td>
+                    <td>-1.562782</td>
+                    <td>52.463666</td>
+                    <td>0.74</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-10-05</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=104816</td>
+                    <td>permissioned</td>
+                    <td>Corley Nurseries, Church Lane, Corley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Numerous variation of conditions and discharge of conditions applications approved. Residential development of 17 houses & bungalows</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR029</td>
+                    <td>-1.685259</td>
+                    <td>52.564445</td>
+                    <td>1.18</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2009-05-06</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=88623</td>
+                    <td>permissioned</td>
+                    <td>Kingsbury Hall, Coventry Road, Kingsbury</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Vacant Grade II* 16C Manor House currently on Historic Englands Heritage at Risk Register. Residential conversion of the building has commenced. Final repairs and reuse have yet to be achieved. A mixed use application is currently under consideration PAP/2018/0686. Restoration of the historic hall and conversion to 9 apartments. Conversion of existing 19th century barns and inclusion of new infill construction to provide 7 new residential units. Construction of 13 new residential units. Demolition of 20th century bungalow and adjacent barn structure. Consolidation of 19th Century curtain walling</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR030</td>
+                    <td>-1.570018</td>
+                    <td>52.506547</td>
+                    <td>0.24</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2012-11-17</td>
+                    <td>full planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet</td>
+                    <td>permissioned</td>
+                    <td>Corley Motors, George Street, Arley</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Variations and discharges of conditions applications approved in  2015 and 2018, PAP/2015/0161, PAP/2018/0212, DOC/2013/0012 and DOC/2018/0018. Erection of 10 dwellings together with associated landscaping, parking and access arrangements</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BFR031</td>
+                    <td>-1.694494</td>
+                    <td>52.551605</td>
+                    <td>0.32</td>
+                    <td>2018-12-13</td>
+                    <td>2018-12-13</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-warwickshire</td>
+                    <td>not owned by a public authority</td>
+                    <td>2018-01-18</td>
+                    <td>outline planning permission</td>
+                    <td>http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet</td>
+                    <td>permissioned</td>
+                    <td>Cedar House, Kingsbury Road, Lea Marston</td>
+                    <td></td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Outline - demolition of existing buildings and erection of five dwellings, with associated gardens, parking and garages (with all matters reserved)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.709995, "GeoY": 52.49774, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "An application is currently being considered by the authority for 23 dwellings on the site - PAP/2018/0030. The land is allocated for residential development within the New Local Plan, reference H4", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Former Leisure Centre, Park Road, Coleshill", "SiteReference": "BFR001", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.612026, "GeoY": 52.619884, "HazardousSubstances": null, "Hectares": 0.62, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "An application is currently being considered by the authority for 11 dwellings on the site - PAP/2017/0425. The land is allocated for residential development within the New Local Plan, reference H10", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Former Polesworth Learning Centre, High Street, Polesworth", "SiteReference": "BFR002", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.593722, "GeoY": 52.593033, "HazardousSubstances": null, "Hectares": 2.1, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "An application is currently being considered by the authority for 56 dwellings on the site - PAP/2018/0287. The land is allocated for residential development within the New Local Plan, reference H17", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Land at Spon Lane, Grendon (former Sparrowdale School and Former Recycling Centre)", "SiteReference": "BFR003", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.742152, "GeoY": 52.512747, "HazardousSubstances": null, "Hectares": 2.8, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The land is allocated for residential development within the Submission Local Plan, reference H21", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Water Orton Primary School, Attleborough Lane, Water Orton", "SiteReference": "BFR004", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.565247, "GeoY": 52.524222, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The land is allocated for residential development within the Submission Local Plan, reference H22", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land at Village Farm, Birmingham Road, Ansley", "SiteReference": "BFR005", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.711633, "GeoY": 52.497358, "HazardousSubstances": null, "Hectares": 0.58, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Site currently under construction, if units are not complete, could be suitable for residentilal use. Demolition of existing police station building. Construction of four storey (including basement) Care Home (use class C2), with associated car parking.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-10-12", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=112999", "PlanningStatus": "permissioned", "SiteNameAddress": "Ex Police Station, Park Road, Coleshill", "SiteReference": "BFR006", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.559587, "GeoY": 52.519823, "HazardousSubstances": null, "Hectares": 0.31, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variation of conditions approved in 2018, PAP/2017/0683. Outline application (all matters reserved) for the demolition of former social club and residential dwelling and the erection of up to 10 dwellings, along with associated open space and drainage infrastructure", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-04", "PermissionType": "outline planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114172", "PlanningStatus": "permissioned", "SiteNameAddress": "Ansley Social Club, Birmingham Road, Ansley", "SiteReference": "BFR007", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.549074, "GeoY": 52.573543, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions applications currently under consideration, DOC/2018/0095 and DOC/2018/0096. Part demolition, new build \u0026 refurbishment to create 59  residential dwellings. Listed Building", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-17", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111425", "PlanningStatus": "permissioned", "SiteNameAddress": "Britannia Mill, Coleshill Road, Atherstone", "SiteReference": "BFR008", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.551531, "GeoY": 52.587271, "HazardousSubstances": null, "Hectares": 3.65, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "On-going dicussions between LPA and developer with regards to S106 agreements, decision pending. Demolition of Virginia House and nursery buildings and erection of 121 dwellings with public open space and associated infrastructure", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=110855", "PlanningStatus": "permissioned", "SiteNameAddress": "Durnos Nurseries, Old Holly Lane, Atherstone", "SiteReference": "BFR009", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.547875, "GeoY": 52.578295, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variation of conditions approved in 2013, PAP/2013/0405, Further application expected this year. Planning Permission and Conservation Area Consent to demolish unlisted buildings within the Atherstone Conservation Area, and to redevelop the site so as to provide 73 residential units through conversion and new build, together with associated access and parking provision", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2007-10-16", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=81727", "PlanningStatus": "permissioned", "SiteNameAddress": "Phoenix Yard, Church Street, Atherstone", "SiteReference": "BFR010", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.531486, "GeoY": 52.569358, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions application approved in 2017, DOC/2017/0030. Demolition of block of 4 shops \u0026 4 maisonettes \u0026 construction of 14 flats \u0026 6 houses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-08-22", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=109502", "PlanningStatus": "permissioned", "SiteNameAddress": "1-7 Church Walk, Mancetter", "SiteReference": "BFR011", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.521172, "GeoY": 52.536872, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variation of conditions approved in 2016, PAP/2016/0551. Discharge of conditions application approved, DOC/2018/0040. Demolition of existing social club \u0026 erection of 13 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-06-16", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=110576", "PlanningStatus": "permissioned", "SiteNameAddress": "Chapel End Social Club, Coleshill Road, Hartshill", "SiteReference": "BFR012", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.616794, "GeoY": 52.601542, "HazardousSubstances": null, "Hectares": 0.44, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variation of conditions approved in 2017, PAP/2017/0493. Demolition of existing building and construction of new supported housing for residents with learning difficulties/physical disabilities/mental health (21 no: self-contained apartments and 6 no: shared living bedrooms)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-09-15", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111802", "PlanningStatus": "permissioned", "SiteNameAddress": "Shortwoods Day Centre, The Shortwoods, Dordon", "SiteReference": "BFR013", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.574128, "GeoY": 52.474567, "HazardousSubstances": null, "Hectares": 0.94, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings and construction of 5 new dwellings with associated access, parking and turning facilities", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-04-18", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114973", "PlanningStatus": "permissioned", "SiteNameAddress": "L S Court Ltd, Coventry Road, Fillongley", "SiteReference": "BFR014", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.525808, "GeoY": 52.536297, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variation of conditions approved in 2016, PAP/2015/0699. Outline - residential development of 7x5 bed houses \u0026 terrace of 4x2 bed houses", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-11-06", "PermissionType": "outline planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=99658", "PlanningStatus": "permissioned", "SiteNameAddress": "31 Plough Hill Road, Chapel End", "SiteReference": "BFR015", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.617223, "GeoY": 52.616683, "HazardousSubstances": null, "Hectares": 0.12, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing building, conversion of existing building into 4 no: 1 bed flats, construction of 2 no: 2 bed houses and 1 no: 3 bed house, access and parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-04-12", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=115229", "PlanningStatus": "permissioned", "SiteNameAddress": "14 Market Street, Polesworth", "SiteReference": "BFR016", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.543955, "GeoY": 52.577713, "HazardousSubstances": null, "Hectares": 0.17, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions approved in 2017, DOC/2017/0087. Erection of supported living facility and conversion of existing building into 16 supported living flats with associated Community Room", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-08-21", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113976", "PlanningStatus": "permissioned", "SiteNameAddress": "Rowan Centre, North Street, Atherstone", "SiteReference": "BFR017", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.704337, "GeoY": 52.493699, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions pending, DOC/2016/0097. Prior Notification for change of use from office use (class B1a) to nine residential apartments (class C3)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-05", "PermissionType": "other", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114648", "PlanningStatus": "permissioned", "SiteNameAddress": "61 Coventry Road, Coleshill", "SiteReference": "BFR018", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.548374, "GeoY": 52.572804, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Approval of reserved matters pursuant to outline permission ref. PAP/2009/0126 for demolition of existing factory premises and erection of 6 dwellings with associated parking and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2014-11-12", "PermissionType": "reserved matters approval", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=110638", "PlanningStatus": "permissioned", "SiteNameAddress": "BEC Engineering Ltd, Richmond Road, Atherstone", "SiteReference": "BFR019", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.584133, "GeoY": 52.629696, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions approved in 2015, DOC/2015/0054. Conversion of former public house into four 2-bedroom apartments and construction of two 3-bedroom houses and one 2-bedroomed house on the former car park area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-07-17", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111235", "PlanningStatus": "permissioned", "SiteNameAddress": "Hatters Arms, Church Road, Warton", "SiteReference": "BFR020", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.543154, "GeoY": 52.578115, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline - Change of use of existing college to residential including conversion of existing building and erection of new block", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2016-06-28", "PermissionType": "outline planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=112344", "PlanningStatus": "permissioned", "SiteNameAddress": "Atherstone College, Ratcliffe Road, Atherstone", "SiteReference": "BFR021", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.547017, "GeoY": 52.578462, "HazardousSubstances": null, "Hectares": 0.1, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions pending, DOC/2018/0042. Part demolition of rear extension. Construction of 1 small retail unit and first floor storage. Erection of 5 pairs of 2 bedroom semi-detached dwellings \u0026 2 one bedroom flats, with associated access ways and bins store and fencing", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-07", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=111345", "PlanningStatus": "permissioned", "SiteNameAddress": "The Angel Inn, 24 Church Street, Atherstone", "SiteReference": "BFR022", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.610008, "GeoY": 52.620812, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline application for clearance of derelict buildings and erection of 5 detached dwellings and access", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-01-17", "PermissionType": "outline planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113473", "PlanningStatus": "permissioned", "SiteNameAddress": "49 High Street, Polesworth", "SiteReference": "BFR023", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.556656, "GeoY": 52.519588, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of commercial yard to accommodate 10 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-02-07", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113504", "PlanningStatus": "permissioned", "SiteNameAddress": "Croft Mead Business Centre, Croft Mead, Ansley", "SiteReference": "BFR024", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.681422, "GeoY": 52.564561, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Discharge of conditions and variation of conditions applications approved in 2017, DOC/2017/0060 and PAP/2017/0464, DOC/2018/0085 pending. Erection of 6 dwellings on site formerly occupied by the Kingsbury Health Centre", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-03-07", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=113593", "PlanningStatus": "permissioned", "SiteNameAddress": "Clinic and Welfare Centre, Coventry Road, Kingbsury", "SiteReference": "BFR025", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.550101, "GeoY": 52.574105, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variation of conditions applications approved in 2014 and 2017, PAP/2013/0104 and PAP/2017/0343. Partial demolition of existing commercial premises and re-development with 14 dwellings, inc. erection of 7 new dwellings \u0026 conversion of retained existing buildings into 7 dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2011-04-12", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=95303", "PlanningStatus": "permissioned", "SiteNameAddress": "Bridge House, 80 Coleshill Road, Atherstone", "SiteReference": "BFR026", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.701755, "GeoY": 52.544449, "HazardousSubstances": null, "Hectares": 0.44, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of site for the erection of ten dwellings with associated access, car parking and landscaping. Demolition and removal of existing kennels, cattery and stable buildings.", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-09-20", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=114084", "PlanningStatus": "permissioned", "SiteNameAddress": "Coton House, Haunch Lane, Lea Marston", "SiteReference": "BFR027", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.562782, "GeoY": 52.463666, "HazardousSubstances": null, "Hectares": 0.74, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Numerous variation of conditions and discharge of conditions applications approved. Residential development of 17 houses \u0026 bungalows", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-10-05", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=104816", "PlanningStatus": "permissioned", "SiteNameAddress": "Corley Nurseries, Church Lane, Corley", "SiteReference": "BFR028", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.685259, "GeoY": 52.564445, "HazardousSubstances": null, "Hectares": 1.18, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Vacant Grade II* 16C Manor House currently on Historic Englands Heritage at Risk Register. Residential conversion of the building has commenced. Final repairs and reuse have yet to be achieved. A mixed use application is currently under consideration PAP/2018/0686. Restoration of the historic hall and conversion to 9 apartments. Conversion of existing 19th century barns and inclusion of new infill construction to provide 7 new residential units. Construction of 13 new residential units. Demolition of 20th century bungalow and adjacent barn structure. Consolidation of 19th Century curtain walling", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2009-05-06", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet?PKID=88623", "PlanningStatus": "permissioned", "SiteNameAddress": "Kingsbury Hall, Coventry Road, Kingsbury", "SiteReference": "BFR029", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.570018, "GeoY": 52.506547, "HazardousSubstances": null, "Hectares": 0.24, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Variations and discharges of conditions applications approved in  2015 and 2018, PAP/2015/0161, PAP/2018/0212, DOC/2013/0012 and DOC/2018/0018. Erection of 10 dwellings together with associated landscaping, parking and access arrangements", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2012-11-17", "PermissionType": "full planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet", "PlanningStatus": "permissioned", "SiteNameAddress": "Corley Motors, George Street, Arley", "SiteReference": "BFR030", "SiteplanURL": null}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-12-13", "GeoX": -1.694494, "GeoY": 52.551605, "HazardousSubstances": null, "Hectares": 0.32, "LastUpdatedDate": "2018-12-13", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Outline - demolition of existing buildings and erection of five dwellings, with associated gardens, parking and garages (with all matters reserved)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-warwickshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2018-01-18", "PermissionType": "outline planning permission", "PlanningHistory": "http://planning.northwarks.gov.uk/portal/servlets/ApplicationSearchServlet", "PlanningStatus": "permissioned", "SiteNameAddress": "Cedar House, Kingsbury Road, Lea Marston", "SiteReference": "BFR031", "SiteplanURL": null}];
+    const bbox = [-1.7568962660932068, -1.5064277339067933, 52.454682843418595, 52.638679156581404];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

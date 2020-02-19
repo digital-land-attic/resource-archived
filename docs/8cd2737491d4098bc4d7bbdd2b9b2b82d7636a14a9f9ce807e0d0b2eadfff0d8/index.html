@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">8cd27374...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.nwleics.gov.uk/files/documents/brownfield_land_register_2019_csv/northwestleicestershire_brownfieldregister_2019-12-31_rev1.csv">https://www.nwleics.gov.uk/files/documents/brownfield_land_register_2019_csv/northwestleicestershire_brownfieldregister_2019-12-31_rev1.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.nwleics.gov.uk/pages/brownfield_land_register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 15 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:NWL">North West Leicestershire District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/8cd2737491d4098bc4d7bbdd2b9b2b82d7636a14a9f9ce807e0d0b2eadfff0d8/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/8cd2737491d4098bc4d7bbdd2b9b2b82d7636a14a9f9ce807e0d0b2eadfff0d8">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">21 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">16.67
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>21</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/8cd2737491d4098bc4d7bbdd2b9b2b82d7636a14a9f9ce807e0d0b2eadfff0d8.csv"
+        download="8cd2737491d4098bc4d7bbdd2b9b2b82d7636a14a9f9ce807e0d0b2eadfff0d8_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/8cd2737491d4098bc4d7bbdd2b9b2b82d7636a14a9f9ce807e0d0b2eadfff0d8"
+        download="8cd2737491d4098bc4d7bbdd2b9b2b82d7636a14a9f9ce807e0d0b2eadfff0d8_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BLR2</td>
+                    <td>-1.528403</td>
+                    <td>52.683435</td>
+                    <td>2.02</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td>38.0</td>
+                    <td>38.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Jubilee Business Park Snarestone Road Appleby Magna</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR4</td>
+                    <td>-1.404222</td>
+                    <td>52.802754</td>
+                    <td>2.55</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Breedon Priory Nursery Ashby Road Breedon on the Hill</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>18/02198/FULM application site 5.8ha B/F element 1.95ha| Previous outstanding application is 16/01120/FULM application site 3.93ha - B/F element 2.55ha. Demolition of existing buildings and redevelopment for 43 dwellings, a new village hall, formation of vehicular and pedestrian access points and associated infrastructure</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR5</td>
+                    <td>-1.380436</td>
+                    <td>52.72711</td>
+                    <td>0.28</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td>14.0</td>
+                    <td>14.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Stevenson House Ashby Road Coalville</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>13/00107/OUTM expired 2019/12/20. Demolition of existing structures and the change of use of the land to residential with the erection 14 dwellings (Outline - All Matters reserved)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR6</td>
+                    <td>-1.375383</td>
+                    <td>52.727335</td>
+                    <td>2.06</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td>38.0</td>
+                    <td>38.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Needle Factory Wolsey Road Coalville</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR7</td>
+                    <td>-1.383953</td>
+                    <td>52.717114</td>
+                    <td>0.65</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>The Piggeries North of Standard Hill Coalville</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>19/02159/FULM application site 2.53ha B/F element 0.65ha. Demolition of existing buildings and erection of 85 dwellings with associated infrastructure, landscaping and drainage features</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR8</td>
+                    <td>-1.376014</td>
+                    <td>52.717387</td>
+                    <td>0.56</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Workspace 17 Highfield Street Coalville</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>two applications approved on the same date 16/00414/OUTM is all residential 16/00415/OUTM has a retail element and some Discharge of Conditions. Demolition of existing buildings and erection of up to 20 dwellings (outline - details of part access included) | Demolition of existing buildings and erection of up to 18 dwellings and retail convenience store (A1) (outline - details of part access included)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR11</td>
+                    <td>-1.52802</td>
+                    <td>52.725865</td>
+                    <td>0.25</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td>18.0</td>
+                    <td>18.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Car Park Moira Road Doninsthorpe</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR12</td>
+                    <td>-1.415035</td>
+                    <td>52.6921</td>
+                    <td>1.05</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>MTS Logistics Mill Lane Heather</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>19/00824/FULM pending decision | 14/00396/FULM permission lapsed 2019-03-04. Re-development of existing site (including demolition) to provide 14 residential dwellings with associated off-street parking and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR13</td>
+                    <td>-1.401421</td>
+                    <td>52.687906</td>
+                    <td>0.21</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td>12.0</td>
+                    <td>12.0</td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Former Garage 112-128 Melbourne Road Ibstock</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>07/01200/OUT for 12 dwellings approved but has since lapsed. Residential development - erection of 12 no. dwellings (Outline - layout and access)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR14</td>
+                    <td>-1.278624</td>
+                    <td>52.836272</td>
+                    <td>0.11</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Brooks Machine Tools Derby Road Kegworth</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>05/00405/FUL The site was granted planning permission in 2007 at appeal for the development of 16 flats. Whilst this development has been started none of the dwellings have been completed.. Erection of 16 Flats</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR17</td>
+                    <td>-1.523022</td>
+                    <td>52.714383</td>
+                    <td>0.18</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Holly Bush Inn Main Street Oakthorpe</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>19/00763/FUL. Change of use and partial demolition and alteration of pub building to form two dwellings and erection of three dwellings</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR18</td>
+                    <td>-1.407258</td>
+                    <td>52.716864</td>
+                    <td>1.59</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Beasleys Nurseries Heather Lane Ravenstone</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>19/01581/REMM under consideration for 34 dwellings |19/01236/DEM prior notification of demolition | 16/01151/OUTM | Whole site 2.2ha - B/F element Circa 1.59ha. Outline application for up to 37 dwellings together with associated public open space surface water attenuation and access (details of part access included)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR21</td>
+                    <td>-1.47971</td>
+                    <td>52.740334</td>
+                    <td>0.18</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Garage 45 Tamworth Road Ashby De La Zouch</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>18/01007/FUL with discharge of conditions in 2019. " Demolition of Existing buildings, extensions and access to No 45 Tamworth Road and Erection of 5 no. dwellings and associated access"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR22</td>
+                    <td>-1.363935</td>
+                    <td>52.744769</td>
+                    <td>0.16</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Oak Of Whitwick 27 Talbot Street Whitwick</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>16/01428/OUTM. Demolition of former public house and erection of up to 12 apartments with associated parking area</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR24</td>
+                    <td>-1.271452</td>
+                    <td>52.839968</td>
+                    <td>0.35</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>118 Station Road Kegworth</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/01576/OUTM. Residential development (outline - all matters reserved)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR25</td>
+                    <td>-1.403498</td>
+                    <td>52.71903</td>
+                    <td>0.3</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>The Plough Leicester Road Ravenstone</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>18/00959/FULM with discharge of conditions in 2019. Demolition of existing public house and outbuildings and erection of 14 dwellings with alterations to existing access and provision of off-street parking and landscaping</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR26</td>
+                    <td>-1.53637</td>
+                    <td>52.735733</td>
+                    <td>0.13</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Canalside Patios 7 Shortheath Road Moira</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>19/02060/REM under consideration| 14/01099/OUT. Erection of five dwellings (outline - access and layout only)</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR27</td>
+                    <td>-1.542928</td>
+                    <td>52.709113</td>
+                    <td>0.63</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Saltersford Farm Measham Road Acresford</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/01805/FUL. "Conversion of barns to two dwellings, erection of three detached dwellings, demolition of existing buildings and associated works."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR28</td>
+                    <td>-1.361136</td>
+                    <td>52.721398</td>
+                    <td>0.05</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>other</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>117 London Road Coalville</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>18/01631/PDNOTR. Prior approval notification for change of use of offices to 15 self-contained apartments including associated off street parking</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR29</td>
+                    <td>-1.410316</td>
+                    <td>52.770035</td>
+                    <td>0.38</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Crusher Yard Site Pipeyard Lane Works Pipeyard Lane Newbold</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>18/01534/OUT. "Mixed use development comprising B1 (Office) premises and residential development of 6 no. dwellings, garaging and associated infrastructure (outline - access only)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR30</td>
+                    <td>-1.385799</td>
+                    <td>52.725852</td>
+                    <td>2.98</td>
+                    <td></td>
+                    <td>2019-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/north-west-leicestershire</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td>outline planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Snibston Discovery Park Ashby Road Coalville</td>
+                    <td>https://www.nwleics.gov.uk/pages/brownfield_land_register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>17/01424/FULM (Hybrid application) | this is a hybrid application with the housing as the outline element. "Residential development of up to 144 dwellings (Outline - all matters reserved) and erection of an extension to existing theatre to provide a cafe/visitor centre/rangers' office, installation of a play area, public realm works, landscaping and car parks (full)"</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.528403, "GeoY": 52.683435, "HazardousSubstances": null, "Hectares": 2.02, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": 38.0, "NetDwellingsRangeTo": 38.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Jubilee Business Park Snarestone Road Appleby Magna", "SiteReference": "BLR2", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.404222, "GeoY": 52.802754, "HazardousSubstances": null, "Hectares": 2.55, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "18/02198/FULM application site 5.8ha B/F element 1.95ha| Previous outstanding application is 16/01120/FULM application site 3.93ha - B/F element 2.55ha. Demolition of existing buildings and redevelopment for 43 dwellings, a new village hall, formation of vehicular and pedestrian access points and associated infrastructure", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Breedon Priory Nursery Ashby Road Breedon on the Hill", "SiteReference": "BLR4", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.380436, "GeoY": 52.72711, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": 14.0, "NetDwellingsRangeTo": 14.0, "Notes": "13/00107/OUTM expired 2019/12/20. Demolition of existing structures and the change of use of the land to residential with the erection 14 dwellings (Outline - All Matters reserved)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Stevenson House Ashby Road Coalville", "SiteReference": "BLR5", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.375383, "GeoY": 52.727335, "HazardousSubstances": null, "Hectares": 2.06, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": 38.0, "NetDwellingsRangeTo": 38.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Needle Factory Wolsey Road Coalville", "SiteReference": "BLR6", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.383953, "GeoY": 52.717114, "HazardousSubstances": null, "Hectares": 0.65, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "19/02159/FULM application site 2.53ha B/F element 0.65ha. Demolition of existing buildings and erection of 85 dwellings with associated infrastructure, landscaping and drainage features", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "The Piggeries North of Standard Hill Coalville", "SiteReference": "BLR7", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.376014, "GeoY": 52.717387, "HazardousSubstances": null, "Hectares": 0.56, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "two applications approved on the same date 16/00414/OUTM is all residential 16/00415/OUTM has a retail element and some Discharge of Conditions. Demolition of existing buildings and erection of up to 20 dwellings (outline - details of part access included) | Demolition of existing buildings and erection of up to 18 dwellings and retail convenience store (A1) (outline - details of part access included)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Workspace 17 Highfield Street Coalville", "SiteReference": "BLR8", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.52802, "GeoY": 52.725865, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": 18.0, "NetDwellingsRangeTo": 18.0, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Car Park Moira Road Doninsthorpe", "SiteReference": "BLR11", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.415035, "GeoY": 52.6921, "HazardousSubstances": null, "Hectares": 1.05, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "19/00824/FULM pending decision | 14/00396/FULM permission lapsed 2019-03-04. Re-development of existing site (including demolition) to provide 14 residential dwellings with associated off-street parking and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "MTS Logistics Mill Lane Heather", "SiteReference": "BLR12", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.401421, "GeoY": 52.687906, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": 12.0, "NetDwellingsRangeTo": 12.0, "Notes": "07/01200/OUT for 12 dwellings approved but has since lapsed. Residential development - erection of 12 no. dwellings (Outline - layout and access)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Garage 112-128 Melbourne Road Ibstock", "SiteReference": "BLR13", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.278624, "GeoY": 52.836272, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "05/00405/FUL The site was granted planning permission in 2007 at appeal for the development of 16 flats. Whilst this development has been started none of the dwellings have been completed.. Erection of 16 Flats", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Brooks Machine Tools Derby Road Kegworth", "SiteReference": "BLR14", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.523022, "GeoY": 52.714383, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "19/00763/FUL. Change of use and partial demolition and alteration of pub building to form two dwellings and erection of three dwellings", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Holly Bush Inn Main Street Oakthorpe", "SiteReference": "BLR17", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.407258, "GeoY": 52.716864, "HazardousSubstances": null, "Hectares": 1.59, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "19/01581/REMM under consideration for 34 dwellings |19/01236/DEM prior notification of demolition | 16/01151/OUTM | Whole site 2.2ha - B/F element Circa 1.59ha. Outline application for up to 37 dwellings together with associated public open space surface water attenuation and access (details of part access included)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Beasleys Nurseries Heather Lane Ravenstone", "SiteReference": "BLR18", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.47971, "GeoY": 52.740334, "HazardousSubstances": null, "Hectares": 0.18, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "18/01007/FUL with discharge of conditions in 2019. \" Demolition of Existing buildings, extensions and access to No 45 Tamworth Road and Erection of 5 no. dwellings and associated access\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Garage 45 Tamworth Road Ashby De La Zouch", "SiteReference": "BLR21", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.363935, "GeoY": 52.744769, "HazardousSubstances": null, "Hectares": 0.16, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "16/01428/OUTM. Demolition of former public house and erection of up to 12 apartments with associated parking area", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Oak Of Whitwick 27 Talbot Street Whitwick", "SiteReference": "BLR22", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.271452, "GeoY": 52.839968, "HazardousSubstances": null, "Hectares": 0.35, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "17/01576/OUTM. Residential development (outline - all matters reserved)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "118 Station Road Kegworth", "SiteReference": "BLR24", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.403498, "GeoY": 52.71903, "HazardousSubstances": null, "Hectares": 0.3, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "18/00959/FULM with discharge of conditions in 2019. Demolition of existing public house and outbuildings and erection of 14 dwellings with alterations to existing access and provision of off-street parking and landscaping", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "The Plough Leicester Road Ravenstone", "SiteReference": "BLR25", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.53637, "GeoY": 52.735733, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "19/02060/REM under consideration| 14/01099/OUT. Erection of five dwellings (outline - access and layout only)", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Canalside Patios 7 Shortheath Road Moira", "SiteReference": "BLR26", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.542928, "GeoY": 52.709113, "HazardousSubstances": null, "Hectares": 0.63, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "17/01805/FUL. \"Conversion of barns to two dwellings, erection of three detached dwellings, demolition of existing buildings and associated works.\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Saltersford Farm Measham Road Acresford", "SiteReference": "BLR27", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.361136, "GeoY": 52.721398, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "18/01631/PDNOTR. Prior approval notification for change of use of offices to 15 self-contained apartments including associated off street parking", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "other", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "117 London Road Coalville", "SiteReference": "BLR28", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.410316, "GeoY": 52.770035, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "18/01534/OUT. \"Mixed use development comprising B1 (Office) premises and residential development of 6 no. dwellings, garaging and associated infrastructure (outline - access only)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Crusher Yard Site Pipeyard Lane Works Pipeyard Lane Newbold", "SiteReference": "BLR29", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": null, "GeoX": -1.385799, "GeoY": 52.725852, "HazardousSubstances": null, "Hectares": 2.98, "LastUpdatedDate": "2019-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "17/01424/FULM (Hybrid application) | this is a hybrid application with the housing as the outline element. \"Residential development of up to 144 dwellings (Outline - all matters reserved) and erection of an extension to existing theatre to provide a cafe/visitor centre/rangers\u0027 office, installation of a play area, public realm works, landscaping and car parks (full)\"", "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-west-leicestershire", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Snibston Discovery Park Ashby Road Coalville", "SiteReference": "BLR30", "SiteplanURL": "https://www.nwleics.gov.uk/pages/brownfield_land_register"}];
+    const bbox = [-1.5577463512976646, -1.2566336487023355, 52.67445184341859, 52.848951156581414];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">810bcc5d...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.aylesburyvaledc.gov.uk/sites/default/files/page_downloads/aylesbury_vale_brownfield_register_2019-12-16.csv">https://www.aylesburyvaledc.gov.uk/sites/default/files/page_downloads/aylesbury_vale_brownfield_register_2019-12-16.csv</a>
+        </dd>
+    </dl>
+    <a href="https://www.aylesburyvaledc.gov.uk/brownfield-land-register">See documentation page</a>
+    </div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 21 December 2019
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:AYL">Aylesbury Vale District Council</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/810bcc5dff982c149487b3165777afeb4f3d000f4826edb8b3c88782e8cd4906/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/810bcc5dff982c149487b3165777afeb4f3d000f4826edb8b3c88782e8cd4906">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">17 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">33.09
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                919</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                919</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>17</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/810bcc5dff982c149487b3165777afeb4f3d000f4826edb8b3c88782e8cd4906.csv"
+        download="810bcc5dff982c149487b3165777afeb4f3d000f4826edb8b3c88782e8cd4906_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/810bcc5dff982c149487b3165777afeb4f3d000f4826edb8b3c88782e8cd4906"
+        download="810bcc5dff982c149487b3165777afeb4f3d000f4826edb8b3c88782e8cd4906_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>AST033</td>
+                    <td>-0.73597</td>
+                    <td>51.798544</td>
+                    <td>5.5</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>165</td>
+                    <td>165</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land r/0 1-87 Weston Road, Aston Clinton</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL025</td>
+                    <td>-0.806445</td>
+                    <td>51.824492</td>
+                    <td>0.15</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-06-15</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Elmhurst community centre, 36 Fairfax Crescent</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL028</td>
+                    <td>-0.827406</td>
+                    <td>51.821376</td>
+                    <td>4.43</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>98</td>
+                    <td>98</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-08-20</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Griffin Lane</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL032</td>
+                    <td>-0.816403</td>
+                    <td>51.819917</td>
+                    <td>0.04</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Ardenham Lane</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL052</td>
+                    <td>-0.809475</td>
+                    <td>51.818553</td>
+                    <td>0.92</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>23</td>
+                    <td>23</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>PO Sorting Office, Cambridge Street</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL059</td>
+                    <td>-0.815416</td>
+                    <td>51.819952</td>
+                    <td>0.49</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land At Junction Of Buckingham Street And New Street</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL068</td>
+                    <td>-0.803487</td>
+                    <td>51.821135</td>
+                    <td>1.11</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-04-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land North of Manor Hospital, Bierton Road</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL076</td>
+                    <td>-0.824977</td>
+                    <td>51.821604</td>
+                    <td>4.07</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land east of Gatehouse Road, Gatehouse Quarter</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL108</td>
+                    <td>-0.813992</td>
+                    <td>51.817277</td>
+                    <td>0.01</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2013-04-04</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingsbury House, 2 George Street, Aylesbury</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL110</td>
+                    <td>-0.808675</td>
+                    <td>51.813689</td>
+                    <td>0.42</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>48</td>
+                    <td>48</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-04-01</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Kingfisher House, 61 Walton Street, Aylesbury</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL115</td>
+                    <td>-0.847281</td>
+                    <td>51.823758</td>
+                    <td>6.6</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>200</td>
+                    <td>200</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Rabans Lane, Aylesbury</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL116</td>
+                    <td>-0.815555</td>
+                    <td>51.815728</td>
+                    <td>0.04</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-02-29</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Western House, 14 Rickfords Hill</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>AYL123</td>
+                    <td>-0.818231</td>
+                    <td>51.82159</td>
+                    <td>0.05</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-09-07</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>37 Bicester Road</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BUC005</td>
+                    <td>-0.985482</td>
+                    <td>52.003352</td>
+                    <td>0.21</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-05-11</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Police Station and Land adjacent 38 Moreton Road</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BUC060</td>
+                    <td>-0.97086</td>
+                    <td>51.989847</td>
+                    <td>5.1</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>117</td>
+                    <td>117</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td>2009-10-28</td>
+                    <td>full planning permission</td>
+                    <td></td>
+                    <td>permissioned</td>
+                    <td>Land to south of the A421 and east of A413, London Road</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BUC064</td>
+                    <td>-1.001834</td>
+                    <td>52.035131</td>
+                    <td>0.22</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>28</td>
+                    <td>28</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Land between Bridge Street and Well Street (Neighbourhood Plan Site 'K')</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>SMD011</td>
+                    <td>-0.806254</td>
+                    <td>51.794935</td>
+                    <td>3.73</td>
+                    <td>2017-12-19</td>
+                    <td>2017-12-19</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/district-council/aylesbury-vale</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Bucks Sport and Social Club, Lower Road</td>
+                    <td>https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.73597, "GeoY": 51.798544, "HazardousSubstances": null, "Hectares": 5.5, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 165, "NetDwellingsRangeTo": 165, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land r/0 1-87 Weston Road, Aston Clinton", "SiteReference": "AST033", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.806445, "GeoY": 51.824492, "HazardousSubstances": null, "Hectares": 0.15, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-06-15", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Elmhurst community centre, 36 Fairfax Crescent", "SiteReference": "AYL025", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.827406, "GeoY": 51.821376, "HazardousSubstances": null, "Hectares": 4.43, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 98, "NetDwellingsRangeTo": 98, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-08-20", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Griffin Lane", "SiteReference": "AYL028", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.816403, "GeoY": 51.819917, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 9, "NetDwellingsRangeTo": 9, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Ardenham Lane", "SiteReference": "AYL032", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.809475, "GeoY": 51.818553, "HazardousSubstances": null, "Hectares": 0.92, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 23, "NetDwellingsRangeTo": 23, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "PO Sorting Office, Cambridge Street", "SiteReference": "AYL052", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.815416, "GeoY": 51.819952, "HazardousSubstances": null, "Hectares": 0.49, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 14, "NetDwellingsRangeTo": 14, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land At Junction Of Buckingham Street And New Street", "SiteReference": "AYL059", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.803487, "GeoY": 51.821135, "HazardousSubstances": null, "Hectares": 1.11, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 44, "NetDwellingsRangeTo": 44, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-04-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land North of Manor Hospital, Bierton Road", "SiteReference": "AYL068", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.824977, "GeoY": 51.821604, "HazardousSubstances": null, "Hectares": 4.07, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 25, "NetDwellingsRangeTo": 25, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land east of Gatehouse Road, Gatehouse Quarter", "SiteReference": "AYL076", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.813992, "GeoY": 51.817277, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 6, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2013-04-04", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingsbury House, 2 George Street, Aylesbury", "SiteReference": "AYL108", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.808675, "GeoY": 51.813689, "HazardousSubstances": null, "Hectares": 0.42, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 48, "NetDwellingsRangeTo": 48, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-04-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Kingfisher House, 61 Walton Street, Aylesbury", "SiteReference": "AYL110", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.847281, "GeoY": 51.823758, "HazardousSubstances": null, "Hectares": 6.6, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 200, "NetDwellingsRangeTo": 200, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Rabans Lane, Aylesbury", "SiteReference": "AYL115", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.815555, "GeoY": 51.815728, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 15, "NetDwellingsRangeTo": 15, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-02-29", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Western House, 14 Rickfords Hill", "SiteReference": "AYL116", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.818231, "GeoY": 51.82159, "HazardousSubstances": null, "Hectares": 0.05, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 8, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-09-07", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "37 Bicester Road", "SiteReference": "AYL123", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.985482, "GeoY": 52.003352, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 13, "NetDwellingsRangeTo": 13, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-05-11", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Police Station and Land adjacent 38 Moreton Road", "SiteReference": "BUC005", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.97086, "GeoY": 51.989847, "HazardousSubstances": null, "Hectares": 5.1, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 117, "NetDwellingsRangeTo": 117, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2009-10-28", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land to south of the A421 and east of A413, London Road", "SiteReference": "BUC060", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -1.001834, "GeoY": 52.035131, "HazardousSubstances": null, "Hectares": 0.22, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 28, "NetDwellingsRangeTo": 28, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Land between Bridge Street and Well Street (Neighbourhood Plan Site \u0027K\u0027)", "SiteReference": "BUC064", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-19", "GeoX": -0.806254, "GeoY": 51.794935, "HazardousSubstances": null, "Hectares": 3.73, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": 100, "NetDwellingsRangeTo": 100, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/aylesbury-vale", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Bucks Sport and Social Club, Lower Road", "SiteReference": "SMD011", "SiteplanURL": "https://www.aylesburyvaledc.gov.uk/housing-economic-land-availability-assessment-helaa"}];
+    const bbox = [-1.0163586210296924, -0.7214453789703077, 51.78595184341859, 52.04411415658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>

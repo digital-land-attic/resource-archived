@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8" />
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c" /> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
+
+
+<meta name="created" content="2009-05-09" />
+
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+          Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/about">Team</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/project/">Projects</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/weeknote/">Weeknotes</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/blog-post/">Blog</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/organisation/">Organisations</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/dataset/">Datasets</a></li>
+                      <li class="govuk-header__navigation-item"><a class="govuk-header__link" href="https://digital-land.github.io/map/">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+  
+
+
+    
+      <div class="govuk-width-container">
+        
+	<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  prototype
+</strong><span class="govuk-phase-banner__text">
+      This is a prototype. Please provide feedback to the <a href="mailto:DigitalLand@communities.gov.uk?subject=Feedback on brownfield land validator">Digital Land team</a>.
+    </span>
+  </p>
+</div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/resource">Resource</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">ff3eb8bc...</li>
+    
+  
+  </ol>
+</div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Brownfield land</span>
+        <h1 class="govuk-heading-xl">View data from publication</h1>
+        <p class="govuk-body-l">Data extracted from a brownfield land data resource collected by the digital land
+            platform.</p>
+    </div>
+</div>
+
+<div class="metadata-panel">
+    <dl class="def-list--basic">
+        <dt>Collected from:</dt>
+        <dd>
+            <a href="https://www.lambeth.gov.uk/sites/default/files/lambeth_brownfieldregister_2017-12-15_rev1.csv">https://www.lambeth.gov.uk/sites/default/files/lambeth_brownfieldregister_2017-12-15_rev1.csv</a>
+        </dd>
+    </dl></div>
+<div class="publishing-metadata govuk-!-margin-bottom-9">
+    Published 22 May 2018
+    <br />
+    <dl class="def-list--basic">
+        <dt>From:</dt><dd>
+            <a href="local-authority-eng:LBH">London Borough of Lambeth</a></dd></dl>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Processing the resource</h2>
+        <p class="govuk-body">After being collected the resource is processed. The processing attempts to clean up the
+            brownfield data contained in the resource. It removes things that do not look like data and corrects any
+            data points it can recognise and that look like they need converted in to the required format.</p>
+        <p class="govuk-body">You can read more about <a href="#">how the digital land platform processes the data</a>.
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items app-related-items--small" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li><a href="/resource/ff3eb8bccf873f1e2c9894121d498805c0722cb5c15c4e5b5db50201459899ea/validation-result.html">Validation result</a></li>
+                    <li>
+                        <a
+                            href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/ff3eb8bccf873f1e2c9894121d498805c0722cb5c15c4e5b5db50201459899ea">Preprocessed
+                            resource file</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About the data</h2>
+        <p class="govuk-body">There are a total of <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">34 brownfield
+                sites</span> including <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0 with an
+                end-date</span>.</p>
+        <p class="govuk-body">These sites total <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">30.78
+                hectares</span> of land.</p>
+        <p class="govuk-body">This has the potential to provide between a <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">minimum of
+                0</span> and
+            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text"> a maximum of
+                0</span> dwellings.</p>
+        <p class="govuk-body">There are <span
+                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
+                sites</span> that have permission in principle.</p>
+    </div>
+</div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
+<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+
+<h3 class="govuk-heading-m">Records</h3>
+
+<p class="govuk-body">There are <strong>34</strong> records after harmonising this brownfield register.
+</p>
+<p class="govuk-body">Download the data: <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/ff3eb8bccf873f1e2c9894121d498805c0722cb5c15c4e5b5db50201459899ea.csv"
+        download="ff3eb8bccf873f1e2c9894121d498805c0722cb5c15c4e5b5db50201459899ea_harmonised.csv">harmonised</a>
+    (as below), <a
+        href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/ff3eb8bccf873f1e2c9894121d498805c0722cb5c15c4e5b5db50201459899ea"
+        download="ff3eb8bccf873f1e2c9894121d498805c0722cb5c15c4e5b5db50201459899ea_original">original</a>
+</p>
+<div class="data-table__wrapper" data-module="data-table">
+    <div class="data-table-left-shadow"></div>
+    <div class="wide-table">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th scope="col">SiteReference</th>
+                    <th scope="col">GeoX</th>
+                    <th scope="col">GeoY</th>
+                    <th scope="col">Hectares</th>
+                    <th scope="col">FirstAddedDate</th>
+                    <th scope="col">LastUpdatedDate</th>
+                    <th scope="col">NetDwellingsRangeFrom</th>
+                    <th scope="col">NetDwellingsRangeTo</th>
+                    <th scope="col">Deliverable</th>
+                    <th scope="col">HazardousSubstances</th>
+                    <th scope="col">OrganisationURI</th>
+                    <th scope="col">OwnershipStatus</th>
+                    <th scope="col">PermissionDate</th>
+                    <th scope="col">PermissionType</th>
+                    <th scope="col">PlanningHistory</th>
+                    <th scope="col">PlanningStatus</th>
+                    <th scope="col">SiteNameAddress</th>
+                    <th scope="col">SiteplanURL</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>BLR001</td>
+                    <td>-0.109487</td>
+                    <td>51.460578</td>
+                    <td>1.61</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>mixed ownership</td>
+                    <td>2017-03-23</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NUTFJUBO0I800|https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NZRAVLBOJME00</td>
+                    <td>permissioned</td>
+                    <td>Land Bounded By Somerleyton Road, Coldharbour Lane And Railway</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Lambeth Local Plan allocated site (Site 14). “Demolition of existing buildings (with the exception of Carlton Mansions) and redevelopment to provide a residential-led, mixed use development comprising 304 new dwellings and non-residential uses including a theatre (Sui Generis) and employment, retail and community uses (Use class B1/D1/A1/A2).”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR002</td>
+                    <td>-0.101424</td>
+                    <td>51.465492</td>
+                    <td>0.5</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-16</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-06-26</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NK2VQDBO0GI00</td>
+                    <td>permissioned</td>
+                    <td>Higgs Industrial Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing buildings. Mixed-use redevelopment providing five new build blocks (between 5 and 8 storeys in height) comprising class B1 and B2 floorspace and 124 residential units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR003</td>
+                    <td>-0.127148</td>
+                    <td>51.463811</td>
+                    <td>0.47</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-17</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td>2017-02-10</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NUTTNKBO0IB00</td>
+                    <td>permissioned</td>
+                    <td>Fenwick Estate South</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Demolition of existing buildings and site clearance works to provide 55 social rented units (Use Class C3), a replacement community hall (Use Class D1), associated landscaping and parking."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR004</td>
+                    <td>-0.12615</td>
+                    <td>51.455845</td>
+                    <td>0.47</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-18</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td>2014-03-24</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=MAWRH6BO05N00</td>
+                    <td>permissioned</td>
+                    <td>The Livity School, Mandrell Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Re-development of the site comprising the demolition of existing buildings and the erection of a 3 storey development to provide 43 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR005</td>
+                    <td>-0.126519</td>
+                    <td>51.481984</td>
+                    <td>0.38</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-19</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-06</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OCIUJFBO0GI00</td>
+                    <td>permissioned</td>
+                    <td>12-20 Wyvil Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of Lambeth Local Plan allocated site (Site 11). “Demolition of existing buildings and redevelopment of the site to provide a residential-led mixed-use development in a part 1/part 5/part 35/36 storey building to the North/North East and an 8 storey building to the South (fronting onto Wyvil Road) comprising 278 residential units, office and retail floorspace.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR006</td>
+                    <td>-0.129258</td>
+                    <td>51.452703</td>
+                    <td>0.29</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-20</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-27</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ONMVRYBOGKM00</td>
+                    <td>permissioned</td>
+                    <td>93 King's Avenue</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Redevelopment of the land to the rear of Peter's Court involving relocation of the sub-station, the demolition of the existing disused garages and erection  of five three-storey, 3 bedroom mews-style houses."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR007</td>
+                    <td>-0.118181</td>
+                    <td>51.457804</td>
+                    <td>0.28</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-21</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td>2015-10-15</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NMX66CBOJX200</td>
+                    <td>permissioned</td>
+                    <td>Olive Morris House, 18 Brixton Hill</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Demolition of the existing council offices and the erection of a part 6, part 7 storey building comprising 74 residential units (Use Class C3) along with commercial floorspace (flexible A1/B1/D1/D2 use classes) at ground and basement levels plus an energy centre, car and cycle parking and a service bay at basement level, roof level installations and associated works.“</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR008</td>
+                    <td>-0.127619</td>
+                    <td>51.467074</td>
+                    <td>0.23</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-22</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-08-19</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O347R3BOHZ300</td>
+                    <td>permissioned</td>
+                    <td>363-365 Clapham Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Demolition of 365 Clapham Road, and warehouse structure and northern wing of 363 Clapham Road. Refurbishment of Listed Building at 363 Clapham Road including mansard roof extension to create 1 x 1 bed, 1 x 2 bed and 1 x 3 bed flats. Erection of replacement buildings to either side of 363 Clapham Road to provide a further 2 x 1 bed, 3 x 2 bed, 2 x 3 bed residential units. Erection of new building to the rear of 363-365 Clapham Road providing B1 office space at ground and lower ground floor level. Upper floors to comprise 6 x 1 bed, 10 x 2 bed, and 2 x 3 bed flats.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR009</td>
+                    <td>-0.122704</td>
+                    <td>51.489297</td>
+                    <td>0.19</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-23</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-13</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O2AEV2BO0GI00</td>
+                    <td>permissioned</td>
+                    <td>Texaco Garage, 36-46 Albert Embankment</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. "Demolition of all structures associated with the petrol filling station and redevelopment of the site to provide a residential-led, mixed use development, comprising the retention and refurbishment of Vintage house and development of ground plus 24 storeys in the form of two towers, linked at ground to fifth floor, and consisting of retail/restaurant use (Use Class A1/A3), office (Use Class B1) and 166 residential units."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR010</td>
+                    <td>-0.126699</td>
+                    <td>51.469496</td>
+                    <td>0.19</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-24</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-21</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OH7S7DBOFLE00</td>
+                    <td>permissioned</td>
+                    <td>340A Clapham Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Redevelopment of the site involving demolition of existing building and erection of a building up to 9 storeys in height plus basement level to provide offices (Use Class B1) at lower ground and ground floor, a cafe (Use Class A1) at ground floor and 62 residential units (Use Class C3) at upper floor levels.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR011</td>
+                    <td>-0.121357</td>
+                    <td>51.443566</td>
+                    <td>0.13</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-25</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-15</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=ODWH22BOIPH00</td>
+                    <td>permissioned</td>
+                    <td>18-18A Palace Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of the site involving the demolition of the existing former Care Home and erection of a 3 storey building to provide 11 residential units</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR012</td>
+                    <td>-0.106856</td>
+                    <td>51.439295</td>
+                    <td>0.09</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-26</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-09-20</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OQEK6SBOKBH00</td>
+                    <td>permissioned</td>
+                    <td>151 Palace Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Demolition of the existing B1 unit and erection of a part 3 and part 4 storey building to provide a B1 unit at basement and ground level, and 9 residential dwellings above.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR013</td>
+                    <td>-0.112471</td>
+                    <td>51.463989</td>
+                    <td>0.08</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-27</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2016-11-29</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NZCSTDBO0I800</td>
+                    <td>permissioned</td>
+                    <td>Canterbury Hotel, 8 Canterbury Crescent</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of Lambeth Local Plan allocated site (Site 15). Demolition of the existing public house and redevelopment to provide a mixed-use development comprising 37 residential dwellings (Use Class C3) and flexible commercial floorspace (A1/A2/A3/B1/D1) in a nine storey building.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR014</td>
+                    <td>-0.118747</td>
+                    <td>51.454908</td>
+                    <td>0.06</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-28</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-06-15</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OEBQZMBOJAK00</td>
+                    <td>permissioned</td>
+                    <td>85 Brixton Hill</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a six storey building including lower ground level and mansard roof to provide seven self contained flats.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR015</td>
+                    <td>-0.079124</td>
+                    <td>51.420184</td>
+                    <td>0.04</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-29</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2015-08-03</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NP20P2BOMEG00</td>
+                    <td>permissioned</td>
+                    <td>Land rear of 77-79 Westow Hill</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a part two storey and part three storey building to provide 8 self-contained residential units with associated communal amenity area.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR016</td>
+                    <td>-0.116541</td>
+                    <td>51.487498</td>
+                    <td>0.03</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-30</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td>2017-10-13</td>
+                    <td>full planning permission</td>
+                    <td>https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=OFRL0QBOL9X00</td>
+                    <td>permissioned</td>
+                    <td>Rising Sun House, 133 Vauxhall Street</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing building and the erection of six storey block providing a total of 15 Class C3 units.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR017</td>
+                    <td>-0.138801</td>
+                    <td>51.45763</td>
+                    <td>1.41</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-31</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>44 Clapham Common South Side</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Demolition of the existing buildings and the redevelopment of the site incorporating the erection of six buildings ranging from four to 10 storeys above ground plus landscaped gardens and public square. Mixed-use scheme comprises a waste transfer facility at basement level, B1 office accommodation, A3 café and up to 297 residential units.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR018</td>
+                    <td>-0.106364</td>
+                    <td>51.423352</td>
+                    <td>0.11</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>260 Knight's Hill</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Erection of two 3-storey terraces with basement level and roof terrace level, providing  6 dwelling houses together with an attached commercial unit to one of the terraces.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR019</td>
+                    <td>-0.141687</td>
+                    <td>51.4571</td>
+                    <td>0.09</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>John Vetch House, Elms Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of the existing building and garages for the construction of a residential building with 15 dwellings with highway access and associated works</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR020</td>
+                    <td>-0.119964</td>
+                    <td>51.468723</td>
+                    <td>0.09</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>2-7 Stockwell Green</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Demolition of the existing building and erection of a new building between two and six storeys in height, to provide a mixed-use scheme comprising of retail floorspace at ground floor and 24 residential units comprising of 10 x 1 bed, 10 x 2 beds and 4 x 3 beds across the development and associated landscaping.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR021</td>
+                    <td>-0.09894</td>
+                    <td>51.471207</td>
+                    <td>0.08</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>Land to rear of Viking House, Denmark Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Erection of a 2 storey building to provide 4 x 3 bed dwelling houses and 4 x 1 bed apartments to land at the rear of Viking House.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR022</td>
+                    <td>-0.13284</td>
+                    <td>51.470376</td>
+                    <td>0.06</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>184 Larkhall Lane</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. “Demolition of existing vacant public house and erection of a five storey (plus basement) building to provide a ground floor/basement commercial unit (Use Class A1, A2, A3 or A4) and 14 residential units above.”</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR023</td>
+                    <td>-0.106495</td>
+                    <td>51.457049</td>
+                    <td>0.04</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>143-149 Railton Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of existing vacant health centre and erection of 3 storey building with additional mansard roof level to provide 10 self-contained flats (Use Class C3).</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR024</td>
+                    <td>-0.112816</td>
+                    <td>51.498517</td>
+                    <td>0.02</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td>yes</td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>pending decision</td>
+                    <td>2-4 Hercules Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Demolition of 2 existing properties (2 & 4 Hercules Road) and construction of eight storey development with two basement levels to create flexible retail use at ground and basement level and 8 residential dwellings above.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR025</td>
+                    <td>-0.086702</td>
+                    <td>51.420577</td>
+                    <td>6.86</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Central Hill Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of Central Hill Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR026</td>
+                    <td>-0.111599</td>
+                    <td>51.446745</td>
+                    <td>4.2</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Cressingham Gardens</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of Cressingham Gardens Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR027</td>
+                    <td>-0.127128</td>
+                    <td>51.464638</td>
+                    <td>3.15</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fenwick Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Redevelopment of Fenwick Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR028</td>
+                    <td>-0.141033</td>
+                    <td>51.470381</td>
+                    <td>2.81</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Westbury Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Lambeth Housing Zone site. Redevelopment of Westbury Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR029</td>
+                    <td>-0.13033</td>
+                    <td>51.4786</td>
+                    <td>1.91</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Hemans Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Lambeth Housing Zone site. Redevelopment of Hemans Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR030</td>
+                    <td>-0.118117</td>
+                    <td>51.47791</td>
+                    <td>1.86</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>South Lambeth Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Lambeth Housing Zone site. Redevelopment of South Lambeth Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR031</td>
+                    <td>-0.114972</td>
+                    <td>51.48643</td>
+                    <td>1.31</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>not owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Tesco, 263-275 Kennington Lane</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>. Mixed use Redevelopment to include replacement supermarket</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR032</td>
+                    <td>-0.106403</td>
+                    <td>51.491606</td>
+                    <td>0.93</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Knight's Walk Estate</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Lambeth Housing Zone site. Redevelopment of Knight's Walk Estate to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR033</td>
+                    <td>-0.112083</td>
+                    <td>51.463605</td>
+                    <td>0.47</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Pope's Road</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Part of Lambeth Local Plan allocated site (Site 15) and Lambeth Housing Zone site. "Mixed-use development with retail, commercial, community, leisure, residential and town centre car and cycle parking."</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>BLR034</td>
+                    <td>-0.113822</td>
+                    <td>51.457392</td>
+                    <td>0.34</td>
+                    <td>2017-12-15</td>
+                    <td>2017-12-15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>http://opendatacommunities.org/id/london-borough-council/lambeth</td>
+                    <td>owned by a public authority</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>not permissioned</td>
+                    <td>Fitch Court</td>
+                    <td>https://maps.london.gov.uk/brownfield-site-register</td>
+                    <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
+                        
+                        <details>
+                            <summary>See notes</summary>
+                            <div>Lambeth Housing Zone site. Redevelopment of Fitch Court to provide additional homes.</div>
+                        </details>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="data-table-right-shadow"></div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Is there a problem with this data?</h3>
+    <p>If you have spotted an issue with the data or have a question email the digital land team on
+        <a href="mailto:email@email.com">email@email.com</a>.</p>
+</div>
+
+
+        </main>
+      </div>
+    
+
+    
+      <footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewbox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+    
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+<script>
+	// initiate all GOVUK components
+	window.GOVUKFrontend.initAll();
+</script>
+
+<script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
+<script>
+    // Initialise data tables component
+    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    $data_tables.forEach(data_table => {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+</script>
+<script>
+    const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.109487, "GeoY": 51.460578, "HazardousSubstances": null, "Hectares": 1.61, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Lambeth Local Plan allocated site (Site 14). \u201cDemolition of existing buildings (with the exception of Carlton Mansions) and redevelopment to provide a residential-led, mixed use development comprising 304 new dwellings and non-residential uses including a theatre (Sui Generis) and employment, retail and community uses (Use class B1/D1/A1/A2).\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "mixed ownership", "PermissionDate": "2017-03-23", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NUTFJUBO0I800|https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NZRAVLBOJME00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land Bounded By Somerleyton Road, Coldharbour Lane And Railway", "SiteReference": "BLR001", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.101424, "GeoY": 51.465492, "HazardousSubstances": null, "Hectares": 0.5, "LastUpdatedDate": "2017-12-16", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing buildings. Mixed-use redevelopment providing five new build blocks (between 5 and 8 storeys in height) comprising class B1 and B2 floorspace and 124 residential units.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-06-26", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NK2VQDBO0GI00", "PlanningStatus": "permissioned", "SiteNameAddress": "Higgs Industrial Estate", "SiteReference": "BLR002", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.127148, "GeoY": 51.463811, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-17", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"Demolition of existing buildings and site clearance works to provide 55 social rented units (Use Class C3), a replacement community hall (Use Class D1), associated landscaping and parking.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2017-02-10", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NUTTNKBO0IB00", "PlanningStatus": "permissioned", "SiteNameAddress": "Fenwick Estate South", "SiteReference": "BLR003", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.12615, "GeoY": 51.455845, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Re-development of the site comprising the demolition of existing buildings and the erection of a 3 storey development to provide 43 residential units", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2014-03-24", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=MAWRH6BO05N00", "PlanningStatus": "permissioned", "SiteNameAddress": "The Livity School, Mandrell Road", "SiteReference": "BLR004", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.126519, "GeoY": 51.481984, "HazardousSubstances": null, "Hectares": 0.38, "LastUpdatedDate": "2017-12-19", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Part of Lambeth Local Plan allocated site (Site 11). \u201cDemolition of existing buildings and redevelopment of the site to provide a residential-led mixed-use development in a part 1/part 5/part 35/36 storey building to the North/North East and an 8 storey building to the South (fronting onto Wyvil Road) comprising 278 residential units, office and retail floorspace.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-06", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OCIUJFBO0GI00", "PlanningStatus": "permissioned", "SiteNameAddress": "12-20 Wyvil Road", "SiteReference": "BLR005", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.129258, "GeoY": 51.452703, "HazardousSubstances": null, "Hectares": 0.29, "LastUpdatedDate": "2017-12-20", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"Redevelopment of the land to the rear of Peter\u0027s Court involving relocation of the sub-station, the demolition of the existing disused garages and erection  of five three-storey, 3 bedroom mews-style houses.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-27", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ONMVRYBOGKM00", "PlanningStatus": "permissioned", "SiteNameAddress": "93 King\u0027s Avenue", "SiteReference": "BLR006", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.118181, "GeoY": 51.457804, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2017-12-21", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cDemolition of the existing council offices and the erection of a part 6, part 7 storey building comprising 74 residential units (Use Class C3) along with commercial floorspace (flexible A1/B1/D1/D2 use classes) at ground and basement levels plus an energy centre, car and cycle parking and a service bay at basement level, roof level installations and associated works.\u201c", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": "2015-10-15", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NMX66CBOJX200", "PlanningStatus": "permissioned", "SiteNameAddress": "Olive Morris House, 18 Brixton Hill", "SiteReference": "BLR007", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.127619, "GeoY": 51.467074, "HazardousSubstances": null, "Hectares": 0.23, "LastUpdatedDate": "2017-12-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cDemolition of 365 Clapham Road, and warehouse structure and northern wing of 363 Clapham Road. Refurbishment of Listed Building at 363 Clapham Road including mansard roof extension to create 1 x 1 bed, 1 x 2 bed and 1 x 3 bed flats. Erection of replacement buildings to either side of 363 Clapham Road to provide a further 2 x 1 bed, 3 x 2 bed, 2 x 3 bed residential units. Erection of new building to the rear of 363-365 Clapham Road providing B1 office space at ground and lower ground floor level. Upper floors to comprise 6 x 1 bed, 10 x 2 bed, and 2 x 3 bed flats.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-08-19", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O347R3BOHZ300", "PlanningStatus": "permissioned", "SiteNameAddress": "363-365 Clapham Road", "SiteReference": "BLR008", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.122704, "GeoY": 51.489297, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-23", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \"Demolition of all structures associated with the petrol filling station and redevelopment of the site to provide a residential-led, mixed use development, comprising the retention and refurbishment of Vintage house and development of ground plus 24 storeys in the form of two towers, linked at ground to fifth floor, and consisting of retail/restaurant use (Use Class A1/A3), office (Use Class B1) and 166 residential units.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-13", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O2AEV2BO0GI00", "PlanningStatus": "permissioned", "SiteNameAddress": "Texaco Garage, 36-46 Albert Embankment", "SiteReference": "BLR009", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.126699, "GeoY": 51.469496, "HazardousSubstances": null, "Hectares": 0.19, "LastUpdatedDate": "2017-12-24", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cRedevelopment of the site involving demolition of existing building and erection of a building up to 9 storeys in height plus basement level to provide offices (Use Class B1) at lower ground and ground floor, a cafe (Use Class A1) at ground floor and 62 residential units (Use Class C3) at upper floor levels.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-21", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OH7S7DBOFLE00", "PlanningStatus": "permissioned", "SiteNameAddress": "340A Clapham Road", "SiteReference": "BLR010", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.121357, "GeoY": 51.443566, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2017-12-25", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of the site involving the demolition of the existing former Care Home and erection of a 3 storey building to provide 11 residential units", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-15", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=ODWH22BOIPH00", "PlanningStatus": "permissioned", "SiteNameAddress": "18-18A Palace Road", "SiteReference": "BLR011", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.106856, "GeoY": 51.439295, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-26", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cDemolition of the existing B1 unit and erection of a part 3 and part 4 storey building to provide a B1 unit at basement and ground level, and 9 residential dwellings above.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-09-20", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OQEK6SBOKBH00", "PlanningStatus": "permissioned", "SiteNameAddress": "151 Palace Road", "SiteReference": "BLR012", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.112471, "GeoY": 51.463989, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-27", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Part of Lambeth Local Plan allocated site (Site 15). Demolition of the existing public house and redevelopment to provide a mixed-use development comprising 37 residential dwellings (Use Class C3) and flexible commercial floorspace (A1/A2/A3/B1/D1) in a nine storey building.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2016-11-29", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NZCSTDBO0I800", "PlanningStatus": "permissioned", "SiteNameAddress": "Canterbury Hotel, 8 Canterbury Crescent", "SiteReference": "BLR013", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.118747, "GeoY": 51.454908, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-28", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a six storey building including lower ground level and mansard roof to provide seven self contained flats.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-06-15", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OEBQZMBOJAK00", "PlanningStatus": "permissioned", "SiteNameAddress": "85 Brixton Hill", "SiteReference": "BLR014", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.079124, "GeoY": 51.420184, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-29", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a part two storey and part three storey building to provide 8 self-contained residential units with associated communal amenity area.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2015-08-03", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NP20P2BOMEG00", "PlanningStatus": "permissioned", "SiteNameAddress": "Land rear of 77-79 Westow Hill", "SiteReference": "BLR015", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.116541, "GeoY": 51.487498, "HazardousSubstances": null, "Hectares": 0.03, "LastUpdatedDate": "2017-12-30", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing building and the erection of six storey block providing a total of 15 Class C3 units.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-10-13", "PermissionType": "full planning permission", "PlanningHistory": "https://planning.lambeth.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=OFRL0QBOL9X00", "PlanningStatus": "permissioned", "SiteNameAddress": "Rising Sun House, 133 Vauxhall Street", "SiteReference": "BLR016", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.138801, "GeoY": 51.45763, "HazardousSubstances": null, "Hectares": 1.41, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cDemolition of the existing buildings and the redevelopment of the site incorporating the erection of six buildings ranging from four to 10 storeys above ground plus landscaped gardens and public square. Mixed-use scheme comprises a waste transfer facility at basement level, B1 office accommodation, A3 caf\u00e9 and up to 297 residential units.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "44 Clapham Common South Side", "SiteReference": "BLR017", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.106364, "GeoY": 51.423352, "HazardousSubstances": null, "Hectares": 0.11, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cErection of two 3-storey terraces with basement level and roof terrace level, providing  6 dwelling houses together with an attached commercial unit to one of the terraces.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "260 Knight\u0027s Hill", "SiteReference": "BLR018", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.141687, "GeoY": 51.4571, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of the existing building and garages for the construction of a residential building with 15 dwellings with highway access and associated works", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "John Vetch House, Elms Road", "SiteReference": "BLR019", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.119964, "GeoY": 51.468723, "HazardousSubstances": null, "Hectares": 0.09, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cDemolition of the existing building and erection of a new building between two and six storeys in height, to provide a mixed-use scheme comprising of retail floorspace at ground floor and 24 residential units comprising of 10 x 1 bed, 10 x 2 beds and 4 x 3 beds across the development and associated landscaping.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "2-7 Stockwell Green", "SiteReference": "BLR020", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.09894, "GeoY": 51.471207, "HazardousSubstances": null, "Hectares": 0.08, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Erection of a 2 storey building to provide 4 x 3 bed dwelling houses and 4 x 1 bed apartments to land at the rear of Viking House.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "Land to rear of Viking House, Denmark Road", "SiteReference": "BLR021", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.13284, "GeoY": 51.470376, "HazardousSubstances": null, "Hectares": 0.06, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". \u201cDemolition of existing vacant public house and erection of a five storey (plus basement) building to provide a ground floor/basement commercial unit (Use Class A1, A2, A3 or A4) and 14 residential units above.\u201d", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "184 Larkhall Lane", "SiteReference": "BLR022", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.106495, "GeoY": 51.457049, "HazardousSubstances": null, "Hectares": 0.04, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of existing vacant health centre and erection of 3 storey building with additional mansard roof level to provide 10 self-contained flats (Use Class C3).", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "143-149 Railton Road", "SiteReference": "BLR023", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.112816, "GeoY": 51.498517, "HazardousSubstances": null, "Hectares": 0.02, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Demolition of 2 existing properties (2 \u0026 4 Hercules Road) and construction of eight storey development with two basement levels to create flexible retail use at ground and basement level and 8 residential dwellings above.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "pending decision", "SiteNameAddress": "2-4 Hercules Road", "SiteReference": "BLR024", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.086702, "GeoY": 51.420577, "HazardousSubstances": null, "Hectares": 6.86, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of Central Hill Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Central Hill Estate", "SiteReference": "BLR025", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.111599, "GeoY": 51.446745, "HazardousSubstances": null, "Hectares": 4.2, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of Cressingham Gardens Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Cressingham Gardens", "SiteReference": "BLR026", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.127128, "GeoY": 51.464638, "HazardousSubstances": null, "Hectares": 3.15, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Redevelopment of Fenwick Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fenwick Estate", "SiteReference": "BLR027", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.141033, "GeoY": 51.470381, "HazardousSubstances": null, "Hectares": 2.81, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Lambeth Housing Zone site. Redevelopment of Westbury Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Westbury Estate", "SiteReference": "BLR028", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.13033, "GeoY": 51.4786, "HazardousSubstances": null, "Hectares": 1.91, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Lambeth Housing Zone site. Redevelopment of Hemans Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Hemans Estate", "SiteReference": "BLR029", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.118117, "GeoY": 51.47791, "HazardousSubstances": null, "Hectares": 1.86, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Lambeth Housing Zone site. Redevelopment of South Lambeth Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "South Lambeth Estate", "SiteReference": "BLR030", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.114972, "GeoY": 51.48643, "HazardousSubstances": null, "Hectares": 1.31, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Mixed use Redevelopment to include replacement supermarket", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Tesco, 263-275 Kennington Lane", "SiteReference": "BLR031", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.106403, "GeoY": 51.491606, "HazardousSubstances": null, "Hectares": 0.93, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Lambeth Housing Zone site. Redevelopment of Knight\u0027s Walk Estate to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Knight\u0027s Walk Estate", "SiteReference": "BLR032", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.112083, "GeoY": 51.463605, "HazardousSubstances": null, "Hectares": 0.47, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Part of Lambeth Local Plan allocated site (Site 15) and Lambeth Housing Zone site. \"Mixed-use development with retail, commercial, community, leisure, residential and town centre car and cycle parking.\"", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Pope\u0027s Road", "SiteReference": "BLR033", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}, {"Deliverable": null, "EndDate": null, "FirstAddedDate": "2017-12-15", "GeoX": -0.113822, "GeoY": 51.457392, "HazardousSubstances": null, "Hectares": 0.34, "LastUpdatedDate": "2017-12-15", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": "Lambeth Housing Zone site. Redevelopment of Fitch Court to provide additional homes.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/lambeth", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Fitch Court", "SiteReference": "BLR034", "SiteplanURL": "https://maps.london.gov.uk/brownfield-site-register"}];
+    const bbox = [-0.15609222035788164, -0.06471877964211833, 51.4112008434186, 51.50750015658141];
+
+    const brownfieldSiteStyle = {
+        color: "#745729",
+        fillColor: "#745729",
+        fillOpacity: 0.5
+    };
+
+    const brownfield = L.layerGroup();
+
+    function createPopup(data) {
+        var datastring = data['SiteNameAddress'].length ? (data['SiteNameAddress'] + '<hr>') : ''
+
+        Object.keys(data).forEach(function (key) {
+            var append = ''
+
+            if (key === 'Resource') {
+                append = '<a href="https://digital-land.github.io/resource/' + data[key] + '">Full resource</a>'
+            } else if (key === 'SiteplanURL') {
+                append = '<a href="' + data[key] + '">View siteplan</a>'
+            } else if (key === 'Organisation') {
+                append = '<a href="https://digital-land.github.io/organisation/' + data[key].replace(':', '/') + '">' + data.name + '</a>'
+            } else if (key === 'name') {
+                return
+            } else {
+                append = data[key];
+                if (append == null) {
+                    append = "";
+                }
+            }
+
+            datastring = datastring + '<strong>' + key + '</strong>: ' + append + '<br>'
+        })
+
+        return datastring
+    }
+
+    function siteSize(hectares) {
+        if (isNaN(hectares)) {
+            return 100;
+        } else {
+            return (Math.sqrt((hectares * 10000) / Math.PI))
+        }
+    }
+
+    bfs_data.forEach(row => {
+        if (row['GeoY'] && row['GeoX']) {
+            console.log("Row has coords");
+            var size = siteSize(row['Hectares']);
+            brownfieldSiteStyle.radius = size.toFixed(2);
+            L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        }
+    })
+
+    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        id: 'base',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+
+    const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
+        .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
+
+</script>
+
+  </body>
+</html>
