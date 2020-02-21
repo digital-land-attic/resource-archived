@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -228,8 +226,14 @@
                 
                 <tr>
                     <td>BLR/0001</td>
-                    <td>-0.393631</td>
-                    <td>53.000879</td>
+                    
+                    <td>
+                        -0.393631
+                    </td>
+                    
+                    <td>
+                        53.000879
+                    </td>
                     <td>1.84</td>
                     <td>2017-12-14</td>
                     <td>2017-12-14</td>
@@ -254,8 +258,14 @@
                 
                 <tr>
                     <td>BLR/0002</td>
-                    <td>-0.69712</td>
-                    <td>53.157441</td>
+                    
+                    <td>
+                        -0.69712
+                    </td>
+                    
+                    <td>
+                        53.157441
+                    </td>
                     <td>8.29</td>
                     <td>2017-12-14</td>
                     <td>2017-12-14</td>
@@ -357,7 +367,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -0.393631, "GeoY": 53.000879, "HazardousSubstances": null, "Hectares": 1.84, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-kesteven", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "The Hoplands Depot, Boston Road, Sleaford", "SiteReference": "BLR/0001", "SiteplanURL": "https://www.n-kesteven.gov.uk/residents/planning-and-building/planning/planning-policy/brownfield-land-register/"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-14", "GeoX": -0.69712, "GeoY": 53.157441, "HazardousSubstances": null, "Hectares": 8.29, "LastUpdatedDate": "2017-12-14", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/north-kesteven", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": "outline planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Land off Moor Lane, Swinderby", "SiteReference": "BLR/0002", "SiteplanURL": "https://www.n-kesteven.gov.uk/residents/planning-and-building/planning/planning-policy/brownfield-land-register/"}];
-    const bbox = [-0.7120470774685614, -0.3787039225314385, 52.9918958434186, 53.166424156581414];
+    var bbox = [-0.7120470774685614, -0.3787039225314385, 52.9918958434186, 53.166424156581414];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -408,6 +423,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -228,8 +226,14 @@
                 
                 <tr>
                     <td>15/00329/FULL</td>
-                    <td>-0.096757</td>
-                    <td>51.510838</td>
+                    
+                    <td>
+                        -0.096757
+                    </td>
+                    
+                    <td>
+                        51.510838
+                    </td>
                     <td>0.01</td>
                     <td>2017-11-16</td>
                     <td>2017-11-16</td>
@@ -241,7 +245,11 @@
                     <td></td>
                     <td>2015-06-04</td>
                     <td>full planning permission</td>
-                    <td>http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NMKVFWFHLB000</td>
+                    <td>
+                        
+                                http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NMKVFWFHLB000
+                            
+                        </td>
                     <td>permissioned</td>
                     <td>6 New Street London EC2M 4TP</td>
                     <td>http://www.mapping.cityoflondon.gov.uk/geocortex/mapping/?viewer=compass</td>
@@ -254,8 +262,14 @@
                 
                 <tr>
                     <td>16/00590/FULL</td>
-                    <td>-0.094724</td>
-                    <td>51.521578</td>
+                    
+                    <td>
+                        -0.094724
+                    </td>
+                    
+                    <td>
+                        51.521578
+                    </td>
                     <td>0.21</td>
                     <td>2017-11-16</td>
                     <td>2017-11-16</td>
@@ -267,7 +281,11 @@
                     <td></td>
                     <td>2017-08-30</td>
                     <td>full planning permission</td>
-                    <td>http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O8K80VFH0OW00</td>
+                    <td>
+                        
+                                http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=O8K80VFH0OW00
+                            
+                        </td>
                     <td>permissioned</td>
                     <td>Bernard Morgan House 43 Golden Lane London EC1Y 0RS</td>
                     <td>http://www.mapping.cityoflondon.gov.uk/geocortex/mapping/?viewer=compass</td>
@@ -357,7 +375,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-16", "GeoX": -0.096757, "GeoY": 51.510838, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-11-16", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/city-of-london", "OwnershipStatus": null, "PermissionDate": "2015-06-04", "PermissionType": "full planning permission", "PlanningHistory": "http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NMKVFWFHLB000", "PlanningStatus": "permissioned", "SiteNameAddress": "6 New Street London EC2M 4TP", "SiteReference": "15/00329/FULL", "SiteplanURL": "http://www.mapping.cityoflondon.gov.uk/geocortex/mapping/?viewer=compass"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-11-16", "GeoX": -0.094724, "GeoY": 51.521578, "HazardousSubstances": null, "Hectares": 0.21, "LastUpdatedDate": "2017-11-16", "NetDwellingsRangeFrom": 99, "NetDwellingsRangeTo": 99, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/city-of-london", "OwnershipStatus": null, "PermissionDate": "2017-08-30", "PermissionType": "full planning permission", "PlanningHistory": "http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=O8K80VFH0OW00", "PlanningStatus": "permissioned", "SiteNameAddress": "Bernard Morgan House 43 Golden Lane London EC1Y 0RS", "SiteReference": "16/00590/FULL", "SiteplanURL": "http://www.mapping.cityoflondon.gov.uk/geocortex/mapping/?viewer=compass"}];
-    const bbox = [-0.11119086703331305, -0.08029013296668697, 51.50185484341859, 51.53056115658141];
+    var bbox = [-0.11119086703331305, -0.08029013296668697, 51.50185484341859, 51.53056115658141];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -408,6 +431,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

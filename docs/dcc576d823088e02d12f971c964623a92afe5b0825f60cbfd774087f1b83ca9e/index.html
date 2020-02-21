@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -230,8 +228,14 @@
                 
                 <tr>
                     <td>15/00329/FULL</td>
-                    <td>-0.079495</td>
-                    <td>51.517283</td>
+                    
+                    <td>
+                        -0.079495
+                    </td>
+                    
+                    <td>
+                        51.517283
+                    </td>
                     <td>0.01</td>
                     <td>2017-12-31</td>
                     <td>2017-12-31</td>
@@ -243,7 +247,11 @@
                     <td></td>
                     <td>2015-06-04</td>
                     <td>full planning permission</td>
-                    <td>http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NMKVFWFHLB000</td>
+                    <td>
+                        
+                                http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=NMKVFWFHLB000
+                            
+                        </td>
                     <td>permissioned</td>
                     <td>6 New Street London EC2M 4TP</td>
                     <td>http://www.mapping.cityoflondon.gov.uk/geocortex/mapping/?viewer=compass</td>
@@ -337,7 +345,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-31", "GeoX": -0.079495, "GeoY": 51.517283, "HazardousSubstances": null, "Hectares": 0.01, "LastUpdatedDate": "2017-12-31", "NetDwellingsRangeFrom": 5, "NetDwellingsRangeTo": 5, "Notes": ". Change of use from a single dwelling house to 5no. self-contained studios flats and installation of smoke vents at roof level.", "OrganisationURI": "http://opendatacommunities.org/id/london-borough-council/city-of-london", "OwnershipStatus": null, "PermissionDate": "2015-06-04", "PermissionType": "full planning permission", "PlanningHistory": "http://www.planning2.cityoflondon.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=NMKVFWFHLB000", "PlanningStatus": "permissioned", "SiteNameAddress": "6 New Street London EC2M 4TP", "SiteReference": "15/00329/FULL", "SiteplanURL": "http://www.mapping.cityoflondon.gov.uk/geocortex/mapping/?viewer=compass"}];
-    const bbox = [-0.0939309093697711, -0.06505909063022892, 51.50829984341859, 51.52626615658141];
+    var bbox = [-0.0939309093697711, -0.06505909063022892, 51.50829984341859, 51.52626615658141];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -388,6 +401,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

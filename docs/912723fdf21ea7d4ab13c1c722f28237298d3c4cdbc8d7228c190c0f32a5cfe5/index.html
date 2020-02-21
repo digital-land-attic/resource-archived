@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -307,7 +305,12 @@
 </script>
 <script>
     const bfs_data = [];
-    const bbox = [NaN, NaN, NaN, NaN];
+    var bbox = [NaN, NaN, NaN, NaN];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -358,6 +361,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

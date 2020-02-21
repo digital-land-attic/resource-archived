@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -230,8 +228,14 @@
                 
                 <tr>
                     <td>'2427</td>
-                    <td>-1.228296</td>
-                    <td>52.955199</td>
+                    
+                    <td>
+                        -1.228296
+                    </td>
+                    
+                    <td>
+                        52.955199
+                    </td>
                     <td>0.28</td>
                     <td>2019-01-09</td>
                     <td>2019-01-09</td>
@@ -243,7 +247,11 @@
                     <td></td>
                     <td>2018-11-15</td>
                     <td></td>
-                    <td>http://publicaccess.nottinghamcity.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PGDVUWLY00L00</td>
+                    <td>
+                        
+                                http://publicaccess.nottinghamcity.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=PGDVUWLY00L00
+                            
+                        </td>
                     <td>permissioned</td>
                     <td>Middletons, Trowell Road, Nottingham, NG8 2DH</td>
                     <td>http://maps.nottinghamcity.gov.uk/insightmapping/?l=0.21,9.63&xmin=451909.3389999997&xmax=451970.06099999975&ymin=340036.3350000009&ymax=340106.3839999996</td>
@@ -333,7 +341,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2019-01-09", "GeoX": -1.228296, "GeoY": 52.955199, "HazardousSubstances": null, "Hectares": 0.28, "LastUpdatedDate": "2019-01-09", "NetDwellingsRangeFrom": 6, "NetDwellingsRangeTo": 8, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/nottingham", "OwnershipStatus": null, "PermissionDate": "2018-11-15", "PermissionType": null, "PlanningHistory": "http://publicaccess.nottinghamcity.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=PGDVUWLY00L00", "PlanningStatus": "permissioned", "SiteNameAddress": "Middletons, Trowell Road, Nottingham, NG8 2DH", "SiteReference": "\u00272427", "SiteplanURL": "http://maps.nottinghamcity.gov.uk/insightmapping/?l=0.21,9.63\u0026xmin=451909.3389999997\u0026xmax=451970.06099999975\u0026ymin=340036.3350000009\u0026ymax=340106.3839999996"}];
-    const bbox = [-1.2432073054215533, -1.2133846945784463, 52.94621584341859, 52.96418215658141];
+    var bbox = [-1.2432073054215533, -1.2133846945784463, 52.94621584341859, 52.96418215658141];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -384,6 +397,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

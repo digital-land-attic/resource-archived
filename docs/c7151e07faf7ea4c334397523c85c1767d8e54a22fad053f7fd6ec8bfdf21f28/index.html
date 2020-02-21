@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -230,8 +228,12 @@
                 
                 <tr>
                     <td>SHLAA A7-a</td>
-                    <td></td>
-                    <td></td>
+                    <td class="data-table__missing">
+                        <span class="data-table__missing__label">Missing</span>
+                    </td>
+                    <td class="data-table__missing">
+                        <span class="data-table__missing__label">Missing</span>
+                    </td>
                     <td>0.2</td>
                     <td></td>
                     <td>2018-05-22</td>
@@ -260,8 +262,12 @@
                 
                 <tr>
                     <td>SHLAA A7</td>
-                    <td></td>
-                    <td></td>
+                    <td class="data-table__missing">
+                        <span class="data-table__missing__label">Missing</span>
+                    </td>
+                    <td class="data-table__missing">
+                        <span class="data-table__missing__label">Missing</span>
+                    </td>
                     <td>0.6</td>
                     <td></td>
                     <td>2018-05-22</td>
@@ -273,7 +279,12 @@
                     <td>owned by a public authority</td>
                     <td></td>
                     <td></td>
-                    <td>http://www.scilly.gov.uk/planning-application/planning-application-p15059 | http://www.scilly.gov.uk/planning-application/planning-application-p16072</td>
+                    <td>
+                        
+                                    http://www.scilly.gov.uk/planning-application/planning-application-p15059 <br />
+                                     http://www.scilly.gov.uk/planning-application/planning-application-p16072<br />
+                            
+                        </td>
                     <td>not permissioned</td>
                     <td>Former Carn Thomas Secondary School, Telegraph Road, St Mary's Isles of Scilly TR21 0PT</td>
                     <td>http://www.scilly.gov.uk/sites/default/files/document/planning/SHLAA%20Methodology%20and%20Site%20Assessments%20FINAL%202017.pdf</td>
@@ -367,7 +378,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.2, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". Conversion of historic old school building and demolition of later modern additions with replacement with new build residential accommodation.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/scilly", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Carn Thomas Primary School now Council of the Isles of Scilly Children\u0027s Services, Telegraph Road, St Mary\u0027s Isles of Scilly TR21 0PT", "SiteReference": "SHLAA A7-a", "SiteplanURL": "http://www.scilly.gov.uk/sites/default/files/document/planning/SHLAA%20Methodology%20and%20Site%20Assessments%20FINAL%202017.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": null, "GeoX": null, "GeoY": null, "HazardousSubstances": null, "Hectares": 0.6, "LastUpdatedDate": "2018-05-22", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": ". The old Secondary School has now been demolished and the Council intends to develop this site for residential use.", "OrganisationURI": "http://opendatacommunities.org/id/unitary-authority/scilly", "OwnershipStatus": "owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "http://www.scilly.gov.uk/planning-application/planning-application-p15059 | http://www.scilly.gov.uk/planning-application/planning-application-p16072", "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Carn Thomas Secondary School, Telegraph Road, St Mary\u0027s Isles of Scilly TR21 0PT", "SiteReference": "SHLAA A7", "SiteplanURL": "http://www.scilly.gov.uk/sites/default/files/document/planning/SHLAA%20Methodology%20and%20Site%20Assessments%20FINAL%202017.pdf"}];
-    const bbox = [NaN, NaN, NaN, NaN];
+    var bbox = [NaN, NaN, NaN, NaN];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -418,6 +434,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

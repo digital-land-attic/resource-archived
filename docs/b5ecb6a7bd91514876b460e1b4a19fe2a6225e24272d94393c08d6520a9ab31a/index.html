@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -230,8 +228,14 @@
                 
                 <tr>
                     <td>SHLAA32</td>
-                    <td>-2.393607</td>
-                    <td>53.861553</td>
+                    
+                    <td>
+                        -2.393607
+                    </td>
+                    
+                    <td>
+                        53.861553
+                    </td>
                     <td>0.85</td>
                     <td>2018-06-25</td>
                     <td>2018-06-25</td>
@@ -256,8 +260,14 @@
                 
                 <tr>
                     <td>APP320170184</td>
-                    <td>-2.3908</td>
-                    <td>53.87</td>
+                    
+                    <td>
+                        -2.3908
+                    </td>
+                    
+                    <td>
+                        53.87
+                    </td>
                     <td>0.13</td>
                     <td>2018-06-25</td>
                     <td>2018-06-25</td>
@@ -359,7 +369,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": null, "EndDate": null, "FirstAddedDate": "2018-06-25", "GeoX": -2.393607, "GeoY": 53.861553, "HazardousSubstances": null, "Hectares": 0.85, "LastUpdatedDate": "2018-06-25", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/ribble-valley", "OwnershipStatus": null, "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "B Dent Ltd, Littlemoor Mill, Whalley Road, Clitheroe", "SiteReference": "SHLAA32", "SiteplanURL": "https://www.ribblevalley.gov.uk/download/downloads/id/11617/shlaa32.pdf"}, {"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2018-06-25", "GeoX": -2.3908, "GeoY": 53.87, "HazardousSubstances": null, "Hectares": 0.13, "LastUpdatedDate": "2018-06-25", "NetDwellingsRangeFrom": null, "NetDwellingsRangeTo": null, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/district-council/ribble-valley", "OwnershipStatus": "not owned by a public authority", "PermissionDate": "2017-12-01", "PermissionType": "full planning permission", "PlanningHistory": null, "PlanningStatus": "permissioned", "SiteNameAddress": "Wilkin Square, Clitheroe", "SiteReference": "APP320170184", "SiteplanURL": "https://www.ribblevalley.gov.uk/download/downloads/id/11618/app320170184.pdf"}];
-    const bbox = [-2.408839442838226, -2.375567557161774, 53.85256984341859, 53.878983156581405];
+    var bbox = [-2.408839442838226, -2.375567557161774, 53.85256984341859, 53.878983156581405];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -410,6 +425,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

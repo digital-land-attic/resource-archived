@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -230,8 +228,14 @@
                 
                 <tr>
                     <td>NNPA17/08</td>
-                    <td>-2.26884</td>
-                    <td>55.27604</td>
+                    
+                    <td>
+                        -2.26884
+                    </td>
+                    
+                    <td>
+                        55.27604
+                    </td>
                     <td>0.25</td>
                     <td>2017-12-18</td>
                     <td>2017-12-18</td>
@@ -333,7 +337,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2017-12-18", "GeoX": -2.26884, "GeoY": 55.27604, "HazardousSubstances": null, "Hectares": 0.25, "LastUpdatedDate": "2017-12-18", "NetDwellingsRangeFrom": 1, "NetDwellingsRangeTo": 3, "Notes": null, "OrganisationURI": "http://opendatacommunities.org/id/national-park-authority/northumberland", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": null, "PlanningStatus": "not permissioned", "SiteNameAddress": "Former Garage, A68T, Rochester, Northumberland, NE19 1RH", "SiteReference": "NNPA17/08", "SiteplanURL": "https://www.northumberlandnationalpark.org.uk/planning/planning-policy/local-plan/brownfield-register/"}];
-    const bbox = [-2.284610346682388, -2.253069653317612, 55.267056843418594, 55.28502315658141];
+    var bbox = [-2.284610346682388, -2.253069653317612, 55.267056843418594, 55.28502315658141];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -384,6 +393,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 

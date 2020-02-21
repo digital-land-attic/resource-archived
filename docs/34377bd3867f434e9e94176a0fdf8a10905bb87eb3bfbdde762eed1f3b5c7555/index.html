@@ -32,8 +32,6 @@
 <link href="https://digital-land-design.herokuapp.com/static/stylesheets/brownfield.css" rel="stylesheet" />
 
 
-<meta name="created" content="2009-05-09" />
-
 
     
     
@@ -230,8 +228,14 @@
                 
                 <tr>
                     <td>BFL/001</td>
-                    <td>-0.973751</td>
-                    <td>51.149028</td>
+                    
+                    <td>
+                        -0.973751
+                    </td>
+                    
+                    <td>
+                        51.149028
+                    </td>
                     <td>5.1</td>
                     <td>2019-04-08</td>
                     <td>2019-04-08</td>
@@ -243,7 +247,11 @@
                     <td>not owned by a public authority</td>
                     <td></td>
                     <td></td>
-                    <td>https://planningpublicaccess.easthants.gov.uk/online-applications/simpleSearchResults.do?action=firstPage</td>
+                    <td>
+                        
+                                https://planningpublicaccess.easthants.gov.uk/online-applications/simpleSearchResults.do?action=firstPage
+                            
+                        </td>
                     <td>not permissioned</td>
                     <td>Molson Coors Brewery</td>
                     <td></td>
@@ -337,7 +345,12 @@
 </script>
 <script>
     const bfs_data = [{"Deliverable": "yes", "EndDate": null, "FirstAddedDate": "2019-04-08", "GeoX": -0.973751, "GeoY": 51.149028, "HazardousSubstances": null, "Hectares": 5.1, "LastUpdatedDate": "2019-04-08", "NetDwellingsRangeFrom": 140, "NetDwellingsRangeTo": 200, "Notes": "Policy SA18 in draft Local Plan (2019). Former Brewery", "OrganisationURI": "http://opendatacommunities.org/id/district-council/east-hampshire", "OwnershipStatus": "not owned by a public authority", "PermissionDate": null, "PermissionType": null, "PlanningHistory": "https://planningpublicaccess.easthants.gov.uk/online-applications/simpleSearchResults.do?action=firstPage", "PlanningStatus": "not permissioned", "SiteNameAddress": "Molson Coors Brewery", "SiteReference": "BFL/001", "SiteplanURL": null}];
-    const bbox = [-0.9880714227442422, -0.9594305772557579, 51.14004484341859, 51.15801115658141];
+    var bbox = [-0.9880714227442422, -0.9594305772557579, 51.14004484341859, 51.15801115658141];
+    // handle error with the bounding box
+    if (isNaN(bbox[0])) {
+        bbox = [-10.855, 2.0215, 49.824, 59.479] // (min_lng, max_lng, min_lat, max_lat)
+        console.log("using default bounding box for uk");
+    }
 
     const brownfieldSiteStyle = {
         color: "#745729",
@@ -388,6 +401,8 @@
             var size = siteSize(row['Hectares']);
             brownfieldSiteStyle.radius = size.toFixed(2);
             L.circle([row['GeoY'], row['GeoX']], brownfieldSiteStyle).addTo(brownfield).bindPopup(createPopup(row));
+        } else {
+            console.log("no coords")
         }
     })
 
