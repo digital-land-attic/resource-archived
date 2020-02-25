@@ -179,31 +179,34 @@
         <p class="govuk-body">There are <span
                 class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
                 sites</span> that have permission in principle.</p>
+        <p class="govuk-body"><span
+            class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">1</span> organisations are referenced in this file.</p>
     </div>
 </div>
 
 <h3 class="govuk-heading-m govuk-!-margin-top-6">Site locations</h3>
-<div id="map" class="govuk-!-margin-bottom-9" style="width: 100%; height: 640px;"></div>
+<div id="map" style="width: 100%; height: 640px;"></div>
+<div class="map__site-count govuk-!-margin-bottom-9">
+    All 1 site plotted.</div>
 
 <h3 class="govuk-heading-m">Records</h3>
 
 <p class="govuk-body">There are <strong>1</strong> records after harmonising this brownfield register.
-</p>
-<p class="govuk-body">Download the data: <a
+</p><p class="govuk-body">Download the data: <a
         href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/73833bc05c20fa40a62d20f138b7b71275504e586e1c736f44215aebaca2fc3d.csv"
         download="73833bc05c20fa40a62d20f138b7b71275504e586e1c736f44215aebaca2fc3d_harmonised.csv">harmonised</a>
     (as below), <a
         href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/73833bc05c20fa40a62d20f138b7b71275504e586e1c736f44215aebaca2fc3d"
-        download="73833bc05c20fa40a62d20f138b7b71275504e586e1c736f44215aebaca2fc3d_original">original</a>
-</p>
+        download="73833bc05c20fa40a62d20f138b7b71275504e586e1c736f44215aebaca2fc3d_original">original</a> (csv)</p>
 
-<div class="data-table__wrapper" data-module="data-table">
+<div class="data-table__wrapper" data-module="data-table data-linkable-table">
     <div class="data-table-left-shadow"></div>
     <div class="wide-table">
         <table class="data-table">
             <thead>
                 <tr>
                     <th scope="col" aria-sort="none">SiteReference</th>
+                    <th scope="col">SiteNameAddress</th>
                     <th scope="col">GeoX</th>
                     <th scope="col">GeoY</th>
                     <th scope="col" aria-sort="none">Hectares</th>
@@ -219,7 +222,6 @@
                     <th scope="col">PermissionType</th>
                     <th scope="col">PlanningHistory</th>
                     <th scope="col">PlanningStatus</th>
-                    <th scope="col">SiteNameAddress</th>
                     <th scope="col">SiteplanURL</th>
                     <th scope="col">Notes</th>
                     <th scope="col">EndDate</th>
@@ -227,6 +229,7 @@
             </thead>
             <tbody><tr>
                     <td data-sort-value="NNPA17/08">NNPA17/08</td>
+                    <td>Former Garage, A68T, Rochester, Northumberland, NE19 1RH</td>
                     
                     <td>
                         -2.26884
@@ -248,7 +251,6 @@
                     <td></td>
                     <td></td>
                     <td>not permissioned</td>
-                    <td>Former Garage, A68T, Rochester, Northumberland, NE19 1RH</td>
                     <td>https://www.northumberlandnationalpark.org.uk/planning/planning-policy/local-plan/brownfield-register/</td>
                     <td class="bfs-notes-field" style="min-width: 200px; white-space: normal;">
                         
@@ -318,34 +320,26 @@
 </footer>
     
 
-    
-<!-- google analytics -->
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-127566551-1', 'auto');
-    
-    ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!-- end google analytics -->
+    <!-- google analytics -->
+	<script type="application/javascript">
+		var doNotTrack = false;
+		if (!doNotTrack) {
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-127566551-1', 'auto');
+			
+			ga('send', 'pageview');
+		}
+	</script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+	<!-- end google analytics -->
+	<script src="https://digital-land-design.herokuapp.com/static/javascripts/vendor/jquery-3.4.1.min.js"></script><script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+	<script>
+		// initiate all GOVUK components
+		window.GOVUKFrontend.initAll();
+	</script>
 
-
-
-
-<script src="https://digital-land-design.herokuapp.com/static/javascripts/vendor/jquery-3.4.1.min.js"></script>
-
-
-<script src="https://digital-land-design.herokuapp.com/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
-<script>
-	// initiate all GOVUK components
-	window.GOVUKFrontend.initAll();
-</script>
-
+	
 <script src="https://digital-land-design.herokuapp.com/static/javascripts/vendor/MOJFrontend.SortableTable.js"></script>
-
 <script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
 <script>
     // Initialise data tables component
@@ -365,6 +359,13 @@ if (!doNotTrack) {
         });
     });
 }(jQuery));
+</script>
+
+<script>
+var $linkable_tables = document.querySelectorAll('[data-module*="data-linkable-table"]')
+$linkable_tables.forEach(linkable_table => {
+    new window.DLFrontend.LinkableTable(linkable_table).init()
+});
 </script>
 
 <script>
@@ -439,6 +440,8 @@ if (!doNotTrack) {
         .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
 
 </script>
+
+
 
   </body>
 </html>
