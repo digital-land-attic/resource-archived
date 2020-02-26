@@ -34,10 +34,11 @@ jobs:
         cd brownfield-resources
         python3 resource_generator/check_data_page.py --all
         python3 resource_generator/index.py
+        python3 resource_generator/report_page.py
         cd ..
         rsync -a ./brownfield-resources/tmp/resource/ ./docs/
-        rm ./docs/index.html
         mv ./brownfield-resources/tmp/index.html ./docs/index.html
+        mv ./brownfield-resources/tmp/report.html ./docs/report.html
     - name: Commit files
       env:
         GITHUB_ACTOR_EMAIL: ${{ secrets.GITHUB_ACTOR_EMAIL }}
