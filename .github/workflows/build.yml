@@ -36,6 +36,8 @@ jobs:
         python3 resource_generator/index.py
         cd ..
         rsync -a ./brownfield-resources/tmp/resource/ ./docs/
+        rm ./docs/index.html
+        mv ./brownfield-resources/tmp/index.html ./docs/index.html
     - name: Commit files
       env:
         GITHUB_ACTOR_EMAIL: ${{ secrets.GITHUB_ACTOR_EMAIL }}
