@@ -124,8 +124,8 @@
     <br />
     <dl class="def-list--basic">
         <dt>From:</dt><dd>
-            <a href="local-authority-eng:SUF">Suffolk Coastal District Council</a>,</dd><dd>
-            <a href="local-authority-eng:ESK">East Suffolk Council</a></dd></dl>
+            <a href="local-authority-eng:ESK">East Suffolk Council</a>,</dd><dd>
+            <a href="local-authority-eng:SUF">Suffolk Coastal District Council</a></dd></dl>
 </div>
 
 <div class="govuk-grid-row">
@@ -157,25 +157,24 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-l">About the data</h2>
-        <p class="govuk-body">This register has reported a total of <span
-                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">85 brownfield
-                sites</span>.</p>
-        <p class="govuk-body"><span
-                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">8</span> of these have an end date and are no longer considered brownfield land.</p>
-        <p class="govuk-body">Excluding sites with an end date, there are <span
-                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">114.46
-                hectares</span> of land.</p>
-        <p class="govuk-body">This land has the potential to provide between <span
-                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">
-                3584</span> and
-            <span class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">
-                3666</span> dwellings.</p>
-        <p class="govuk-body"><span
-                class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">0
-                </span> of these sites have <a href="https://wwww.gov.uk/guidance/permission-in-principle">permission in principle</a>.</p>
-        <p class="govuk-body"><span
-            class="govuk-!-font-size-24 govuk-!-font-weight-bold highlight-text">1</span> organisations are referenced in this file.</p>
+        <h2 class="govuk-heading-l">Facts from the data</h2>
+        <p class="govuk-body">The following information has been extracted from the register.</p>
+        <p class="govuk-body">The register references <span class="govuk-!-font-weight-bold">1</span> organisation.</p>
+        <p class="govuk-body">It reports <span class="govuk-!-font-weight-bold">85 brownfield sites</span>. <span class="govuk-!-font-weight-bold">8</span> of these have an end date and are no longer considered brownfield land.</p>
+        <p class="govuk-body">Excluding sites with an end date, there are:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>
+                <span class="govuk-!-font-weight-bold">114.46
+                hectares</span> of brownfield land.
+            </li>
+            <li>between <span class="govuk-!-font-weight-bold">3584</span> and
+                <span class="govuk-!-font-weight-bold">3666</span> potential dwellings that could be built.
+            </li>
+            <li><span class="govuk-!-font-weight-bold">0
+                </span> site have <a href="https://wwww.gov.uk/guidance/permission-in-principle">permission in principle</a>.
+            </li>
+
+        </ul>
     </div>
 </div>
 
@@ -190,9 +189,9 @@
 </p><p class="govuk-body">Download the data: <a
         href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/var/harmonised/e44dc995f2adc24c75114c5350d8359526b4f89462525bbb2c475d5d50b1f7ff.csv"
         download="e44dc995f2adc24c75114c5350d8359526b4f89462525bbb2c475d5d50b1f7ff_harmonised.csv">processed</a>
-    (as below), <a
+    (CSV), <a
         href="https://raw.githubusercontent.com/digital-land/brownfield-land-collection/master/collection/resource/e44dc995f2adc24c75114c5350d8359526b4f89462525bbb2c475d5d50b1f7ff"
-        download="e44dc995f2adc24c75114c5350d8359526b4f89462525bbb2c475d5d50b1f7ff_original">original</a> (csv)</p>
+        download="e44dc995f2adc24c75114c5350d8359526b4f89462525bbb2c475d5d50b1f7ff_original">original</a> (CSV)</p>
 
 <div class="data-table__wrapper" data-module="data-table data-linkable-table">
     <div class="data-table-left-shadow"></div>
@@ -3347,7 +3346,7 @@
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 <div class="feedback-panel">
-    <h3 class="feedback-panel__heading">Feedback</h3>
+    <h3 class="feedback-panel__heading">Help improve this data</h3>
     <p>If you are not responsible for editing and publishing this data, but you have found errors, please email corrections or questions to
         <a href="mailto:DigitalLand@communities.gov.uk">DigitalLand@communities.gov.uk</a>.</p>
 </div>
@@ -3422,7 +3421,7 @@
 <script src="https://digital-land-design.herokuapp.com/static/javascripts/dl-frontend.js"></script>
 <script>
     // Initialise data tables component
-    var $data_tables = document.querySelectorAll('[data-module="data-table"]')
+    var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
     $data_tables.forEach(data_table => {
         new window.DLFrontend.ScrollableTables(data_table).init()
     })
@@ -3510,10 +3509,18 @@ $linkable_tables.forEach(linkable_table => {
         }
     })
 
-    const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // grey-scale tiles
+    const base = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         id: 'base',
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    })
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 18
+    });
+
+    // standard tiles
+    // const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     id: 'base',
+    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    // })
 
     const map = L.map('map', { preferCanvas: true, renderer: L.canvas({ padding: 0.5 }), layers: [base, brownfield] })
         .fitBounds([[bbox[2], bbox[0]], [bbox[3], bbox[1]]]);
