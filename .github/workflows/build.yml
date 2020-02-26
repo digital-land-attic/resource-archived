@@ -32,9 +32,11 @@ jobs:
     - name: Generate pages
       run: |
         cd brownfield-resources
+        mkdir -p tmp/log
         python3 resource_generator/check_data_page.py --all
         python3 resource_generator/index.py
         python3 resource_generator/report_page.py
+        python3 resource_generator/daily_summary_page.py
         cd ..
         rsync -a ./brownfield-resources/tmp/resource/ ./docs/
         mv ./brownfield-resources/tmp/index.html ./docs/index.html
