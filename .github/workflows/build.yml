@@ -14,22 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v1
-    - name: Install Python 3.7
+      uses: actions/checkout@v2
+    - name: Install Python 3.8
       uses: actions/setup-python@v1
       with:
-        python-version: 3.7
-    - name: Install brownfield-resources
+        python-version: 3.8
+    - name: Clone required repositories
       run: |
-        git clone https://github.com/digital-land/brownfield-resources.git
+        git clone --depth=1 https://github.com/digital-land/brownfield-land-collection.git
+        git clone --depth=1 https://github.com/digital-land/brownfield-resources.git
+        git clone --depth=1 https://github.com/digital-land/organisation-collection.git
+    - name: Install brownfield-resources requirements
+      run: |
         cd brownfield-resources
         python3 -m pip install -r requirements.txt
         cd ..
-    - name: Clone organisation-collection
-      run: |
-        git clone https://github.com/digital-land/organisation-collection.git
-        cd ..
-    - name: Generate pages
+    - name: Generate pages from brownfield-resources
       run: |
         cd brownfield-resources
         mkdir -p tmp/log
@@ -37,7 +37,10 @@ jobs:
         python3 resource_generator/index.py
         python3 resource_generator/report_page.py
         python3 resource_generator/daily_summary_page.py
+        python3 resource_generator/cli.py --input-dir ../brownfield-land-collection/validation
         cd ..
+    - name: Move files to the correct place
+      run: |
         rsync -a ./brownfield-resources/tmp/resource/ ./docs/
         rsync -a ./brownfield-resources/tmp/log/ ./docs/log/
         mv ./brownfield-resources/tmp/index.html ./docs/index.html
