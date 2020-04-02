@@ -3,57 +3,38 @@ name: Build resource pages
 on:
   push:
     paths-ignore:
-      - "docs/**"
+      - 'docs/**'
     branches:
       - master
   schedule:
     - cron: '0 6 * * *'
 
+env:
+  GITHUB_ACTOR_EMAIL: ${{ secrets.GITHUB_ACTOR_EMAIL }}
+  GITHUB_ACTOR_TOKEN: ${{ secrets.GITHUB_ACTOR_TOKEN }}
+  GITHUB_ACTOR_USERNAME: ${{ secrets.GITHUB_ACTOR_USERNAME }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Install Python 3.8
-      uses: actions/setup-python@v1
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - uses: actions@setup-python@v1
       with:
         python-version: 3.8
-    - name: Clone required repositories
-      run: |
-        git clone --depth=1 https://github.com/digital-land/brownfield-land-collection.git
-        git clone --depth=1 https://github.com/digital-land/brownfield-resources.git
-        git clone --depth=1 https://github.com/digital-land/organisation-collection.git
-    - name: Install brownfield-resources requirements
-      run: |
-        cd brownfield-resources
-        python3 -m pip install -r requirements.txt
-        cd ..
-    - name: Generate pages from brownfield-resources
-      run: |
-        cd brownfield-resources
-        mkdir -p tmp/log
-        python3 resource_generator/check_data_page.py --all
-        python3 resource_generator/index.py
-        python3 resource_generator/report_page.py
-        python3 resource_generator/daily_summary_page.py
-        python3 resource_generator/cli.py --input-dir ../brownfield-land-collection/validation
-        cd ..
-    - name: Move files to the correct place
-      run: |
-        rsync -a ./brownfield-resources/tmp/resource/ ./docs/
-        rsync -a ./brownfield-resources/tmp/log/ ./docs/log/
-        mv ./brownfield-resources/tmp/index.html ./docs/index.html
-        mv ./brownfield-resources/tmp/report.html ./docs/report.html
-    - name: Commit files
-      env:
-        GITHUB_ACTOR_EMAIL: ${{ secrets.GITHUB_ACTOR_EMAIL }}
-        GITHUB_ACTOR_TOKEN: ${{ secrets.GITHUB_ACTOR_TOKEN }}
-        GITHUB_ACTOR_USERNAME: ${{ secrets.GITHUB_ACTOR_USERNAME }}
+    - name: Setup git
       run: |
         git config user.email "${GITHUB_ACTOR_EMAIL}"
         git config user.name "${GITHUB_ACTOR_USERNAME}"
         git remote set-url origin https://${GITHUB_ACTOR_USERNAME}:${GITHUB_ACTOR_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git checkout master
+    - name: Install dependencies
+      run: make init
+    - name: Render files
+      run: make render
+    - name: Commit files
+      run: |
         git add docs/
         git diff --quiet && git diff --staged --quiet || (git commit -m "Build resource pages for $(date +%F)"; git push origin master)
