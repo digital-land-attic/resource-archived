@@ -4,6 +4,9 @@ on:
   push:
     paths-ignore:
       - 'docs/**'
+      - 'brownfield-land-collection/**'
+      - 'brownfield-resources/**'
+      - 'organisation-collection/**'
     branches:
       - master
   schedule:
@@ -36,5 +39,5 @@ jobs:
       run: make render
     - name: Commit files
       run: |
-        git add docs/
+        git add docs brownfield-land-collection organisation-collection brownfield-resources
         git diff --quiet && git diff --staged --quiet || (git commit -m "Build resource pages for $(date +%F)"; git push origin master)
