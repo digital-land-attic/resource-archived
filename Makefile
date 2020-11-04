@@ -8,7 +8,6 @@ render:
 	cd brownfield-resources && \
 		mkdir -p tmp/log && \
 		python3 resource_generator/view_data_page.py --all && \
-		python3 resource_generator/index.py && \
 		python3 resource_generator/report_page.py && \
 		python3 resource_generator/daily_summary_page.py && \
 		python3 resource_generator/cli.py --input-dir ../brownfield-land-collection/validation
