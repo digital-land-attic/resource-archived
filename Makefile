@@ -7,7 +7,7 @@ init:
 render:
 	cd brownfield-resources && \
 		mkdir -p tmp/log && \
-		python3 resource_generator/view_data_page.py --all && \
+		python3 resource_generator/view_data_page.py --all
 	rsync -a ./brownfield-resources/tmp/resource/ ./docs/
 
 
