@@ -8,7 +8,7 @@ on:
       - 'brownfield-resources/**'
       - 'organisation-dataset/**'
     branches:
-      - master
+      - main
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -39,6 +39,4 @@ jobs:
     - name: Render files
       run: make render
     - name: Commit files
-      run: |
-        git add docs brownfield-land-collection organisation-dataset brownfield-resources
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Build resource pages for $(date +%F)"; git push origin master)
+      run: make commit-docs
