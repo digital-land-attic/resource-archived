@@ -3,16 +3,16 @@
 # current git branch
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
-init:
-	git submodule update --init --recursive --remote
-	cd brownfield-resources && python3 -m pip install -r requirements.txt
-
 render:
 	mkdir -p docs
 	cd brownfield-resources && \
 		mkdir -p tmp/log && \
 		python3 resource_generator/view_data_page.py --all
 	rsync -a ./brownfield-resources/tmp/resource/ ./docs/
+
+init:
+	git submodule update --init --recursive --remote
+	cd brownfield-resources && python3 -m pip install -r requirements.txt
 
 clean::
 	rm -rf docs
