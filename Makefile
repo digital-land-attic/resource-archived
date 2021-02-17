@@ -18,6 +18,6 @@ clean::
 	rm -rf docs
 
 commit-docs::
-	git add docs organisation-dataset brownfield-resources
+	git add docs brownfield-resources
 	git diff --quiet && git diff --staged --quiet || (git commit -m "Rebuilt docs $(shell date +%F)"; git push origin $(BRANCH))
 
