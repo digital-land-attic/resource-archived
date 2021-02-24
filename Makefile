@@ -12,6 +12,7 @@ render:
 
 init:
 	git submodule update --init --recursive --remote
+	pip install -r requirements.txt
 	cd brownfield-resources && python3 -m pip install -r requirements.txt
 
 clean::
